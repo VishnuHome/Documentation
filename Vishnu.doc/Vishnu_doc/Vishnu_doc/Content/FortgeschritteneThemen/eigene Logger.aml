@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="3ccc247e-ea3a-47fc-9ed6-4713baf96986" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>
+				Dieses Kapitel handelt von selbst erstellten <languageKeyword>Loggern</languageKeyword>.
+				Über eigene <languageKeyword>Logger</languageKeyword> können Sie <languageKeyword>TreeEvents</languageKeyword> im
+				<token>V</token>-Tree nach Ihren Vorstellungen aufbereiten und in eine Log-Datei schreiben.
+			</para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="EigeneLogger">
+			<title>eigene Logger</title>
+			<content>
+				<para>
+					Wir werden uns nachfolgend zuerst die Logging-Ausgaben des Demo-Projekts <database>LoggerDemo</database>
+					aus der Projektmappe <database>...\InPlug\TextFileLogger</database> ansehen, danach die Einbindung
+					des TextFileLoggers in das Demo-Programm und zuletzt Auszüge aus der Klasse
+					<database>TextFileLogger.cs</database>.
+				</para>
+				<alert class="note">
+					<para>
+						Die Ausgabe des Demo-Programms selbst ist einfach ein Konsole-Fenster, dass Sie mit Enter
+						wieder schließen können (also hier nicht weiter interessant).
+					</para>
+					<para>
+						Allgemeine Informationen über Logger und wie diese in der <languageKeyword>JobDecription.xml</languageKeyword>
+						definiert werden können Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Logger" /> nachschlagen.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="TextFileLoggerDemoProjektRun">
+			<title>Das Demo-Projekt</title>
+			<content>
+				<para>
+					Hier zuerst die Logging-Ausgaben des Demo-Projekts:
+				</para>
+				<para>
+					Der Demo-Job erzeugt zwei Logdateien, eine auf dem <languageKeyword>Standard-LogPath</languageKeyword>
+					und eine direkt in einem neuen Unterverzeichnis:
+					<database>...\TextFileLogger\TextFileLoggerDemo\bin\Debug\sub1\TextFileLoggerDemo.log</database>
+				</para>
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerDemoStandardPath.txt"
+					  title="Ausgaben vom TextFileLogger auf dem Standard-Pfad"></code>
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerDemoSpecialPath.txt"
+					  title="Ausgaben vom TextFileLogger auf einem speziellen Pfad"></code>
+				<alert class="important">
+					<para>
+						Der <languageKeyword>Standard-LogPath</languageKeyword> wird über die Einbindung der
+						<languageKeyword>Vishnu.Interchange.dll</languageKeyword> gesetzt und ist per Voreinstellung <lineBreak></lineBreak>
+						<database>%TempDirectory%\TextFileLoggerDemo\&lt;ProcessId&gt;\TextFileLoggerDemo.log</database>.
+					</para>
+					<para>
+						Wenn der TextFileLogger später von <token>V</token> aufgerufen wird, zeigt der Standard-LogPath
+						auf die <token>V</token>-Logdatei.
+					</para>
+				</alert>
+				<para>
+					Einbindung und Aufruf der Klasse <database>Logger.cs</database> im Demo-Projekt,
+					siehe folgendes Code-Listing:
+				</para>
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerDemoProgram.cs" language="C#"
+				   title="Program.cs im Demo-Programm"></code>
+				<alert class="important">
+					<para>
+						Der oben gezeigte Aufruf von <languageKeyword>Logger</languageKeyword> im
+						Demo-Projekt dient nur zur Veranschaulichung. Sie selbst müssen den Logger nicht
+						aufrufen, sondern nur in einer <languageKeyword>JobDescription.xml</languageKeyword> konfigurieren.
+						<token>V</token> kümmert sich dann später selbst um den Aufruf.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="TextFileLoggerSource">
+			<title>Der TextFileLogger</title>
+			<content>
+				<para>
+					Der eigentliche Logger ist in unserem Beispiel die Klasse <database>TextFileLogger.cs</database>,
+					siehe folgendes Code-Listing:
+				</para>
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerClass.cs" language="C#"
+				   title="TextFileLogger.cs Auszug"></code>
+				<para>
+					Die Klasse TextFileLogger implementiert die von <token>V</token> bereitgestellte Schnittstelle
+					<codeEntityReference qualifyHint="true">T:Vishnu.Interchange.INodeLogger</codeEntityReference>.
+					Die einzige Routine <database>Log(...)</database> übernimmt den Pfad zur Logdatei
+					(Unterroutine SetLogFilePath), baut aus den übergebenen Parametern einen zusammenhängenden Meldungstext
+					(Unterroutine BuildLogMessage) und ruft zuletzt die interne Routine <database>WriteLog</database> auf,
+					in der versucht wird, die Meldung in die Logdatei zu schreiben.
+				</para>
+				<alert class="important">
+					<para>
+						Da bei der späteren Verwendung in <token>V</token> unter Umständen mehrere <languageKeyword>Logger</languageKeyword>
+						gleichzeitig versuchen, in dieselbe Logdatei zu schreiben, kann es dazu kommen, dass ein oder mehrere
+						Schreibversuche schiefgehen. Diese <languageKeyword>Logger</languageKeyword>-Implementierung versucht es deshalb
+						insgesamt fünfmal, bevor (ohne weitere Fehlermeldung) aufgegeben wird.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Logger" />
+				</para>
+				<para>
+					<link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" />
+				</para>
+				<para>
+					<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

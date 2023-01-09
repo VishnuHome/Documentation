@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="9023d1a6-ca92-460c-9f74-6edf78138638" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>
+				Hier können die Änderungen in den verschiedenen <token>V</token>-Versionen eingesehen werden.
+			</para>
+		</introduction>
+
+		<section>
+			<title>Versionen</title>
+			<content>
+				<para>Wählen Sie eine Version unten aus, um deren Änderungsbeschreibung zu sehen.</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="794b22c8-d732-49e9-9324-3a686272634d" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="1ee433da-342c-439e-919a-96c8df7cb5b2" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="0f64d53c-b312-426f-8175-905c3bf5fd7d" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="97864ce1-d8bd-45a5-befc-065b28d395a9" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="6584e007-8486-4ef7-9415-3349d9b3f338" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="43f18817-804d-43a8-9978-6f67139c1de0" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="281ba4a7-d18f-4d8e-b210-a94d2ab7e2dc" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="dada98e6-9770-45e2-978c-b2fa8f23fccc" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="9019f238-6d03-4bfd-82ec-4321eb8c896a" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="a09b8e47-8f2f-4d90-b9a9-8e14ed140e4d" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="f30bfc42-bf4f-4205-9684-11e60b337ab6" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="2ea88604-7761-498e-8cba-03870618815c" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="c4e6405f-c4b4-433a-8c84-4d55a0aa9239" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="7F12D6EE-B625-4F82-A9AD-8DC8BF34A167" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="C73BC741-899E-4C69-9420-1CAA366FEABA" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="7C4AE810-C331-4627-812E-1C0B2B7505E7" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="9515F5F5-8824-4281-B22D-F244DE203686" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="854E7A35-FD41-4DDD-AB5D-D7467CBB4E3A" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="5361998C-3236-49BA-BBE5-08A2ECCD019E" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="2174305B-CE4A-48F4-A8EB-94BD469A4C8D" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="E61DA207-47F7-420C-A040-B4EC55F7B694" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="A2EBB2EB-C3B8-4D88-800A-BF236B7AD859" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="70B5E705-66E0-4D85-8F7D-9576DB6C0D45" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="BE1D5E28-0610-4D70-B0B3-DE66481779F3" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="626044E0-05D1-4532-B07F-EC3320821C19" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="4B0395AF-DEE7-4410-9A2B-70455C09BF71" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="C3184354-3E47-4442-BB90-F4A13A7D7B14" />
+						</para>
+					</listItem>
+
+					<listItem>
+						<para>
+							<link xlink:href="cfb7e8a0-756e-4f90-b480-b1fcb5bf74d6" />
+						</para>
+					</listItem>
+
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="ad9ee8b6-c68c-47ec-9584-d85046eb3137" />
+			<codeEntityReference qualifyHint="true">R:Project_Vishnu_doc.de</codeEntityReference>
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

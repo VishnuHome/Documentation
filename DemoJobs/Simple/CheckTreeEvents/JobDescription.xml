@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEvents</LogicalName>
+  <LogicalExpression>flipflop1 XOR flipflop2</LogicalExpression>
+  <JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>Exception|LogicalResultChanged</Parameters>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>flipflop1</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+    	<Trigger>
+      	<PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      	<Parameters>S:10</Parameters>
+    	</Trigger>
+    </Checker>
+  </Checkers>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>flipflop2</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True:False</Parameters>
+    	<Trigger>
+    		<Reference>AnyLogicalResultChanged|Exception</Reference>
+    		<Parameters>flipflop1</Parameters>
+    	</Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>flipflop1:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

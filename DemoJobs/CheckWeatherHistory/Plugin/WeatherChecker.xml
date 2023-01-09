@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeatherChecker</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu_UserModules.WeatherChecker_ReturnObject">
+             <summary>
+             ReturnObject für das Ergebnis des WeatherCheckers.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             12.10.2022 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="T:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint">
+            <summary>
+            Eine Wettervorhersage für einen bestimmten Zeitabschnitt.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Direction">
+            <summary>
+            Windrichtung: N, NE, E, SE, S, SW, W, NW.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Speed">
+            <summary>
+            Windgeschwindigkeit:
+                1	unter 0.3m/s    (ruhig)
+                2	0.3-3.4m/s      (leicht)
+                3	3.4-8.0m/s      (gemäßigt)
+                4	8.0-10.8m/s     (frisch)
+                5	10.8-17.2m/s    (stark)
+                6	17.2-24.5m/s    (heftig)
+                7	24.5-32.6m/s    (stürmisch)
+                8	über 32.6m/s    (Orkan)
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Timepoint">
+            <summary>
+            Definiert den Aufsetz-Zeitpunkt.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Cloudcover">
+            <summary>
+            Bewölkung:
+                1	0%-6%
+                2	6%-19%
+                3	19%-31%
+                4	31%-44%
+                5	44%-56%
+                6	56%-69%
+                7	69%-81%
+                8	81%-94%
+                9	94%-100%
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Lifted_Index">
+            <summary>
+            Stabilitätsindikator - je kleiner, desto instabiler ist die Wetterlage:
+                -10	    Below -7
+                 -6	    -7 to -5
+                 -4	    -5 to -3
+                 -1	    -3 to 0
+                  2	     0 to 4
+                  6	     4 to 8
+                 10	     8 to 11
+                 15	    Over 11
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Prec_Type">
+            <summary>
+            Niederschlag: snow, rain, frzr (freezing rain), icep (ice pellets), none.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Prec_Amount">
+            <summary>
+            Niederschlagsmenge:
+                0	None
+                1    0-0.25mm/hr
+                2	 0.25-1mm/hr
+                3	 1-4mm/hr
+                4	 4-10mm/hr
+                5	10-16mm/hr
+                6	16-30mm/hr
+                7	30-50mm/hr
+                8	50-75mm/hr
+                9	Over 75mm/hr
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Temp2m">
+            <summary>
+            Temperatur (in 2 m Höhe über dem Erdboden gemessen): -76 to 60: -76C to +60C.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Rh2m">
+            <summary>
+            Relative Luftfeuchtigkeit (in 2 m Höhe über dem Erdboden gemessen): 0 to 100: 0% to 100%.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Wind10m">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Weather">
+            <summary>
+            Wetterbeschreibung:
+                clearday, clearnight	        Total cloud cover less than 20%
+                pcloudyday, pcloudynight        Total cloud cover between 20%-60%
+                mcloudyday, mcloudynight        Total cloud cover between 60%-80%
+                cloudyday, cloudynight          Total cloud cover over over 80%
+                humidday, humidnight            Relative humidity over 90% with total cloud cover less than 60%
+                lightrainday, lightrainnight    Precipitation rate less than 4mm/hr with total cloud cover more than 80%
+                oshowerday, oshowernight        Precipitation rate less than 4mm/hr with total cloud cover between 60%-80%
+                ishowerday, ishowernight        Precipitation rate less than 4mm/hr with total cloud cover less than 60%
+                lightsnowday, lightsnownight    Precipitation rate less than 4mm/hr
+                rainday, rainnight              Precipitation rate over 4mm/hr
+                snowday, snownight              Precipitation rate over 4mm/hr
+                rainsnowday, rainsnownight      Precipitation type to be ice pellets or freezing rain.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Der zu vergleichende ForecastDataPoint.</param>
+            <returns>True, wenn der übergebene ForecastDataPoint inhaltlich gleich diesem ForecastDataPoint ist.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ForecastDataPoint.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.Product">
+            <summary>
+            Die ausgewählte Unter-Routine der Api http://www.7timer.info/bin/api.pl.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.Init">
+            <summary>
+            Datum und Stunde der Initialisierung.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.Dataseries">
+            <summary>
+            Array von Wettervorhersagen für aufeinander folgende Zeitabschnitte.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker_ReturnObject.RecordCount">
+            <summary>
+            Liefert die Anzahl ForecastDataPoints.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende WeatherChecker_ReturnObject.</param>
+            <returns>True, wenn das übergebene WeatherChecker_ReturnObject inhaltlich gleich diesem WeatherChecker_ReturnObject ist.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:Vishnu_UserModules.WeatherChecker">
+             <summary>
+             DemoChecker-Projekt für Vishnu.
+             Die WeatherChecker.dll kann später in einer Vishnu-JobDescription.xml referenziert
+             werden und von Vishnu bei der Ausführung des Jobs aus dem Plugin-Unterverzeichnis
+             oder einem konfigurierten UserAssemblyDirectory dynamisch geladen werden.
+             Vishnu ruft dann je nach weiteren Konfigurationen (Trigger) die öffentliche
+             Methode "Run" des UserCheckers auf.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             The weather forecasts come from http://www.7timer.info.
+             Many thanks to Chenzhou Cui and his friends, who run this wonderful free weather-forecast site.
+             Wiki on https://github.com/Yeqzids/7timer-issues/wiki/Wiki.
+             API on http://www.7timer.info/bin/api.pl?lon=6.7821&amp;lat=51.2375&amp;product=civil&amp;output=json.
+             
+             11.10.2020 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="E:Vishnu_UserModules.WeatherChecker.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungs-Fortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.WeatherChecker.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Ihre Aufrufparameter aus der JobDescription.xml oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null (z.Zt. unbenutzt).</param>
+            <param name="source">Auslösendes TreeEvent (kann null sein).</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker.Dispose(System.Boolean)">
+            <summary>
+            Abschlussarbeiten.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherChecker.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+    </members>
+</doc>

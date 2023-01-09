@@ -1,0 +1,26 @@
+﻿  ...
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Heise:False|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: CheckServers %Event% von %Source% 
+          	in %Sender%|%Exception%|Server Fehler</Parameters>
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[Server Fehler|%Timestamp%: CheckServers %Event% von %Source% 
+             in %Sender%#%Exception%|Mailserver:[Port]:Passwort|Absender|Empfänger1[,Empfänger2,...]]]>
+          </Parameters>
+          <!-- Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>M:15</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    ...
+  </Workers>
+  ...

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="5361998C-3236-49BA-BBE5-08A2ECCD019E" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 2.5.8.7 (Stand: 20.07.2015)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Externe optionale User-Dll mit globalen User-Parametern; <token>V</token> erweitert darüber seine Parameter-Ersetzungs-Funktionalität
+                  um globale User-Parameter; Der Pfad zu der User-Parameter-Dll kann über AppSettings gesetzt werden (UserParameterReader)</para>
+          </listItem>
+          <listItem>
+            <para>ToolTips bleiben länger offen (aktuell 6 Sekunden)</para>
+          </listItem>
+          <listItem>
+            <para>SplashScreen mit Meldungen beim <token>V</token>-Start</para>
+          </listItem>
+          <listItem>
+            <para>
+              <token>V</token> Autostart Funktion (-run)</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

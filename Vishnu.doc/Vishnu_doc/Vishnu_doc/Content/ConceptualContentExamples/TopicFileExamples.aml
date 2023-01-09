@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="04AA459B-0FA1-435E-BEB4-E3F2399D30FD" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Examples of different Topic File Types</para>
+		</introduction>
+
+		<section>
+			<title>Topic File Types</title>
+			<content>
+				<para>These examples represent the various topic file types of Sandcastle Help File Builder.</para>
+
+				<list class="bullet">
+          
+          <listItem>
+            <para>
+              <link xlink:href="D6673D6D-BC5C-4EBE-85E4-311CA12C2762" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="C1D03D3F-1408-491A-9C1E-656DBC2A1315" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="E8300FF9-8749-4793-84DD-1BB1243ACE53" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="7064586B-B618-4E00-B2DC-09F025288764" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="5C0DE729-9169-4DEC-BC7B-50C918736583" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="D4E80F28-4217-4453-9155-362D904C0F3E" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="2043E776-DA45-4A68-A915-F3271AB06A99" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="27E56556-C454-40BB-994B-9B4DAB901456" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="04516BED-A2B8-48AB-9FF0-5870E52E5CB8" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="7AFBD7EB-D31E-470B-BBAD-2A59692D178C" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="E92EADFC-B21E-4D44-9825-FE9EC911A090" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="95F7C28D-2E66-4FB6-A226-D215DB06441B" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="78844955-FD35-4CED-8EDB-DA4AEF03BF9B" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="EC6BFEDD-D418-40AF-B71C-1099F484B6F1" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="917AC073-8C59-4F09-9406-ABE8C8FF4098" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="327863FD-94A4-406F-B42D-65453D03104B" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="50AF95C5-93DF-4E43-9344-9AA430C4880B" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="B18E1234-989B-44DC-8A61-B6869E1E05DA" />
+            </para>
+          </listItem>
+
+          <listItem>
+            <para>
+              <link xlink:href="E1D0C9FF-FB71-4D9A-9DD8-3CD985FD3EEB" />
+            </para>
+          </listItem>
+
+        </list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9d331419-87c2-4732-b3d4-d0afdd122659" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

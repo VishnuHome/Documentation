@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserView</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu_UserModules.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             25.05.2015 Erik Nagel: erstellt
+             21.07.2016 Erik Nagel: In foreach-Schleifen wegen thread-safety linq.ToList implementiert.
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.DefaultResultProperty">
+            <summary>
+            Demo-Property.
+            Das UserChecker_ReturnObject kann prinzipiell beliebige öffentliche Properties besitzen.
+            In diesem ViewModel werden nur Properties berücksichtigt, die in den Serialisierungs-
+            Deserialisierungsroutinen des UserCheckers entsprechend berücksichtigt wurden.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.UserChecker_ReturnObject">
+             <summary>
+             ReturnObject für das Ergebnis des Demo-UserCheckers.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             23.02.2020 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.UserChecker_ReturnObject.DefaultResultProperty">
+            <summary>
+            Demo-Property.
+            Das UserChecker_ReturnObject kann prinzipiell beliebige öffentliche Properties besitzen.
+            Wichtig ist dann nur, dass diese in den nachfolgenden Serialisierungs- Deserialisierungsroutinen
+            entsprechend berücksichtigt werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor - setzt die DefaultResultProperty auf den Default wert.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.#ctor(System.String)">
+            <summary>
+            Konstruktor - übernimmt einen String-Wert für die DefaultResultProperty.
+            </summary>
+            <param name="resultProperty">String-Wert für die DefaultResultProperty</param>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Result mit einem übergebenen Result nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Result.</param>
+            <returns>True, wenn das übergebene Result inhaltlich gleich diesem Result ist.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.UserChecker_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Result.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:Vishnu_UserModules.UserView">
+            <summary>
+            Interaktionslogik für UserView_CheckServer.xaml
+            </summary>
+            <summary>
+            UserView
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.UserView.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.UserView.UserResultViewModel">
+            <summary>
+            Das ViewModell für das Result des zugehörigen Checkers.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.UserView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.PromilleToBrush">
+             <summary>
+             Funktion: ValueConverter, wandelt einen Promillewert (int: 0-n) in Farben:
+             0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
+             </summary>
+             <remarks>
+             File: PercentToBrush.cs
+             Autor: Erik Nagel
+            
+             28.12.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu_UserModules.PromilleToBrush.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen Promillewert (int: 0-n) in Farben:
+            0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
+            </summary>
+            <param name="value">Promillewert.</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>SolidColorBrush (Farbe zwischen rot und Grün)</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.PromilleToBrush.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt eine Farbe (SolidColorBrush)
+            in einen Promillewert (int).
+            </summary>
+            <param name="value">SolidColorBrush</param>
+            <param name="targetType">Promillewert (int)</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+        </member>
+    </members>
+</doc>

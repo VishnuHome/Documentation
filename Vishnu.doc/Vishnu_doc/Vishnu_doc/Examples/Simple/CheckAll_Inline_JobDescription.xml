@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check All (inline)</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression>CheckServers AND CheckDiskSpace</LogicalExpression>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckServers</LogicalName>
+      <LogicalExpression>(Google AND Heise) AND (Local OR Local_Backup)</LogicalExpression>
+      <StartCollapsed>false</StartCollapsed>
+      <Checkers type="array">
+        <Checker>
+          <LogicalName>Google</LogicalName>
+          <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+          <Parameters>8.8.8.8|200|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:1|S:20</Parameters>
+          </Trigger>
+        </Checker>
+        <Checker>
+          <LogicalName>Heise</LogicalName>
+          <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+          <Parameters>www.heise.de|200|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:2|S:20</Parameters>
+          </Trigger>
+        </Checker>
+        <Checker>
+          <LogicalName>Local</LogicalName>
+          <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+          <Parameters>Localhost|1000|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:3|S:20</Parameters>
+          </Trigger>
+        </Checker>
+        <Checker>
+          <LogicalName>Local_Backup</LogicalName>
+          <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+          <Parameters>9.8.7.6|200|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:4|S:20</Parameters>
+          </Trigger>
+        </Checker>
+      </Checkers>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckDiskSpace</LogicalName>
+      <LogicalExpression>Check_C AND Check_D</LogicalExpression>
+      <StartCollapsed>false</StartCollapsed>
+      <Checkers type="array">
+        <Checker>
+          <LogicalName>Check_C</LogicalName>
+          <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+          <Parameters>c:|20000|100|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>M:10</Parameters>
+          </Trigger>
+          <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+        </Checker>
+        <Checker>
+          <LogicalName>Check_D</LogicalName>
+          <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+          <Parameters>d:|10000|100|3</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:1|M:10</Parameters>
+          </Trigger>
+          <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+        </Checker>
+      </Checkers>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

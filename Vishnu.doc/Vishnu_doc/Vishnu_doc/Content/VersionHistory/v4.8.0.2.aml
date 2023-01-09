@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="281ba4a7-d18f-4d8e-b210-a94d2ab7e2dc" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 4.8.0.2 Look and Feel (Stand: 17.05.2020)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Überarbeitungen der Oberfläche:
+              Hintergrunddarstellung in Vishnu,
+              Bugfixes beim Zoomen.
+            </para>
+          </listItem>
+          <listItem>
+            <para>Neuer Parameter SleepTime: Alle Checker für einen definierten Zeitraum inaktiv setzen.</para>
+          </listItem>
+          <listItem>
+            <para>Vishnu_UserChecker_VSIX.vsix und Vishnu_UserView_VSIX.vsix eingeführt.</para>
+          </listItem>
+          <listItem>
+            <para>Framework Web-fähig (.Net Core 3.0); Projekte auf Version 4.6.1 angehoben.</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

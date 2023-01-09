@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DateToMoonAge</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu_UserModules.DateToMoonAge">
+            <summary>
+            Konvertiert ein übergebenes Datum in das zugehörige Mondalter in Tagen.
+            </summary>
+            <remarks>
+            File: DateToMoonAge.cs
+            Autor: Erik Nagel, NetEti
+            Herzlichen Dank an Mostafa Kaisoun für seine Berechnungslogik
+            https://www.codeproject.com/script/Membership/View.aspx?mid=1961229
+            
+            04.04.2020 Erik Nagel: erstellt
+            </remarks>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge.ModifyValue(System.Object)">
+            <summary>
+            Konvertiert ein übergebenes Datum in das zugehörige Mondalter in Tagen.
+            </summary>
+            <param name="toConvert">Datum als DateTime.</param>
+            <returns>Mondalter in Tagen.</returns>
+        </member>
+        <member name="T:Vishnu_UserModules.DateToMoonAge_ReturnObject">
+             <summary>
+             ReturnObject für das Ergebnis des DateToMoonAge ValueModifiers.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             04.04.2020 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.DateToMoonAge_ReturnObject.MoonAge">
+            <summary>
+            Mondalter in Tagen.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor - setzt die DefaultResultProperty auf den Default wert.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.#ctor(System.Int32)">
+            <summary>
+            Konstruktor - übernimmt einen String-Wert für die DefaultResultProperty.
+            </summary>
+            <param name="resultProperty">Int-Wert für die MoonAgeProperty</param>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Result mit einem übergebenen Result nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Result.</param>
+            <returns>True, wenn das übergebene Result inhaltlich gleich diesem Result ist.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.DateToMoonAge_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Result.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+    </members>
+</doc>

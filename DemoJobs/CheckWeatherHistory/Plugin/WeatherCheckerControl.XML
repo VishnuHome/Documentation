@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeatherCheckerControl</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu_UserModules.ResultViewModel">
+             <summary>
+             ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             21.10.2022 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.RecordCount">
+            <summary>
+            Die Anzahl der Datenpunkte.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.Init">
+            <summary>
+            Der Initialisierungszeitpunkt.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.Headline">
+            <summary>
+            Die Überschrift
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.SubResults">
+            <summary>
+            Die Einzelnen Ergebnisse.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.SubResultViewModel">
+             <summary>
+             ViewModel für  ein Teilergebnis des User-spezifische Results.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             The weather-forecasts and the used weather-icons come from http://www.7timer.info.
+             Many thanks to Chenzhou Cui and his friends, who run this wonderful free weather-forecast site.
+             Wiki on https://github.com/Yeqzids/7timer-issues/wiki/Wiki.
+             API on http://www.7timer.info/bin/api.pl?lon=6.7821&amp;lat=51.2375&amp;product=civil&amp;output=json.
+             
+             21.10.2022 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.Weather">
+            <summary>
+            Der darzustellende Wettertyp als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.Date">
+            <summary>
+            Das aktuelle Datum als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.Time">
+            <summary>
+            Die darzustellende Uhrzeit als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.Temperature">
+            <summary>
+            Die darzustellende Uhrzeit als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.Humidity">
+            <summary>
+            Die darzustellende Uhrzeit als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.SubResultViewModel.ResultRecordString">
+            <summary>
+            Ein Datensatz als string.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SubResultViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            Liefert die Properties als String aufbereitet. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vishnu_UserModules.SubResultViewModel.#ctor(System.DateTime,System.Int32)">
+            <summary>
+            Konstruktor - übernimmt den Init-Zeitpunkt vom ResultViewModel.
+            </summary>
+            <param name="initDateTime">Datum der Initialisierung.</param>
+            <param name="init">Stunden der Initialisierung.</param>
+        </member>
+        <member name="T:Vishnu_UserModules.ValueConverter.WeatherToBitmapImage">
+             <summary>
+             Setzt einen Wettertyp als string in ein BitmapImage um.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             18.10.2022 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="M:Vishnu_UserModules.ValueConverter.WeatherToBitmapImage.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Übersetzt einen Wetter-Typ (string) in ein Bild.
+            </summary>
+            <param name="values">Array: [Wettertyp als string][ResourceDictionary mit BitmapImages].</param>
+            <param name="targetType">Der Zieltyp (BitmapImage).</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen.</param>
+            <returns>BitmapImage.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.ValueConverter.WeatherToBitmapImage.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Ist nicht implementiert.
+            </summary>
+            <param name="value">BitmapImage.</param>
+            <param name="targetTypes">Array: [Wettertyp als string][ResourceDictionary mit BitmapImages].</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen.</param>
+            <returns>Wettertyp als string.</returns>
+        </member>
+        <member name="T:Vishnu_UserModules.WeatherCheckerControl">
+            <summary>
+            Interaktionslogik für WeatherCheckerControl.xaml.
+            
+            The weather-forecasts and the used weather-icons come from http://www.7timer.info.
+            Many thanks to Chenzhou Cui and his friends, who run this wonderful free weather-forecast site.
+            Wiki on https://github.com/Yeqzids/7timer-issues/wiki/Wiki.
+            API on http://www.7timer.info/bin/api.pl?lon=6.7821&amp;lat=51.2375&amp;product=civil&amp;output=json.
+            
+            </summary>
+            <summary>
+            WeatherCheckerControl
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherCheckerControl.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherCheckerControl.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherCheckerControl.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.WeatherCheckerControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

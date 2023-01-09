@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Weather History</LogicalName>
+  <LogicalExpression>IS WeatherHistory</LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>WeatherHistory</LogicalName>
+      <UserControlPath>Plugin\WeatherCheckerControl.dll</UserControlPath>
+      <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+      <Parameters>
+        <![CDATA[quiet|WeatherChecker.dll|erstellt Wettervorhersagen]]>
+      </Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>M:60</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

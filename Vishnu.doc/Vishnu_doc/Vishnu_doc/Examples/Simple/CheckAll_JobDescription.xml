@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check All</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression>CheckServers AND CheckDiskSpace</LogicalExpression>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckServers</LogicalName>
+      <PhysicalPath>..\CheckServers</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckDiskSpace</LogicalName>
+      <PhysicalPath>..\CheckDiskSpace</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

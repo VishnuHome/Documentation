@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckSingleValueModifier</LogicalName>
+  <LogicalExpression>
+    IS Tag
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+    </Checker>
+  </Checkers>
+  <ValueModifiers>
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+    </ValueModifier>
+  </ValueModifiers>
+</JobDescription>
