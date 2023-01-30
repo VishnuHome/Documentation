@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" InitialTargets="ValidateWorkFrameRoot" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="ValidateWorkFrameRoot">
-    <Error Text="Vishnu_Root must be set to the workframe-parent-directory (full path) on environment or command line." Condition="'$(Vishnu_Root)' == ''" />
-    <Error Text="Couldn't find a valid project directory." Condition="!Exists('$(Vishnu_Root)/WorkFrame')" />
-  </Target>
-  <PropertyGroup>
-    <ProjectRoot>$(Vishnu_Root)</ProjectRoot>
-  </PropertyGroup>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ 	<PropertyGroup>
+   	<VishnuRoot>$(ProjectDir)../../../../..</VishnuRoot>
+   	<AssemblyRoot>$(VishnuRoot)/ReadyBin/Assemblies</AssemblyRoot>
+	</PropertyGroup>
+	<Import Project="$(ProjectDir)../../AddOn/proj/*" Condition="exists('$(ProjectDir)../../AddOn/proj')" />
   <PropertyGroup>
     <!-- The configuration and platform will be used to determine which assemblies to include from solution and
 				 project documentation sources -->
@@ -36,31 +34,31 @@
       <Argument Key="includeEnumValues" Value="true" />
     </TransformComponentArguments>
     <DocumentationSources>
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\ExpressionParser\ExpressionParser\ExpressionParser.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\Vishnu.Interchange\Vishnu.Interchange.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\LogicalTaskTree\LogicalTaskTree.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\ViewModel\Vishnu.ViewModel.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\WPF_UI\Vishnu.WPF_UI.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\WorkFrame\BasicAppSettings\BasicAppSettings\BasicAppSettings.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\WorkFrame\Global\Global\Global.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\WorkFrame\MVVMini\MVVMini\MVVMini.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\WorkFrame\PropertyAccess\PropertyAccess\PropertyAccess.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\CustomProgressBar\CustomProgressBar\CustomProgressBar.csproj" />
-      <DocumentationSource sourceFile="$(ProjectRoot)\VishnuHome\ZoomBox\ZoomBox\ZoomBox.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\AppEnvReader\AppEnvReader\AppEnvReader.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\CommandLineAccess\CommandLineAccess\CommandLineAccess.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\EnvAccess\EnvAccess\EnvAccess.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\RegAccess\RegAccess\RegAccess.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\SettingsAccess\SettingsAccess\SettingsAccess.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\XMLAccess\XMLAccess\XMLAccess.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\InfoController\InfoController\InfoController.csproj" />
-      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\InfoController\Logging\Logging.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ExpressionParser\ExpressionParser\ExpressionParser.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\Vishnu.Interchange\Vishnu.Interchange.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\LogicalTaskTree\LogicalTaskTree.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\ViewModel\Vishnu.ViewModel.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\WPF_UI\Vishnu.WPF_UI.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\BasicAppSettings\BasicAppSettings\BasicAppSettings.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\Global\Global\Global.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\MVVMini\MVVMini\MVVMini.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\PropertyAccess\PropertyAccess\PropertyAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\CustomProgressBar\CustomProgressBar\CustomProgressBar.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ZoomBox\ZoomBox\ZoomBox.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\AppEnvReader\AppEnvReader\AppEnvReader.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\CommandLineAccess\CommandLineAccess\CommandLineAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\EnvAccess\EnvAccess\EnvAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\RegAccess\RegAccess\RegAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\SettingsAccess\SettingsAccess\SettingsAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\XMLAccess\XMLAccess\XMLAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\InfoController\InfoController.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\Logging\Logging.csproj" />
     </DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
