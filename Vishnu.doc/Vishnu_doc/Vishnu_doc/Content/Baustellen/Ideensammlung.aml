@@ -102,19 +102,18 @@
 					</para>
 					<para>
 						Vishnu enthält (bisher) keine Unit-Tests.
-						Es gibt allerdings eine Reihe aussagekräftiger und gut dokumentierter Integrationstest
+						Allerdings existieren für alle verwendeten Komponenten eigenständige Demo-Projekte, die
+						die Komponenten testen und deren Gebrauch demonstrieren.<lineBreak/>
+						Es gibt darüber hinaus eine Reihe aussagekräftiger und gut dokumentierter Integrationstest
 						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls).<lineBreak />
-						Hintergrund: anfangs mangelndes KnowHow und bis heute auch teilweise mangelnde Einsicht von mir (Erik Nagel).
-						Ich finde Unit-Testing wird zu stark gehyped. Letztendlich wird dort, wie auch in immer neuen
-						Entwicklungsmodellen und Formalisierungen versucht, erfolgreiche Softwareentwickung mit heterogenen Teams zu erreichen.
-						Nach meiner langjährigen Erfahrung sind es aber gerade einzelne, talentierte und engagierte Menschen, die
-						wirkliche Fortschritte erzielen, nicht zuletzt dann, wenn man sie nicht zu sehr einengt.<lineBreak />
-						Trotzdem ein ehrliches Eingeständnis: Das, was ich bisher als Tests habe, ist unzulänglich und entspricht
-						nicht mal meinen eigenen Ansprüchen. Wer hier helfen kann, ist herzlich eingeladen. Das schließt ausdrücklich
-						auch das Nachpflegen von Unit-Tests ein. Aber bitte nur dort, wo es ohne Code-Redesign sinnvoll ist.
-						Meine eigenen Tests sind aus Erfahrung entstanden, aber nicht automatisiert (nicht automatisierbar?) und
-						lückenhaft. Doch sie berücksichtigen zumindest die hohe Parallelisierung der Verarbeitung in <token>V</token>.
 					</para>
+					<alert class="note">
+						<para>
+							Auch wenn ich selbst finde, dass Unit-Testing insgesamt zu stark gehyped wird, sehe ich doch, dass Unit Tests
+							eine wichtige Unterstützung der (Weiter-)Entwicklung sind. Ich habe es leider versäumt, diese von Anfang an mit zu pflegen.
+							Wer hier nachträgliche Unterstützungsarbeit leisten möchte, ist herzlich eingeladen.
+						</para>
+					</alert>
 				</listItem>
 			</list>
 		</introduction>
