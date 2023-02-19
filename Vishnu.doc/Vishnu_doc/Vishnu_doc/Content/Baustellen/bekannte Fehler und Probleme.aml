@@ -42,7 +42,7 @@
 						Es kann ein Exklusiv-Oder-Problem bei Workern auftreten.
 						Hierbei können zuweilen Fehlermeldungen und OK-Meldung bei übergeordneten Jobs auftreten,
 						wenn die verursachenden Unterknoten nicht genau gleichzeitig auslösen
-						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll_12.xls und dort CheckDependentNodeLogic).
+						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls und dort CheckDependentNodeLogic).
 						Es existiert ein Workaround über <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Escalator">Escalatoren</link>.
 					</para>
 				</listItem>

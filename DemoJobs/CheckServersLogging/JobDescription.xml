@@ -47,7 +47,7 @@
       </Trigger>
       <Logger>
 	      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
-  	    <Parameters>Exception|LogicalResultChanged</Parameters>
+  	    <Parameters>Exception|LogicalResultChanged,%TempDirectory%\xyz.log</Parameters>
       </Logger>
     </Checker>
   </Checkers>

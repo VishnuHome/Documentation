@@ -384,36 +384,45 @@
 					<languageKeyword>TreeEvents</languageKeyword> ausgelöst.<lineBreak />
 					Festgelegt wird das über das Attribut
 					<languageKeyword>&lt;Parameters&gt;</languageKeyword> in der Form
-					<languageKeyword>&lt;Parameters&gt;TreeEvent[|TreeEvent]&lt;/Parameters&gt;</languageKeyword>.
+					<languageKeyword>&lt;Parameters&gt;TreeEvent[|TreeEvent][,sonstige_Parameter]&lt;/Parameters&gt;</languageKeyword>.
 				</para>
-				<code source="..\Vishnu_doc\Examples\CheckServersLogging.xml" language="XML"
+				<code source="..\Vishnu_doc\Examples\CheckServersLogging.xml" language="xml"
 					  title="Definition von Loggern"></code>
 				<para>
-					Die beiden im obigen Demo-Job definierten <languageKeyword>Logger</languageKeyword> erzeugen fogendes Ergebnis
-					in dem gemeinsamen Logfile. Das Ausgabeformat ist dabei in der <database>TextFileLogger.dll</database> fest
-					definiert.
+					Der erste der beiden im obigen Demo-Job definierten <languageKeyword>Logger</languageKeyword> schreibt per Default
+					in das <token>V</token>-Logfile, der zweite <languageKeyword>Logger</languageKeyword> schreibt in ein eigenes Logfile
+					<database>%TempDirectory%\xyz.log</database>.<lineBreak />
+					Zur Erinnerung: das <token>V</token>-Logfile ist per Voreinstellung
+					<languageKeyword>%TempDirectory%\Vishnu.%MainJobName%\Vishnu.log</languageKeyword>.
+				</para>
+				<para>
+					Die <languageKeyword>Logger</languageKeyword> erzeugen folgende Ergebnisse:
 				</para>
 				<code source="..\Vishnu_doc\Examples\CheckServersLogging.txt"
-					  title="Ausgaben der TextFileLogger.dll"></code>
-				<alert class="note">
-					<para>
-						Die <database>TextFileLogger.dll</database> wird von <token>V</token> gefunden, obwohl sie sich nicht im
-						<database>Plugin</database>-Verzeichnis des Demo-Jobs befindet. Grund dafür ist, dass die <database>DLL</database>
-						sich im <languageKeyword>UserAssemblyDirectory</languageKeyword> befindet.
-					</para>
-				</alert>
-				<alert class="note">
-					<para>
-						Zur Erinnerung: das <token>V</token>-Logfile ist per Voreinstellung
-						<languageKeyword>%TempDirectory%\Vishnu.%MainJobName%\Vishnu.log</languageKeyword>.
-					</para>
-				</alert>
+					  title="Ausgaben der TextFileLogger.dll im Vishnu-Logfile">
+				</code>
+				<code source="..\Vishnu_doc\Examples\CheckServersLogging_xyz.txt"
+					  title="Ausgaben der TextFileLogger.dll im Logfile '%TempDirectory%\xyz.log'">
+				</code>
 				<alert class="important">
 					<para>
-						Bei der TextFileLogger.dll handelt es sich um eine einfache Demo-DLL, die <token>V</token> schon mitliefert.
+						Bei der <database>TextFileLogger.dll</database> handelt es sich um eine einfache Demo-DLL, die <token>V</token>
+						schon mitliefert. Inhalt und Form der Logging-Ausgabe sind hierbei in der TextFileLogger.dll fest verdrahtet.
 						Um Inhalt und Form der <languageKeyword>Logger</languageKeyword>-Ausgabe zu bestimmen, können Sie auch eigene
 						<languageKeyword>Logger</languageKeyword> erstellen. Wie das geht, wird
 						unter <link xlink:href="3ccc247e-ea3a-47fc-9ed6-4713baf96986" /> beschrieben.
+					</para>
+					<para>
+						Eigene <languageKeyword>Logger</languageKeyword> könnten dann auch weitere Übergabeparameter interpretieren,
+						welche das Ausgabeformat steuern. Welche Parameter Sie dem Logger zusätzlich hinter dem Komma übergeben,
+						ist Ihnen überlassen. <token>V</token> reicht	diese einfach an Ihren Logger weiter.
+					</para>
+				</alert>
+				<alert class="note">
+					<para>
+						Übrigens: die <database>TextFileLogger.dll</database> wird von <token>V</token> gefunden, obwohl sie sich nicht im
+						<database>Plugin</database>-Verzeichnis des Demo-Jobs befindet. Grund dafür ist, dass die <database>DLL</database>
+						sich im <languageKeyword>UserAssemblyDirectory</languageKeyword> befindet.
 					</para>
 				</alert>
 			</content>

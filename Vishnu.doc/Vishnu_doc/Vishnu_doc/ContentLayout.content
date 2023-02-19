@@ -32,8 +32,8 @@
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
-    <Topic id="123effbf-a957-438f-a953-6e9d55e11775" visible="True" title="Version 5.3.0.4" />
-    <Topic id="794b22c8-d732-49e9-9324-3a686272634d" visible="True" isSelected="true" title="Version 5.3.0.3" />
+    <Topic id="123effbf-a957-438f-a953-6e9d55e11775" visible="True" isSelected="true" title="Version 5.3.1.0" />
+    <Topic id="794b22c8-d732-49e9-9324-3a686272634d" visible="True" title="Version 5.3.0.3" />
     <Topic id="1ee433da-342c-439e-919a-96c8df7cb5b2" visible="True" title="Version 5.1.0.0" />
     <Topic id="0f64d53c-b312-426f-8175-905c3bf5fd7d" visible="True" title="Version 5.0.5.0" />
     <Topic id="97864ce1-d8bd-45a5-befc-065b28d395a9" visible="True" title="Version 5.0.2.6" />

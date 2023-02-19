@@ -83,7 +83,7 @@
       <NamespaceSummaryItem name="NetEti.ApplicationControl" isDocumented="True">Allgemeine Routinen zur Anwendungssteuerung</NamespaceSummaryItem>
       <NamespaceSummaryItem name="NetEti.FileTools" isDocumented="True">Routinen zum Zugriff über das Filesystem</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>1.0.4.0</HelpFileVersion>
+    <HelpFileVersion>2.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>Standard</SyntaxFilters>
@@ -205,7 +205,7 @@
     <None Include="Content\VersionHistory\v5.0.5.0.aml" />
     <None Include="Content\VersionHistory\v5.1.0.0.aml" />
     <None Include="Content\VersionHistory\v5.3.0.3.aml" />
-    <None Include="Content\VersionHistory\v5.3.0.4.aml" />
+    <None Include="Content\VersionHistory\v5.3.1.0.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Vishnu_Hello.aml" />
     <None Include="Content\VersionHistory\v1.0.1.4.aml" />
@@ -222,6 +222,7 @@
     <None Include="Content\VersionHistory\v3.0.2.8.aml" />
     <None Include="Content\VersionHistory\v3.1.0.0.aml" />
     <Content Include="Examples\CheckServersLogging.txt" />
+    <Content Include="Examples\CheckServersLogging_xyz.txt" />
     <Content Include="icons\Vishnu_multi.ico" />
     <None Include="Examples\CheckParameterReader.xml" />
     <None Include="Examples\CheckServerPart.xml" />

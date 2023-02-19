@@ -6,7 +6,7 @@
 
 	  <introduction>
 		  <para>
-			  Version 5.3.0.4 dotnet-framework-final (Stand: 06.02.2023)
+			  Version 5.3.1.0 dotnet-framework-final (Stand: 18.02.2023)
 		  </para>
 		  <para>
 			  Diese Version ist nach meiner Grundsatzentscheidung vom Januar 2023 die letzte DotNet-Framework Version.<lineBreak />
@@ -20,7 +20,12 @@
 			  <list class="bullet">
 				  <listItem>
 					  <para>
-						  Es wurden nur die Versionsnummer heraufgesetzt und alle Repositories getagged.
+						  Es wurden mit der Versionsnummer v5.3.1.0 alle Repositories getagged.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Es wurden das TreeEvent <database>AnyResultChanged</database> implementiert.
 					  </para>
 				  </listItem>
 			  </list>

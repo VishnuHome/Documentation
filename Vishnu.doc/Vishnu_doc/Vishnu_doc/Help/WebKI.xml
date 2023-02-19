@@ -1692,8 +1692,8 @@
     <HelpKINode Title="LogicalNode.LockName Eigenschaft " Url="html/P_LogicalTaskTree_LogicalNode_LockName.htm" />
   </HelpKINode>
   <HelpKINode Title="LockNameGlobal Methode">
-    <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_LockNameGlobal.htm" />
     <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_NetEti_Globals_ThreadLocker_LockNameGlobal.htm" />
+    <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_LockNameGlobal.htm" />
   </HelpKINode>
   <HelpKINode Title="Log Methode">
     <HelpKINode Title="INodeLogger.Log Methode " Url="html/M_Vishnu_Interchange_INodeLogger_Log.htm" />
@@ -2003,8 +2003,8 @@
   <HelpKINode Title="LogicalNodeViewModel.ToString Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_ToString.htm" />
   <HelpKINode Title="LogicalNodeViewModel.TransferShadowTreeProperties Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_TransferShadowTreeProperties.htm" />
   <HelpKINode Title="LogicalNodeViewModel.TransferSiblingProperties Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_TransferSiblingProperties.htm" />
-  <HelpKINode Title="LogicalNodeViewModel.traverse Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_Traverse.htm" />
   <HelpKINode Title="LogicalNodeViewModel.Traverse Methode" Url="html/Overload_Vishnu_ViewModel_LogicalNodeViewModel_Traverse.htm" />
+  <HelpKINode Title="LogicalNodeViewModel.traverse Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_Traverse.htm" />
   <HelpKINode Title="LogicalNodeViewModel.TreeParams Eigenschaft" Url="html/P_Vishnu_ViewModel_LogicalNodeViewModel_TreeParams.htm" />
   <HelpKINode Title="LogicalNodeViewModel.UIDispatcher Eigenschaft" Url="html/P_Vishnu_ViewModel_LogicalNodeViewModel_UIDispatcher.htm" />
   <HelpKINode Title="LogicalNodeViewModel.UIMain Eigenschaft" Url="html/P_Vishnu_ViewModel_LogicalNodeViewModel_UIMain.htm" />
@@ -2537,12 +2537,12 @@
   <HelpKINode Title="None Enumerationsmember">
     <HelpKINode Title="DialogSettings Enumeration" Url="html/T_Vishnu_Interchange_DialogSettings.htm" />
     <HelpKINode Title="NodeLogicalState Enumeration" Url="html/T_Vishnu_Interchange_NodeLogicalState.htm" />
+    <HelpKINode Title="NodeState Enumeration" Url="html/T_Vishnu_Interchange_NodeState.htm" />
     <HelpKINode Title="NodeTypes Enumeration" Url="html/T_Vishnu_Interchange_NodeTypes.htm" />
     <HelpKINode Title="TriggeredNodeStartConstraint Enumeration" Url="html/T_Vishnu_Interchange_TriggeredNodeStartConstraint.htm" />
-    <HelpKINode Title="NodeState Enumeration" Url="html/T_Vishnu_Interchange_NodeState.htm" />
-    <HelpKINode Title="NodeWorkerState Enumeration" Url="html/T_Vishnu_Interchange_NodeWorkerState.htm" />
     <HelpKINode Title="VisualNodeState Enumeration" Url="html/T_Vishnu_ViewModel_VisualNodeState.htm" />
     <HelpKINode Title="VisualNodeWorkerState Enumeration" Url="html/T_Vishnu_ViewModel_VisualNodeWorkerState.htm" />
+    <HelpKINode Title="NodeWorkerState Enumeration" Url="html/T_Vishnu_Interchange_NodeWorkerState.htm" />
   </HelpKINode>
   <HelpKINode Title="NONE Enumerationsmember" Url="html/T_NetEti_ExpressionParser_SyntaxElement.htm" />
   <HelpKINode Title="None Feld" Url="html/F_NetEti_ApplicationControl_InfoTypes_None.htm" />
@@ -2746,6 +2746,7 @@
   <HelpKINode Title="PublishAllTreeInfos Methode" Url="html/M_LogicalTaskTree_JobList_PublishAllTreeInfos.htm" />
   <HelpKINode Title="Question Enumerationsmember" Url="html/T_Vishnu_Interchange_DialogSettings.htm" />
   <HelpKINode Title="RaiseNodeLastNotNullLogicalChangedWithTreeEvent Methode" Url="html/M_LogicalTaskTree_LogicalNode_RaiseNodeLastNotNullLogicalChangedWithTreeEvent.htm" />
+  <HelpKINode Title="RaiseNodeLastResultChangedWithTreeEvent Methode" Url="html/M_LogicalTaskTree_SingleNode_RaiseNodeLastResultChangedWithTreeEvent.htm" />
   <HelpKINode Title="RaiseNodeLogicalChanged Methode" Url="html/M_LogicalTaskTree_LogicalNode_RaiseNodeLogicalChanged.htm" />
   <HelpKINode Title="RaisePropertyChanged Methode" Url="html/Overload_NetEti_MVVMini_ObservableObject_RaisePropertyChanged.htm" />
   <HelpKINode Title="ReachableServers Feld" Url="html/F_LogicalTaskTree_JobProviderBase_ReachableServers.htm" />
@@ -3017,6 +3018,7 @@
   <HelpKINode Title="SingleNode.LastResult Eigenschaft" Url="html/P_LogicalTaskTree_SingleNode_LastResult.htm" />
   <HelpKINode Title="SingleNode.Logical Eigenschaft" Url="html/P_LogicalTaskTree_SingleNode_Logical.htm" />
   <HelpKINode Title="SingleNode.OnNodeProgressFinished Methode" Url="html/M_LogicalTaskTree_SingleNode_OnNodeProgressFinished.htm" />
+  <HelpKINode Title="SingleNode.RaiseNodeLastResultChangedWithTreeEvent Methode" Url="html/M_LogicalTaskTree_SingleNode_RaiseNodeLastResultChangedWithTreeEvent.htm" />
   <HelpKINode Title="SingleNode.ReferencedNodeName Eigenschaft" Url="html/P_LogicalTaskTree_SingleNode_ReferencedNodeName.htm" />
   <HelpKINode Title="SingleNode.SetReturnObject Methode" Url="html/M_LogicalTaskTree_SingleNode_SetReturnObject.htm" />
   <HelpKINode Title="SingleNode.SingleNode Konstruktor" Url="html/Overload_LogicalTaskTree_SingleNode__ctor.htm" />
@@ -3257,8 +3259,8 @@
     <HelpKINode Title="NodeParent.SubNodeProgressChanged Methode " Url="html/M_LogicalTaskTree_NodeParent_SubNodeProgressChanged.htm" />
   </HelpKINode>
   <HelpKINode Title="SubNodeProgressFinished Methode">
-    <HelpKINode Title="NodeParent.SubNodeProgressFinished Methode " Url="html/M_LogicalTaskTree_NodeParent_SubNodeProgressFinished.htm" />
     <HelpKINode Title="NodeConnector.SubNodeProgressFinished Methode " Url="html/M_LogicalTaskTree_NodeConnector_SubNodeProgressFinished.htm" />
+    <HelpKINode Title="NodeParent.SubNodeProgressFinished Methode " Url="html/M_LogicalTaskTree_NodeParent_SubNodeProgressFinished.htm" />
   </HelpKINode>
   <HelpKINode Title="subNodeProgressFinished Methode" Url="html/M_Vishnu_ViewModel_LogicalNodeViewModel_subNodeProgressFinished.htm" />
   <HelpKINode Title="SubNodeProgressStarted Methode">
@@ -3308,14 +3310,14 @@
     <HelpKINode Title="LogicalNode.ThreadLocked Eigenschaft " Url="html/P_LogicalTaskTree_LogicalNode_ThreadLocked.htm" />
   </HelpKINode>
   <HelpKINode Title="ThreadLocker Klasse">
-    <HelpKINode Title="ThreadLocker Klasse" Url="html/T_NetEti_Globals_ThreadLocker.htm" />
     <HelpKINode Title="ThreadLocker Klasse" Url="html/T_LogicalTaskTree_ThreadLocker.htm" />
+    <HelpKINode Title="ThreadLocker Klasse" Url="html/T_NetEti_Globals_ThreadLocker.htm" />
     <HelpKINode Title="Methoden" Url="html/Methods_T_LogicalTaskTree_ThreadLocker.htm" />
     <HelpKINode Title="Methoden" Url="html/Methods_T_NetEti_Globals_ThreadLocker.htm" />
   </HelpKINode>
   <HelpKINode Title="ThreadLocker.LockNameGlobal Methode">
-    <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_LockNameGlobal.htm" />
     <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_NetEti_Globals_ThreadLocker_LockNameGlobal.htm" />
+    <HelpKINode Title="ThreadLocker.LockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_LockNameGlobal.htm" />
   </HelpKINode>
   <HelpKINode Title="ThreadLocker.TryLockNameGlobal Methode" Url="html/M_NetEti_Globals_ThreadLocker_TryLockNameGlobal.htm" />
   <HelpKINode Title="ThreadLocker.UnlockNameGlobal Methode">
@@ -3552,8 +3554,8 @@
   <HelpKINode Title="UNGROUP Enumerationsmember" Url="html/T_NetEti_ExpressionParser_SyntaxElement.htm" />
   <HelpKINode Title="UnicodeHexcodeToChar Methode" Url="html/M_NetEti_Globals_Global_UnicodeHexcodeToChar.htm" />
   <HelpKINode Title="UnlockNameGlobal Methode">
-    <HelpKINode Title="ThreadLocker.UnlockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_UnlockNameGlobal.htm" />
     <HelpKINode Title="ThreadLocker.UnlockNameGlobal Methode " Url="html/M_NetEti_Globals_ThreadLocker_UnlockNameGlobal.htm" />
+    <HelpKINode Title="ThreadLocker.UnlockNameGlobal Methode " Url="html/M_LogicalTaskTree_ThreadLocker_UnlockNameGlobal.htm" />
   </HelpKINode>
   <HelpKINode Title="UnMarkThreadAsInvalid Methode" Url="html/M_LogicalTaskTree_LogicalNode_UnMarkThreadAsInvalid.htm" />
   <HelpKINode Title="UnregisterInfoReceiver Methode">
