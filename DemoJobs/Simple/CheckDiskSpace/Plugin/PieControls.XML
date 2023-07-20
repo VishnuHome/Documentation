@@ -4,21 +4,6 @@
         <name>PieControls</name>
     </assembly>
     <members>
-        <member name="T:NetEti.CustomControls.PieCollectionHelper">
-            <summary>
-            Enthält Hilfsroutinen für PieCharts:
-            liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
-            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
-            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
-            </summary>
-        </member>
-        <member name="M:NetEti.CustomControls.PieCollectionHelper.GetTotal(System.Collections.ObjectModel.ObservableCollection{NetEti.CustomControls.PieSegment})">
-            <summary>
-            Liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
-            </summary>
-            <param name="collection">1-n PieChart Segmente.</param>
-            <returns>Gesamtsumme für die übergebenen Segmente.</returns>
-        </member>
         <member name="T:NetEti.CustomControls.PieChart">
             <summary>
             Stellt ein WPF-Tortendiagramm plus Zusatzinfos zur Verfügung.
@@ -80,6 +65,21 @@
             <summary>
             InitializeComponent
             </summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieCollectionHelper">
+            <summary>
+            Enthält Hilfsroutinen für PieCharts:
+            liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieCollectionHelper.GetTotal(System.Collections.ObjectModel.ObservableCollection{NetEti.CustomControls.PieSegment})">
+            <summary>
+            Liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
+            </summary>
+            <param name="collection">1-n PieChart Segmente.</param>
+            <returns>Gesamtsumme für die übergebenen Segmente.</returns>
         </member>
         <member name="T:NetEti.CustomControls.CompassDirection">
             <summary>
@@ -274,22 +274,6 @@
         <member name="P:NetEti.CustomControls.PieSegment.Name">
             <summary>
             Holt oder setzt den Namen für dieses Segment.
-            </summary>
-        </member>
-        <member name="T:NetEti.CustomControls.Properties.Resources">
-            <summary>
-              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
-            </summary>
-        </member>
-        <member name="P:NetEti.CustomControls.Properties.Resources.ResourceManager">
-            <summary>
-              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
-            </summary>
-        </member>
-        <member name="P:NetEti.CustomControls.Properties.Resources.Culture">
-            <summary>
-              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
             </summary>
         </member>
     </members>

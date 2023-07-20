@@ -116,38 +116,5 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:SingleNodeUserControl.PercentToBrush">
-             <summary>
-             Funktion: ValueConverter, wandelt einen Prozentwert (int: 0-n) in Farben:
-             0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
-             </summary>
-             <remarks>
-             File: PercentToBrush.cs
-             Autor: Erik Nagel
-            
-             28.12.2014 Erik Nagel: erstellt
-             </remarks>
-        </member>
-        <member name="M:SingleNodeUserControl.PercentToBrush.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Wandelt einen Prozentwert (int: 0-n) in Farben:
-            0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
-            </summary>
-            <param name="value">Prozentwert.</param>
-            <param name="targetType">Brush-Typ</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
-            <returns>SolidColorBrush (Farbe zwischen rot und Grün)</returns>
-        </member>
-        <member name="M:SingleNodeUserControl.PercentToBrush.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Wandelt eine Farbe (SolidColorBrush)
-            in einen Prozentwert (int).
-            </summary>
-            <param name="value">SolidColorBrush</param>
-            <param name="targetType">Prozentwert (int)</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
-        </member>
     </members>
 </doc>
