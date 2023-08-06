@@ -1,16 +1,11 @@
-...\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css
-c:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css
+c:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding.css
+
+c:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Shared\Content\SharedContent_de-DE.xml
 
 C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\de\System.Data.Services.Client.xml
                                                                               v4.6.2
                                                                               v4.6.1
                                                                               v4.6
-
-...\Sandcastle Help File Builder\PresentationStyles\VS2013\Content\de-DE\reference_content.xml
-c:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\Content\de-DE\reference_content.xml
-
-...\Sandcastle Help File Builder\PresentationStyles\VS2013\SHFBContent\de-DE.xml
-c:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\SHFBContent\de-DE.xml
 
 Sandcastle Tokens (selbst definierbare Text- und Grafik-Bausteine)
 	Visual Studio 2019

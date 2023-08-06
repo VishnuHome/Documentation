@@ -18,7 +18,7 @@
     <RootNamespace>Vishnu_doc</RootNamespace>
     <Name>Vishnu_doc</Name>
     <!-- SHFB properties -->
-    <FrameworkVersion>.NET Framework 4.7.2</FrameworkVersion>
+    <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
     <HtmlHelpName>Vishnu_doc.de</HtmlHelpName>
     <Language>de-DE</Language>
@@ -34,31 +34,37 @@
       <Argument Key="includeEnumValues" Value="true" />
     </TransformComponentArguments>
     <DocumentationSources>
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ExpressionParser\ExpressionParser\ExpressionParser.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\Vishnu.Interchange\Vishnu.Interchange.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\LogicalTaskTree\LogicalTaskTree.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\ViewModel\Vishnu.ViewModel.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\WPF_UI\Vishnu.WPF_UI.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\BasicAppSettings\BasicAppSettings\BasicAppSettings.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\Global\Global\Global.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\MVVMini\MVVMini\MVVMini.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\PropertyAccess\PropertyAccess\PropertyAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\CustomProgressBar\CustomProgressBar\CustomProgressBar.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ZoomBox\ZoomBox\ZoomBox.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\AppEnvReader\AppEnvReader\AppEnvReader.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\CommandLineAccess\CommandLineAccess\CommandLineAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\EnvAccess\EnvAccess\EnvAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\RegAccess\RegAccess\RegAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\SettingsAccess\SettingsAccess\SettingsAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\XMLAccess\XMLAccess\XMLAccess.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\InfoController\InfoController.csproj" />
-      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\Logging\Logging.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\ProcessTools\ProcessTools\ProcessTools.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\MultiScreen\MultiScreen\MultiScreen.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\ObjectSerializer\ObjectSerializer\ObjectSerializer.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\ZipAccess\ZipAccess\ZipAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl\JobConnectorUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl\ConstantNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl\JobListUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl\NodeListUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl\SingleNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl\SnapshotUserControl.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\AppEnvReader\AppEnvReader\AppEnvReader.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\BasicAppSettings\BasicAppSettings\BasicAppSettings.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\CommandLineAccess\CommandLineAccess\CommandLineAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\CustomProgressBar\CustomProgressBar\CustomProgressBar.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\EnvAccess\EnvAccess\EnvAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\ExpressionParser\ExpressionParser\ExpressionParser.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\Global\Global\Global.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\InfoController\InfoController\InfoController.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\InfoController\Logging\Logging.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\LogicalTaskTree\LogicalTaskTree.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\MVVMini\MVVMini\MVVMini.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\PropertyAccess\PropertyAccess\PropertyAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\RegAccess\RegAccess\RegAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\SettingsAccess\SettingsAccess\SettingsAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\TaskWorker\TaskWorker\TaskWorker.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\Vishnu.Interchange\Vishnu.Interchange.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\Vishnu.ViewModel\Vishnu.ViewModel.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\Vishnu\Vishnu.WPF_UI\Vishnu.WPF_UI.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\XMLAccess\XMLAccess\XMLAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\ZoomBox\ZoomBox\ZoomBox.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\IniAccess\IniAccess\IniAccess.csproj" />
     </DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
@@ -82,8 +88,12 @@
       <NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" />
       <NamespaceSummaryItem name="NetEti.ApplicationControl" isDocumented="True">Allgemeine Routinen zur Anwendungssteuerung</NamespaceSummaryItem>
       <NamespaceSummaryItem name="NetEti.FileTools" isDocumented="True">Routinen zum Zugriff über das Filesystem</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Framework.ClickOnce" isDocumented="False" />
+      <NamespaceSummaryItem name="NetEti.FileTools.Zip" isDocumented="True">ZIP Pack/Unpack-Routinen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.MultiScreen" isDocumented="True">Unterstützung zur Nutzung mehrerer Bildschirme</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>2.0.0.0</HelpFileVersion>
+    <HelpFileVersion>7.0.0.0</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>Standard</SyntaxFilters>
@@ -102,7 +112,7 @@
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
     <CleanIntermediates>True</CleanIntermediates>
     <FooterText>Naturgem&amp;#228%3b&amp;#223%3b basieren viele Erkenntnisse und Entwicklungen auf im Internet frei zug&amp;#228%3bnglichen Informationen. Eventuell fehlende Verweise auf urspr&amp;#252%3bngliche Autoren sind unbeabsichtigt und werden nach Meldung sofort nachgepflegt.</FooterText>
-    <FeedbackEMailAddress>neteti%40neteti.de</FeedbackEMailAddress>
+    <FeedbackEMailAddress>Vishnu%40reallyhuman.net</FeedbackEMailAddress>
     <CopyrightText>Copyright &amp;#169%3b 2012-2023 Erik Nagel</CopyrightText>
     <ProjectSummary>Dieser Teil der Vishnu-Dokumentation richtet sich an Software-Entwickler oder Anwender,  die Grundkenntnisse in der Entwicklung von .Net Software haben. Den anwendungsorientierten Teil der Dokumentation finden Sie unter &amp;lt%3ba href=&amp;quot%3bad9ee8b6-c68c-47ec-9584-d85046eb3137.htm&amp;quot%3b&amp;gt%3bVishnu - Prozesse beobachten und steuern&amp;lt%3b/a&amp;gt%3b.</ProjectSummary>
     <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected, EditorBrowsableNever, NonBrowsable</VisibleItems>
