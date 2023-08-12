@@ -20,12 +20,12 @@
           <Parameters Transport="File">
             <SubWorkers type="array">
               <SubWorker RunCounter="1">
-                <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Info</Parameters>
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Info" -MessageNewLine=#</Parameters>
               </SubWorker>
               <SubWorker RunCounter="3">
-                <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Warnung</Parameters>
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Warnung" -MessageNewLine=#</Parameters>
               </SubWorker>
             </SubWorkers>
           </Parameters>
@@ -44,12 +44,12 @@
           <Parameters Transport="File">
             <SubWorkers type="array">
               <SubWorker RunCounter="1">
-                <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
               </SubWorker>
               <SubWorker RunCounter="2">
-                <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 2 (Run 2) %Timestamp%: %MachineName% DRINGEND! %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 2 (Run 2) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
               </SubWorker>
             </SubWorkers>
           </Parameters>

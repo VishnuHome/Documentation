@@ -101,8 +101,8 @@
 						Den <token>V</token>-Quellcode mit Unit-Tests ausstatten
 					</para>
 					<para>
-						Vishnu enthält (bisher) keine Unit-Tests.
-						Allerdings existieren für alle verwendeten Komponenten eigenständige Demo-Projekte, die
+						Vishnu enthält keine Unit-Tests und ich beabsichtige auch in absehbarer Zeit nicht, welche zu erstellen.
+						Allerdings existieren für alle verwendeten Komponenten eigenständige Demonstrations-Projekte, die
 						die Komponenten testen und deren Gebrauch demonstrieren.<lineBreak/>
 						Es gibt darüber hinaus eine Reihe aussagekräftiger und gut dokumentierter Integrationstest
 						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls).<lineBreak />
@@ -110,8 +110,12 @@
 					<alert class="note">
 						<para>
 							Auch wenn ich selbst finde, dass Unit-Testing insgesamt zu stark gehyped wird, sehe ich doch, dass Unit Tests
-							eine wichtige Unterstützung der (Weiter-)Entwicklung sind. Ich habe es leider versäumt, diese von Anfang an mit zu pflegen.
-							Wer hier nachträgliche Unterstützungsarbeit leisten möchte, ist herzlich eingeladen.
+							eine zusätzliche Unterstützung der (Weiter-)Entwicklung sein können.
+							Ich habe nur bisher zusätzlichen Aufwand lieber in Integrationstest investiert, weil sich mir der Nutzen dort
+							unmittelbar erschließt (übrigens auch im Sinne zusätzlicher Dokumentation).
+							Auch hat mich die aktuell implementierte Software-Architektur nach mehreren mehr oder weniger schmerzhaften
+							Reengineerings in der Lage gehalten, dieses Gesamtprojekt über mehr als zehn Jahre im Griff zu halten.
+							Wer allerdings unterstützend Unit-Tests erstellen möchte, ist herzlich eingeladen.
 						</para>
 					</alert>
 				</listItem>
@@ -125,6 +129,14 @@
 						<linkText>Unit Testing is Overrated</linkText>
 						<linkAlternateText>Special thanks to Oleksii Holub</linkAlternateText>
 						<linkUri>https://tyrrrz.me/blog/unit-testing-is-overrated</linkUri>
+						<linkTarget>_self</linkTarget>
+					</externalLink>
+				</para>
+				<para>
+					<externalLink>
+						<linkText>Unpopular Opinions in Software Architecture (Dino Esposito) | Keynote at BASTA! Spring 2023</linkText>
+						<linkAlternateText>Special thanks to Dino Esposito</linkAlternateText>
+						<linkUri>https://www.youtube.com/watch?v=kdOeyaLWaK0</linkUri>
 						<linkTarget>_self</linkTarget>
 					</externalLink>
 				</para>

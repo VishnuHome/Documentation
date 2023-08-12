@@ -34,11 +34,6 @@
 				</listItem>
 				<listItem>
 					<para>
-						<token>V</token>-Meldungen werden immer im ersten Bildschirm ausgegeben, auch wenn Vishnu im zweiten Bildschirm läuft.
-					</para>
-				</listItem>
-				<listItem>
-					<para>
 						Es kann ein Exklusiv-Oder-Problem bei Workern auftreten.
 						Hierbei können zuweilen Fehlermeldungen und OK-Meldung bei übergeordneten Jobs auftreten,
 						wenn die verursachenden Unterknoten nicht genau gleichzeitig auslösen

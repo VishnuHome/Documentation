@@ -86,10 +86,10 @@
           ist immer das äußerste Element (ganz oben und ganz unten) einer <token>V</token>-JobDescription.xml.
           Ok, es beginnt genau genommen nicht ganz oben, aber die erste Zeile kennzeichnet die ganze Datei als XML-Datei und
           ist in jeder <languageKeyword>JobDescription.xml</languageKeyword> gleich. Wir werden sie in der weiteren
-          Beschreibung einfach ignorieren. Auch die abschließenden Wiederholungen eines Element-Namens mit dem vorangestellten "/"
-          (<languageKeyword>&lt;/Irgendwas&gt;)</languageKeyword>
-          werden wir in Zukunft nicht mehr gesondert erwähnen (sie müssen einfach immer vorhanden sein).
-        </para>
+          Beschreibung einfach ignorieren. Auch die abschließenden Wiederholungen eines Element-Namens mit dem vorangestellten
+		  "&#47;" (&lt;&#47;Irgendwas&gt;)
+		  werden wir in Zukunft nicht mehr gesondert erwähnen (sie müssen einfach immer vorhanden sein).
+		</para>
 
         <mediaLink>
           <image xlink:href="DemoJobXML_01"/>

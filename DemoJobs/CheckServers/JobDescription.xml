@@ -67,8 +67,8 @@
       <LogicalExpression>CheckServers:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: CheckServers %Event% von %Source% in %Sender%|%Exception%|Server Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Fehler" -MessageNewLine=#</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -78,7 +78,7 @@
         <SubWorker>
           <PhysicalPath>MicroMailer.exe</PhysicalPath>
           <Parameters>
-            <![CDATA[Server Fehler|%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%|localMailserver|Vishnu@neteti.de|e.nagel@neteti.de]]>
+            <![CDATA[Server Fehler|%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%|localMailserver|Vishnu@reallyhuman.net|e.nagel@neteti.de]]>
           </Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
@@ -92,8 +92,8 @@
       <LogicalExpression>Google:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Server Google ist nicht erreichbar!|Server Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Server Google ist nicht erreichbar!" -Caption="Server Fehler"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -101,8 +101,8 @@
       <LogicalExpression>Nobody:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Server Nobody ist nicht erreichbar!|Server Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="Timestamp%: Der Server Nobody ist nicht erreichbar!" -Caption="Server Fehler"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -110,8 +110,8 @@
       <LogicalExpression>Heise:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Server Heise ist nicht erreichbar!|Server Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Server Heise ist nicht erreichbar!" -Caption="Server Fehler"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -119,8 +119,8 @@
       <LogicalExpression>Local:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Server Local ist nicht erreichbar!|Server Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Server Local ist nicht erreichbar!" -Caption="Server Fehler"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
