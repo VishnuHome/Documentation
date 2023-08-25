@@ -4,6 +4,121 @@
         <name>WeatherChecker</name>
     </assembly>
     <members>
+        <member name="T:WeatherChecker.GeoLocation_ReturnObject">
+            <summary>
+            Class to receive the return from the api-call to http://ip-api.com/json/.
+            25.08.2023 Erik Nagel: created.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.status">
+            <summary>
+            Success or fail
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.country">
+            <summary>
+            Country name
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.countryCode">
+            <summary>
+            wo-letter country code ISO 3166-1 alpha-2
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.region">
+            <summary>
+            Region/state short code (FIPS or ISO)
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.regionName">
+            <summary>
+            Region/state
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.city">
+            <summary>
+            City
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.zip">
+            <summary>
+            Zip code
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.lat">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.lon">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.timezone">
+            <summary>
+            Timezone (tz)
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.isp">
+            <summary>
+            ISP name
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.org">
+            <summary>
+            Organization name
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.company">
+            <summary>
+            AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.query">
+            <summary>
+            P used for the query
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende GeoLocation_ReturnObject.</param>
+            <returns>True, wenn das übergebene GeoLocation_ReturnObject inhaltlich gleich diesem GeoLocation_ReturnObject ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
         <member name="T:WeatherChecker.WeatherChecker">
              <summary>
              DemoChecker-Projekt für Vishnu.
@@ -272,6 +387,11 @@
         <member name="P:WeatherChecker.WeatherChecker_ReturnObject.Dataseries">
             <summary>
             Array von Wettervorhersagen für aufeinander folgende Zeitabschnitte.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.Location">
+            <summary>
+            Enthält Ortsinformationen.
             </summary>
         </member>
         <member name="P:WeatherChecker.WeatherChecker_ReturnObject.RecordCount">
