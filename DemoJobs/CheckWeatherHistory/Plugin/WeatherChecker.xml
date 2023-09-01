@@ -135,6 +135,8 @@
              Many thanks to Chenzhou Cui and his friends, who run this wonderful free weather-forecast site.
              Wiki on https://github.com/Yeqzids/7timer-issues/wiki/Wiki.
              API on http://www.7timer.info/bin/api.pl?lon=6.7821&amp;lat=51.2375&amp;product=civil&amp;output=json.
+             Further I want to thank the developer-team who runs https://ip-api.com/ which provides a geolocation service,
+             that is free for non commercial usage.
              
              11.10.2020 Erik Nagel: erstellt
              </remarks>
