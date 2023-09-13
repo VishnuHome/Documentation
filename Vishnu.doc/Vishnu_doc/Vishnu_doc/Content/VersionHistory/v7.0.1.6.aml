@@ -6,11 +6,12 @@
 
 	  <introduction>
 		  <para>
-			  Version 7.0.1.0 Hard Core (Stand: 06.08.2023)
+			  Version 7.0.1.6 Hard Core (Stand: 13.09.2023)
 		  </para>
 		  <para>
 			  Dieser Version ist die erste komplett auf .Net 7.0 migrierte Vishnu-Software.<lineBreak />
 			  Dies umfasst auch das Framework, alle Plugins und die Dokumentation.
+			  Diese Version ist getestet und stabil.
 		  </para>
 	  </introduction>
 
@@ -18,6 +19,20 @@
 		  <title>Änderungen in dieser Version</title>
 		  <content>
 			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  Der <token>V</token>-Installer (ClickOnce) wurde nach Migration auf .Net 7 deaktiviert.
+						  Hier muss langfristig eine bessere Lösung gefunden werden.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+						  <token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+						  wurden nach Migration auf .Net 7 deaktiviert.
+						  Hier muss noch eine kompatible Lösung für transitive NuGet-Packages entwickelt werden.
+					  </para>
+				  </listItem>
 				  <listItem>
 					  <para>
 						  Erstellung von NuGet-Packages über eine allgemeingültige Lösung für alle Projekte
@@ -34,6 +49,12 @@
 					  <para>
 						  Vishnu-Positionierung und Resizing bei Multiscreen-Orientierung (-SizeOnVirtualScreen=true)
 						  überarbeitet.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Die Ausrichtung des <token>V</token>-Trees kann jetzt zur Laufzeit zusätzlich zum 
+						  Klick auf das YinYang-Symbol auch über F4 geändert werden.
 					  </para>
 				  </listItem>
 				  <listItem>

@@ -65,7 +65,7 @@
         <para>
           Der <token>V</token>-Demo-Job wird wie jedes Element in einer XML-Konfiguration beschrieben:
         </para>
-        <code source="..\Vishnu_doc\Examples\Simple\CheckAll_JobDescription.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\Simple\CheckAll_JobDescription.xml" language="xml"
            title="JobDescription.xml">
         </code>
         <para>
@@ -168,7 +168,7 @@
         <para>
           <languageKeyword>JobDescription</languageKeyword> für den Sub-Job <languageKeyword>CheckServers</languageKeyword>:
         </para>
-        <code source="..\Vishnu_doc\Examples\Simple\CheckServers_JobDescription.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\Simple\CheckServers_JobDescription.xml" language="xml"
            title="JobDescription.xml">
         </code>
         <para>
@@ -270,7 +270,7 @@
         <para>
           <languageKeyword>JobDescription</languageKeyword> für den Sub-Job <languageKeyword>CheckDiskSpace</languageKeyword>:
         </para>
-        <code source="..\Vishnu_doc\Examples\Simple\CheckDiskSpace_JobDescription.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\Simple\CheckDiskSpace_JobDescription.xml" language="xml"
            title="JobDescription.xml"></code>
       </content>
     </section>

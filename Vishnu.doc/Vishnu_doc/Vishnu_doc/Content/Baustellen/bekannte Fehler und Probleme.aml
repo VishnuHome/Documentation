@@ -18,6 +18,20 @@
 			<list class="bullet">
 				<listItem>
 					<para>
+						Der <token>V</token>-Installer (ClickOnce) wurde nach Migration auf .Net 7 deaktiviert.
+						Hier muss langfristig eine bessere Lösung gefunden werden.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+						<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+						wurden nach Migration auf .Net 7 deaktiviert.
+						Hier muss noch eine kompatible Lösung für transitive NuGet-Packages entwickelt werden.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
 						Wenn das Log-Verzeichnis kurzzeitig nicht erreichbar ist (z.B. wg. Netzwerkproblemen)
 						beendet sich Vishnu.
 					</para>

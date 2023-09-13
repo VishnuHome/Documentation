@@ -93,7 +93,7 @@
       <NamespaceSummaryItem name="NetEti.MultiScreen" isDocumented="True">Unterstützung zur Nutzung mehrerer Bildschirme</NamespaceSummaryItem>
       <NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>7.0.0.0</HelpFileVersion>
+    <HelpFileVersion>7.0.0.1</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>Standard</SyntaxFilters>
@@ -216,7 +216,7 @@
     <None Include="Content\VersionHistory\v5.1.0.0.aml" />
     <None Include="Content\VersionHistory\v5.3.0.3.aml" />
     <None Include="Content\VersionHistory\v5.3.1.0.aml" />
-    <None Include="Content\VersionHistory\v7.0.1.0.aml" />
+    <None Include="Content\VersionHistory\v7.0.1.6.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Vishnu_Hello.aml" />
     <None Include="Content\VersionHistory\v1.0.1.4.aml" />
