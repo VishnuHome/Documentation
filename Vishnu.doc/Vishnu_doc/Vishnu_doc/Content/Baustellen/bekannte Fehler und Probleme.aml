@@ -32,8 +32,8 @@
 				</listItem>
 				<listItem>
 					<para>
-						Wenn das Log-Verzeichnis kurzzeitig nicht erreichbar ist (z.B. wg. Netzwerkproblemen)
-						beendet sich Vishnu.
+						Wenn das Log-Verzeichnis auf einem Netzwerklaufwerk liegt und das Netzwerk kurzzeitig nicht
+						erreichbar ist, beendet sich Vishnu.
 					</para>
 				</listItem>
 				<listItem>
@@ -60,6 +60,12 @@
 						Die in <token>V</token> implementierte einfache Schwellenwert-Logik (Treshold) erlaubt nur diskrete, vordefinierte
 						Operatoren <languageKeyword>TR10, TR20, TR30, ... , TR80, TR90</languageKeyword> und somit auch nur analoge Prozentwerte.
 						Besser wäre ein Operator mit variablen Prozentwerten.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Es existiert noch keine Lösung für das automatisierte Kürzen von Logfiles des <languageKeyword>CheckerHistoryLoggers</languageKeyword>.
+						Die Logfiles wachsen einfach unendlich weiter.
 					</para>
 				</listItem>
 				<listItem>

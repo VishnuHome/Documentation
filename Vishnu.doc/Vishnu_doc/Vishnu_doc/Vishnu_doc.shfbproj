@@ -68,31 +68,31 @@
     </DocumentationSources>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.ExpressionParser" isDocumented="True">Verarbeitungsroutinen für logische Ausdrücke</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="LogicalTaskTree" isDocumented="True">Haupt-Verarbeitungslogik von Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.CustomControls" isDocumented="True">Eigene oder angepasste Controls für die Verwendung in Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NodeListUserControl" isDocumented="True">Standard Control für die Darstellung von NodeLists in Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="SingleNodeUserControl" isDocumented="True">Standard Control für die Darstellung von SingleNodes (Endknoten) in Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="ViewModel" isDocumented="True">MVVM ViewModel fürVishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.Interchange" isDocumented="True">Definitionen, Schnittstellen und Klassen, die in Anwender-Elementen zum Tragen kommen</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.ViewModel" isDocumented="True">MVVM ViewModel für Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.WPF_UI" isDocumented="True">Vishnu Bildschirmoberfläche</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.WPF_UI.Behaviours" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.WPF_UI.DependencyProperties" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.WPF_UI.ValueConverter" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="LogicalTaskTree.Provider" isDocumented="True">Provider für Vishnu-Jobs</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.ApplicationEnvironment" isDocumented="True">Ermittlung von Umgebungsparametern der Applikation</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Vishnu.UserControls" isDocumented="True">In Vishnu darstellbare UserControls. Enthält die Standard-UserControls von Vishnu.</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.Globals" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.MVVMini" isDocumented="True">Basis-Funktionalitäten für MVVM Anwendungen</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" />
-      <NamespaceSummaryItem name="NetEti.ApplicationControl" isDocumented="True">Allgemeine Routinen zur Anwendungssteuerung</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.FileTools" isDocumented="True">Routinen zum Zugriff über das Filesystem</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="Framework.ClickOnce" isDocumented="False" />
-      <NamespaceSummaryItem name="NetEti.FileTools.Zip" isDocumented="True">ZIP Pack/Unpack-Routinen</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.MultiScreen" isDocumented="True">Unterstützung zur Nutzung mehrerer Bildschirme</NamespaceSummaryItem>
-      <NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
-    </NamespaceSummaries>
+<NamespaceSummaryItem name="NetEti.ExpressionParser" isDocumented="True">Verarbeitungsroutinen für logische Ausdrücke</NamespaceSummaryItem>
+<NamespaceSummaryItem name="LogicalTaskTree" isDocumented="True">Haupt-Verarbeitungslogik von Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.CustomControls" isDocumented="True">Eigene oder angepasste Controls für die Verwendung in Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NodeListUserControl" isDocumented="True">Standard Control für die Darstellung von NodeLists in Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="SingleNodeUserControl" isDocumented="True">Standard Control für die Darstellung von SingleNodes (Endknoten) in Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="ViewModel" isDocumented="True">MVVM ViewModel fürVishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.Interchange" isDocumented="True">Definitionen, Schnittstellen und Klassen, die in Anwender-Elementen zum Tragen kommen</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.ViewModel" isDocumented="True">MVVM ViewModel für Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.WPF_UI" isDocumented="True">Vishnu Bildschirmoberfläche</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.WPF_UI.Behaviours" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.WPF_UI.DependencyProperties" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.WPF_UI.ValueConverter" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+<NamespaceSummaryItem name="LogicalTaskTree.Provider" isDocumented="True">Provider für Vishnu-Jobs</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.ApplicationEnvironment" isDocumented="True">Ermittlung von Umgebungsparametern der Applikation</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Vishnu.UserControls" isDocumented="True">In Vishnu darstellbare UserControls. Enthält die Standard-UserControls von Vishnu.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.Globals" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.MVVMini" isDocumented="True">Basis-Funktionalitäten für MVVM Anwendungen</NamespaceSummaryItem>
+<NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" />
+<NamespaceSummaryItem name="NetEti.ApplicationControl" isDocumented="True">Allgemeine Routinen zur Anwendungssteuerung</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.FileTools" isDocumented="True">Routinen zum Zugriff über das Filesystem</NamespaceSummaryItem>
+<NamespaceSummaryItem name="Framework.ClickOnce" isDocumented="False" />
+<NamespaceSummaryItem name="NetEti.FileTools.Zip" isDocumented="True">ZIP Pack/Unpack-Routinen</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.MultiScreen" isDocumented="True">Unterstützung zur Nutzung mehrerer Bildschirme</NamespaceSummaryItem>
+<NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
+<NamespaceSummaryItem name="ResourceDictionaryCodeBehind" isDocumented="False" /></NamespaceSummaries>
     <HelpFileVersion>7.0.0.1</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>

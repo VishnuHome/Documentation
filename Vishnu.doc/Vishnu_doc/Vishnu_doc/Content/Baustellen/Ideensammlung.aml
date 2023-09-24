@@ -109,12 +109,12 @@
 					</para>
 					<alert class="note">
 						<para>
-							Auch wenn ich selbst finde, dass Unit-Testing insgesamt zu stark gehyped wird, sehe ich doch, dass Unit Tests
-							eine zusätzliche Unterstützung der (Weiter-)Entwicklung sein können.
-							Ich habe nur bisher zusätzlichen Aufwand lieber in Integrationstest investiert, weil sich mir der Nutzen dort
-							unmittelbar erschließt (übrigens auch im Sinne zusätzlicher Dokumentation).
-							Auch hat mich die aktuell implementierte Software-Architektur nach mehreren mehr oder weniger schmerzhaften
-							Reengineerings in der Lage gehalten, dieses Gesamtprojekt über mehr als zehn Jahre im Griff zu halten.
+							Auch wenn ich selbst finde, dass Unit-Testing insgesamt zu stark gehyped wird, sehe ich doch,
+							dass Unit Tests	eine zusätzliche Unterstützung der (Weiter-)Entwicklung sein können.
+							Ich habe nur bisher zusätzlichen Aufwand lieber in Integrationstest investiert, weil sich mir
+							der Nutzen dort	unmittelbar erschließt (übrigens auch im Sinne zusätzlicher Dokumentation).
+							Insbesondere auch die implementierte Software-Architektur, MsBuild-Scripts, Git-Scripting und
+							diverse lokale Dokumentatiosfiles tragen zu einer guten Wartbarkeit des Software-Paketes bei.
 							Wer allerdings unterstützend Unit-Tests erstellen möchte, ist herzlich eingeladen.
 						</para>
 					</alert>
