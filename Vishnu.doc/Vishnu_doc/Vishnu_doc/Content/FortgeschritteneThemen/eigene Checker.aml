@@ -81,12 +81,19 @@
 				<para>
 					Es wird eine Projektmappe mit einem Checker-Projekt und einem Testprojekt generiert.
 				</para>
+				<alert class="warning">
+					<para>
+						Es erfolgen während der Generierung der Projekte zwei Fehlermeldungen, dass
+						dem Projekt nicht alle erforderlichen Pakete hinzugefügt werden könnten.
+						Diese treffen aber nicht zu und können ignoriert werden.
+					</para>
+				</alert>
 				<mediaLink>
 					<image xlink:href="UserCheckerSolution"/>
 				</mediaLink>
 				<alert class="note">
 					<para>
-						Der UserCecker und das Testprojekt sind sofort lauffähig und der UserChecker könnte mit der
+						Der UserCecker und das Testprojekt sind sofort umwandlungsfähig und der UserChecker könnte mit der
 						implementierten Demo-Funktionalität als <token>V</token>-Checker eingesetzt werden.
 					</para>
 					<para>

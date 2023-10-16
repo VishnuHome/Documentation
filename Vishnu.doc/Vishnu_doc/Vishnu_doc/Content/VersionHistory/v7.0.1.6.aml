@@ -6,7 +6,7 @@
 
 	  <introduction>
 		  <para>
-			  Version 7.0.1.6 Hard Core (Stand: 13.09.2023)
+			  Version 7.0.1.6 Hard Core (Stand: 16.10.2023)
 		  </para>
 		  <para>
 			  Dieser Version ist die erste komplett auf .Net 7.0 migrierte Vishnu-Software.<lineBreak />
@@ -29,8 +29,8 @@
 					  <para>
 						  Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
 						  <token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
-						  wurden nach Migration auf .Net 7 deaktiviert.
-						  Hier muss noch eine kompatible Lösung für transitive NuGet-Packages entwickelt werden.
+						  wurden zwar nach Migration auf .Net 7 wieder funktionstüchtig gemacht, erzeugen aber bei der Generierung
+						  neuer Projekte noch Fehlermeldungen. Ansonsten funktioniert aber alles.
 					  </para>
 				  </listItem>
 				  <listItem>

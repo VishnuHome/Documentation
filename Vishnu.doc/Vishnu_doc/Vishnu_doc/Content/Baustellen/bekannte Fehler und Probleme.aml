@@ -26,8 +26,8 @@
 					<para>
 						Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
 						<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
-						wurden nach Migration auf .Net 7 deaktiviert.
-						Hier muss noch eine kompatible Lösung für transitive NuGet-Packages entwickelt werden.
+						wurden zwar nach Migration auf .Net 7 wieder funktionstüchtig gemacht, erzeugen aber bei der Generierung
+						neuer Projekte noch Fehlermeldungen. Ansonsten funktioniert aber alles.
 					</para>
 				</listItem>
 				<listItem>
