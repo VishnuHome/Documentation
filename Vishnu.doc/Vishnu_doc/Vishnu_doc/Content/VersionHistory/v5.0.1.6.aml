@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6584e007-8486-4ef7-9415-3349d9b3f338" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 5.0.1.6 HotPlug (Stand: 09.02.2021)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Schreiben und Laden von Snapshots optimiert, abgesichert und neu getestet.
+              Ring Logger implementiert - Lösung über parametrisierbares Umbenennen und Löschen überzähliger Logfiles.
+              Die maximale Öffnungszeit für ToolTips wurde auf 30 Sekunden hochgesetzt.
+              Environment-Parameter mit Vishnu_ Prefix versehen.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              --- Diese Funktionalität ist noch als experimentell zu betrachten, umfassende Test stehen noch aus ---
+              <lineBreak />Dynamische Snapshots und Trees - TreeReload implementiert.
+              Kontext-Menü auf rechte Maustaste (dafür "Ansicht normalisieren" auf Umschalt-rechte Maustaste verlegt):
+            </para>
+            <list class="bullet">
+              <listItem>
+                <para>Tree neu laden</para>
+              </listItem>
+              <listItem>
+                <para>Tree anhalten und weiterlaufen lassen</para>
+              </listItem>
+              <listItem>
+                <para>Tree oder Branch loggen</para>
+              </listItem>
+            </list>
+          </listItem>
+          <listItem>
+            <para>
+              Bugfix: UserControls mit ListViews mit unhandled SelectionChanged konnten im MainTabControl zum
+              Abbruch von Vishnu führen, da SelectionChanged im Tree nach oben bubbled.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Bugfix: Direkter UserRun auf getriggerte Knoten führte zum doppelten Start der Knoten, da der
+              zugeordnete Trigger auch sofort wieder auslöste.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

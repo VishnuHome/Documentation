@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>UserCheckerDemo</LogicalName>
+  <LogicalExpression>Predecessor AND UserChecker</LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Predecessor</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False:True:Exception|10|Predecessor: Hello World</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:3|S:5</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>UserChecker</LogicalName>
+      <PhysicalPath>Plugin\UserChecker.dll</PhysicalPath>
+			<Trigger>
+				<Reference>True</Reference>
+				<Parameters>Predecessor</Parameters>
+			</Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

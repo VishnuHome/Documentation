@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VishnuRoot>$(ProjectDir)../../../../..</VishnuRoot>
+    <AssemblyRoot>$(VishnuRoot)/ReadyBin/Assemblies</AssemblyRoot>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Import Project="$(ProjectDir)../../AddOn/proj/*" Condition="exists('$(ProjectDir)../../AddOn/proj')" />
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which assemblies to include from solution and
+				 project documentation sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>5a6afcad-785a-4c82-b7cb-2a429c93aa17</ProjectGuid>
+    <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
+    <AssemblyName>Vishnu_doc</AssemblyName>
+    <RootNamespace>Vishnu_doc</RootNamespace>
+    <Name>Vishnu_doc</Name>
+    <!-- SHFB properties -->
+    <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>Vishnu_doc.de</HtmlHelpName>
+    <Language>de-DE</Language>
+    <TransformComponentArguments>
+      <Argument Key="logoFile" Value="Vishnu_64.png" />
+      <Argument Key="logoHeight" Value="" />
+      <Argument Key="logoWidth" Value="" />
+      <Argument Key="logoAltText" Value="" />
+      <Argument Key="logoPlacement" Value="left" />
+      <Argument Key="logoAlignment" Value="left" />
+      <Argument Key="maxVersionParts" Value="" />
+      <Argument Key="defaultLanguage" Value="cs" />
+      <Argument Key="includeEnumValues" Value="true" />
+    </TransformComponentArguments>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\ProcessTools\ProcessTools\ProcessTools.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\MultiScreen\MultiScreen\MultiScreen.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\ObjectSerializer\ObjectSerializer\ObjectSerializer.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\ZipAccess\ZipAccess\ZipAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl\JobConnectorUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl\ConstantNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl\JobListUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl\NodeListUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl\SingleNodeUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl\SnapshotUserControl.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\AppEnvReader\AppEnvReader\AppEnvReader.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\BasicAppSettings\BasicAppSettings\BasicAppSettings.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\CommandLineAccess\CommandLineAccess\CommandLineAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\CustomProgressBar\CustomProgressBar\CustomProgressBar.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\EnvAccess\EnvAccess\EnvAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ExpressionParser\ExpressionParser\ExpressionParser.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\Global\Global\Global.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\InfoController\InfoController.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\InfoController\Logging\Logging.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\LogicalTaskTree\LogicalTaskTree.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\MVVMini\MVVMini\MVVMini.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\PropertyAccess\PropertyAccess\PropertyAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\RegAccess\RegAccess\RegAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\SettingsAccess\SettingsAccess\SettingsAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\TaskWorker\TaskWorker\TaskWorker.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\Vishnu.Interchange\Vishnu.Interchange.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\Vishnu.ViewModel\Vishnu.ViewModel.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\Vishnu\Vishnu.WPF_UI\Vishnu.WPF_UI.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\XMLAccess\XMLAccess\XMLAccess.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\VishnuHome\ZoomBox\ZoomBox\ZoomBox.csproj" />
+      <DocumentationSource sourceFile="$(VishnuRoot)\WorkFrame\IniAccess\IniAccess\IniAccess.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\..\WorkFrame\QuickEdit\QuickEdit\QuickEdit.csproj" />
+      <DocumentationSource sourceFile="..\..\..\..\VishnuHelpBrowser\VishnuHelpBrowser\VishnuHelpBrowser.csproj" />
+    </DocumentationSources>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.ExpressionParser" isDocumented="True">Verarbeitungsroutinen für logische Ausdrücke</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="LogicalTaskTree" isDocumented="True">Haupt-Verarbeitungslogik von Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.CustomControls" isDocumented="True">Eigene oder angepasste Controls für die Verwendung in Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NodeListUserControl" isDocumented="True">Standard Control für die Darstellung von NodeLists in Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="SingleNodeUserControl" isDocumented="True">Standard Control für die Darstellung von SingleNodes (Endknoten) in Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ViewModel" isDocumented="True">MVVM ViewModel fürVishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.Interchange" isDocumented="True">Definitionen, Schnittstellen und Klassen, die in Anwender-Elementen zum Tragen kommen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.ViewModel" isDocumented="True">MVVM ViewModel für Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.WPF_UI" isDocumented="True">Vishnu Bildschirmoberfläche</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.WPF_UI.Behaviours" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.WPF_UI.DependencyProperties" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.WPF_UI.ValueConverter" isDocumented="True">Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="LogicalTaskTree.Provider" isDocumented="True">Provider für Vishnu-Jobs</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.ApplicationEnvironment" isDocumented="True">Ermittlung von Umgebungsparametern der Applikation</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Vishnu.UserControls" isDocumented="True">In Vishnu darstellbare UserControls. Enthält die Standard-UserControls von Vishnu.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.Globals" isDocumented="True">Globale Typen, Konstanten, Klassen und statische Funktionen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.MVVMini" isDocumented="True">Basis-Funktionalitäten für MVVM Anwendungen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="XamlGeneratedNamespace" isDocumented="False" />
+      <NamespaceSummaryItem name="NetEti.ApplicationControl" isDocumented="True">Allgemeine Routinen zur Anwendungssteuerung</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.FileTools" isDocumented="True">Routinen zum Zugriff über das Filesystem</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Framework.ClickOnce" isDocumented="False" />
+      <NamespaceSummaryItem name="NetEti.FileTools.Zip" isDocumented="True">ZIP Pack/Unpack-Routinen</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.MultiScreen" isDocumented="True">Unterstützung zur Nutzung mehrerer Bildschirme</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="ResourceDictionaryCodeBehind" isDocumented="False" />
+    </NamespaceSummaries>
+    <HelpFileVersion>8.0.0.0</HelpFileVersion>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <SyntaxFilters>Standard</SyntaxFilters>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <PresentationStyle>VS2013</PresentationStyle>
+    <Preliminary>False</Preliminary>
+    <NamingMethod>MemberName</NamingMethod>
+    <HelpTitle>Vishnu - der logische Prozess-Monitor</HelpTitle>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <IndentHtml>False</IndentHtml>
+    <KeepLogFile>True</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <CleanIntermediates>True</CleanIntermediates>
+    <FooterText>Naturgem&amp;#228%3b&amp;#223%3b basieren viele Erkenntnisse und Entwicklungen auf im Internet frei zug&amp;#228%3bnglichen Informationen. Eventuell fehlende Verweise auf urspr&amp;#252%3bngliche Autoren sind unbeabsichtigt und werden nach Meldung sofort nachgepflegt.</FooterText>
+    <FeedbackEMailAddress>Vishnu%40reallyhuman.net</FeedbackEMailAddress>
+    <CopyrightText>Copyright &amp;#169%3b 2012-2024 Erik Nagel</CopyrightText>
+    <ProjectSummary>Dieser Teil der Vishnu-Dokumentation richtet sich an Software-Entwickler oder Anwender,  die Grundkenntnisse in der Entwicklung von .Net Software haben. Den anwendungsorientierten Teil der Dokumentation finden Sie unter &amp;lt%3ba href=&amp;quot%3bad9ee8b6-c68c-47ec-9584-d85046eb3137.htm&amp;quot%3b&amp;gt%3bVishnu - Prozesse beobachten und steuern&amp;lt%3b/a&amp;gt%3b.</ProjectSummary>
+    <VisibleItems>InheritedMembers, Protected, ProtectedInternalAsProtected, EditorBrowsableNever, NonBrowsable</VisibleItems>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter</MissingTags>
+    <RootNamespaceTitle>Vishnu - technische Dokumentation</RootNamespaceTitle>
+    <ApiFilter>
+      <Filter entryType="Namespace" fullName="Framework.ClickOnce" isExposed="False" />
+      <Filter entryType="Namespace" fullName="NetEti.FileTools.Zip" isExposed="True">
+        <Filter entryType="Class" fullName="NetEti.FileTools.Zip.SevenZipWorker" filterName="SevenZipWorker" isExposed="True">
+          <Filter entryType="Method" fullName="NetEti.FileTools.Zip.SevenZipWorker.SevenGetZipEntryInfos" filterName="SevenGetZipEntryInfos" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="ResourceDictionaryCodeBehind" isExposed="False" />
+      <Filter entryType="Namespace" fullName="Vishnu.Interchange" isExposed="True">
+        <Filter entryType="Class" fullName="Vishnu.Interchange.AppSettings" filterName="AppSettings" isExposed="True">
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.AcceptNullResults" filterName="AcceptNullResults" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.BreakTreeBeforeStart" filterName="BreakTreeBeforeStart" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.InitAtUserRun" filterName="InitAtUserRun" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.LogicalChangedDelay" filterName="LogicalChangedDelay" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.LogicalChangedDelayPower" filterName="LogicalChangedDelayPower" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.MainJobName" filterName="MainJobName" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.RootJobPackagePath" filterName="RootJobPackagePath" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.SizeOnVirtualScreen" filterName="SizeOnVirtualScreen" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.TryRunAsyncSleepTime" filterName="TryRunAsyncSleepTime" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.XUnlock" filterName="XUnlock" isExposed="False" />
+          <Filter entryType="Property" fullName="Vishnu.Interchange.AppSettings.ZipRelativeDummyDirectory" filterName="ZipRelativeDummyDirectory" isExposed="False" />
+          <Filter entryType="Field" fullName="Vishnu.Interchange.AppSettings.JobDirPathes" filterName="JobDirPathes" isExposed="False" />
+        </Filter>
+      </Filter>
+    </ApiFilter>
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
+			 the build.  The others are optional common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Content" />
+    <Folder Include="Content\FortgeschritteneThemen" />
+    <Folder Include="Content\Details" />
+    <Folder Include="Content\Konfiguration und Parameter" />
+    <Folder Include="Content\DokuInArbeit" />
+    <Folder Include="Content\Einstieg" />
+    <Folder Include="Content\Baustellen" />
+    <Folder Include="Content\VersionHistory" />
+    <Folder Include="Examples\Simple" />
+    <Folder Include="icons" />
+    <Folder Include="media" />
+    <Folder Include="Examples" />
+    <Folder Include="Work" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Baustellen\Baustellen.aml" />
+    <None Include="Content\Baustellen\bekannte Fehler und Probleme.aml" />
+    <None Include="Content\Baustellen\Ideensammlung.aml" />
+    <None Include="Content\Datenschutzerklärung und Impressum.aml" />
+    <None Include="Content\Details\Details.aml" />
+    <None Include="Content\Details\Inline SubJobs.aml" />
+    <None Include="Content\Details\Kontext Menue.aml" />
+    <None Include="Content\Details\TreeEvents.aml" />
+    <None Include="Content\Details\Vishnu Akteure.aml" />
+    <None Include="Content\Details\Vishnu Logik.aml" />
+    <None Include="Content\Einstieg\woher der Name.aml" />
+    <None Include="Content\Vishnu unterstützen.aml" />
+    <None Include="Content\FortgeschritteneThemen\Anforderungen an Anwender-Module.aml" />
+    <None Include="Content\FortgeschritteneThemen\benannte Trigger und Logger.aml" />
+    <None Include="Content\FortgeschritteneThemen\Checker-Historie loggen.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene Checker.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene Logger.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene Parameter-Reader.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene Trigger.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene ValueModifier.aml" />
+    <None Include="Content\FortgeschritteneThemen\eigene Views.aml" />
+    <None Include="Content\FortgeschritteneThemen\fortgeschrittene Themen.aml" />
+    <None Include="Content\FortgeschritteneThemen\Snapshots.aml" />
+    <None Include="Content\Konfiguration und Parameter\Konfiguration und Parameter.aml" />
+    <None Include="Content\Konfiguration und Parameter\Vishnu Parameter-Ersetzung.aml" />
+    <None Include="Content\Einstieg\ein einfaches Beispiel.aml" />
+    <None Include="Content\Einstieg\Installation.aml" />
+    <None Include="Content\Einstieg\Einstieg.aml" />
+    <None Include="Content\Einstieg\Systemanforderungen.aml" />
+    <None Include="Content\Einstieg\Vishnu Steuerung.aml" />
+    <None Include="Content\VersionHistory\v1.0.0.0.aml" />
+    <None Include="Content\VersionHistory\v2.3.0.0.aml" />
+    <None Include="Content\VersionHistory\v3.1.5.4.aml" />
+    <None Include="Content\VersionHistory\v3.2.0.0.aml" />
+    <None Include="Content\VersionHistory\v4.0.0.0.aml" />
+    <None Include="Content\VersionHistory\v4.6.0.0.aml" />
+    <None Include="Content\VersionHistory\v4.6.1.0.aml" />
+    <None Include="Content\VersionHistory\v4.7.2.1.aml" />
+    <None Include="Content\VersionHistory\v4.8.0.2.aml" />
+    <None Include="Content\VersionHistory\v4.9.0.1.aml" />
+    <None Include="Content\VersionHistory\v5.0.1.6.aml" />
+    <None Include="Content\VersionHistory\v5.0.2.6.aml" />
+    <None Include="Content\VersionHistory\v5.0.5.0.aml" />
+    <None Include="Content\VersionHistory\v5.1.0.0.aml" />
+    <None Include="Content\VersionHistory\v5.3.0.3.aml" />
+    <None Include="Content\VersionHistory\v5.3.1.0.aml" />
+    <None Include="Content\VersionHistory\v7.0.1.6.aml" />
+    <None Include="Content\VersionHistory\v8.0.2.0.aml" />
+    <None Include="Content\VersionHistory\v8.1.6.0.aml" />
+    <None Include="Content\VersionHistory\v8.2.0.0.aml" />
+    <None Include="Content\VersionHistory\VersionHistory.aml" />
+    <None Include="Content\Vishnu_Hello.aml" />
+    <None Include="Content\VersionHistory\v1.0.1.4.aml" />
+    <None Include="Content\VersionHistory\v1.0.3.2.aml" />
+    <None Include="Content\VersionHistory\v1.0.3.6.aml" />
+    <None Include="Content\VersionHistory\v1.0.4.2.aml" />
+    <None Include="Content\VersionHistory\v2.0.3.0.aml" />
+    <None Include="Content\VersionHistory\v2.4.2.1.aml" />
+    <None Include="Content\VersionHistory\v2.4.3.6.aml" />
+    <None Include="Content\VersionHistory\v2.5.8.7.aml" />
+    <None Include="Content\VersionHistory\v2.5.9.3.aml" />
+    <None Include="Content\VersionHistory\v2.6.1.0.aml" />
+    <None Include="Content\VersionHistory\v3.0.1.5.aml" />
+    <None Include="Content\VersionHistory\v3.0.2.8.aml" />
+    <None Include="Content\VersionHistory\v3.1.0.0.aml" />
+    <Content Include="Examples\CheckServersLogging.txt" />
+    <Content Include="Examples\CheckServersLogging_xyz.txt" />
+    <Content Include="icons\Vishnu_multi.ico" />
+    <None Include="Examples\CheckParameterReader.xml" />
+    <None Include="Examples\CheckServerPart.xml" />
+    <None Include="Examples\CheckServerPart2.xml" />
+    <None Include="Examples\CheckServerPart3.xml" />
+    <None Include="Examples\CheckServersLogging.xml" />
+    <None Include="Examples\CheckUserValueModifier.xml" />
+    <None Include="Examples\CheckWildcardParameters.xml" />
+    <None Include="Examples\DateToMoonAge.cs" />
+    <None Include="Examples\DateToMoonAge_ReturnObject.cs" />
+    <None Include="Examples\DemoParameterProvider.cs" />
+    <None Include="Examples\DemoParameterProviderProgram.cs" />
+    <None Include="Examples\CheckEscalator.xml" />
+    <None Include="Examples\ResultViewModel.cs" />
+    <None Include="Examples\Simple\CheckAll_JobDescription.xml" />
+    <None Include="Examples\Simple\CheckServers_JobDescription.xml" />
+    <None Include="Examples\Simple\CheckDiskSpace_JobDescription.xml" />
+    <None Include="Examples\TextFileLoggerClass.cs" />
+    <None Include="Examples\TextFileLoggerDemoProgram.cs" />
+    <None Include="Examples\TextFileLoggerDemoSpecialPath.txt" />
+    <None Include="Examples\TextFileLoggerDemoStandardPath.txt" />
+    <None Include="Examples\TimerTriggerClass.cs" />
+    <None Include="Examples\TimerTriggerDemoProgram.cs" />
+    <None Include="Examples\UserChecker.cs" />
+    <None Include="Examples\UserChecker_ReturnObject.cs" />
+    <None Include="Examples\Vishnu.exe.config.user" />
+    <None Include="Examples\Vishnu.exe.config.user.Part.xml" />
+    <None Include="Examples\weatherchecker.log" />
+    <None Include="Vishnu.exe.config.user.aml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\Egg.png">
+      <ImageId>Egg</ImageId>
+      <AlternateText>Egg</AlternateText>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\Vishnu_64.png">
+      <ImageId>Vishnu_64</ImageId>
+      <AlternateText>Vishnu 64</AlternateText>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="ContentLayout.content" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="media\break_node.png">
+      <ImageId>break_node</ImageId>
+      <AlternateText>break node</AlternateText>
+    </Image>
+    <Image Include="media\CheckDependentNode.JPG">
+      <ImageId>CheckDependentNode</ImageId>
+      <AlternateText>Check Dependent Node</AlternateText>
+    </Image>
+    <Image Include="media\CheckParameterDemoRun.png">
+      <ImageId>CheckParameterDemoRun</ImageId>
+      <AlternateText>Check Parameter Demo Run</AlternateText>
+    </Image>
+    <Image Include="media\CheckParameterReader.png">
+      <ImageId>CheckParameterReader</ImageId>
+      <AlternateText>Check Parameter Reader</AlternateText>
+    </Image>
+    <Image Include="media\CheckSingleValueModifier.png">
+      <ImageId>CheckSingleValueModifier</ImageId>
+      <AlternateText>Check Single Value Modifier</AlternateText>
+    </Image>
+    <Image Include="media\CheckUserValueModifier.png">
+      <ImageId>CheckUserValueModifier</ImageId>
+      <AlternateText>Check User Value Modifier</AlternateText>
+    </Image>
+    <Image Include="media\CheckWildcardParameters.png">
+      <ImageId>CheckWildcardParameters</ImageId>
+      <AlternateText>Check Wildcard Parameters</AlternateText>
+    </Image>
+    <Image Include="media\Check_Treshold_50_10.jpg">
+      <ImageId>Check_Treshold_50_10</ImageId>
+      <AlternateText>Check Treshold 50 10</AlternateText>
+    </Image>
+    <Image Include="media\closed_down.png">
+      <ImageId>closed_down</ImageId>
+      <AlternateText>closed down</AlternateText>
+    </Image>
+    <Image Include="media\closed_right.png">
+      <ImageId>closed_right</ImageId>
+      <AlternateText>closed right</AlternateText>
+    </Image>
+    <Image Include="media\Contextmenu1.png">
+      <ImageId>Contextmenu1</ImageId>
+      <AlternateText>Contextmenu 1</AlternateText>
+    </Image>
+    <Image Include="media\Darstellung_Speichern.png">
+      <ImageId>Darstellung_Speichern</ImageId>
+      <AlternateText>Darstellung Speichern</AlternateText>
+    </Image>
+    <Image Include="media\DemoJobXML_01.PNG">
+      <ImageId>DemoJobXML_01</ImageId>
+      <AlternateText>Demo JobXML 01</AlternateText>
+    </Image>
+    <Image Include="media\DemoJobXML_02.PNG">
+      <ImageId>DemoJobXML_02</ImageId>
+      <AlternateText>Demo JobXML 02</AlternateText>
+    </Image>
+    <Image Include="media\DemoJob_01.PNG">
+      <ImageId>DemoJob_01</ImageId>
+      <AlternateText>Demo Job 01</AlternateText>
+    </Image>
+    <Image Include="media\Demo_StartJob.png">
+      <ImageId>Demo_StartJob</ImageId>
+      <AlternateText>Demo Start Job</AlternateText>
+    </Image>
+    <Content Include="media\Demo_StartJob_mini.png">
+      <ImageId>Demo_StartJob_mini</ImageId>
+      <AlternateText>Demo Start Job mini</AlternateText>
+    </Content>
+    <Image Include="media\erik_at_reallyhuman_net.png">
+      <ImageId>erik_at_reallyhuman_net</ImageId>
+      <AlternateText>erik(at)reallyhuman net</AlternateText>
+    </Image>
+    <Image Include="media\Erststart.png">
+      <ImageId>Erststart</ImageId>
+      <AlternateText>Erststart</AlternateText>
+    </Image>
+    <Image Include="media\Escalator.png">
+      <ImageId>Escalator</ImageId>
+      <AlternateText>Escalator</AlternateText>
+    </Image>
+    <Image Include="media\Jobverzeichnis.png">
+      <ImageId>Jobverzeichnis</ImageId>
+      <AlternateText>Jobverzeichnis</AlternateText>
+    </Image>
+    <Image Include="media\mobile_erik.png">
+      <ImageId>mobile_erik</ImageId>
+      <AlternateText>+49 (0)172 7737589</AlternateText>
+    </Image>
+    <Image Include="media\NamedTriggerLogger.png">
+      <ImageId>NamedTriggerLogger</ImageId>
+      <AlternateText>Named Trigger Logger</AlternateText>
+    </Image>
+    <Image Include="media\noDrive_D.png">
+      <ImageId>noDrive_D</ImageId>
+      <AlternateText>no Drive D</AlternateText>
+    </Image>
+    <Image Include="media\opened_left.png">
+      <ImageId>opened_left</ImageId>
+      <AlternateText>opened left</AlternateText>
+    </Image>
+    <Image Include="media\opened_up.png">
+      <ImageId>opened_up</ImageId>
+      <AlternateText>opened up</AlternateText>
+    </Image>
+    <Image Include="media\Publish.png">
+      <ImageId>Publish</ImageId>
+      <AlternateText>Publish</AlternateText>
+    </Image>
+    <Image Include="media\run_node.png">
+      <ImageId>run_node</ImageId>
+      <AlternateText>run node</AlternateText>
+    </Image>
+    <Image Include="media\Sicherheitsabfrage.png">
+      <ImageId>Sicherheitsabfrage</ImageId>
+      <AlternateText>Sicherheitsabfrage</AlternateText>
+    </Image>
+    <Image Include="media\Sicherheitsabfrage2.png">
+      <ImageId>Sicherheitsabfrage2</ImageId>
+      <AlternateText>Sicherheitsabfrage 2</AlternateText>
+    </Image>
+    <Image Include="media\support.png">
+      <ImageId>support</ImageId>
+      <AlternateText>support</AlternateText>
+    </Image>
+    <Image Include="media\TimerTriggerDemo.png">
+      <ImageId>TimerTriggerDemo</ImageId>
+      <AlternateText>Timer Trigger Demo</AlternateText>
+    </Image>
+    <Image Include="media\TODO.png">
+      <ImageId>TODO</ImageId>
+      <AlternateText>TODO</AlternateText>
+    </Image>
+    <Image Include="media\UserCheckerDemo.png">
+      <ImageId>UserCheckerDemo</ImageId>
+      <AlternateText>User Checker Demo</AlternateText>
+    </Image>
+    <Image Include="media\UserCheckerDemoRun.png">
+      <ImageId>UserCheckerDemoRun</ImageId>
+      <AlternateText>User Checker Demo Run</AlternateText>
+    </Image>
+    <Image Include="media\UserCheckerSolution.png">
+      <ImageId>UserCheckerSolution</ImageId>
+      <AlternateText>User Checker Solution</AlternateText>
+    </Image>
+    <Image Include="media\UserViewDemoRun.png">
+      <ImageId>UserViewDemoRun</ImageId>
+      <AlternateText>User View Demo Run</AlternateText>
+    </Image>
+    <Image Include="media\UserViewSolution.png">
+      <ImageId>UserViewSolution</ImageId>
+      <AlternateText>User View Solution</AlternateText>
+    </Image>
+    <Image Include="media\Various_Triggers.png">
+      <ImageId>Various_Triggers</ImageId>
+      <AlternateText>Various Triggers</AlternateText>
+    </Image>
+    <Image Include="media\Vishnu.png">
+      <ImageId>Vishnu</ImageId>
+      <AlternateText>Vishnu</AlternateText>
+    </Image>
+    <Image Include="media\Vishnu_Servers_DiskSpace.PNG">
+      <ImageId>Vishnu_Servers_DiskSpace</ImageId>
+      <AlternateText>Vishnu Servers Disk Space</AlternateText>
+      <CopyToMedia>True</CopyToMedia>
+    </Image>
+    <Image Include="media\Vishnu_UserChecker_VSIX.png">
+      <ImageId>Vishnu_UserChecker_VSIX</ImageId>
+      <AlternateText>Vishnu User Checker VSIX</AlternateText>
+    </Image>
+    <Image Include="media\Vishnu_UserChecker_VSIX_select.png">
+      <ImageId>Vishnu_UserChecker_VSIX_select</ImageId>
+      <AlternateText>Vishnu User Checker VSIX select</AlternateText>
+    </Image>
+    <Image Include="media\Vishnu_UserView_VSIX.png">
+      <ImageId>Vishnu_UserView_VSIX</ImageId>
+      <AlternateText>Vishnu User View VSIX</AlternateText>
+    </Image>
+    <Image Include="media\Vishnu_UserView_VSIX_select.png">
+      <ImageId>Vishnu_UserView_VSIX_select</ImageId>
+      <AlternateText>Vishnu User View VSIX select</AlternateText>
+    </Image>
+    <Image Include="media\WeatherChecker.JPG">
+      <ImageId>WeatherChecker</ImageId>
+      <AlternateText>Weather Checker</AlternateText>
+    </Image>
+    <Image Include="media\YinYang.PNG">
+      <ImageId>YinYang</ImageId>
+      <AlternateText>Yin Yang</AlternateText>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Tokens Include="Vishnu_doc.tokens" />
+  </ItemGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+  <!-- The pre-build and post-build event properties must appear *after* the targets file import in order to be
+			 evaluated correctly. -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>COPY "$(ProjectDir)..\..\..\VishnuHtmlHelpModifier\VishnuHtmlHelpModifier\Bin\Debug\net8.0\*.*" $(OutDir)
+$(OutDir)VishnuHtmlHelpModifier.exe</PostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+</Project>

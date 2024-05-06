@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEventTrigger Snapshot</LogicalName>
+  <LogicalExpression>IS flipflop</LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Check TreeEventTrigger Snapshot</Parameters>
+  </JobSnapshotTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>flipflop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+    	<Trigger>
+      	<PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      	<Parameters>S:10</Parameters>
+    	</Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

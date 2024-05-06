@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VishnuHtmlHelpModifier": {
+      "commandName": "Project",
+      "commandLineArgs": "d:\\Daten\\private4\\WPF\\openVishnu8\\VishnuHome\\Documentation\\Vishnu.doc\\Vishnu_doc\\Vishnu_doc\\Help\\html\\"
+    }
+  }
+}

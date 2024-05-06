@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CheckDiskSpace</name>
+    </assembly>
+    <members>
+        <member name="T:CheckDiskSpace.CheckDiskSpace">
+             <summary>
+             Prüft, ob noch genug Plattenplatz verfügbar ist.
+             Ermittelt für das zu prüfende Laufwerk den gesamten Plattenplatz
+             und den verfügbaren Plattenplatz in MBytes und vergleicht den
+             verfügbaren Plattenplatz mit einer Mindestvorgabe.
+             </summary>
+             <remarks>
+             File: CheckDiskSpace.cs
+             Autor: Erik Nagel
+            
+             05.04.2014 Erik Nagel: erstellt.
+             06.09.2020 Erik Nagel: überarbeitet.
+             </remarks>
+        </member>
+        <member name="E:CheckDiskSpace.CheckDiskSpace.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungsfortschritt
+            des Checkers geändert hat, sollte aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.CheckDiskSpace.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:CheckDiskSpace.CheckDiskSpace.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Haupt-Verarbeitungsroutine - wertet die übergebenen Parameter aus und prüft den verfügbaren Plattenplatz.
+            </summary>
+            <param name="checkerParameters">Share oder Laufwerksbuchstabe | minimaler-Plattenplatz(in MByte) [|Timeout [Retries]]</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null (für zukünftige Versionen vorgesehen).</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+            <returns>True, wenn genug Plattenplatz verfügbar ist, ansonsten False oder Exception.</returns>
+        </member>
+        <member name="T:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject">
+             <summary>
+             Klasse zur Demonstration der Auflösung von komplexen
+             Return-Objects in einem dynamisch geladenen UserNodeControl.
+             </summary>
+             <remarks>
+             File: ComplexServerReturnObject.cs
+             Autor: Erik Nagel
+            
+             21.12.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Server">
+            <summary>
+            Name des Servers, der angepingt werden soll.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.DriveLetter">
+            <summary>
+            Laufwerksbuchstabe.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.CriticalFreeMBytesAvailable">
+            <summary>
+            Noch verfügbarer Plattenplatz in MBytes, ab dem gewarnt wird.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.TotalNumberOfMBytes">
+            <summary>
+            Gesamter Plattenplatz in MBytes.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.FreeMBytesAvailable">
+            <summary>
+            Verfügbarer Plattenplatz in MBytes.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.SQLServerAccess">
+            <summary>
+            True wenn der Plattenplatz mit Hilfe einer SQL-Server-Instanz ermittelt wurde.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Timeout">
+            <summary>
+            Timeout für einen einzelnen Ping.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Retries">
+            <summary>
+            Anzahl Ping-Versuche, bevor ein Fehler erzeugt wird.
+            </summary>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt öffentliche Properties
+            als einen (mehrzeiligen) aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Objekt.</param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            Der Timestamp wird bewusst nicht in den Vergleich einbezogen.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+    </members>
+</doc>

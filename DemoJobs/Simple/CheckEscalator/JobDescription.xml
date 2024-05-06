@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Escalator</LogicalName>
+  <LogicalExpression>
+    <![CDATA[:DialogChecker]]>
+  </LogicalExpression>
+  <Checkers type="array">
+		<Checker>
+			<LogicalName>DialogChecker</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>DialogChecker-Result</Parameters>
+		</Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Check Escalator:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>Escalator.exe</PhysicalPath>
+          <Parameters Transport="File">
+            <SubWorkers type="array">
+              <SubWorker RunCounter="1">
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Info" -MessageNewLine=#</Parameters>
+              </SubWorker>
+              <SubWorker RunCounter="3">
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Warnung" -MessageNewLine=#</Parameters>
+              </SubWorker>
+            </SubWorkers>
+          </Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:10</Parameters>
+          </Trigger>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check Escalator:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>Escalator.exe</PhysicalPath>
+          <Parameters Transport="File">
+            <SubWorkers type="array">
+              <SubWorker RunCounter="1">
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
+              </SubWorker>
+              <SubWorker RunCounter="2">
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                <Parameters>-Message="Stufe 2 (Run 2) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
+              </SubWorker>
+            </SubWorkers>
+          </Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:15</Parameters>
+          </Trigger>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

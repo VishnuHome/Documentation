@@ -1,0 +1,23 @@
+﻿  ...
+<Workers type="array">
+	<Worker>
+		<LogicalExpression>Heise:False|Exception</LogicalExpression>
+		<SubWorkers type="array">
+			<SubWorker>
+				<PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+				<Parameters>-Message="%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Fehler" -MessageNewLine=#</Parameters>
+			</SubWorker>
+			<SubWorker>
+				<PhysicalPath>MicroMailer.exe</PhysicalPath>
+				<Parameters><![CDATA[-Message="%Timestamp%:  CheckServers %Event% von %Source% in %Sender%#%Exception%." -Caption="Server Fehler!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Absender" -MailRecipients="Empfänger1[,Empfänger2,...]"]]></Parameters>
+				<!-- Trigger>
+					<LogicalName></LogicalName>
+					<PhysicalPath>TimerTrigger.dll</PhysicalPath>
+					<Parameters>M:20</Parameters>
+				</Trigger -->
+			</SubWorker>
+		</SubWorkers>
+	</Worker>
+	...
+</Workers>
+...

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckUserValueModifier</LogicalName>
+  <LogicalExpression>
+    DatumInput AND Mondphase
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>DatumInput</LogicalName>
+      <PhysicalPath>WPFDateDialog.dll</PhysicalPath>
+    </Checker>
+  </Checkers>
+  <ValueModifiers>
+    <ValueModifier>
+      <LogicalName>Mondphase</LogicalName>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckMoonPhase.dll</UserControlPath>
+      <Reference>DatumInput</Reference>
+      <PhysicalPath>Plugin\DateToMoonage.dll</PhysicalPath>
+      <Type>Object</Type>
+    </ValueModifier>
+  </ValueModifiers>
+</JobDescription>

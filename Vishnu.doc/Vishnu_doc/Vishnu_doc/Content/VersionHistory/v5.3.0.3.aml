@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="794b22c8-d732-49e9-9324-3a686272634d" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 5.3.0.3 Heavy Duty (Stand: 23.12.2022)
+			</para>
+		</introduction>
+
+		<section>
+			<title>Änderungen in dieser Version</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							Implementierung einer einfachen Logging-Funktion für die Ergebnisse beliebiger Checker.
+							<database>CheckerHistoryLogger</database> wird selbst als <languageKeyword>Checker</languageKeyword>
+							im <languageKeyword>Job</languageKeyword> definiert und ruft seinerseits den tatsächlichen Checker, dessen
+							Name in den Parametern übergeben wurde, als Sub-Checker auf.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Umfangreiche Überarbeitung der Job-Ansicht:
+						</para>
+						<list class="bullet">
+							<listItem>
+								<para>
+									Jobs werden jetzt in der "Jobs"-Ansicht in dynamischen Grids mit quadratischem Zuschnitt angezeigt.
+									Dadurch wurde eine bessere Bildschirmaufteilung und ein besseres Handling bei Größenänderung erreicht.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									Parameter StartWithJobs eingeführt.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									Beschleunigung der Aufbereitung und Positionierung des <token>V</token>-Hauptfensters nach Parameter
+									StartWithJobs und/oder gespeicherten Anzeigeeinstellungen.
+								</para>
+							</listItem>
+						</list>
+					</listItem>
+					<listItem>
+						<para>
+							Test-Jobs mit 100 und 1000 Checkern erstellt und ausgeführt (...\TestJobs\HeavyDuty\).
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Alle Vishnu-Knoten werden jetzt mit einem roten- oder grünen Rand umgeben, je nach logischem Zustand (true/false).
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Das Context-Menü schließt jetzt automatisch, wenn die Maus den Menübereich verlässt.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix: WPFDialogChecker starteten immer im ersten Bildschirm, auch wenn Vishnu im zweiten Bildschirm lief.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix: Das Context-Menü öffnete auch, wenn Strg oder Umschalt zusammen mit der rechten Maustaste gedrückt wurde.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Alle Tests wurden erneut durchlaufen und dokumentiert.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

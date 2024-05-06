@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CheckServer</name>
+    </assembly>
+    <members>
+        <member name="T:CheckServer.CheckServer">
+             <summary>
+             Prüft, ob bestimmte Server auf Ping reagieren.
+             </summary>
+             <remarks>
+             File: CheckServer.cs
+             Autor: Erik Nagel
+            
+             05.04.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="E:CheckServer.CheckServer.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungsfortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:CheckServer.CheckServer.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:CheckServer.CheckServer.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der (normalerweise externe) Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Spezifische Aufrufparameter oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="T:CheckServer.ComplexServerReturnObject">
+             <summary>
+             Demo-Klasse zur Demonstration der Auflösung von komplexen
+             Return-Objects in einem dynamisch geladenen UserNodeControl.
+             </summary>
+             <remarks>
+             File: ComplexServerReturnObject.cs
+             Autor: Erik Nagel
+            
+             19.11.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:CheckServer.ComplexServerReturnObject.Server">
+            <summary>
+            Name des Servers, der angepingt werden soll.
+            </summary>
+        </member>
+        <member name="P:CheckServer.ComplexServerReturnObject.Timeout">
+            <summary>
+            Timeout für einen einzelnen Ping.
+            </summary>
+        </member>
+        <member name="P:CheckServer.ComplexServerReturnObject.Retries">
+            <summary>
+            Anzahl Ping-Versuche, bevor ein Fehler erzeugt wird.
+            </summary>
+        </member>
+        <member name="P:CheckServer.ComplexServerReturnObject.SuccessfulRetry">
+            <summary>
+            Erfolgreicher Ping.
+            </summary>
+        </member>
+        <member name="M:CheckServer.ComplexServerReturnObject.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:CheckServer.ComplexServerReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:CheckServer.ComplexServerReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:CheckServer.ComplexServerReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen (zweizeiligen) aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+    </members>
+</doc>

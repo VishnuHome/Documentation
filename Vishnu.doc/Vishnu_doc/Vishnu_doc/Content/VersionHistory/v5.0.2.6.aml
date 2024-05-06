@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="97864ce1-d8bd-45a5-befc-065b28d395a9" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 5.0.2.6 Documentation (Stand: 05.07.2021)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Deutliche Erweiterung der Vishnu-Hilfe.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              SubJobs können jetzt auch ohne Angabe von "PhysicalPath" geladen werden.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Bugfix und Vereinfachungen bei Konstanten mit Boolschem- oder Null-Wert
+              (dabei farbigen Rand je nach logischem Wert einer Konstanten implementiert).
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Bugfix bei Fehler in Snapshots nach langer Laufzeit: <lineBreak />
+              System.ComponentModel.Win32Exception (0x80004005): Für diesen Befehl ist nicht
+              genügend Speicher verfügbar.
+              Ursache waren Probleme bei der Einbindung der PieControls-UserLibrary (CheckDiskSpace/ShowDiskSpace).
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckMoonPhase</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu_UserModules.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             04.04.2020 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.MoonAge">
+            <summary>
+            Das Mondalter im Zyklus von Neumond bis Neumond in Tagen.
+            </summary>
+        </member>
+        <member name="P:Vishnu_UserModules.ResultViewModel.MoonAgeText">
+            <summary>
+            Das Mondalter im Zyklus von Neumond bis Neumond in Tagen als Text aufbereitet.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.SingleNodeUserControl_CheckMoonPhase">
+            <summary>
+            Interaktionslogik für UserView_CheckServer.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckMoonPhase
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckMoonPhase.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckMoonPhase.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckMoonPhase.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckMoonPhase.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.ValueConverter.MoonAgeToBitmapImage">
+             <summary>
+             Setzt einen Integer für das Mondalter in Tagen
+             in ein BitmapImage der zugehörigen Mondphase um.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             05.04.2020 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="M:Vishnu_UserModules.ValueConverter.MoonAgeToBitmapImage.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Übersetzt einen Integer für das Mondalter in Tagen in ein Bild.
+            </summary>
+            <param name="values">Array: [Mondalter in Tagen][ResourceDictionary mit BitmapImages].</param>
+            <param name="targetType">Der Zieltyp (BitmapImage).</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen</param>
+            <returns>BitmapImage.</returns>
+        </member>
+        <member name="M:Vishnu_UserModules.ValueConverter.MoonAgeToBitmapImage.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Ist nicht implementiert.
+            </summary>
+            <param name="value">BitmapImage</param>
+            <param name="targetTypes">Array: [Mondalter in Tagen][ResourceDictionary mit BitmapImages].</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen</param>
+            <returns>Mondalter in Tagen als Object.</returns>
+        </member>
+    </members>
+</doc>

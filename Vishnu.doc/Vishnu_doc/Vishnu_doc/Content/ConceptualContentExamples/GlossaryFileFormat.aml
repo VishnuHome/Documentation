@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="E8300FF9-8749-4793-84DD-1BB1243ACE53" revisionNumber="1">
+  <developerGlossaryDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <glossary>
+      <!-- <title>Optional title</title> -->
+
+      <!-- Glossary division.  You can use these to group entries.  If you only
+           have one group, you can omit it and list the glossaryEntry elements
+           directly.
+
+           If used, be sure to give each glossaryDiv a unique address attribute
+           and a title element.  These will be used to create an index at the
+           top of the glossary page.
+
+           Glossary divisions will appear in the order defined in the topic.
+           Glossary entries will be sorted by the first term for the entry.
+           Terms are sorted by their value. -->
+      <glossaryDiv address="Group1">
+        <title>Group #1</title>
+
+        <glossaryEntry>
+          <terms>
+            <!-- One or more terms associated with the definition.  Add a termId
+               attribute if you need to link to it from a relatedEntry element.
+               Otherwise, it can be omitted.  Terms appear as a comma-separated
+               list above the definition. -->
+            <term termId="a">Aachen term</term>
+            <term>Bielefeld term</term>
+          </terms>
+
+          <definition>
+            <para>Aachen und Bielefeld - zwei komische Vögel</para>
+          </definition>
+
+          <!-- One or more optional related entries.  Creates a "See Also"
+               line after the definition with links to each related term. -->
+          <!-- <relatedEntry termId="xyz" /> -->
+        </glossaryEntry>
+
+        <glossaryEntry>
+          <terms>
+            <!-- One or more terms associated with the definition.  Add a termId
+               attribute if you need to link to it from a relatedEntry element.
+               Otherwise, it can be omitted.  Terms appear as a comma-separated
+               list above the definition. -->
+            <term termId="xyz">Uebung, Übung</term>
+          </terms>
+
+          <definition>
+            <para>text</para>
+          </definition>
+
+          <!-- One or more optional related entries.  Creates a "See Also"
+               line after the definition with links to each related term. -->
+          <!-- <relatedEntry termId="xyz" /> -->
+        </glossaryEntry>
+
+        <glossaryEntry>
+          <terms>
+            <!-- One or more terms associated with the definition.  Add a termId
+               attribute if you need to link to it from a relatedEntry element.
+               Otherwise, it can be omitted.  Terms appear as a comma-separated
+               list above the definition. -->
+            <term termId="xyza">Oeffnen, Öffnen</term>
+          </terms>
+
+          <definition>
+            <para>text</para>
+          </definition>
+
+          <!-- One or more optional related entries.  Creates a "See Also"
+               line after the definition with links to each related term. -->
+          <!-- <relatedEntry termId="xyz" /> -->
+        </glossaryEntry>
+
+      </glossaryDiv>
+
+    </glossary>
+  </developerGlossaryDocument>
+</topic>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckServer</name>
+    </assembly>
+    <members>
+        <member name="T:UserNodeControls.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             13.03.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Server">
+            <summary>
+            Name des Servers, der angepingt werden soll.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Timeout">
+            <summary>
+            Timeout für einen einzelnen Ping.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Retries">
+            <summary>
+            Anzahl Ping-Versuche, bevor ein Fehler erzeugt wird.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SuccessfulRetry">
+            <summary>
+            Erfolgreicher Ping.
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Die speziell für die Darstellung von CheckServer-Results entwickelte IVishnuViewModel-Implementierung.
+            </summary>
+            <param name="parentViewModel">Von Vishnu übergebenes IVishnuViewModel.</param>
+        </member>
+        <member name="T:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer">
+            <summary>
+            Interaktionslogik für SingleNodeUserControl_CheckServer.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckServer
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.#ctor">
+            <summary>
+            Konstruktor.
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.Refresh(System.Windows.DependencyObject)">
+            <summary>
+            Sorgt im Kontext des aufrufenden Moduls durch das übergebene DependencyObject "obj"
+            für ein neues Rendern des Controls.
+            </summary>
+            <param name="obj">Das aufrufende DependencyObject selbst.</param>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SingleNodeUserControl.PercentToBrush">
+             <summary>
+             Funktion: ValueConverter, wandelt einen Prozentwert (int: 0-n) in Farben:
+             0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
+             </summary>
+             <remarks>
+             File: PercentToBrush.cs
+             Autor: Erik Nagel
+            
+             28.12.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:SingleNodeUserControl.PercentToBrush.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen Prozentwert (int: 0-n) in Farben:
+            0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
+            </summary>
+            <param name="value">Prozentwert.</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>SolidColorBrush (Farbe zwischen rot und Grün)</returns>
+        </member>
+        <member name="M:SingleNodeUserControl.PercentToBrush.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt eine Farbe (SolidColorBrush)
+            in einen Prozentwert (int).
+            </summary>
+            <param name="value">SolidColorBrush</param>
+            <param name="targetType">Prozentwert (int)</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+        </member>
+    </members>
+</doc>

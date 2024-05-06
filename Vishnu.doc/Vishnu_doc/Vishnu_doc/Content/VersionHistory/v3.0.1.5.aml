@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="7C4AE810-C331-4627-812E-1C0B2B7505E7" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 3.0.1.5 (Stand: 08.02.2016)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Speicherfehler (Anzahl Threads und User-Objekte stieg kontinuierlich) behoben</para>
+          </listItem>
+          <listItem>
+            <para>Referenzen auf Knoten außerhalb des aktuellen Jobs ermöglicht</para>
+          </listItem>
+          <listItem>
+            <para>Umfassendes Reengineering der <token>V</token>-Steuerungslogik</para>
+          </listItem>
+          <listItem>
+            <para>Diverse Code-Bereinigungen</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

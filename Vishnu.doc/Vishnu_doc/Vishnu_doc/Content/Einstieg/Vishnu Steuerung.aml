@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6fe3bf85-d02b-41ff-84a7-dcc2a4819978" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Dieses Kapitel gibt einen Überblick über die Kommandos, mit denen <token>V</token>
+				über Maus und Tastatur gesteuert werden kann.
+			</para>
+			<alert class="important">
+				<para>
+					<token>V</token> selbst verwendet keine <database>Alt-</database>Kombinationen, so dass
+					diese für die Maus- und Tastensteuerung von <database>User-Controls</database> freibleiben.
+				</para>
+			</alert>
+		</introduction>
+
+		<section address="Uebersicht">
+			<title>Übersicht</title>
+			<content>
+				<list class="nobullet">
+					<listItem>
+						<para>
+							<database>Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="closed_down" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="closed_right" />
+							</mediaLinkInline> öffnet (zeigt) die nächsten darunter/rechts vedeckten Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Strg+Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="closed_down" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="closed_right" />
+							</mediaLinkInline> öffnet (zeigt) und expandiert alle darunter/rechts verdeckten Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Umschalt+Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="closed_down" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="closed_right" />
+							</mediaLinkInline> öffnet (zeigt) und expandiert alle Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="opened_up" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="opened_left" />
+							</mediaLinkInline> schließt (versteckt) und kontrahiert die nächsten darunter/rechts angezeigten Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Strg+Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="opened_up" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="opened_left" />
+							</mediaLinkInline> schließt (versteckt) und kontrahiert alle darunter/rechts angezeigten Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Umschalt+Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="opened_up" />
+							</mediaLinkInline> oder
+							<mediaLinkInline>
+								<image xlink:href="opened_left" />
+							</mediaLinkInline> schließt und kontrahiert alle Knoten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="run_node" />
+							</mediaLinkInline> startet einen Knoten oder Job sofort (nicht verfügbar bei Snapshot-Knoten).
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="break_node" />
+							</mediaLinkInline> unterbricht die Verarbeitung eines Knotens oder Jobs (nicht verfügbar bei Snapshot-Knoten).
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausklick-links</database> auf <mediaLinkInline>
+								<image xlink:href="YinYang" />
+							</mediaLinkInline> oder <database>F4</database> ändern die Gesamtausrichtung des <token>V</token>-Trees.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausrad</database> scrollt bei größeren Jobs den Bildausschnitt nach oben oder unten.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Umschalt+Mausrad</database> scrollt bei größeren Jobs den Bildausschnitt nach links oder rechts.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Strg+Mausrad</database> vergrößert oder verkleinert die aktuelle Ansicht.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Umschalt+Mausklick-rechts</database> irgendwo im Fenster setzt die Größe auf den Standard zurück.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Strg+Mausklick-rechts</database> irgendwo im Fenster verkleinert ggf. die Ansicht soweit,
+							dass der gesamte <token>V</token>-Tree sichtbar ist.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>F3</database> Setzt ggf. die Fenstergröße neu, wenn der Inhalt aktuell kleiner oder größer
+							als der Rahmen ist und in das Fenster hineinpassen würde
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Strg+s</database> speichert die aktuelle Bildschirmdarstellung lokal für den aktuellen Arbeitsplatz
+						</para>
+						<mediaLink>
+							<image xlink:href="Darstellung_Speichern" />
+						</mediaLink>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Mausklick-rechts</database> öffnet das <link xlink:href="478a3c03-87d1-4aa1-9087-917abb7eccfe" />.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="478a3c03-87d1-4aa1-9087-917abb7eccfe" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>
