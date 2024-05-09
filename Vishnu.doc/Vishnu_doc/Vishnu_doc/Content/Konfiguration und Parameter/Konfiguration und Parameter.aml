@@ -512,7 +512,7 @@
                     Alle <languageKeyword>Jobs</languageKeyword> werden qua Grundeinstellung eingeklappt dargestellt, d.h.
                     Unterelemente wie z.B. <languageKeyword>Checker</languageKeyword> oder weitere <languageKeyword>Jobs</languageKeyword>
                     sind erstmal nicht sichtbar. Um dieses Verhalten zu ändern, können Sie <languageKeyword>StartCollapsed</languageKeyword>
-                    auf <database>true</database> setzen.
+                    auf <database>false</database> setzen.
                   </para>
                   <alert class="note">
                     <para>
