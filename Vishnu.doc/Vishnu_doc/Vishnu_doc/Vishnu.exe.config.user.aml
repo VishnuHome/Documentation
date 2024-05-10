@@ -34,8 +34,8 @@
     <section address="Auslieferungszustand">
       <title>Vishnu.exe.config.user nach Installation</title>
       <content>
-        <para>So sieht die Konfigurationsdatei direkt nach der Installation aus:</para>
-        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.full" language="XML"
+        <para>So sieht die Konfigurationsdatei direkt nach dem ersten Start von <token>V</token> aus:</para>
+        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.default" language="xml"
                title="Vishnu.exe.config.user"></code>
       </content>
       <!-- If a section contains a sections element, its content creates

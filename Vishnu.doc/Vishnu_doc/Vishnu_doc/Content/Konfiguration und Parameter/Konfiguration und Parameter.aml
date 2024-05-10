@@ -67,14 +67,14 @@
           </listItem>
           <listItem>
             <para>
-              <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" />
+              <languageKeyword>Vishnu.exe.config.user</languageKeyword>
             </para>
             <para>
               <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" /> ist die zentrale Konfigurationsdatei für Ihre
               eigenen <token>V</token>-Einstellungen. Hier finden Sie einige voreingestellte Parameter. Sie können diese
               ändern, aber auch eigene hinzufügen.
-              Sie finden die <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" /> per Grundeinstellung im Pfad
-              <languageKeyword>%LOCALAPPDATA%\Vishnu\Vishnu.exe.config.user</languageKeyword>, wobei
+              Sie finden die <languageKeyword>Vishnu.exe.config.user</languageKeyword> nach dem ersten Start von <token>V</token> 
+			  im Pfad <languageKeyword>%LOCALAPPDATA%\Vishnu\Vishnu.exe.config.user</languageKeyword>, wobei
               <languageKeyword>LOCALAPPDATA</languageKeyword> eine Einstellung der Windows-Umgebung (Environment) ist
               und üblicherweise auf <languageKeyword>C:\Users\&lt;Benutzer&gt;\AppData\Local</languageKeyword> verweist.
             </para>
@@ -82,11 +82,11 @@
               Beispiel: <languageKeyword>&lt;add key="Job" value="DemoJobs\CheckAll"&gt;</languageKeyword>
             </para>
             <alert class="note">
-              <para>
-                Die Reihenfolge der Parameterangaben ist in der <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" />
-                unerheblich. Sie müssen sich nur innerhalb von &lt;appSettings&gt; und &lt;/appSettings&gt; befinden.
-              </para>
-            </alert>
+				<para>
+					Die Reihenfolge der Parameterangaben ist in der <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" />
+					unerheblich. Sie müssen sich nur innerhalb von &lt;appSettings&gt; und &lt;/appSettings&gt; befinden.
+				</para>
+			</alert>
           </listItem>
           <listItem>
             <para>

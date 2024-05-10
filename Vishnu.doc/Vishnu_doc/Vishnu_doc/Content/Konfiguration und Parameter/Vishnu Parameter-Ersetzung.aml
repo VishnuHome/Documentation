@@ -172,9 +172,9 @@
           Unten sehen Sie Ausüge und Screenshots zur Verdeutlichung des Konzepts anhand des <languageKeyword>Demo-Jobs</languageKeyword>
           <database> CheckParameterReader</database>:
         </para>
-        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.Part.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.Part.xml" language="xml"
            title="Vishnu.exe.config.user Auszug"></code>
-        <code source="..\Vishnu_doc\Examples\CheckParameterReader.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\CheckParameterReader.xml" language="xml"
            title="CheckParameterReader"></code>
         <mediaLink>
           <image xlink:href="CheckParameterReader"/>
