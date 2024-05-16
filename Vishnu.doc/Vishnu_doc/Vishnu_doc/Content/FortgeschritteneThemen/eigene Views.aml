@@ -61,10 +61,20 @@
 			<title>das Demo Projekt - schnell erzeugen</title>
 			<content>
 				<para>
-					Über die mitgelieferte Visual Studio Erweiterung <database>Vishnu_VS_Extensions/Vishnu_UserView_VSIX.vsix</database> (bis Visual Studio 2019)
-					oder <database>Vishnu_VS_Extensions_64/Vishnu_UserView_VSIX.vsix</database> (ab Visual Studio 2022)<lineBreak/>
+					Über die Visual Studio Erweiterung <database>Vishnu_UserView_VSIX.vsix</database>
 					(per Doppelklick installieren) können Sie Visual Studio eine C#-Projektvorlage für eigene Views hinzufügen:
 				</para>
+				<alert class="note">
+					<para>
+						<markup>
+							<a href="https://neteti.de/extensions/free/64/Vishnu_UserView_VSIX.vsix"
+							   target="_blank"
+							   alt="Vishnu_UserView_VSIX.vsix">
+								Vishnu_UserView_VSIX.vsix download link
+							</a>
+						</markup>
+					</para>
+				</alert>
 				<mediaLink>
 					<image xlink:href="Vishnu_UserView_VSIX"/>
 				</mediaLink>
