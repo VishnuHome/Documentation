@@ -1,12 +1,12 @@
 /* General styles */
 body {
-	font-family: 'Segoe UI' , 'Lucida Grande' , Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
 	font-size: 18px;
-	padding: 0;
-	margin: 0;
-	margin-left: auto;
-	margin-right: auto;
-	color: #000;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000;
 }
 
 h1 {
@@ -31,15 +31,16 @@ h2 {
 }
 
 h3 {
-	font-size: 1.231em;
+    font-size: 1.231em;
 }
+
 /* Verwendung: Referenz */
 h4, .subHeading {
-	font-family: 'Segoe UI Semibold' , 'Segoe UI' , 'Lucida Grande' , Verdana, Arial, Helvetica, sans-serif;
-	font-size: 1.077em;
-	font-weight: normal;
+    font-family: 'Segoe UI Semibold', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.077em;
+    font-weight: normal;
 	margin: 0;
-	color: #000;
+    color: #000;
 }
 .subHeading {
 	margin-top: 5px;
@@ -89,9 +90,9 @@ img {
 }
 
 p {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 15px;
 	line-height: 22px;
 }
 
@@ -134,7 +135,7 @@ td {
 }
 
 table p:last-child {
-	padding-bottom: 0;
+    padding-bottom: 0;
 }
 table.members {
 	width: 100%;
@@ -193,12 +194,12 @@ pre {
 }
 
 .pageHeader {
-	font-family: 'Segoe UI' , Tahoma, Helvetica, Sans-Serif;
+    font-family: 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
 	color: #333333;
 	background-color: #d0d0d0;
-	padding: 5px 10px;
-	vertical-align: middle;
-	height: 25px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    height: 25px;
 }
 
 .pageBody {
@@ -219,16 +220,16 @@ pre {
 	margin-left: auto;
 	margin-right: auto;
 	color: #000;
-	clear: both;
-	border-top: solid 1px #bbb;
-	padding: 10px;
+    clear: both;
+    border-top: solid 1px #bbb;
+    padding: 10px;
 }
 
 .feedbackLink {
 }
 
 .iconColumn {
-	width: 100px;
+    width: 100px;
 }
 .seeAlsoStyle {
 }
@@ -242,8 +243,8 @@ td.titleColumn {
 	font-family: 'Segoe UI' , 'Lucida Grande' , Verdana, Arial, Helvetica, sans-serif;
 	font-size: 2.5em;
 	font-weight: normal;
-	margin-top: 0px;
-	padding-left: 0px;
+    margin-top: 0px;
+    padding-left: 0px;
 	color: #800000;
 	vertical-align: middle;
 }
@@ -254,7 +255,7 @@ td.titleColumn h1 {
 	margin-top: 14px;
 	padding-left: 0px;
 	color: #800000;
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 td.logoColumn {
@@ -283,15 +284,15 @@ div.preliminary {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	font-weight: bold;
-	color: #333333;
+    color: #333333;
 }
 
 div.caption {
-	font-weight: bold;
+    font-weight: bold;
 	font-size: 0.6em; /*12pt*/
-	color: #003399;
-	padding-top: 5px;
-	padding-bottom: 5px;
+    color: #003399;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .procedureSubHeading {
 	font-size: 1.1em; /*13.5pt*/
@@ -314,7 +315,7 @@ div.caption {
 .collapseToggle {
     padding-right: 5px;
 }
-
+/* Verwendung: Vererbungshierarchie */
 .collapsibleRegionTitle {
     font-family: 'Segoe UI Semibold', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif !important;
     font-style: normal !important;
@@ -324,6 +325,7 @@ div.caption {
     padding-top: 20px;
     padding-bottom: 5px;
     cursor: pointer;
+    color: #004000;
 }
 
 .collapsibleSection {

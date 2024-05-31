@@ -275,7 +275,7 @@
     <None Include="Examples\TimerTriggerDemoProgram.cs" />
     <None Include="Examples\UserChecker.cs" />
     <None Include="Examples\UserChecker_ReturnObject.cs" />
-    <None Include="Examples\Vishnu.exe.config.user" />
+    <None Include="Examples\Vishnu.exe.config.user.default" />
     <None Include="Examples\Vishnu.exe.config.user.Part.xml" />
     <None Include="Examples\weatherchecker.log" />
     <None Include="Vishnu.exe.config.user.aml" />
