@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="9019f238-6d03-4bfd-82ec-4321eb8c896a" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 4.6.1.0 Treewide Environment (Stand: 27.05.2019)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Die Differenzierung von controlled-Jobs und normalen Jobs wurde aufgelöst.
+              Der Parameter IsControlled wird dadurch gegenstandslos und das Environment
+              ist im gesamten Tree immer verfügbar (Vorbereitung für Jobs mit zentral
+              verfügbaren Parametern wie z.B. SqlConnectionStrings).
+            </para>
+          </listItem>
+          <listItem>
+            <para>Fehler bei der Wildcard-Ersetzung wurden korrigiert.</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

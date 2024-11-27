@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.BasicAppSettings</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationEnvironment.BasicAppSettings">
+             <summary>
+             Holt Applikationseinstellungen aus verschiedenen Quellen:
+             Kommandozeile, app.config, ggf. app.config.user, Environment.<br />
+             Implementiert auch das Lesen der Registry, nutzt dies aber selbst noch nicht.
+             Wertet unter Umständen zuletzt auch noch öffentliche Properties aus (DumpAppSettings=true).
+             Macht keine Datenbank-Zugriffe, stellt aber entsprechende Properties bereit.<br />
+             Die Properties und das Füllen derselben sind nicht zwingend erforderlich, sie dienen
+             nur der Bequemlichkeit; alternativ kann aus der Applikation auch direkt über die
+             Schnittstellen IGetStringValue und IGetValue&lt;T&gt; auf die Applikations-/Systemumgebung zugegriffen werden.<br />
+             Die hier implementierten Applikationseinstellungen sollen allgemeingültig für 
+             Standalone-Anwendungen sein; Für anwendungsspezifische Einstellungen sollte diese Klasse
+             abgeleitet werden.
+             Quellen werden in folgender Reihenfolge ausgewertet (der 1. Treffer gewinnt):<br></br>
+                 1. Kommandozeilen-Parameter (nicht bei .NetCore-Webanwendungen)<br></br>
+                 2. Einstellungen in der app.Config (nicht bei .NetCore- Webanwendungen, stattdessen dann appsettings.json)<br></br>
+                 3. Ggf. Einstellungen in der app.Config.user<br></br>
+                 4. Environment<br></br>
+                 5. Registry<br></br>
+                 6. Unter Umständen öffentliche Properties (DumpAppSettings=true).<br></br>
+             Zeitkritische Initialisierungen sollten in abgeleiteten AppSettings generell vermieden
+             werden; die entsprechenden Properties können aber definiert werden und ggf. lazy implementiert werden.<br></br>
+             Über die Properties "DumpAppSettings" und "DumpLoadedAssemblies" können zu Debug-Zwecken alle Properties mit
+             ihren Quellen und die FullNames aller zur Laufzeit geladenen Assemblies geloggt werden.
+             </summary>
+             <remarks>
+             File: BasicAppSettings.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             05.07.2011 Erik Nagel: erstellt.<br></br>
+             08.03.2012 Erik Nagel: Singleton-Funktionalität entfernt, läuft jetzt über externen
+                                    NetEti.Globals.GenericSingletonProvider. Dadurch wird AppSettings
+                                    vererbbar; komplett überarbeitet, in BasicAppSettings umgetauft und alle
+                                    anwendungsspezifischen Properties rausgeschmissen (liegen
+                                    jetzt in den anwendungsspezifischen AppSettings).<br></br>
+             23.01.2014 Erik Nagel: ProcessId eingebaut; Accessoren als einfache Properties in den Protected-Bereich verschoben.<br></br>
+             10.06.2014 Erik Nagel: IGetValue implementiert.<br></br>
+             31.12.2014 Erik Nagel: DebugMode implementiert.<br></br>
+             04.10.2015 Erik Nagel: AppConfigUser implementiert.<br></br>
+             14.07.2016 Erik Nagel: AppEnvAccessor von protected auf public geändert.<br></br>
+             15.10.2017 Erik Nagel: RegistryBasePath eingeführt.<br></br>
+             09.03.2019 Erik Nagel: DumpAppSettings und DumpLoadedAssemblies eingeführt.<br></br>
+             05.04.2020 Erik Nagel: .NetCore-fähig gemacht; Newtosoft.json integriert; Version 4.6.1.<br></br>
+             </remarks>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ApplicationName">
+            <summary>
+            Application.ProductName
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.AppConfigUser">
+            <summary>
+            Pfad einer XML-Datei im Format der app.config mit User-spezifischen Einstellungen.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.AppConfigUserInfo">
+            <summary>
+            Info-Text  mit erweiterten Status-Informationen zum Ladeversuch der AppConfigUser.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.AppConfigUserLoaded">
+            <summary>
+            True wenn eine XML-Datei im Format der app.config mit User-spezifischen Einstellungen
+            geladen werden konnte.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ApplicationRootPath">
+            <summary>
+            Das Verzeichnis, in dem die Applikation gestartet wurde als absoluter Pfad.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.BreakAlwaysAllowed">
+            <summary>
+            Wenn true, kann immer abgebrochen werden - zu Debug-Zwecken.<br></br>
+            Default: false<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.CheckVersion">
+            <summary>
+            Kann ggf. bei einer spätere Versionsprüfung genutzt werden.<br></br>
+            Default: true<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ClickOnceDataDirectory">
+            <summary>
+            Verzeichnis, in dem die Installationsdaten bei einer
+            ClickOnce-Installation (EnvAccess:ISNETWORKDEPLOYED = true) liegen.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ConnectionString">
+            <summary>
+            Connection-String für eine Datenbank-Verbindung.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.CreateWorkingDirectoryIfNotExists">
+            <summary>
+            Bei True wird das aktuell gesetzte WorkingDirectory angelegt, wenn es noch nicht existiert.<br></br>
+            Default: true<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DataSource">
+            <summary>
+            Der angepasste Datenbank-Server Instanz-Name.<br></br>
+            Default: = (local)<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugArchiveMaxCount">
+            <summary>
+            Maximale Anzahl von archivierten Logs (DebugFiles, o.ä.).
+            Bei Überzahl werden jeweils die ältesten gelöscht.
+            Default: 20.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugArchivingInterval">
+            <summary>
+            Zeitabstand, in dem das aktuelle Log (DebugFile, o.ä.)
+            archiviert und geleert wird.
+            Default: 24 Stunden.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugFile">
+            <summary>
+            Pfad und Name des Logfiles<br></br>
+            Default: WorkingDirectory + \ + ApplicationName + .log<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugFileRegexFilter">
+            <summary>
+             Filter, der die zu loggenden Zeilen begrenzt.
+             Default: "" - alles wird geloggt.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugInfo">
+            <summary>
+            Die zu loggenden Informationsarten<br></br>
+              public enum InfoType <br></br>
+              { DEBUG, INFO, WARN, MILESTONE, ERROR, EXCEPTION, USERTYPE1, USERTYPE2 };<br></br>
+              als String, wie z.B.: "DEBUG|INFO|WARN|MILESTONE|ERROR".<br></br>
+            Default: wird im Startprogramm gesetzt, üblicherweise InfoType.ALL
+              (InfoType.ALL enthält alles außer den USERTYPEn).<br></br>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DebugMode">
+            <summary>
+             Bei True können Anwendungen Debug-Ausgaben erzeugen.
+             Default: False.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DefaultDatabase">
+            <summary>
+            Die voreingestellte Datenbank.<br></br>
+            Default: null<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DefaultSqlDataDirectory">
+            <summary>
+            Das Default-Verzeichnis für SQL-Server Datendateien
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DefaultSqlLogDirectory">
+            <summary>
+            Das Default-Verzeichnis für die SQL-Server Logdateien
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DumpAppSettings">
+            <summary>
+            Bei true gibt BasicAppSettings über den InfoController am Ende der
+            Verarbeitung alle AppSetting-Properties mit Wert und Quelle aus.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.DumpLoadedAssemblies">
+            <summary>
+            Bei true gibt BasicAppSettings über den InfoController am Ende der
+            Verarbeitung die Vollnamen aller in der AppDomain geladenen Assemblies aus.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.FrameworkVersionMajor">
+            <summary>
+            Die Version des höchsten installierten .Net-Frameworks
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IsClickOnce">
+            <summary>
+            True, wenn die Anwendung per ClickOnce installiert wurde
+            (siehe auch ClickOnceDataDirectory).
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IsFrameworkAssembly">
+            <summary>
+            True, wenn die Anwendung auf .Net-Framework basiert.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IsFullFramework">
+            <summary>
+            True, wenn die Anwendung auf einem vollständigen .Net-Framework basiert.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IsNetCore">
+            <summary>
+            True, wenn die Anwendung eine .Net Core-Anwendung ist.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IsNetNative">
+            <summary>
+            True, wenn die Anwendung eine UWP-Anwendung ist.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.KillChildProcessesOnApplicationExit">
+            <summary>
+            Bei True sollen alle Child-Prozesse der Anwendung am Programmende
+            nach einer gewissen Wartezeit rekursiv terminiert werden.
+            Achtung:
+                BasicAppSettings stellt nur die Property zur Verfügung.
+                Um das Beenden der Prozesse muss sich die jeweilige Anwendung
+                über Einbindung von NetEti.ProcessTools und Aufruf von
+                ProcessWorker.FinishChildProcesses() selbst kümmern.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.KillWorkingDirectoryAtShutdown">
+            <summary>
+            Bei True wird das WorkingDirectory am Programmende entfernt.
+            Sollte aus Sicherheitsgründen nur erfolgen, wenn es beim
+            Programmstart auch erzeugt wurde.
+            Das Anlegen oder Löschen des WorkingDirectory erfolgt nicht
+            durch BasicAppSettings sondern kann ggf. durch die Anwendung
+            oder das Logging erfolgen.
+            Default: true.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.LogSql">
+            <summary>
+            Wenn true, soll jeder Sql-Befehl in's Logfile geschrieben werden.
+            Zur freien Verwendung.<br></br>
+            Default: false<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.MachineName">
+            <summary>
+            Der Rechnername
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.MinProgrammVersion">
+            <summary>
+            Geforderte Mindestversion für spätere Prüfung gegen die ProgrammVersion.<br></br>
+            Default: "1.0.0.0"
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.OSVersion">
+            <summary>
+            Die komplette Betriebssystem-Version
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.OSVersionMajor">
+            <summary>
+            Numerische Haupt-Betriebssystem-Version<br></br>
+             > 5 => mindestens Vista
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ProcessId">
+            <summary>
+            Die Prozess-Id des aktuellen Prozesses.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.Processor">
+            <summary>
+            Der Prozessortyp
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ProcessorCount">
+            <summary>
+            Die Anzahl Prozessoren
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.ProgrammVersion">
+            <summary>
+            Die aktuelle ProgrammVersion = Application.ProductVersion
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.RegistryBasePath">
+            <summary>
+            Basis-Pfad, in dem in der Registry nach einer Einstellung gesucht wird.
+            Enthält der Pfad eine der RegistryRoots, z.B. "HKEY_CURRENT_USER", wird
+            die intern eingestellte RegistryRoot ebenfalls umgestellt.
+            Default für die intern eingestellte RegistryRoot ist "HKEY_LOCAL_MACHINE".
+            Default: ""
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.SearchDirectory">
+            <summary>
+            Ein optionales Suchverzeichnis für verschiedene Zwecke.<br></br>
+            Default: WorkingDirectory<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.SingleInstance">
+            <summary>
+            Bei true kann die Applikation nur einmal gestartet werden.<br></br>
+            Default: false<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.StatisticsFile">
+            <summary>
+            Pfad und Name des Statistics-Logfiles<br></br>
+            Default: WorkingDirectory + \ + ApplicationName + .stat<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.StatisticsFileRegexFilter">
+            <summary>
+             Filter, der die zu loggenden Zeilen begrenzt.
+             Default: "" - alles wird geloggt.
+             z.B.: @"(?:_NOPPES_)" - Nichts wird geloggt, bzw. nur Zeilen, die "_NOPPES_" enthalten
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.TempDirectory">
+            <summary>
+            Environment: "TEMP"
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.UserDomainName">
+            <summary>
+            Der Windows-Domain-Name
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.UserName">
+            <summary>
+            Der Windows-Username
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.WorkingDirectory">
+            <summary>
+            Das Arbeitsverzeichnis<br></br>
+            Default:<br></br>
+              Bei "SingleInstance=true: C:\Users\&lt;user&gt;\AppData\Local\Temp\&lt;ApplicationName&gt;<br></br>
+              Bei "SingleInstance=false: C:\Users\&lt;user&gt;\AppData\Local\Temp\&lt;ApplicationName&gt;\&lt;ProcessId&gt;<br></br>
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.WorkingDirectoryCreated">
+            <summary>
+            True, wenn das WorkingDirectory beim Programmstart erzeugt wurde.
+            Das Anlegen oder Löschen des WorkingDirectory erfolgt nicht
+            durch BasicAppSettings sondern kann ggf. durch die Anwendung
+            oder das Logging erfolgen.
+            Default: false.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetStringValue(System.String,System.String)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis (string)</param>
+            <returns>Der Ergebnis-String</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetStringValues(System.String,System.String[])">
+            <summary>
+            Liefert ein string-Array zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis (string[])</param>
+            <returns>Das Ergebnis-String-Array</returns>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.Description">
+            <summary>
+            Liefert einen beschreibenden Namen dieses StringValueGetters,
+            z.B. Name plus ggf. Quellpfad.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetValue``1(System.String,``0)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Wildcards der Form %Name% werden, wenn möglich, rekursiv ersetzt;
+            Es wird versucht, den ermittelten String-Wert in den Rückgabetyp T zu casten.
+            </summary>
+            <typeparam name="T">Der gewünschte Rückgabe-Typ</typeparam>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis vom Typ T</param>
+            <returns>Wert zum key in den Rückgabe-Typ gecastet</returns>
+            <exception cref="T:System.InvalidCastException">Typecast-Fehler</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetValues``1(System.String,``0[])">
+            <summary>
+            NICHT IMPLEMENTIERT!
+            Liefert ein Array von Werten zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Wildcards der Form %Name% werden, wenn möglich, rekursiv ersetzt;
+            Es wird versucht, den ermittelten String-Wert in den Rückgabetyp T zu casten.
+            </summary>
+            <typeparam name="T">Der gewünschte Rückgabe-Typ</typeparam>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis vom Typ T[]</param>
+            <returns>Wert-Array zum key in den Rückgabe-Typ gecastet</returns>
+            <exception cref="T:System.InvalidCastException">Typecast-Fehler</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.Dispose(System.Boolean)">
+            <summary>
+            Abschlussarbeiten, ggf. Timer zurücksetzen.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.Finalize">
+            <summary>
+            Destruktor
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetParametersSources">
+            <summary>
+            Liefert ein Dictionary, das zu jedem Parameter den Namen der Quelle enthält.
+            Kann in bestimmten Fällen für die Fehlersuche hilfreich sein.<br></br>
+            Hinweis: ist der Schalter "DumpAppSettings" = true, wird in "Dispose" dieses Dictionary geloggt.
+            </summary>
+            <returns>Dictionary, das zu jedem Parameter den Namen der Quelle enthält.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.GetLoadedAssemblies">
+            <summary>
+            Liefert ein Dictionary, das für alle in der Applikation geladenen Assemblies
+            den FullName und die Assembly enthält.
+            Kann in bestimmten Fällen für die Fehlersuche hilfreich sein.<br></br>
+            Hinweis: ist der Schalter "DumpLoadedAssemblies" = true, werden in "Dispose" die Keys dieses Dictionarys (FullName) geloggt.
+            </summary>
+            <returns>Dictionary, das zu jeder geladenen Assembly den FullName und die Assembly enthält.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.SetRegistryBasePath(System.String)">
+            <summary>
+            Setzt den Registry-Zugriffskey für alle nachfolgende Zugriffe auf
+            den übergebenen Basis-Pfad, wenn sich der übergebene registryBasePath
+            fehlerfrei in ein entsprechendes Equivalent aus Registy-Keys umwandeln lässt.
+            </summary>
+            <param name="registryBasePath">Pfad zum Registry-Key, unterhalb dessen zukünftige Zugriffe erfolgen sollen.</param>
+            <exception cref="T:System.ArgumentException">Wird ausgelöst, wenn der übergebene registryBasePath nicht in einen RegistryKey konvertierbar ist.</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.LoadSettings">
+            <summary>
+            Lädt die Systemeinstellungen bei der Initialisierung oder lädt sie auf Anforderung erneut.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.ReplaceWildcards(System.String)">
+            <summary>
+            Ersetzt Wildcards im Format %Name% durch ihre Laufzeit-Werte.
+            </summary>
+            <param name="inString">Wildcard</param>
+            <returns>Laufzeit-Ersetzung</returns>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.AppEnvAccessor">
+            <summary>
+            Implementiert IGetStringValue zur Kapselung von Zugriffen über konkrete
+            Reader wie zum Beispiel CommandLineAccess, SettingsAccess, EnvAccess.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.#ctor">
+            <summary>
+            Konstruktor, wird ggf. über Reflection vom externen statischen
+            GenericSingletonProvider über GetInstance() aufgerufen.
+            Holt alle Infos und stellt sie als Properties zur Verfügung.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.CommandLineAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf die Kommandozeile.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.SettingsAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf die app.config.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.UserSettingsAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf die app.config.user.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.EnvAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf das Environment.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.IniAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf INI-Dateien.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.RegAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf die Registry.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.PropertyAccessor">
+            <summary>
+            Implementiert IGetStringValue für Zugriffe auf public Properties der AppSettings.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.BasicAppSettings.CreatedDirectoryRoot">
+            <summary>
+            Enthält den Pfad des untersten Verzeichnisses, das beim letzten
+            "Directory.Create" neu angelegt wurde.
+            Dieser 
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.DirectoryCreate(System.String)">
+            <summary>
+            Erstellt einen kompletten Verzeichnispfad, wenn dieser oder ein Teil
+            davon nicht existiert. Retourniert den Teil des Verzeichnispfades,
+            der bis inklusive zum ersten der neu angelegten Verzeichnisse geht oder null.
+            Das Ergebnis dieser Routine kann dafür genutzt werden, genau den Teil
+            eines Verzeichnispfades auch wieder zu löschen, der neu angelegt wurde.
+            </summary>
+            <param name="directoryToCreate">Pfad des anzulegenden Verzeichnisses</param>
+            <returns>Verzeichnispfad bis inklusive zum ersten neu angelegten Verzeichnis.</returns>
+            <exception cref="T:System.IO.IOException" />
+            <exception cref="T:System.UnauthorizedAccessException" />
+            <exception cref="T:System.ArgumentException" />
+            <exception cref="T:System.ArgumentNullException" />
+            <exception cref="T:System.IO.PathTooLongException" />
+            <exception cref="T:System.IO.DirectoryNotFoundException" />
+            <exception cref="T:System.NotSupportedException" />
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.BasicAppSettings.SetDefaultSQLDirectories">
+            <summary>
+            Setzt die Default-Verzeichnisse für den Microsoft SQL Server.
+            </summary>
+        </member>
+    </members>
+</doc>

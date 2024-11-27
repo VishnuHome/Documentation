@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ad9ee8b6-c68c-47ec-9584-d85046eb3137" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--summary>
+      <para>
+        Überblick
+      </para>
+    </summary-->
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="Ueberblick">
+			<title>Überblick</title>
+			<content>
+				<!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+				<mediaLink>
+					<!-- image xlink:href="Vishnu_Servers_DiskSpace"/ -->
+					<caption placement="after">So startet Vishnu nach der Erstinstallation</caption>
+					<image xlink:href="Demo_StartJob"/>
+				</mediaLink>
+				<para>
+					<token>V</token> ist ein Baukastensystem für <database>Monitoring</database> und <database>Prozesssteuerung</database>.
+				</para>
+				<para>
+					Mit <token>V</token> können Sie auf einfache Weise beliebige Prozesse kontrollieren und steuern.
+				</para>
+				<para>
+					Das können die unterschiedlichsten Dinge sein, wie zum Beispiel:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>Laufen die Maschinen?</para>
+					</listItem>
+					<listItem>
+						<para>Sind die Voraussetzungen für den nächsten Rechnungslauf erfüllt?</para>
+					</listItem>
+					<listItem>
+						<para>Starte die Datensicherung!</para>
+					</listItem>
+					<listItem>
+						<para>Informiere Mail-Empfänger über Fehler und deren Behebung!</para>
+					</listItem>
+				</list>
+				<para>
+					Es können aber auch wissenschaftliche Auswertungen, Geräteüberwachungen im Internet der Dinge sein,
+					einfach alles, was simple Grundvoraussetzungen erfüllt, um von <token>V</token> verwaltet werden zu können.
+				</para>
+				<alert class="note">
+					<para>
+						<mediaLinkInline>
+							<image xlink:href="noDrive_D"/>
+						</mediaLinkInline>
+						Sollte <database>Check_D</database> nach der Installation bei Ihnen etwa so aussehen,
+						dann hat Ihr System aktuell kein Laufwerk D:. Das ist aber für die weitere Betrachtung unwesentlich.
+					</para>
+				</alert>
+				<para>
+					Wie schon oben skizziert, ist <token>V</token> eine Software-Lösung zur Überwachung und Steuerung von
+					beliebigen Anwender-Prozessen. Ihre Prozesse können simultan oder in Abhängigkeit voneinander (oder beides)
+					verarbeitet werden. Sie definieren die Zusammenhänge anhand einer einfachen Beschreibungssprache (XML).
+					Die einzelnen Prozesse werden hierbei nach logischen Gesichtspunkten zu Jobs zusammengefasst.
+					<token>V</token> stellt die Jobs mit ihren Akteuren übersichtlich, wahlweise in einer Baumdarstellung
+					oder als Listen, dar.
+					Die Akteure innerhalb der Jobs können verschiedene weitere Aktionen auslösen, z.B. Meldungen, Mails,
+					andere Jobs, etc. Praktisch alles, was von <token>V</token> verwaltet werden soll, kann von Ihnen frei
+					bestimmt werden, dazu gehören
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>Jobs - umfassen mehrere logisch zusammengehörende Akteure, die ihrerseits auch wieder Jobs sein können</para>
+					</listItem>
+					<listItem>
+						<para>Checker, Worker - beliebige Anwenderprozesse (dll, exe)</para>
+					</listItem>
+					<listItem>
+						<para>Trigger - starten Checker, Worker oder Jobs neu, z.B. nach einer bestimmten Zeit</para>
+					</listItem>
+					<listItem>
+						<para>
+							Logger, ValueModifier, Connectoren - weitere Typen von Akteuren, die später noch beschrieben werden.
+							Details finden Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" />
+							und <link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" />.
+						</para>
+					</listItem>
+				</list>
+				<para>
+					<token>V</token> liefert schon eine Reihe vordefinierter Demo-Jobs, Checker, Trigger und  Worker mit, so dass sofort losgelegt werden kann.
+					<markup>
+						<br/>
+					</markup>
+					Probieren Sie <token>V</token> mit dem <link xlink:href="97ecd117-8937-4aca-bb5d-dfab02559f5e" /> direkt aus.
+				</para>
+				<para>
+					Dazu viel Vergnügen und Erfolg.
+				</para>
+				<para>
+					Erik Nagel
+				</para>
+			</content>
+		</section>
+
+		<section address="Quellen">
+			<title>Quellen, Installation, weiterführende Informationen</title>
+			<content>
+				<para>
+					<token>V</token> ist <languageKeyword>open source</languageKeyword>,
+					einen kurzen Überblick mit weiteren Verknüpfungen finden Sie auf
+					<markup>
+						<a href="https://vishnuhome.github.io/Vishnu"
+						   target="_blank"
+						   alt="Vishnu Überblick">
+							GitHub.
+						</a>
+					</markup>
+				</para>
+				<para>
+					Alle Quellen sind unter folgendem Link ebenfalls auf GitHub verfügbar:
+					<markup>
+						<a href="https://github.com/VishnuHome/Vishnu"
+						   target="_blank"
+						   alt="Vishnu Quellen">
+							Vishnu Quellen
+						</a>
+					</markup>
+				</para>
+				<para>
+					Dort finden Sie auch Installationsanweisungen und weitere Informationen.
+				</para>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+				<para>
+					<link xlink:href="97ecd117-8937-4aca-bb5d-dfab02559f5e" />
+				</para>
+				<para>
+					<codeEntityReference qualifyHint="true">R:Project_Vishnu_doc.de</codeEntityReference>
+				</para>
+			</content>
+			<!-- If a section contains a sections element, its content creates
+           sub-sections.  These are not collapsible.
+      <sections>
+          <section address="SubSection1">
+              <title>Sub-section 1</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+          <section address="SubSection2">
+              <title>Sub-section 2</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+      </sections> -->
+		</section>
+
+		<relatedTopics>
+			<!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

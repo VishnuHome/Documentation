@@ -1,0 +1,2318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vishnu.ViewModel</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu.ViewModel.DummyLogicalTaskTreeViewModel">
+            <summary>
+            Ersetzt das LogicalTaskTreeViewModel als Dummy-Parameter beim Reload-Vorgang.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DummyLogicalTaskTreeViewModel.#ctor(Vishnu.Interchange.TreeParameters)">
+            <summary>
+            Konstruktor - übernimmt die Parameter für den gesamten Tree.
+            </summary>
+            <param name="treeParams">Parameter für den gesamten Tree.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.DynamicUserControlBase">
+             <summary>
+             Basisklasse für die dynamische Einbindung von UserControls
+             in externen Dlls.
+             </summary>
+             <remarks>
+             File: DynamicUserControlBase
+             Autor: Erik Nagel
+            
+             01.08.2014 Erik Nagel: erstellt.
+             11.09.2022 Erik Nagel: Behandlung des ContextMenu implementiert;
+                                    virtuelle Methode GetUserResultViewModel eingebaut, abstract geht nicht wegen Path2UserControlBase.
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Abstrakte Definition von GetUserResultViewModel: muss für konkrete Anwendung überschrieben werden.
+            </summary>
+            <param name="vishnuViewModel">Interface für die ViewModels von dynamischen User-Controls.</param>
+            <returns>Hier: null, muss überschrieben werden.</returns>
+        </member>
+        <member name="F:Vishnu.ViewModel.DynamicUserControlBase.DynamicUserControl_ContentRenderedEvent">
+            <summary>
+            Wird ausgelöst, wenn das dynamisch geladene Control vollständig gezeichnet wurde.
+            Hier wird das User-Event deklariert und registriert.
+            </summary>
+        </member>
+        <member name="E:Vishnu.ViewModel.DynamicUserControlBase.DynamicUserControl_ContentRendered">
+            <summary>
+            Standard Handler für das Einhängen des WPF Event-Systems
+            in das registrierte Event DynamicUserControl_ContentRenderedEvent.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.DynamicUserControlBase.AttachedNameProperty">
+            <summary>
+            Zusätzlicher Name, über den das Control im VisualTree gesucht
+            werden kann (wichtig bei UserControls).
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (String) für einen zusätzlichen Namen des UserControls.
+            </summary>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.GetAttachedName(System.Windows.DependencyObject)">
+            <summary>
+            WPF-Getter für die AttachedNameProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Zusätzlicher Name des Controls, z.B. für die Suche im VisualTree.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.SetAttachedName(System.Windows.DependencyObject,System.String)">
+            <summary>
+            WPF-Setter für die AttachedNameProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Zusätzlicher Name des Controls, z.B. für die Suche im VisualTree.</param>
+        </member>
+        <member name="P:Vishnu.ViewModel.DynamicUserControlBase.UserResultViewModel">
+            <summary>
+            Übernimmt den aktuellen, spezifischen DataContext für Vishnu als IVishnuViewModel.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.#ctor">
+            <summary>
+            Konstruktor - hängt sich in das LoadedEvent ein.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.DoDispose">
+            <summary>
+            Hier werden die beim disposing notwendigen Aktionen durchgeführt.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.GetParentViewAbsoluteScreenPosition">
+            <summary>
+            Absolute Bildschirmposition der Mitte des beinhaltenden Controls.
+            </summary>
+            <returns>Absolute Bildschirmposition der linken oberen Ecke des Parent-Controls.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.OnDynamicUserControl_ContentRendered">
+            <summary>
+            Löst das OnDynamicUserControl_ContentRendered-Ereignis aus.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlBase.SetContextMenuDataContext">
+            <summary>
+            Setzt den konkreten DataContext für das ContextMenu.
+            Kann überschrieben werden (Beispiel: LogicalTaskJobGroupsControl.xaml.cs).
+            </summary>
+        </member>
+        <member name="T:Vishnu.ViewModel.DynamicUserControlViewModelBase">
+             <summary>
+             Basisklasse für ViewModels von dynamischen UserControls für Vishnu.
+             Stellt den Zugriff auf User-Properties innerhalb des ReturnObjects des
+             zugeordneten Checkers zur Verfügung.
+             </summary>
+             <remarks>
+             File: DynamicUserControlViewModelBase.cs
+             Autor: Erik Nagel
+            
+             10.01.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Vishnu.ViewModel.DynamicUserControlViewModelBase.ParentViewModel">
+            <summary>
+            Das ViewModel des besitzenden Vishnu-Knoten.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.DynamicUserControlViewModelBase.GetResultProperty``1(System.Type,System.String)">
+            <summary>
+            Holt eine Property mit Namen propertyName vom Typ T
+            aus dem ReturnObject des besitzenden Vishnu-Knotens.
+            Das ReturnObject muss vom Typ requiredReturnObjectType sein.
+            </summary>
+            <typeparam name="T">Typ der gesuchten Property.</typeparam>
+            <param name="requiredReturnObjectType">Typ des ReturnObjects des besitzenden Knoten.</param>
+            <param name="propertyName">Name der gesuchten Property oder null. Bei null wird das ReturnObject selbst zurückgegeben.</param>
+            <returns>Property aus dem ReturnObject des besitzenden Vishnu-Knotens.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.IVishnuRenderWatcher">
+            <summary>
+            Interface für die Weiterverarbeitung von ContentRendered-Events.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.IVishnuRenderWatcher.UserControlContentRendered(System.Object)">
+            <summary>
+            Wird von DynamicUserControlBase angesprungen, wenn das UserControl vollständig gezeichnet wurde.
+            </summary>
+            <param name="dynamicUserControl">Das aufrufende DynamicUserControlBase als Object.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.JobConnectorViewModel">
+             <summary>
+             ViewModel für einen JobConnector<br />
+             Ist von SingleNodeViewModel und darüber von VishnuViewModelBase
+             abgeleitet.
+             </summary>
+             <remarks>
+             File: JobConnectorViewModel.cs
+             Autor: Erik Nagel
+            
+             17.09.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobConnectorViewModel.ReferencedNodePath">
+            <summary>
+            ReferencedNodePath
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobConnectorViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.LogicalNode,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="logicalTaskTreeViewModel">ViewModel des übergeordneten LogicalTaskTree.</param>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="singleNode">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobConnectorViewModel.TreeElementLogicalStateChanged(System.Object,Vishnu.Interchange.NodeLogicalState)">
+            <summary>
+            Wird angesprungen, wenn sich der logische Zustand des zugeordneten
+            Knotens aus der Business-Logic geändert hat.
+            </summary>
+            <param name="sender">Der zugeordnete Knoten aus der Business-Logic.</param>
+            <param name="state">Logischer Zustand des Knotens aus der Business-Logic.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.JobGroupViewModel">
+             <summary>
+             ViewModel für die Darstellung eines logicalTaskTree
+             als gruppierte und gefilterte Liste von Knoten.
+             </summary>
+             <remarks>
+             File: JobGroupViewModel.cs
+             Autor: Erik Nagel
+            
+             01.09.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.GroupJobList">
+            <summary>
+            ViewModel für den LogicalTaskTree.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.FlatNodeViewModelList">
+            <summary>
+            ItemsSource für eine einfache Auflistung von Endknoten des Trees.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.IsTreePaused">
+            <summary>
+            Returns true, wenn der Tree gerade pausiert wurde.
+            </summary>
+            <returns>True, wenn der Tree gerade pausiert wurde.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.DebugMode">
+            <summary>
+            Bei True können zusätzliche Testausgaben erfolgen.
+            Default: False.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.DebugNodeInfos">
+            <summary>
+            Name + Id + GUID
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.GridRowCount">
+            <summary>
+            Liefert oder setzt die Zeilenanzahl für das enthaltende Grid.
+            </summary>
+            <returns>die Zeilenanzahl des enthaltenden Grids.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.GridColumnCount">
+            <summary>
+            Liefert oder setzt die Zeilenanzahl für das enthaltende Grid.
+            </summary>
+            <returns>die Zeilenanzahl des enthaltenden Grids.</returns>
+        </member>
+        <member name="F:Vishnu.ViewModel.JobGroupViewModel.RowCount">
+            <summary>
+            Liefert oder setzt die Zeilenanzahl einer quadratischen Matrix.
+            Dieser Wert wird zu einem geeigneten Zeitpunkt in die Property GridRowCount geschoben,
+            um die WPF-GUI zu informieren.
+            </summary>
+            <returns>Die Zeilenanzahl einer quadratischen Matrix.</returns>
+        </member>
+        <member name="F:Vishnu.ViewModel.JobGroupViewModel.ColumnCount">
+            <summary>
+            Liefert oder setzt die Spaltenanzahl einer quadratischen Matrix.
+            Dieser Wert wird zu einem geeigneten Zeitpunkt in die Property GridColumnCount geschoben,
+            um die WPF-GUI zu informieren.
+            </summary>
+            <returns>Die Spaltenanzahl einer quadratischen Matrix.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.GetDebugNodeInfos">
+            <summary>
+            Liefert einen string für Debug-Zwecke.
+            </summary>
+            <returns>Ein String für Debug-Zwecke.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.UserControlContentRendered(System.Object)">
+            <summary>
+            Wird von DynamicUserControlBase angesprungen, wenn das UserControl vollständig gerendered wurde.
+            </summary>
+            <param name="dynamicUserControl">Das aufrufende DynamicUserControlBase als Object.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.#ctor(Vishnu.ViewModel.JobListViewModel,Vishnu.Interchange.NodeTypes)">
+            <summary>
+            Konstruktor - übernimmt das anzuzeigende JobListViewModel und
+            einen Filter für anzuzeigende NodeTypes.
+            </summary>
+            <param name="rootJobListViewModel">Anzuzeigendes JobListViewModel.</param>
+            <param name="flatNodeListFilter">Filter für anzuzeigende NodeTypes.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.GetToolTipInfo">
+            <summary>
+            Liefert das Ergebnis für die Property ToolTipInfo.
+            Diese Routine zeigt per Default auf NextRunInfoAndResult,
+            wird aber hier überschrieben.
+            </summary>
+            <returns>Die im ToolTip anzuzeigende Information.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobGroupViewModel.LastExceptions">
+            <summary>
+            Listet in einem String mögliche Exceptions der Child-Knoten
+            durch Zeilenumbruch getrennt auf.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.PresetGridProperties(System.Collections.ObjectModel.ObservableCollection{Vishnu.ViewModel.LogicalNodeViewModel})">
+            <summary>
+            Berechnet die Anzahl Zeilen und Spalten für ein möglichst quadratisches Grid
+            abhängig von der Gesamtanzahl darzustellender Controls bzw. deren ViewModels.
+            Weist außerdem jedem ViewModel eines einzelnen Controls seine Zeilen- und Spaltennummer zu.
+            Alle Zuweisungen werden hier zwar gespeichert, aber erst zu einem späteren Zeitpunkt in die
+            Properties geschoben, welche über INotifyPropertyChanged die WPF-GUI informieren.
+            </summary>
+            <param name="FlatNodeViewModelList"></param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.canSwitchTaskTreeViewExecute">
+            <summary>
+            Prüft, ob die Tree-Ausrichtung verändert werden darf.
+            Hier: liefert immer false zurück.
+            </summary>
+            <returns>Liefert immer false zurück.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ReloadTaskTreeExecute(System.Object)">
+            <summary>
+            Lädt den Tree nach Änderung der JobDescriptions neu.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanReloadTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.LogTaskTreeExecute(System.Object)">
+            <summary>
+            Loggt den Tree.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanLogTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanShowInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ShowInfosExecute(System.Object)">
+            <summary>
+            Holt eventuell vorhandene Vishnu-Infos (Messages und Logs) in den Vordergrund.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.DoShowInfos">
+            <summary>
+            Holt eventuell vorhandene Vishnu-Infos (Messages und Logs) in den Vordergrund.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanClearInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ClearInfosExecute(System.Object)">
+            <summary>
+            Löscht eventuell vorhandene Vishnu-Infos (Messages und Logs).
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.DoClearInfos">
+            <summary>
+            Löscht eventuell vorhandene Vishnu-Infos (Messages und Logs).
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanShowLogExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ShowLogExecute(System.Object)">
+            <summary>
+            Öffnet die Logdatei im Standardeditor asynchron über ShowLogTaskTree.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ShowLogTaskTree">
+            <summary>
+            Öffnet die Logdatei im Standardeditor.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.CanShowSettingsExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ShowSettingsExecute(System.Object)">
+            <summary>
+            Gibt die Vishnu-Parameter im NotePad-Editor aus.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobGroupViewModel.ShowSettingsTaskTree">
+            <summary>
+            Gibt die Vishnu-Parameter im NotePad-Editor aus.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.JobListViewModel">
+             <summary>
+             ViewModel für einen JobList-Knoten in der TreeView in LogicalTaskTreeControl
+             Auch wenn hier keine eigene Funktionalität codiert ist, wird diese
+             Ableitung von LogicalNodeViewModel benötigt, um in der TreeView die
+             unterschiedliche Darstellung der verschiedenen Knotentypen realisieren
+             zu können.
+             </summary>
+             <remarks>
+             File: JobListViewModel.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.IsActive">
+            <summary>
+            Bei true befindet sich der Job in aktivem, gleich gestartetem Zustand.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.ButtonRunText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.CanTreeStart.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.ButtonRunBreakText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.CanTreeStart.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.ButtonBreakText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.IsActive.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.RunLogicalTaskTree">
+            <summary>
+            Command für den Run-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.RunOrBreakLogicalTaskTree">
+            <summary>
+            Command für den Run-or-Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.JobListViewModel.BreakLogicalTaskTree">
+            <summary>
+            Command für den Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobListViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.JobList,System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="jobList">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="lazyLoadChildren">Bei True werden die Kinder erst beim Öffnen des TreeView-Knotens nachgeladen.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+            <param name="logicalTaskTreeViewModel">Das dem Root-Knoten übergeordnete ViewModel (nur beim Root-Job ungleich null).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobListViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Verkettete Properties als String.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobListViewModel.Equals(System.Object)">
+            <summary>
+            Vergleicht den Inhalt dieses JobListViewModels nach logischen Gesichtspunkten
+            mit dem Inhalt eines übergebenen JobListViewModels.
+            </summary>
+            <param name="obj">Das JobListViewModel zum Vergleich.</param>
+            <returns>True, wenn das übergebene JobListViewModel inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.JobListViewModel.GetHashCode">
+            <summary>
+            Erzeugt einen Hashcode für dieses JobListViewModel.
+            </summary>
+            <returns>Integer mit Hashwert.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.VisualNodeState">
+            <summary>
+            Kombinierter Status aus State und LogicalState für die UI.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.None">
+            <summary>Startbereit, Zustand nach Initialisierung.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Scheduled">
+            <summary>Ist zwar nicht busy aber Timer-gesteuert.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Waiting">
+            <summary>Beschäftigt, wartet auf Starterlaubnis.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Working">
+            <summary>Beschäftigt, arbeitet.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Error">
+            <summary>Mit Fehler beendet.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Aborted">
+            <summary>Durch Abbruch beendet.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.Done">
+            <summary>Ohne Fehler, Timeout oder Abbruch beendet.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.EventTriggered">
+            <summary>Ist zwar nicht busy aber Event-gesteuert.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeState.InternalError">
+            <summary>Mit internem Fehler beendet (DEBUG).</summary>
+        </member>
+        <member name="T:Vishnu.ViewModel.VisualNodeWorkerState">
+            <summary>
+            Stellt die Enum aus der Business-Logic für die UI zur Verfügung.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeWorkerState.None">
+            <summary>Initialwert.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeWorkerState.Invalid">
+            <summary>Mindestens ein NodeWorker ist invalide.</summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VisualNodeWorkerState.Valid">
+            <summary>Alle NodeWorker sind valide.</summary>
+        </member>
+        <member name="T:Vishnu.ViewModel.LogicalNodeViewModel">
+             <summary>
+             ViewModel für einen Knoten in der TreeView in LogicalTaskTreeControl
+             </summary>
+             <remarks>
+             File: LogicalNodeViewModel.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Dispose(System.Boolean)">
+            <summary>
+            Abschlussarbeiten.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.ExpandedEventCommand">
+            <summary>
+            Dient als erster Bindungsanker zur Attached Property ExpanderBehavior.ExpandedCommandProperty.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.CollapsedEventCommand">
+            <summary>
+            Dient als erster Bindungsanker zur Attached Property ExpanderBehavior.CollapsedCommandProperty.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.SizeChangedEventCommand">
+            <summary>
+            Dient als erster Bindungsanker zur Attached Property ExpanderBehavior.CollapsedCommandProperty.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Children">
+            <summary>
+            Die Kinder des aktuellen Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.FreeComment">
+            <summary>
+            Freitext für beliebige Anwendungen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.HasParent">
+            <summary>
+            Nur bei der Root-Node False.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.IsInSleepTime">
+            <summary>
+            Returns true, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.
+            </summary>
+            <returns>True, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.IsTreePaused">
+            <summary>
+            Returns true, wenn der Tree gerade pausiert wurde.
+            </summary>
+            <returns>True, wenn der Tree gerade pausiert wurde.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.SleepTimeTo">
+            <summary>
+            Das Ende einer möglichen Ruhezeit als formatierter String.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Parent">
+            <summary>
+            Der übergeordnete Knoten im ViewModel.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.IsExpanded">
+            <summary>
+            True, wenn der TreeView-Knoten, welcher mit diesem Knoten
+            assoziiert ist, ausgeklappt ist.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.ChildOrientation">
+            <summary>
+            Definiert, ob die Kind-Elemente dieses Knotens
+            horizontal oder vertikal angeordnet werden sollen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.IsSelected">
+            <summary>
+            True, wenn der TreeView-Knoten, welcher mit diesem Knoten
+            assoziiert ist, ausgewählt ist.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Path">
+            <summary>
+            Der eindeutige Pfad des zugehörigen LogicalTaskTree-Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Visibility">
+            <summary>
+            Gibt an, ob das Element visible, hidden oder collapsed ist.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.VisualState">
+            <summary>
+            Reicht einen u.U. aus mehreren technischen Quellen kombinierten
+            Zustand als Aufzählungstyp an die GUI (und den IValueConverter) weiter.
+            Default: None
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.TreeParams">
+            <summary>
+            Zusätzliche Parameter, die für den gesamten Tree Gültigkeit haben oder null.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.HookedTo">
+            <summary>
+            Enthält TreeParams.Name und IdInfo des Knotens, in dessen Events sich dieses
+            LogicalNodeViewModel eingehängt hat oder den Text "NULL".
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Id">
+            <summary>
+            Die Kennung des zugehörigen LogicalTaskTree-Knotens
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.IsSnapshotDummy">
+            <summary>
+            True zeigt an, dass es sich um einen Knoten innerhalb
+            eines geladenen Snapshots handelt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Logical">
+            <summary>
+            Das logische Ergebnis des zugehörigen LogicalTaskTree-Knotens
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.LastNotNullLogical">
+            <summary>
+            Merkfeld für den letzten Zustand von Logical, der nicht null war;
+            Wird benötigt, damit Worker nur dann gestartet werden, und die 
+            Anzeige wechselt, wenn sich der Zustand von Logical signifikant
+            geändert hat und nicht jedes mal, wenn der Checker arbeitet (Logical = null).
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Name">
+            <summary>
+            Der Name des zugehörigen LogicalTaskTree-Knotens
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.NextRunInfoAndResult">
+            <summary>
+            Kombinierte Ausgabe von NextRunInfo (wann ist der nächste Durchlauf)
+            und Result (in voller Länge).
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.UserControlPath">
+            <summary>
+            Der Pfad zum aktuell dynamisch zu ladenden UserControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.WorkersState">
+            <summary>
+            Kombinierter NodeWorkerState für alle zugeordneten NodeWorker.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.SingleNodes">
+            <summary>
+            Die Anzahl der Endknoten dieses Teilbaums
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Progress">
+            <summary>
+            Ein Text für die Anzahl der beendeten Endknoten dieses Teilbaums
+            zur Anzeige im ProgressBar (i.d.R. nnn%) für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.ProgressText">
+            <summary>
+            Ein Text für die Anzahl der beendeten Endknoten dieses Teilbaums
+            zur Anzeige im ProgressBar (i.d.R. nnn%) für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.SingleNodesFinished">
+            <summary>
+            Die Anzahl der beendeten Endknoten dieses Teilbaums
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Result">
+            <summary>
+            Das ReturnObject der zugeordneten LogicalNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.ShortResult">
+            <summary>
+            Kurztext für Exceptions der zugeordneten LogicalNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.Results">
+            <summary>
+            Liste von ReturnObjekten der zugeordneten LogicalNode und ihrer Kinder.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.NodeEnvironment">
+            <summary>
+            Liste mit allen Result-Objekten der Vorgänger des Teilbaums.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.LastExecutingTreeEvent">
+            <summary>
+            Das letzte auslösende TreeEvent (bei TreeEvent-getriggerten Knoten)
+            oder null.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.LastExceptions">
+            <summary>
+            Listet in einem String mögliche Exceptions der Child-Knoten
+            durch Zeilenumbruch getrennt auf.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.LastRun">
+            <summary>
+            Zeitpunkt des letzten Starts des Knoten.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.LastRunInfo">
+            <summary>
+            Zeitpunkt des letzten Starts des Knoten als String.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.NextRun">
+            <summary>
+            Zeitpunkt des nächsten Starts des Knotens (wenn bekannt) oder DateTime.MinValue.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.NextRunInfo">
+            <summary>
+            Info-Text über den nächsten Start des Knotens (wenn bekannt) oder null.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.RootJobListViewModel">
+            <summary>
+            Liefert die für den Knoten gültige Root-JobList.
+            </summary>
+            <returns>Die für den Knoten gültige Root-JobList.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.OriginalNodeId">
+            <summary>
+            Id der ursprünglich referenzierten SingleNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.DebugNodeInfos">
+            <summary>
+            Name + (Id + gegebenenfalls ReferencedNodeId) der ursprünglich referenzierten SingleNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.DebugMode">
+            <summary>
+            Bei True können zusätzliche Testausgaben erfolgen.
+            Default: False.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.StartTreeOrientation">
+            <summary>
+            Ausrichtung des Trees beim Start der Anwendung.
+              AlternatingHorizontal: Alternierender Aufbau, waagerecht beginnend (Default).
+              Vertical: Senkrechter Aufbau.
+              Horizontal: Waagerechter Aufbau.
+              AlternatingVertical: Alternierender Aufbau, senkrecht beginnend.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.GetToolTipInfo">
+            <summary>
+            Liefert das Ergebnis für die Property ToolTipInfo.
+            Diese Routine zeigt per Default auf NextRunInfoAndResult,
+            kann aber gegebenenfalls überschrieben werden.
+            </summary>
+            <returns>Die im ToolTip auszugebende Information.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.GetTopRootJobListViewModel">
+            <summary>
+            Liefert die für den Knoten gültige, oberste Root-JobList.
+            </summary>
+            <returns>Die für den Knoten gültige, oberste Root-JobList.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.GetDebugNodeInfos">
+            <summary>
+            Liefert einen string für Debug-Zwecke.
+            </summary>
+            <returns>Ein String für Debug-Zwecke.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanReloadTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ReloadTaskTreeExecute(System.Object)">
+            <summary>
+            Lädt den Tree nach Änderung der JobDescriptions neu.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ReloadTaskTree">
+            <summary>
+            Lädt den gesamten Tree inklusive JobDescription.xml asynchron neu. 
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanLogTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.LogTaskTreeExecute(System.Object)">
+            <summary>
+            Loggt den Tree.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.LogTaskTree">
+            <summary>
+            Lädt den gesamten Tree inklusive JobDescription.xml asynchron neu. 
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanShowInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ShowInfosExecute(System.Object)">
+            <summary>
+            Holt eventuell vorhandene Vishnu-Infos (Messages und Logs) in den Vordergrund.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.DoShowInfos">
+            <summary>
+            Holt eventuell vorhandene Vishnu-Infos (Messages und Logs) in den Vordergrund.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanClearInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ClearInfosExecute(System.Object)">
+            <summary>
+            Löscht eventuell vorhandene Vishnu-Infos (Messages und Logs).
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.DoClearInfos">
+            <summary>
+            Löscht eventuell vorhandene Vishnu-Infos (Messages und Logs).
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanShowLogExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ShowLogExecute(System.Object)">
+            <summary>
+            Öffnet die Logdatei im Standardeditor asynchron über ShowLogTaskTree.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ShowLogTaskTree">
+            <summary>
+            Öffnet die Logdatei im Standardeditor.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanShowSettingsExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ShowSettingsExecute(System.Object)">
+            <summary>
+            Gibt die Vishnu-Parameter im NotePad-Editor aus.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ShowSettingsTaskTree">
+            <summary>
+            Gibt die Vishnu-Parameter im NotePad-Editor aus.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.LogicalNode,System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="logicalTaskTreeViewModel">ViewModel des übergeordneten LogicalTaskTree.</param>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="myLogicalNode">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="lazyLoadChildren">Bei True werden die Kinder erst beim Öffnen des TreeView-Knotens nachgeladen.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SetChildOrientation(Vishnu.Interchange.TreeOrientation)">
+            <summary>
+            Setzt die Ausrichtung der Kind-Knoten.
+            </summary>
+            <param name="mainTreeOrientation">Ausrichtug des Trees</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.HandleExpanderExpandedEvent(System.Object)">
+            <summary>
+            Event-Handler für das Öffnen des Expanders.
+            </summary>
+            <param name="parameter">Ein object-Parameter (kann null sein).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CanHandleExpanderExpandedEvent">
+            <summary>
+            Ausführungserlaubnis für den Event-Handler für das Öffnen des Expanders.
+            </summary>
+            <returns>True, wenn die Ausführung erlaubt ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.HandleExpanderCollapsedEvent(System.Object)">
+            <summary>
+            Event-Handler für das Schließen des Expanders.
+            </summary>
+            <param name="parameter">Ein object-Parameter (kann null sein).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.HandleExpanderSizeChangedEvent(System.Object)">
+            <summary>
+            Event-Handler für Größenänderung des Expanders.
+            </summary>
+            <param name="parameter">Ein object-Parameter (kann null sein).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ExpandTree(Vishnu.ViewModel.LogicalNodeViewModel,System.Boolean)">
+            <summary>
+            Klappt den ViewModel-Tree komplett aus und damit auch die TreeView (wegen der assoziierten Knoten).
+            </summary>
+            <param name="root">Knoten, ab dem der Tree ausgeklappt werden soll.</param>
+            <param name="climbToTop">Bei True wird der gesamte Zweig bis aufwärts zur Root ausgeklappt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.CollapseTree(System.Boolean)">
+            <summary>
+            Klappt den ViewModel-Zweig ein und damit auch die TreeView (wegen der assoziierten Knoten).
+            </summary>
+            <param name="climbToTop">Bei True wird der gesamte Zweig bis aufwärts zur Root eingeklappt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.GetLogicalNode">
+            <summary>
+            Gibt die zugeordnete logicalNode aus der BusinessLogic zurück.
+            </summary>
+            <returns>die zugeordnete logicalNode aus der BusinessLogic</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Traverse(System.Func{System.Int32,Vishnu.Interchange.IExpandableNode,System.Object,System.Object})">
+            <summary>
+            Geht rekursiv durch den Baum und ruft für jeden Knoten die Action auf.
+            </summary>
+            <param name="callback">Der für jeden Knoten aufzurufende Callback vom Typ Func&lt;int, IExpandableNode, object, object&gt;.</param>
+            <returns>Das oberste UserObjekt für den Tree.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Traverse(System.Func{System.Int32,Vishnu.Interchange.IExpandableNode,System.Object,System.Object},System.Object)">
+            <summary>
+            Geht rekursiv durch den Baum und ruft für jeden Knoten die Action auf.
+            </summary>
+            <param name="callback">Der für jeden Knoten aufzurufende Callback vom Typ Func&lt;int, IExpandableNode, object, object&gt;.</param>
+            <param name="userObject">Ein User-Object, das rekursiv weitergeleitet und modifiziert wird.</param>
+            <returns>Das oberste UserObjekt für den Tree.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.traverse(System.Int32,System.Func{System.Int32,Vishnu.Interchange.IExpandableNode,System.Object,System.Object},System.Object)">
+            <summary>
+            Rekursive Hilfsroutine für die öffentliche Routine 'Traverse'.
+            </summary>
+            <param name="depth">Die Hierarchie-Ebene.</param>
+            <param name="callback">Der für jeden Knoten aufzurufende Callback vom Typ Func&lt;int, IExpandableNode, object, object&gt;.</param>
+            <param name="userObject">Ein User-Object, das rekursiv weitergeleitet und modifiziert wird.</param>
+            <returns>Das oberste UserObjekt für den Tree.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Verkettete Properties als String.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.Equals(System.Object)">
+            <summary>
+            Vergleicht den Inhalt dieses LogicalNodeViewModels nach logischen Gesichtspunkten
+            mit dem Inhalt eines übergebenen LogicalNodeViewModels.
+            </summary>
+            <param name="obj">Das LogicalNodeViewModel zum Vergleich.</param>
+            <returns>True, wenn das übergebene LogicalNodeViewModel inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.GetHashCode">
+            <summary>
+            Erzeugt einen Hashcode für dieses LogicalNodeViewModel.
+            </summary>
+            <returns>Integer mit Hashwert.</returns>
+        </member>
+        <member name="F:Vishnu.ViewModel.LogicalNodeViewModel.TreeRefreshLocker">
+            <summary>
+            Dient zum Sperren der Verarbeitung während eines laufenden Tree-Refreshs.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.LogicalNodeViewModel.SubStateLocker">
+            <summary>
+            Dient zum Sperren der Verarbeitung während subStateChanged.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.LogicalNodeViewModel.IsRefreshing">
+            <summary>
+            Zeigt an, ob gerade ein Tree-Refresh läuft.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.LeanTreeRefresh">
+            <summary>
+            Refresht den Visual-Tree nach einer Veränderung in den ViewModels.
+            Nur für inhaltliche Änderungen bei unveränderter Struktur geeignet,
+            dafür aber sehr schnell.
+            </summary>
+            <returns>False, wenn irgendwas schiefgegangen ist, ansonsten true.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.FullTreeRefresh">
+            <summary>
+            Refresht den Visual-Tree nach einer Veränderung in den ViewModels.
+            Für inhaltliche und strukturelle Änderungen im Tree geeignet,
+            dafür aber etwas langsam (im Dialog aber schnell genug).
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SetBLNode(LogicalTaskTree.LogicalNode,System.Boolean)">
+            <summary>
+            Setzt die Business-Logic Node für dieses LogicalNodeViewModel.
+            </summary>
+            <param name="node">Die zuzuordnende Node aus der Business-Logic.</param>
+            <param name="init">Bei false bricht SetBlNode mit false ab, wenn _myLogicalNode == null ist.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.UnsetBLNode">
+            <summary>
+            Gibt die Business-Logic Node für dieses LogicalNodeViewModel frei
+            und nullt den BusinessLogic-Knoten (ggf. über IDisposable).
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ReleaseBLNode">
+            <summary>
+            Gibt die Business-Logic Node für dieses LogicalNodeViewModel frei.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.InitFromNode(Vishnu.ViewModel.LogicalNodeViewModel)">
+            <summary>
+            Gibt die Business-Logic Node für dieses LogicalNodeViewModel frei.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.LogicalNodeViewModel._myLogicalNode">
+            <summary>
+            Der zugeordnete Knoten aus dem LogicalTaskTree.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.UIMain">
+            <summary>
+            Das MainWindow.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalNodeViewModel.UIDispatcher">
+            <summary>
+            Der Haupt-Dispatcher-Thread.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.LoadChildren">
+            <summary>
+            Lädt die Kinder eines Knotens. 
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.RefreshTreeView(Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.LogicalNode)">
+            <summary>
+            Aktualisiert die Anzeige eines Teilbaums.
+            </summary>
+            <param name="nodeViewModel">ViewModel-Root des Teilbaums.</param>
+            <param name="node">LogicalNode der ViewModel-Root.</param>
+            <returns>True, wenn der Teilbaum aktualisiert werden konnte;
+            bei False muss ein Full-TreeRefresh ausgeführt werden.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.TransferShadowTreeProperties(System.Collections.ObjectModel.ObservableCollection{Vishnu.ViewModel.LogicalNodeViewModel},System.Collections.ObjectModel.ObservableCollection{Vishnu.ViewModel.LogicalNodeViewModel},System.Collections.Generic.Stack{System.Int32})">
+            <summary>
+            Überträgt Eigenschaften von einem gesicherten Branch auf einen aktiven Branch.
+            </summary>
+            <param name="sourceTree">Der gesicherte Branch.</param>
+            <param name="destinationTree">Der aktive Branch.</param>
+            <param name="indices">Ein Stack zum Zwischenspeichern von Indices auf jeder Hierarchieebene.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SearchSibling(System.Collections.ObjectModel.ObservableCollection{Vishnu.ViewModel.LogicalNodeViewModel},System.Collections.Generic.Stack{System.Int32})">
+            <summary>
+            Sucht einen Knoten in einem Tree-Branch zu einer gegebenen Index-Hierarchie im Stack "indices".
+            </summary>
+            <param name="sourceTree">Der zu durchsuchende Branch.</param>
+            <param name="indices">Ein Stack mit zwischengespeicherten Indices auf jeder Hierarchieebene bis zu einem Zielknoten.</param>
+            <returns>Ein gefundenes LogicalNodeViewModel oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.TransferSiblingProperties(Vishnu.ViewModel.LogicalNodeViewModel,Vishnu.ViewModel.LogicalNodeViewModel)">
+            <summary>
+            Überträgt bestimmte Eigenschaften im VisualTree von sibling auf node.
+            </summary>
+            <param name="sibling">Der Quellknoten (LogicalNodeViewModel).</param>
+            <param name="node">Der Zielknoten (LogicalNodeViewModel)</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ResetContextMenu">
+            <summary>
+            Lädt den gesamten Tree inklusive JobDescription.xml asynchron neu. 
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.ParentViewToBL(System.Windows.FrameworkElement)">
+            <summary>
+            Speichert eine Referenz auf das zugehörige
+            Control in der Geschäftslogik.
+            </summary>
+            <param name="parentView">Das zugehörige Control.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subPropertiesChanged(System.Object,NetEti.MVVMini.PropertiesChangedEventArgs)">
+            <summary>
+            Wird angesprungen, wenn sich in LogicalTaskTree für die Anzeige relevante Eigenschaften geändert haben.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="args">EventArgs mit einer String-Liste von Namen geänderter Knoteneigenschaften</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subLogicalChanged(System.Object,System.Nullable{System.Boolean})">
+            <summary>
+            Wird angesprungen, wenn sich irgendwo in diesem Teilbaum ein Logical geändert hat.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="logical">Die geänderte Eigenschaft der Quelle.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subLastNotNullLogicalChanged(LogicalTaskTree.LogicalNode,System.Nullable{System.Boolean},System.Guid)">
+            <summary>
+            Wird angesprungen, wenn sich irgendwo in diesem Teilbaum ein LastNotNullLogical geändert hat.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="lastNotNullLogical">Die geänderte Eigenschaft der Quelle.</param>
+            <param name="eventId">Eine optionale GUID für Logging-Zwecke.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subStateChanged(System.Object,Vishnu.Interchange.NodeState)">
+            <summary>
+            Wird angesprungen, wenn sich irgendwo in diesem Teilbaum ein NodeState geändert hat.
+            Ändert abhängig von den Knoteneigenschaften "LogicalState", "State" und "Trigger"
+            die Anzeige des Verarbeitungszustandes des Knoten.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="state">Die geänderte Eigenschaft der Quelle.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SubNodeProgressStarted(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Wird angesprungen, wenn irgendwo in diesem Teilbaum eine Verarbeitung gestartet wurde.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="args">Zusätzliche Event-Parameter (Fortschritts-% und Info-Object).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subNodeProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Wird angesprungen, wenn sich irgendwo in diesem Teilbaum ein Verarbeitungsfortschritt geändert hat.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="args">Zusätzliche Event-Parameter (Fortschritts-% und Info-Object).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.subNodeProgressFinished(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Wird angesprungen, wenn irgendwo in diesem Teilbaum eine Verarbeitung beendet wurde.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="args">Zusätzliche Event-Parameter (Fortschritts-% und Info-Object).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SubNodeWorkersStateChanged(System.Object)">
+            <summary>
+            Wird angesprungen, wenn für diesen Knoten Worker existieren und sich deren Zustand verändert hat.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalNodeViewModel.SubNodePropertiesChanged(System.Object,NetEti.MVVMini.PropertiesChangedEventArgs)">
+            <summary>
+            Wird angesprungen, wenn sich für diesen Knoten sonstige Properties geändert haben,
+            die an die UI weitergegeben werden sollen.
+            </summary>
+            <param name="sender">Quelle des Events (LogicalNode).</param>
+            <param name="args">StringList mit Namen der betroffenen Properties.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.LogicalTaskTreeManager">
+             <summary>
+             LogicalTaskTreeManager bietet Funktionen zum Verwalten von LogicalTaskTrees:
+               - Mergen eines neu geladenen Trees in einen bestehenden aktiven Tree,
+               - Rekursives Loggen wichtiger Eigenschaften von Teilbäumen eines LogicalTaskTrees.
+             </summary>
+             <remarks>
+             Author: Erik Nagel, NetEti
+            
+             01.01.2021 Erik Nagel, NetEti: created.
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.LogTaskTree(Vishnu.ViewModel.LogicalNodeViewModel,System.Boolean,System.String)">
+            <summary>
+            Loggt den für Debug-Zwecke zum aktuellen Zeitpunkt.
+            Das Logging beginnt ab dem übergebenen logicalNodeViewModel, wenn es ein JobListViewModel ist,
+            ansonsten ab der nächsten diesem übergeordneten Joblist.
+            Wenn der Zusatzparameter "fromTop" auf true steht, wird der gesamte Tree geloggt.
+            </summary>
+            <param name="logicalNodeViewModel">Ein LogicalNodeViewModel innerhalb des Trees.</param>
+            <param name="fromTop">Bei true wird der gesamte Tree geloggt, default: false.</param>
+            <param name="header">Optionale Überschritf.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ShowLogTaskTree">
+            <summary>
+            Öffnet die Logdatei im Standardeditor.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ShowSettingsTaskTree(System.Collections.Generic.SortedDictionary{System.String,System.String})">
+            <summary>
+            Gibt die Vishnu-Parameter im NotePad-Editor aus.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ShowVishnuHelp">
+            <summary>
+            Zeigt die Vishnu Hilfe an.
+            Wenn der Parameter "HelpPreference" gleich "local" gesetzt ist,
+            wird versucht lokal "Vishnu_doc.de.chm" zu laden,
+            andernfalls wird versucht, die Vishnu Onlinehilfe zu laden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ShowVishnuOnlineHelp(System.Boolean)">
+            <summary>
+            Zeigt die Vishnu Onlinehilfe an.
+            </summary>
+            <param name="redirected">True, wenn schon vorher die lokale CHM-Datei versucht wurde; Default: false</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ShowLocalVishnuHelp(System.Boolean)">
+            <summary>
+            Zeigt die lokale Vishnu Hilfe (chm) an.
+            </summary>
+            <param name="redirected">True, wenn schon vorher die Onlinehilfe versucht wurde; Default: false</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.MergeTaskTrees(Vishnu.ViewModel.JobListViewModel,Vishnu.ViewModel.JobListViewModel,System.Windows.Threading.Dispatcher)">
+            <summary>
+            Verarbeitet zwei übergebene Trees aus LogicNodeViewModels:
+            "activeTree" und "newTree".
+            Im Prinzip soll nach der Verarbeitung in LogicalTaskTreeMerger Vishnu ohne Unterbrechung mit
+            einer Repräsentation des newTrees weiterarbeiten. Hierbei sollen nur neu hinzugekommene oder
+            grundlegend veränderte Knoten neu gestartet werden müssen.
+            Aktive oder unveränderte Knoten im activeTree, die auch im newTree vorkommen, sollen möglichst
+            unangetastet bleiben.
+            Das heißt, dass ihre aktuellen Verarbeitungszustände, logischen Werte, Trigger, Logger, etc.
+            erhalten bleiben (sie insbesondere nicht neu gestartet werden müssen).
+            Aktive Knoten im activeTree, die nicht mehr im newTree vorkommen, müssen geordnet beendet und
+            freigegeben werden.
+            Besonders zu beachten:
+              - Differenzierte Verarbeitung von JobLists, bei denen sich die LogicalExpression geändert hat;
+                Hier müssen die JobLists getauscht werden, aber evtl. gleich gebliebene Kinder unangetastet
+                bleiben.
+              - Merging von für JobLists und Tree globalen Arrays und Dictionaries:
+                Job
+                  ...
+                      #region tree globals
+              
+                      /// Liste von internen Triggern für einen jobPackage.Job.
+                      public Dictionary «string, Dictionary«string, TriggerShell»» EventTriggers { get; set; }
+                                            |                  |
+                                            |                  +-> Quelle, z.B SubJob1 oder CheckTreeEvents
+                                            |
+                                            +-> Events string, z.B. "AnyException|LastNotNullLogicalChanged"
+                        EventTriggers werden nach oben in die TopRootJobList propagiert.
+              
+                      /// Liste von externen Arbeitsroutinen für einen jobPackage.Job.
+                      /// Ist ein Dictionary mit WorkerShell-Arrays zu aus
+                      /// Knoten-Id + ":" + TreeEvents-String gebildeten Keys.
+                      public Workers Workers { get; private set; }
+                        public Dictionary«string, Dictionary«string, WorkerShell[]»» WorkersDictionary { get; set; }
+                                           |                  |
+                                           |                  +-> Quelle, z.B. SQLSERVER_Job
+                                           |
+                                           +-> einzelnes Event, z.B. "AnyException" oder "LastNotNullLogicalChanged"
+                        Workers werden nicht nach oben in die TopRootJobList propagiert,
+                        sondern sind für jede JobList spezifisch.
+              
+                      #endregion tree globals
+                      ...
+              
+                JobList
+                  ...
+                      #region tree globals
+              
+                      // Der externe Job mit logischem Ausdruck und u.a. Dictionary der Worker.
+                      public Job Job { get; set; }
+              
+                      nur temporär /// Dictionary von externen Prüfroutinen für einen jobPackage.Job mit Namen als Key.
+                                   /// Wird als Lookup für unaufgelöste JobConnector-Referenzen genutzt.
+                                   public Dictionary«string, NodeCheckerBase» AllCheckersForUnreferencingNodeConnectors { get; set; }
+                                                      |
+                                                      +-> Checker-Name, z.B. "Datum"
+                                   AllCheckersForUnreferencingNodeConnectors werden nach oben in die TopRootJobList propagiert,
+                                   aber bei der Auflösung von unreferenzierenden NodeConnectoren nach und nach entfernt.
+                                   Das heißt, dass in der TopRootJobList AllCheckersForUnreferencingNodeConnectors nach der initialen
+                                   Verarbeitung leer sein muss, ansonsten sind NodeConnectoren ohne gültige Referenz übrig geblieben.
+              
+                      nur temporär /// Liste von NodeConnectoren, die beim Parsen der Jobs noch nicht aufgelöst
+                                   /// werden konnten.
+                                   public List«NodeConnector» UnsatisfiedNodeConnectors;
+              
+                      /// Dictionary von externen Prüfroutinen für eine JobList, die nicht in
+                      /// der LogicalExpression referenziert werden; Checker, die ausschließlich
+                      /// über ValueModifier angesprochen werden.
+                      public Dictionary«string, NodeCheckerBase» TreeExternalCheckers { get; set; }
+                                         |
+                                         +-> Checker-Id, z.B. "Datum" (NodeName wird zur Id)
+                        TreeExternalCheckers werden nicht nach oben in die TopRootJobList propagiert,
+                        sondern sind für jede JobList spezifisch.
+              
+                      /// Liste von externen SingleNodes für die TopRootJobList, die in keiner
+                      /// der LogicalExpressions referenziert werden; Nodes, die ausschließlich
+                      /// über NodeConnectoren angesprochen werden.
+                      public List«SingleNode» TreeExternalSingleNodes { get; set; }
+                                   |
+                                   +-> SingleNode Binary
+                        TreeExternalSingleNodes werden nicht nach oben in die TopRootJobList propagiert,
+                        sondern sind für jede JobList spezifisch.
+              
+                      /// Cache zur Beschleunigung der Verarbeitung von TreeEvents
+                      /// bezogen auf EventTrigger.
+                      public List«string» TriggerRelevantEventCache;
+                                   |
+                                   +-> einzelnes Event, z.B. "AnyException" oder "LastNotNullLogicalChanged"
+                        TriggerRelevantEventCache wird nach oben in die TopRootJobList propagiert.
+                        
+                      /// Cache zur Beschleunigung der Verarbeitung von TreeEvents
+                      /// bezogen auf Worker.
+                      public List«string» WorkerRelevantEventCache;
+                                   |
+                                   +-> einzelnes Event, z.B. "AnyException" oder "LastNotNullLogicalChanged"
+                        Hinweis: Vishnu fügt allen JobLists in WorkerRelevantEventCache das Event 'Breaked' hinzu. 
+                        WorkerRelevantEventCache wird nach oben in die TopRootJobList propagiert.
+              
+                      /// Cache zur Beschleunigung der Verarbeitung von TreeEvents
+                      /// bezogen auf Logger.
+                      public List«string» LoggerRelevantEventCache;
+                                   |
+                                   +-> einzelnes Event, z.B. "AnyException" oder "LastNotNullLogicalChanged"
+                        LoggerRelevantEventCache wird nach oben in die TopRootJobList propagiert.
+              
+                      /// Dictionary von JobLists mit ihren Namen als Keys.
+                      public Dictionary«string, JobList> JobsByName;
+                                         |
+                                         +-> einzelne Job-Id, z.B. "CheckServers" oder "SubJob1"
+                        JobsByName werden nach oben in die TopRootJobList propagiert.
+              
+                      /// Dictionary von LogicalNodes mit ihren Namen als Keys.
+                      public Dictionary«string, LogicalNode» NodesByName;
+                                         |
+                                         +-> einzelne Knoten-Id, z.B. "Datum" oder "Check_D"
+                        NodesByName werden nicht nach oben in die TopRootJobList propagiert,
+                        sondern sind für jede JobList spezifisch.
+              
+                      /// Dictionary von LogicalNodes mit ihren Namen als Keys.
+                      public Dictionary«string, LogicalNode» TreeRootLastChanceNodesByName;
+                                         |
+                                         +-> einzelne Knoten-Id, z.B. "Datum" oder "Check_D"
+                        TreeRootLastChanceNodesByName werden nach oben in die TopRootJobList propagiert.
+              
+                      /// Dictionary von LogicalNodes mit ihren Ids als Keys.
+                      public Dictionary«string, LogicalNode» NodesById;
+                                         |
+                                         +-> einzelne Knoten-Id, z.B. "Datum" oder "Check_D" oder "Child_1_@26"
+                        NodesById werden nach oben in die TopRootJobList propagiert.
+              
+                      #endregion tree globals
+            
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.DiffTreeElement(System.Int32,Vishnu.Interchange.IExpandableNode,System.Object)">
+            <summary>
+            Vergleicht die übergebene ExpandableNode mit ihrem Pendant in dem Shadow-Tree.
+            </summary>
+            <param name="depth">Nullbasierter Zähler der Rekursionstiefe eines Knotens im LogicalTaskTree.</param>
+            <param name="expandableNode">Basisklasse eines ViewModel-Knotens im LogicalTaskTree.</param>
+            <param name="userObject">Ein beliebiges durchgeschliffenes UserObject (hier: Dictionary&lt;string, LogicalNodeViewModel&gt;).</param>
+            <returns>Das Dictionary&lt;string, LogicalNodeViewModel&gt; oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.AdjustBranchRootJobListGlobals(LogicalTaskTree.LogicalNode)">
+            <summary>
+            Ändert bei aus dem ShadowTree in den aktiven Tree übernommenen Knoten Referenzen des activeTree auf den früheren Knoten
+            unter gleichem Pfad auf den neuen Knoten. Muss auch für alle eventuellen Children des Knoten aufgerufen werden.
+            Der Knoten muss vorher in den aktiven Tree übernommen worden sein, da die Verarbeitung im aktiven Tree erfolgen
+            muss.
+            </summary>
+            <param name="transferredShadowNode">Die neu in den Tree übernommene LogicalNode.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.AdjustRootJobListGlobals(System.Int32,LogicalTaskTree.LogicalNode,System.Object)">
+            <summary>
+            Ändert bei aus dem ShadowTree in den aktiven Tree übernommenen Knoten Referenzen auf den früheren Knoten
+            unter gleichem Pfad auf den neuen Knoten.
+            </summary>
+            <param name="depth">Hierarchie-Tiefe im Tree, wird hier nicht verwendet.</param>
+            <param name="transferredShadowNode">Die neu in den Tree übernommene LogicalNode.</param>
+            <param name="userObject">Ein optionales user-Objekt, wird hier nicht verwendet.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.DoIndexTreeElement(System.Int32,Vishnu.Interchange.IExpandableNode,System.Object)">
+            <summary>
+            Fügt den Path der ExpandableNode als Key und die ExpandableNode als Value in ein als object übergebenes Dictionary ein.
+            </summary>
+            <param name="depth">Nullbasierter Zähler der Rekursionstiefe eines Knotens im LogicalTaskTree.</param>
+            <param name="expandableNode">Basisklasse eines ViewModel-Knotens im LogicalTaskTree.</param>
+            <param name="userObject">Ein beliebiges durchgeschliffenes UserObject (hier: Dictionary&lt;string, LogicalNodeViewModel&gt;).</param>
+            <returns>Das bisher gefüllte Dictionary mit Path als Key und dem LogicalNodeViewModel als Value.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.CollectReferencedObjects(System.Int32,Vishnu.Interchange.IExpandableNode,System.Object)">
+            <summary>
+            Fügt tatsächlich referenzierte Objekte in eine als object übergebene List ein.
+            </summary>
+            <param name="depth">Nullbasierter Zähler der Rekursionstiefe eines Knotens im LogicalTaskTree.</param>
+            <param name="expandableNode">Basisklasse eines ViewModel-Knotens im LogicalTaskTree.</param>
+            <param name="userObject">Ein beliebiges durchgeschliffenes UserObject (hier: Dictionary&lt;string, LogicalNodeViewModel&gt;).</param>
+            <returns>Das bisher gefüllte Dictionary mit Path als Key und dem LogicalNodeViewModel als Value.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeManager.ListTreeElement(System.Int32,Vishnu.Interchange.IExpandableNode,System.Object)">
+            <summary>
+            Fügt Informationen über die übergebene ExpandableNode in eine als object übergebene Stringlist ein.
+            </summary>
+            <param name="depth">Nullbasierter Zähler der Rekursionstiefe eines Knotens im LogicalTaskTree.</param>
+            <param name="expandableNode">Basisklasse eines ViewModel-Knotens im LogicalTaskTree.</param>
+            <param name="userObject">Ein beliebiges durchgeschliffenes UserObject (hier: List&lt;string&gt;).</param>
+            <returns>Die bisher gefüllte Stringlist mit Knoteninformationen.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.LogicalTaskTreeViewModel">
+             <summary>
+             ViewModel für die Darstellung eines logicalTaskTree
+             in einer TreeView.
+             </summary>
+             <remarks>
+             File: LogicalTaskTreeViewModel
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalTaskTreeViewModel.InfoSource">
+            <summary>
+            ItemsSource für optionale Zusatz-Infos zum Tree.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalTaskTreeViewModel.IsInSleepTime">
+            <summary>
+            Returns true, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.
+            </summary>
+            <returns>True, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalTaskTreeViewModel.SleepTimeTo">
+            <summary>
+            Das Ende einer möglichen Ruhezeit als formatierter String.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalTaskTreeViewModel.RunLogicalTaskTree">
+            <summary>
+            Command für den Run-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.LogicalTaskTreeViewModel.BreakLogicalTaskTree">
+            <summary>
+            Command für den Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeViewModel.#ctor(LogicalTaskTree.LogicalTaskTree,System.Windows.FrameworkElement,Vishnu.Interchange.TreeOrientation,Vishnu.Interchange.NodeTypes,Vishnu.Interchange.TreeParameters)">
+            <summary>
+            Konstruktor - übernimmt die Geschäftslogik, das MainWindow, die Start-Ausrichtung des Baums
+            und einen Filter für die anzuzeigenden NodeTypes.
+            </summary>
+            <param name="businessLogic">Die Geschäftslogik der Anwendung.</param>
+            <param name="uiMain">Das Vishnu-MainWindow.</param>
+            <param name="startTreeOrientation">Die Startausrichtung des Baums.</param>
+            <param name="flatNodeListFilter">Ein Filter für anzuzeigende NodeTypes.</param>
+            <param name="treeParams">Parameter für den gesamten Tree.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeViewModel.FlattenTree(Vishnu.ViewModel.LogicalNodeViewModel,System.Collections.ObjectModel.ObservableCollection{Vishnu.ViewModel.LogicalNodeViewModel},Vishnu.Interchange.NodeTypes,System.Boolean)">
+            <summary>
+            Macht aus einem übergebenen (Teil-)Baum eine flache Liste.
+            Welche Knotentypen in der Liste angezeigt werden und welche nicht,
+            kann extern in der app.config über
+              "FlatNodeListFilter" 
+              value="NodeConnector|ValueModifier|Constant|Checker|NodeList|JobList|Snapshot"
+            festgelegt werden.
+            </summary>
+            <param name="root">Wurzelknoten des (Teil-)Baums.</param>
+            <param name="flatNodeList">ObservableCollection zur Aufnahme der Knoten.</param>
+            <param name="flatNodeListFilter">Filter für Knotentypen die nicht in die Liste aufgenommen werden sollen.</param>
+            <param name="withRoot">Bei True wird der Rootknoten mit in die Liste aufgenommen (Default: True).</param>
+            <returns>Flache Liste (ObservableCollection) der Knoten des (Teil-)Baums.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeViewModel.SaveTreeState(Vishnu.Interchange.WindowAspects)">
+            <summary>
+            Speichert den aktuellen Darstellungszustand des Main Windows (parameter) und aller Knoten (collapsed oder expanded).
+            </summary>
+            <param name="windowAspects">Aktuelle UI-Eigenschaften (z.B. WindowTop, WindowWidth, ...).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.LogicalTaskTreeViewModel.MainWindowToTop">
+            <summary>
+            Holt das Hauptfenster in den Vordergrund.
+            </summary>
+        </member>
+        <member name="T:Vishnu.ViewModel.MainWindowViewModel">
+             <summary>
+             ViewModel für das MainWindow.
+             </summary>
+             <remarks>
+             File: MainWindowViewModel
+             Autor: Erik Nagel
+            
+             09.01.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.GetTopJobListViewModel">
+            <summary>
+            Liefert das oberste JobListViewModel des Trees als IVishnuViewModel.
+            </summary>
+            <returns>Das oberste JobListViewModel des Trees als IVishnuViewModel.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.SetTopJobListViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Setzt das oberste JobListViewModel des Trees.
+            Returnt das bisherige oberste JobListViewModel.
+            </summary>
+            <param name="topJobListViewModel">Das neue oberste JobListViewModel des Trees.</param>
+            <returns>Das bisherige oberste JobListViewModel des Trees.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.RefreshDependentAlternativeViewModels">
+            <summary>
+            Aktualisiert die ViewModels von eventuellen zusätzliche Ansichten,
+            die dieselbe BusinessLogic abbilden (hier: JobGroupViewModel).
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.WindowTitle">
+            <summary>
+            Der Titel des Haupt-Fensters.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.TreeParams">
+            <summary>
+            Zusätzliche Parameter, die für den gesamten Tree Gültigkeit haben oder null.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.TreeVM">
+            <summary>
+            ViewModel für den LogicalTaskTree.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.JobGroupsVM">
+            <summary>
+            Liste von JobListViewModels mit ihren Checkern.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.RunJobGroups">
+            <summary>
+            Command für den Run-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.BreakJobGroups">
+            <summary>
+            Command für den Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.InitSizeCommand">
+            <summary>
+            Setzt die Fenstergröße unter Berücksichtigung von Maximalgrenzen auf die
+            Höhe und Breite des Inhalts und die Property SizeToContent auf WidthAndHeight.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.ShowVishnuHelpCommand">
+            <summary>
+            Ruft die Vishnu Onlinehilfe auf.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.MainWindowViewModel.SwitchTaskTreeViewRoutedCommand">
+            <summary>
+            Setzt die Fenstergröße unter Berücksichtigung von Maximalgrenzen auf die
+            Höhe und Breite des Inhalts und die Property SizeToContent auf WidthAndHeight.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.#ctor(Vishnu.ViewModel.LogicalTaskTreeViewModel,System.Action{System.Object},Vishnu.Interchange.NodeTypes,System.String,Vishnu.Interchange.TreeParameters)">
+            <summary>
+            Konstruktor - übernimmt das ViewModel für den LogicalTaskTree und eine Methode des
+            MainWindows zum Restaurieren der Fenstergröße abhängig vom Fensterinhalt.
+            </summary>
+            <param name="logicalTaskTreeViewModel">ViewModel für den LogicalTaskTree.</param>
+            <param name="initWindowSize">Restauriert die Fenstergröße abhängig vom Fensterinhalt.</param>
+            <param name="flatNodeListFilter">Filter für definierte Knotentypen.</param>
+            <param name="additionalWindowHeaderInfo">Optionaler Zusatztext für den Fenstertitel.</param>
+            <param name="treeParams">Parameter für den gesamten Tree.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.SaveTreeState(Vishnu.Interchange.WindowAspects)">
+            <summary>
+            Ruft die gleichnamige Methode im LogicalTaskTreeViewModel zum speichern des aktuellen
+            Darstellungszustandes des Main Windows (parameter) und aller Knoten (collapsed oder expanded) auf.
+            </summary>
+            <param name="windowAspects">Aktuelle UI-Eigenschaften (z.B. WindowTop, WindowWidth, ...).</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.SwitchTakTreeViewRouted(System.Object)">
+            <summary>
+            Leitet die Anforderung zur Veränderung der Tree-Ausrichtung (Yin_Yang) an
+            das Main-JobListViewModel weiter.
+            </summary>
+            <param name="parameter">Optionales Parameter-Objekt, hier ungenutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.MainWindowViewModel.ShowVishnuHelpTask">
+            <summary>
+            Zeigt die Vishnu Onlinehilfe an.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.NodeErrorViewModel">
+             <summary>
+             ViewModel für einen Ladefehler-Knoten.
+             </summary>
+             <remarks>
+             File: NodeErrorViewModel
+             Autor: Erik Nagel
+            
+             12.04.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.NodeErrorViewModel.DllPath">
+            <summary>
+            Pfad zur Dll, bei der der Ladefehler auftrat.
+             </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.NodeErrorViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel,System.String)">
+            <summary>
+            Konstruktor - übernimmt das übergeordnete ViewModel
+            und den Pfad zur Dll, die nicht geladen werden konnte.
+            </summary>
+            <param name="parentViewModel">Das übergeordnete ViewModel.</param>
+            <param name="dllPath">Pfad zur Dll, die nicht geladen werden konnte.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.NodeListViewModel">
+             <summary>
+             ViewModel für einen NodeList-Knoten in der TreeView in LogicalTaskTreeControl
+             Auch wenn hier keine eigene Funktionalität codiert ist, wird diese
+             Ableitung von LogicalNodeViewModel benötigt, um in der TreeView die
+             unterschiedliche Darstellung der verschiedenen Knotentypen realisieren
+             zu können.
+             </summary>
+             <remarks>
+             File: NodeListViewModel.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.NodeListViewModel.GetToolTipInfo">
+            <summary>
+            Liefert das Ergebnis für die Property ToolTipInfo.
+            Diese Routine zeigt per Default auf NextRunInfoAndResult,
+            wird aber hier überschrieben.
+            </summary>
+            <returns>Die im ToolTip anzuzeigende Information.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.NodeListViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.NodeList,System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor - übernimmt das ViewModel des übergeordneten LogicalTaskTree,
+            den übergeordneten ViewModel-Knoten, den zugeordneten Knoten aus dem LogicalTaskTree,
+            einen Schalter für Lazy-Loading und das Root-FrameworkElement zu diesem ViewModel.
+            </summary>
+            <param name="logicalTaskTreeViewModel">ViewModel des übergeordneten LogicalTaskTree.</param>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="nodeList">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="lazyLoadChildren">Bei True werden die Kinder erst beim Öffnen des TreeView-Knotens nachgeladen.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.OrientedTreeViewModelBase">
+            <summary>
+            Minimale gemeinsame Basisklasse für LogicalTaskTreeViewModel
+            und DummyLogicalTaskTreeViewModel.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.OrientedTreeViewModelBase.TreeVM">
+            <summary>
+            Liefert das RootJobListViewModel des LogicalTaskTreeViewModels inklusive Setter.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.OrientedTreeViewModelBase.TreeParams">
+            <summary>
+            Zusätzliche Parameter, die für den gesamten Tree Gültigkeit haben oder null.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.OrientedTreeViewModelBase.TreeOrientationState">
+            <summary>
+            Bestimmt die Ausrichtung bei der Darstellung der Elemente im Tree. 
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.OrientedTreeViewModelBase.#ctor(Vishnu.Interchange.TreeParameters)">
+            <summary>
+            Konstruktor - übernimmt die Parameter für den gesamten Tree.
+            </summary>
+            <param name="treeParams">Parameter für den gesamten Tree.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.OrientedTreeViewModelBase.#ctor">
+            <summary>
+            Dummy-Konstruktor.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.OrientedTreeViewModelBase.MainLogicalNodeView">
+            <summary>
+            ItemsSource für die TreeView in LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.OrientedTreeViewModelBase.TempIds">
+            <summary>
+            Liste für die temporäre Speicherung von NodeListViewModel-Knoten
+            als Helfer während des Aus- oder Einklappens des Branches.
+            </summary>
+        </member>
+        <member name="T:Vishnu.ViewModel.SingleNodeViewModel">
+             <summary>
+             ViewModel für einen SingleNode-Knoten in der TreeView in LogicalTaskTreeControl
+             Auch wenn hier keine eigene Funktionalität codiert ist, wird diese
+             Ableitung von LogicalNodeViewModel benötigt, um in der TreeView die
+             unterschiedliche Darstellung der verschiedenen Knotentypen realisieren
+             zu können.
+             </summary>
+             <remarks>
+             File: SingleNodeViewModel.cs
+             Autor: Erik Nagel
+            
+             05.12.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.ButtonRunText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.CanTreeStart.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.ButtonRunBreakText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.CanTreeStart.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.ButtonBreakText">
+            <summary>
+            Veröffentlicht einen ButtonText entsprechend this._myLogicalNode.IsActive.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.RunLogicalTaskTree">
+            <summary>
+            Command für den Run-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.RunOrBreakLogicalTaskTree">
+            <summary>
+            Command für den Run-or-Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SingleNodeViewModel.BreakLogicalTaskTree">
+            <summary>
+            Command für den Break-Button im LogicalTaskTreeControl.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.LogicalNode,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="logicalTaskTreeViewModel">ViewModel des übergeordneten LogicalTaskTree.</param>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="singleNode">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Verkettete Properties als String.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.Equals(System.Object)">
+            <summary>
+            Vergleicht den Inhalt dieses SingleNodeViewModels nach logischen Gesichtspunkten
+            mit dem Inhalt eines übergebenen SingleNodeViewModels.
+            </summary>
+            <param name="obj">Das SingleNodeViewModel zum Vergleich.</param>
+            <returns>True, wenn das übergebene SingleNodeViewModel inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.GetHashCode">
+            <summary>
+            Erzeugt einen Hashcode für dieses SingleNodeViewModel.
+            </summary>
+            <returns>Integer mit Hashwert.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.TechnicalRun">
+            <summary>
+            Führt im Verlauf eines externen Tree-Relod einen technischen Run
+            für die korrekte Initialisierung des JobListViewModels aus.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.SingleNodeViewModel.TreeElementLogicalStateChanged(System.Object,Vishnu.Interchange.NodeLogicalState)">
+            <summary>
+            Wird angesprungen, wenn sich der logische Zustand des zugeordneten
+            Knotens aus der Business-Logic geändert hat.
+            </summary>
+            <param name="sender">Der zugeordnete Knoten aus der Business-Logic.</param>
+            <param name="state">Logischer Zustand des Knotens aus der Business-Logic.</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.SnapshotViewModel">
+             <summary>
+             ViewModel für einen Snapshot eines externen Trees.
+             </summary>
+             <remarks>
+             File: SnapshotViewModel.cs
+             Autor: Erik Nagel
+            
+             12.11.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.SnapshotViewModel.SnapshotTime">
+            <summary>
+            Zeitpunkt der letzten Aktualisierung des Snapshots.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SnapshotViewModel.IsDefaultSnapshot">
+            <summary>
+            True, wenn der Snapshot nicht geladen werden konnte
+            und durch einen Default-Snapshot ersetzt wurde.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SnapshotViewModel.IsInSnapshot">
+            <summary>
+            Bei True befindet sich diese NodeList innerhalb eies Snapshots.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SnapshotViewModel.SnapshotPath">
+            <summary>
+            Herkunft des Snapshots.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.SnapshotViewModel.RefreshSnapshot">
+            <summary>
+            Command für den Refresh des Snapshots.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.SnapshotViewModel.#ctor(Vishnu.ViewModel.OrientedTreeViewModelBase,Vishnu.ViewModel.LogicalNodeViewModel,LogicalTaskTree.Snapshot,System.Boolean,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor
+            </summary>
+            <param name="parent">Der übergeordnete ViewModel-Knoten.</param>
+            <param name="snapshot">Der zugeordnete Knoten aus dem LogicalTaskTree.</param>
+            <param name="lazyLoadChildren">Bei True werden die Kinder erst beim Öffnen des TreeView-Knotens nachgeladen.</param>
+            <param name="uIMain">Das Root-FrameworkElement zu diesem ViewModel.</param>
+            <param name="logicalTaskTreeViewModel">Das dem Root-Knoten übergeordnete ViewModel (nur beim Root-Job ungleich null).</param>
+        </member>
+        <member name="T:Vishnu.ViewModel.UIHelper">
+             <summary>
+             Bietet statische Routinen zur Durchsuchung des VisualTrees und des LogicalTrees.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             25.03.2020 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstLogicalChildOfType``1(System.Windows.FrameworkElement)">
+            <summary>
+            Sucht im LogicalTree vom FrameworkElement element
+            nach dem ersten Kindelement vom Typ T.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Kindelements.</typeparam>
+            <param name="element">FrameworkElement, dessen LogicalTree durchsucht werden soll.</param>
+            <returns>Kindelement vom Typ T oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstLogicalChildOfTypeAndName``1(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Sucht im LogicalTree vom FrameworkElement element
+            nach dem ersten Kindelement vom Typ T.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Kindelements.</typeparam>
+            <param name="element">FrameworkElement, dessen LogicalTree durchsucht werden soll.</param>
+            <param name="name">Child.Name oder null.</param>
+            <returns>Kindelement vom Typ T oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstVisualChildOfType``1(System.Windows.FrameworkElement)">
+            <summary>
+            Sucht im VisualTree vom FrameworkElement element
+            nach dem ersten Kindelement vom Typ T.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Kindelements.</typeparam>
+            <param name="element">FrameworkElement, dessen VisualTree durchsucht werden soll.</param>
+            <returns>Kindelement vom Typ T oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstVisualChildOfTypeAndName``1(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Sucht im VisualTree vom FrameworkElement element
+            nach dem ersten Kindelement vom Typ T mit Name == name.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Kindelements.</typeparam>
+            <param name="element">FrameworkElement, dessen VisualTree durchsucht werden soll.</param>
+            <param name="name">Name des gesuchten Kindelements oder null.</param>
+            <returns>Kindelement vom Typ T (und wenn angegeben, mit Name == name) oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstVisualChildOfTypeAfterVisualChildOfTypeAndName``2(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Sucht im VisualTree vom FrameworkElement element nach dem ersten Kindeskind-Element vom Typ T,
+            welches auf ein Kindelement vom Typ 'predecessorType' mit dem Namen 'predecessorName' folgt.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Kindeskind-Elements.</typeparam>
+            <typeparam name="U">Typ des Kindelements, dessen Kind gesucht wird.</typeparam>
+            <param name="element">FrameworkElement, dessen VisualTree durchsucht werden soll.</param>
+            <param name="predecessorName">Name des dem gesuchten Elements vorausgehenden Elementes.</param>
+            <returns>Kindeskindelement vom Typ T.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstVisualParentOfType``1(System.Windows.FrameworkElement)">
+            <summary>
+            Sucht im VisualTree vom FrameworkElement element
+            aufwärts nach dem ersten Elternelement vom Typ T.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Elternelements.</typeparam>
+            <param name="element">FrameworkElement, dessen VisualTree durchsucht werden soll.</param>
+            <returns>Elternelement vom Typ T oder null.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.UIHelper.FindFirstVisualParentOfTypeAndName``1(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Sucht im VisualTree vom FrameworkElement element aufwärts
+            nach dem ersten Elternelement vom Typ T mit Name == name.
+            </summary>
+            <typeparam name="T">Typ des gesuchten Elternelements.</typeparam>
+            <param name="element">FrameworkElement, dessen VisualTree durchsucht werden soll.</param>
+            <param name="name">Name des gesuchten Elternelements oder null.</param>
+            <returns>Elternelement vom Typ T (und wenn angegeben, mit Name == name) oder null.</returns>
+        </member>
+        <member name="T:Vishnu.ViewModel.VishnuViewModelBase">
+             <summary>
+             Basisklasse für alle Vishnu-ViewModels.
+             Erbt von ObservableObject u.a. INotifyPropertyChanged
+             und implementiert IVishnuViewModel.
+             </summary>
+             <remarks>
+             File: VishnuViewModelBase.cs
+             Autor: Erik Nagel
+            
+             22.05.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ReloadLogicalTaskTree">
+            <summary>
+            Command für das ContextMenuItem "Reload" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.LogLogicalTaskTree">
+            <summary>
+            Command für das ContextMenuItem "Log Tree" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ShowLogLogicalTaskTree">
+            <summary>
+            Command für das ContextMenuItem "Show Log" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ShowInfos">
+            <summary>
+            Command für das ContextMenuItem "Zeige Infos" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ClearInfos">
+            <summary>
+            Command für das ContextMenuItem "Lösche Infos" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ShowSettingsLogicalTaskTree">
+            <summary>
+            Command für das ContextMenuItem "Show Settings" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ShowVishnuHelp">
+            <summary>
+            Command für das ContextMenuItem "Show Vishnu Help" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.PauseResumeLogicalTaskTree">
+            <summary>
+            Command für das ContextMenuItem "Pause Tree" im ContextMenu für das "MainGrid" des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.SwitchTaskTreeView">
+            <summary>
+            Command für das Umschalten der Tree-Darstellung.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.CopyToolTipInfoToClipboard">
+            <summary>
+            Command für den Copy-Button im ToolTip des Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.Result">
+            <summary>
+            Das ReturnObject der zugeordneten LogicalNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ParentView">
+            <summary>
+            Das Control zu diesem ViewModel.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.UserDataContext">
+            <summary>
+            Bindung an ein optionales, spezifisches User-ViewModel.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.VisualTreeCacheBreaker">
+            <summary>
+            Eindeutiger GlobalUniqueIdentifier.
+            Wird im Konstruktor vergeben und fließt in die überschriebene Equals-Methode ein.
+            Dadurch wird erreicht, dass nach Reload von Teilen des LogicalTaskTree und erneutem
+            Reload von vorherigen Ständen des LogicalTaskTree Elemente des ursprünglich 
+            gecachten VisualTree fälschlicherweise anstelle der neu geladenen Elemente in den
+            neuen VisualTree übernommen werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.GridRow">
+            <summary>
+            Liefert oder setzt die Zeile im enthaltenden Grid für das aktuelle Element.
+            </summary>
+            <returns>die Zeile im enthaltenden Grid.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.GridColumn">
+            <summary>
+            Liefert oder setzt die Spalte im enthaltenden Grid für das aktuelle Element.
+            </summary>
+            <returns>die Spalte im enthaltenden Grid.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.IsRendered">
+            <summary>
+            Zeigt an, ob das zugehörige Control vollständig gezeichnet wurde.
+            </summary>
+        </member>
+        <member name="F:Vishnu.ViewModel.VishnuViewModelBase.RowNumber">
+            <summary>
+            Liefert oder setzt die Zeilennummer des zugehörigen Controls
+            in einer quadratischen Matrix.
+            Dieser Wert wird zu einem geeigneten Zeitpunkt in die Property GridRow geschoben,
+            um die WPF-GUI zu informieren.
+            </summary>
+            <returns>Die Zeilennummer des zugehörigen Controls in einer quadratischen Matrix.</returns>
+        </member>
+        <member name="F:Vishnu.ViewModel.VishnuViewModelBase.ColumnNumber">
+            <summary>
+            Liefert oder setzt die Spaltennummer des zugehörigen Controls
+            in einer quadratischen Matrix.
+            Dieser Wert wird zu einem geeigneten Zeitpunkt in die Property GridColumn geschoben,
+            um die WPF-GUI zu informieren.
+            </summary>
+            <returns>Die Spaltennummer des zugehörigen Controls in einer quadratischen Matrix.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.Invalidate">
+            <summary>
+            Vergibt einen neuen GlobalUniqueIdentifier für den VisualTreeCacheBreaker.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.GetDebugNodeInfos">
+            <summary>
+            Liefert einen string für Debug-Zwecke.
+            </summary>
+            <returns>Ein String für Debug-Zwecke.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.ToolTipInfo">
+            <summary>
+            Liefert das Ergebnis von GetToolTipInfo().
+            Diese Routine zeigt per Default auf NextRunInfoAndResult,
+            kann aber gegebenenfalls überschrieben werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.UserControlContentRendered(System.Object)">
+            <summary>
+            Wird von DynamicUserControlBase angesprungen, wenn das UserControl vollständig gerendered wurde.
+            </summary>
+            <param name="dynamicUserControl">Das aufrufende DynamicUserControlBase als Object.</param>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.JobInProgress">
+            <summary>
+            Indicates that a ui-triggered background progress is actually running.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ReloadTaskTreeExecute(System.Object)">
+            <summary>
+            Ist zum Neu-Laden des Trees an geeigneter Stelle nach Änderung
+            der JobDescriptions vorgesehen. Kann dafür überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanReloadTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.LogTaskTreeExecute(System.Object)">
+            <summary>
+            Ist zum Loggen des Trees an geeigneter Stelle vorgesehen.
+            Kann dafür überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanLogTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ShowLogExecute(System.Object)">
+            <summary>
+            Ist zum Anzeigen des Vishnu-Logs vorgesehen.
+            Kann dafür an geeigneter Stelle überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanShowLogExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ShowInfosExecute(System.Object)">
+            <summary>
+            Ist zum Anzeigen eventuell vorhandener Vishnu-Infos (Messages und Logs)
+            im Vordergrund vorgesehen.
+            Kann dafür an geeigneter Stelle überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanShowInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ClearInfosExecute(System.Object)">
+            <summary>
+            Ist zum Löschen eventuell vorhandener Vishnu-Infos (Messages und Logs) vorgesehen.
+            Kann dafür an geeigneter Stelle überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanClearInfosExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ShowSettingsExecute(System.Object)">
+            <summary>
+            Ist zum Anzeigen der Vishnu-Parameter vorgesehen.
+            Kann dafür an geeigneter Stelle überschrieben werden.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanShowSettingsExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer false.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist, hier immer false.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ShowVishnuHelpExecute(System.Object)">
+            <summary>
+            Zeigt die Vishnu Onlinehilfe an.
+            </summary>
+            <param name="parameter">Optionaler Parameter oder null.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ShowVishnuHelpTask">
+            <summary>
+            Zeigt die Vishnu Onlinehilfe an.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanShowVishnuHelpExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer true.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist, hier immer true.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.PauseResumeTaskTreeExecute(System.Object)">
+            <summary>
+            Wechselschalter - hält den Tree an oder lässt ihn weiterlaufen.
+            </summary>
+            <param name="parameter">Optionaler Parameter, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.CanPauseResumeTaskTreeExecute">
+            <summary>
+            Liefert true, wenn die Funktion ausführbar ist, hier immer true.
+            Kann an geeigneter Stelle überschrieben werden.
+            </summary>
+            <returns>True, wenn die Funktion ausführbar ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.switchTaskTreeViewExecute(System.Object)">
+            <summary>
+            Anforderung zur Veränderung der Tree-Ausrichtung (Yin_Yang/F4).
+            </summary>
+            <param name="parameter">Optionales Parameter-Objekt, hier ungenutzt.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.canSwitchTaskTreeViewExecute">
+            <summary>
+            Prüft, ob die Tree-Ausrichtung verändert werden darf.
+            Hier: liefert immer true zurück.
+            </summary>
+            <returns>Liefert immer true zurück.</returns>
+        </member>
+        <member name="P:Vishnu.ViewModel.VishnuViewModelBase.RootLogicalTaskTreeViewModel">
+            <summary>
+            ViewModel des übergeordneten LogicalTaskTree.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.#ctor">
+            <summary>
+            Konstruktor - setzt den VisualTreeCacheBreaker.
+            </summary>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.Equals(System.Object)">
+            <summary>
+            Vergleicht den Inhalt dieses LogicalNodeViewModels nach logischen Gesichtspunkten
+            mit dem Inhalt eines übergebenen LogicalNodeViewModels.
+            </summary>
+            <param name="obj">Das LogicalNodeViewModel zum Vergleich.</param>
+            <returns>True, wenn das übergebene LogicalNodeViewModel inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.GetHashCode">
+            <summary>
+            Erzeugt einen Hashcode für dieses LogicalNodeViewModel.
+            </summary>
+            <returns>Integer mit Hashwert.</returns>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.ParentViewToBL(System.Windows.FrameworkElement)">
+            <summary>
+            Kann überschrieben werden, um das Parent-Control
+            in der Geschäftslogik zu speichern.
+            </summary>
+            <param name="parentView">Das Parent-Control.</param>
+        </member>
+        <member name="M:Vishnu.ViewModel.VishnuViewModelBase.GetToolTipInfo">
+            <summary>
+            Liefert das Ergebnis für die Property ToolTipInfo.
+            Diese Routine zeigt per Default auf NextRunInfoAndResult,
+            kann aber gegebenenfalls überschrieben werden.
+            </summary>
+            <returns>Die im ToolTip auszugebende Information.</returns>
+        </member>
+    </members>
+</doc>

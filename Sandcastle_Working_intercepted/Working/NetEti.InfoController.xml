@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.InfoController</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationControl.IFlushable">
+             <summary>
+             Zeigt an, dass die implementierende Instanz eine
+             parameterlose Methode zum Aufräumen und ggf.
+             Wegschreiben gesammelter Informationen bietet.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             25.07.2019 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IFlushable.Flush">
+            <summary>
+            Sorgt dafür, dass alle anstehenden Aktionen ausgeführt
+            werden, z.B. gefüllte Zwischentabellen (Buffer)
+            abgearbeitet (ge-flusht) werden.
+            </summary>
+        </member>
+        <member name="T:NetEti.ApplicationControl.IInfoController">
+             <summary>
+             Bildet die komplette Sicht auf den InfoController ab,
+                       umfasst das Abschicken und Empfangen von Nachrichten.
+             </summary>
+             <remarks>
+             File: IInfoController<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="T:NetEti.ApplicationControl.IInfoPublisher">
+             <summary>
+             Bildet die Sicht auf den InfoController ab,
+                       die das Abschicken von Nachrichten umfasst.
+             </summary>
+             <remarks>
+             File: IInfoPublisher.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoPublisher.Publish(System.Object,System.Object,NetEti.ApplicationControl.InfoType)">
+            <summary>
+            Hierüber wird einen neue Message verbreitet.
+            </summary>
+            <param name="sender">Der Absender der Nachricht</param>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+            <param name="triggerInfoType">Der Message-Typ, z.B.: InfoType.Milestone</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoPublisher.Publish(System.Object,System.Object)">
+            <summary>
+            Hierüber wird eine neue Message des Typs InfoType.Info verbreitet.
+            </summary>
+            <param name="sender">Der Absender der Nachricht</param>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoPublisher.Publish(System.Object)">
+            <summary>
+            Hierüber wird eine neue Message des Typs InfoType.Info mit Absender null verbreitet.
+            </summary>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.IInfoSource">
+             <summary>
+             Bildet die Sicht auf den InfoController ab,
+                       die das Empfangen von Nachrichten umfasst.
+             </summary>
+             <remarks>
+             File: IInfoSource<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoSource.RegisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer,System.Type,NetEti.ApplicationControl.InfoType[])">
+            <summary>
+            Hierüber trägt sich ein interessierter Viewer in die Liste der zu
+            informierenden Viewer ein.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+            <param name="classType">Der Klassentyp, für den sich msgHandler zuständig erklärt</param>
+            <param name="triggerInfoTypes">Liste der Message-Typen, für die sich der Viewer interessiert</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoSource.RegisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer,NetEti.ApplicationControl.InfoType[])">
+            <summary>
+            Hierüber trägt sich ein interessierter Viewer in die Liste der zu
+            informierenden Viewer ein.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+            <param name="triggerInfoTypes">Liste der Message-Typen, für die sich der Viewer interessiert</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoSource.UnregisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer)">
+            <summary>
+            Hierüber meldet sich ein eingetragener Viewer wieder ab.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.IInfoViewer">
+             <summary>
+             Muss von einem Viewer implementiert werden, der sich beim
+             InfoController (IInfoSource) anmelden will.
+             </summary>
+             <remarks>
+             File: IInfoViewer<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             19.03.2012 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IInfoViewer.HandleInfo(System.Object,NetEti.ApplicationControl.InfoArgs)">
+            <summary>
+            Hierüber verarbeitet der Viewer eine Information.
+            </summary>
+            <param name="sender">Der Absender der Information.</param>
+            <param name="msgArgs">Erweiterte Informationen.</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.InfoController">
+             <summary>
+             Singleton, dispatcht Meldungen unter Berücksichtigung
+             ihrer Schweregrade.
+             Verwaltet eine Delegate-Liste, in die sich Viewer eintragen
+             können, die dann bei Eingang einer neuen Message von
+             InfoController informiert werden.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             08.03.2012 Erik Nagel: erstellt.
+             21.04.2013 Erik Nagel: Verarbeitung über Array-Kopie in informInfoReceivers.
+             02.05.2014 Erik Nagel: Say implementiert;
+                                    Aufruf von Global.DynamicIs(instance, typeof(T)) geändert in
+                                    typeof(T).IsAssignableFrom(instance.GetType()).
+             02.05.2019 Erik Nagel: IDisposable implementiert.
+             06.11.2023 Erik Nagel: IShowable implementiert.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Dispose(System.Boolean)">
+            <summary>
+            Hier kann ggf. aufgeräumt werden.
+            </summary>
+            <param name="disposing">False, wenn die Methode vom eigenen Destruktor aufgerufen wurde.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.GetInfoPublisher">
+            <summary>
+            Returnt die statische Property der nestet Klasse NestedInstance (als IInfoPublisher),
+            welche ihrerseits den privaten Konstruktor aufruft, wenn noch keine Instanz existiert.
+            </summary>
+            <returns>Die (einzige) gültige Instanz von InfoController</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.GetInfoSource">
+            <summary>
+            Returnt die statische Property der nestet Klasse NestedInstance (als IInfoSource),
+            welche ihrerseits den privaten Konstruktor aufruft, wenn noch keine Instanz existiert.
+            </summary>
+            <returns>Die (einzige) gültige Instanz von InfoController</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.GetInfoController">
+            <summary>
+            Returnt die statische Property der nestet Klasse NestedInstance (als IInfoController),
+            welche ihrerseits den privaten Konstruktor aufruft, wenn noch keine Instanz existiert.
+            </summary>
+            <returns>Die (einzige) gültige Instanz von InfoController</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Say(System.Object)">
+            <summary>
+            Hierüber wird 'mal eben' einen Message verbreitet.
+            </summary>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.FlushAll">
+            <summary>
+            Hierüber werden alle InfoPublisher geflusht.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Publish(System.Object,System.Object,NetEti.ApplicationControl.InfoType)">
+            <summary>
+            Hierüber wird einen neue Message verbreitet.
+            </summary>
+            <param name="sender">Der Absender der Nachricht</param>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+            <param name="triggerInfoType">Der Message-Typ, z.B.: InfoType.Milestone</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Publish(System.Object,System.Object)">
+            <summary>
+            Hierüber wird eine neue Message des Typs InfoType.Info verbreitet.
+            </summary>
+            <param name="sender">Der Absender der Nachricht</param>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Publish(System.Object)">
+            <summary>
+            Hierüber wird eine neue Message des Typs InfoType.Info mit Absender null verbreitet.
+            </summary>
+            <param name="msg">Das zu verbreitende (Message-)Objekt</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Show">
+            <summary>
+            Hierüber werden alle Logs ausgegeben.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.Flush">
+            <summary>
+            Flusht alle flushable Viewer/Logger.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.DisposeAll">
+            <summary>
+            Disposed alle Viewer.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.RegisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer,System.Type,NetEti.ApplicationControl.InfoType[])">
+            <summary>
+            Hierüber trägt sich ein interessierter Viewer in die Liste der zu
+            informierenden Viewer ein.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+            <param name="classType">Der Klassentyp, für den sich msgHandler zuständig erklärt</param>
+            <param name="triggerInfoTypes">Liste der Message-Typen, für die sich der Viewer interessiert</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.RegisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer,NetEti.ApplicationControl.InfoType[])">
+            <summary>
+            Hierüber trägt sich ein interessierter Viewer in die Liste der zu
+            informierenden Viewer ein.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+            <param name="triggerInfoTypes">Liste der Message-Typen, für die sich der Viewer interessiert</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.UnregisterInfoReceiver(NetEti.ApplicationControl.IInfoViewer)">
+            <summary>
+            Hierüber meldet sich ein eingetragener Viewer wieder ab.
+            </summary>
+            <param name="viewer">Der Message-Empfänger</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.#ctor">
+            <summary>
+            Privater Konstruktor, wird ggf. von der öffentlichen, statischen
+            Methode GetInfoController aufgerufen: initialisiert (leert) die Viewer-Liste.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoController.informInfoReceivers(System.Object,System.Object,NetEti.ApplicationControl.InfoType,System.String,System.String)">
+            <summary>
+            Aufruf der Callbacks aller eingetragener Viewer, die sich für die Message vom
+            aktuellen Typ interessieren (threadsafe).
+            </summary>
+            <param name="sender">Der Absender der Nachricht</param>
+            <param name="messageObject">Das verschickte Objekt</param>
+            <param name="triggerInfoType">Der Typ der Message</param>
+            <param name="timestamp">Der Timestamp der Message</param>
+            <param name="threadInfos">Nummern des aktuellen Threads</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.InfoType">
+            <summary>
+            Aufzählung der möglichen Typen einer Information.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Statistics">
+            <summary>Meldungen werden nur von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Debug">
+            <summary>Meldungen werden nur geloggt</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Info">
+            <summary>Meldungen werden geloggt und von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Warn">
+            <summary>Meldungen werden geloggt und von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Milestone">
+            <summary>Meldungen werden geloggt und von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Error">
+            <summary>Meldungen werden geloggt und von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Exception">
+            <summary>Meldungen werden geloggt und von InfoReceivern, die sich für diesen Typ für zuständig erklären, verarbeitet.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.NoRegex">
+            <summary>Meldungen werden ohne Einschränkung durch einen möglichen User-Filter geloggt.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.Nolog">
+            <summary>Meldungen werden nicht geloggt.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoType.unknown">
+            <summary>Unbekannter InfoType für syntaktische Vorbelegungen.</summary>
+        </member>
+        <member name="T:NetEti.ApplicationControl.InfoArgs">
+            <summary>
+            Die Gesamt-Information, die vom InfoController verarbeitet und weitergegeben wird:
+            Message-Object + Message-Typ + Timestamp.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoArgs.#ctor(System.Object,NetEti.ApplicationControl.InfoType,System.String)">
+            <summary>
+            Der parametrisierte Konstruktor, der Message-Text + Message-Typ + Timestamp
+            in die Properties übernimmt.
+            </summary>
+            <param name="messageInstance">Das verschickte Message-Objekt</param>
+            <param name="_LogLevel">Der Message-Typ, z.B.: InfoType.Error</param>
+            <param name="_Timestamp">Datum und Uhrzeit im Format '21.03.2012 12:22:36'</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoArgs.#ctor(System.Object,NetEti.ApplicationControl.InfoType,System.String,System.String)">
+            <summary>
+            Der parametrisierte Konstruktor, der Message-Text + Message-Typ + Timestamp + ThreadInfos
+            in die Properties übernimmt.
+            </summary>
+            <param name="messageInstance">Das verschickte Message-Objekt</param>
+            <param name="_LogLevel">Der Message-Typ, z.B.: InfoType.Error</param>
+            <param name="_Timestamp">Datum und Uhrzeit im Format '21.03.2012 12:22:36'</param>
+            <param name="threadInfos">Informationen zum aktuellern Thread.</param>
+        </member>
+        <member name="P:NetEti.ApplicationControl.InfoArgs.MessageObject">
+            <summary>
+            Das Message-Objekt
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.InfoArgs.LogLevel">
+            <summary>
+            Der InfoType der Message, z.B.: InfoType.Error.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.InfoArgs.LogLevelText">
+            <summary>
+            Konvertiert einen InfoType in sein String-Äquivalent, also z.B.:
+            InfoType.Error in "ERROR".
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.InfoArgs.Timestamp">
+            <summary>
+            Der Timestamp der Message im Format '31.01.2009 12:22:36'.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.InfoArgs.ThreadInfos">
+            <summary>
+            Informationen zum aktuellen Thread.
+            </summary>
+        </member>
+        <member name="T:NetEti.ApplicationControl.InfoTypes">
+             <summary>
+             Liefert Typen und Klassen für den InfoController.<br></br>
+             </summary>
+             <remarks>
+             File: InfoType.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             21.09.2013 Erik Nagel: InfoArgs.ThreadInfos hinzugefügt.<br></br>
+             26.09.2013 Erik Nagel: Typ 'Statistics' hinzugefügt..<br></br>
+             </remarks>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.None">
+            <summary>
+            { }
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.All">
+            <summary>
+            { InfoType.Debug, InfoType.Info, InfoType.Warn, InfoType.Milestone, InfoType.Error, InfoType.Exception }.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.Serious">
+            <summary>
+            { InfoType.Milestone, InfoType.Error, InfoType.Exception }.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.Average">
+            <summary>
+            { InfoType.Info, InfoType.Warn, InfoType.Milestone, InfoType.Error, InfoType.Exception }.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.Expected">
+            <summary>
+            { InfoType.Info, InfoType.Milestone }.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.InfoTypes.Unexpected">
+            <summary>
+            { InfoType.Warn, InfoType.Error, InfoType.Exception }.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoTypes.Collection2InfoTypeArray(System.Collections.ObjectModel.ReadOnlyCollection{NetEti.ApplicationControl.InfoType})">
+            <summary>
+            Konvertiert eine InfoType-Collection in das entsprechende InfoType-Array.
+            </summary>
+            <param name="infoTypeCollection">ReadOnlyCollection&lt;InfoType&gt;</param>
+            <returns>Ein entsprechendes InfoType[]</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoTypes.String2InfoTypeArray(System.String)">
+            <summary>
+            Konvertiert einen String wie z.B.: "DEBUG|INFO|WARN|MILESTONE|ERROR"
+            in das entsprechende InfoType-Array.
+            </summary>
+            <param name="infoPipeInfo">String mit durch Pipe getrennten Info-Typen</param>
+            <returns>InfoType[] mit den entsprechenden, echten InfoType(n)</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoTypes.String2InfoType(System.String)">
+            <summary>
+            Konvertiert einen String wie z.B.: "DEBUG|INFO|WARN|MILESTONE|ERROR"
+            in die entsprechende InfoType-Collection.
+            </summary>
+            <param name="infoPipeInfo">String mit durch Pipe getrennten Info-Typen</param>
+            <returns>ReadOnlyCollection&lt;InfoType&gt; mit den entsprechenden, echten InfoType(n)</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.InfoTypes.InfoTypeArray2String(NetEti.ApplicationControl.InfoType[])">
+            <summary>
+            Konvertiert ein InfoType-Array, also z.B.: InfoType[] SERIOUS in
+            einen entsprechenden String wie z.B.: "MILESTONE|ERROR|EXCEPTION".
+            </summary>
+            <param name="ita">InfoType[] mit den entsprechenden, echten InfoType(n)</param>
+            <returns>String mit durch Pipe getrennten InfoType-Strings</returns>
+        </member>
+        <member name="T:NetEti.ApplicationControl.IShowable">
+             <summary>
+             Zeigt an, dass die implementierende Instanz eine parameterlose Methode zur Ausgabe bietet;
+             bei Loggern z.B. zum Ausgeben des Logs.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             06.11.2023 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.IShowable.Show">
+            <summary>
+            Sorgt dafür, dass die implementierende Instanz ausgegeben/angezeigt wird.
+            </summary>
+        </member>
+        <member name="T:NetEti.ApplicationControl.ViewerAsWrapper">
+             <summary>
+             Wrapperklasse um einen EventHandler; Implementiert IInfoViewer.
+             Eine Instanz dieser Klasse kann um einen EventHandler&lt;InfoArgs&gt;
+             gewrappt werden und als Viewer weiterverwendet werden.
+             </summary>
+             <remarks>
+             File: ViewerAsWrapper
+             Autor: Erik Nagel, NetEti
+            
+             19.03.2012 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.ViewerAsWrapper.HandleInfo(System.Object,NetEti.ApplicationControl.InfoArgs)">
+            <summary>
+            Handler für die Messages.
+            </summary>
+            <param name="sender">Der Absender der Message</param>
+            <param name="msgArgs">Die Message mit Message-Object, Typ und Timestamp</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.ViewerAsWrapper.#ctor(System.EventHandler{NetEti.ApplicationControl.InfoArgs})">
+            <summary>
+            Konstruktor - übernimmt einen geeiggnete EventHandler.
+            </summary>
+            <param name="msgHandler">Die Callback-Routine für den Viewer.</param>
+        </member>
+    </members>
+</doc>

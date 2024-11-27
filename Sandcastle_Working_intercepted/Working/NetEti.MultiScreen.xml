@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.MultiScreen</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.MultiScreen.ScreenInfo">
+             <summary>
+             Mindestinformationen über einen Screen.
+             Thanks to Nils on StackOverflow http://stackoverflow.com/questions/1927540/how-to-get-the-size-of-the-current-screen-in-wpf.
+             </summary>
+             <remarks>
+             File: ScreenInfo.cs
+             Autor: Erik Nagel, NetEti
+            
+             31.08.2015 Erik Nagel: erstellt.
+             17.01.2024 Erik Nagel: ClipToAllScreens, GetMainWindowScreenInfo und GetFirstScreenInfo implementiert.
+             </remarks>
+        </member>
+        <member name="P:NetEti.MultiScreen.ScreenInfo.Name">
+            <summary>
+            Der (Device-)Name des Screens.
+            </summary>
+        </member>
+        <member name="P:NetEti.MultiScreen.ScreenInfo.Bounds">
+            <summary>
+            Die äußere Begrenzung des Screens.
+            </summary>
+        </member>
+        <member name="P:NetEti.MultiScreen.ScreenInfo.WorkingArea">
+            <summary>
+            Die Abmessungen des Screens.
+            </summary>
+        </member>
+        <member name="P:NetEti.MultiScreen.ScreenInfo.IsPrimary">
+            <summary>
+            True, wenn der Screen der primäre Bildschirm ist.
+            </summary>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.IsWithinActualScreenCoordinates(System.Windows.Point)">
+            <summary>
+            True, wenn sich der übergebene Punkt innerhalb der
+            Screen-Koordinaten des aktuellen Bildschirms befindet.
+            </summary>
+            <param name="point">Zu prüfender Punkt.</param>
+            <returns>True, wenn sich der übergebene Punkt innerhalb des aktuellen
+            Bildschirms befindet.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.IsWithinActualScreenCoordinates(System.Windows.Point,System.Double,System.Double)">
+            <summary>
+            True, wenn sich der übergebene Punkt mindestens mit dem Abstand margin
+            innerhalb der Screen-Koordinaten des aktuellen Bildschirms befindet.
+            </summary>
+            <param name="point">Zu prüfender Punkt.</param>
+            <param name="horizontalMargin">Horizontaler Mindestabstand zu den Bildschirmrändern.</param>
+            <param name="verticalMargin">Vertikaler Mindestabstand zu den Bildschirmrändern.</param>
+            <returns>True, wenn sich der übergebene Punkt inklusive margin innerhalb 
+            des aktuellen Bildschirms befindet.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetNextPointWithinActualScreenCoordinates(System.Windows.Point)">
+            <summary>
+            Liefert den übergebenen Punkt zurück, ändert aber, wenn erforderlich,
+            seine Koordinaten so ab, dass der Punkt sich auf jeden Fall innerhalb
+            der Koordinaten des aktuellen Bildschirms befindet.
+            </summary>
+            <param name="point">Punkt, der möglicherweise nicht innerhalb des aktuellen Bildschirms liegt.</param>
+            <returns>Punkt, der auf jeden Fall innerhalb des aktuellen Bildschirms liegt.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetNextPointWithinActualScreenCoordinates(System.Windows.Point,System.Double,System.Double)">
+            <summary>
+            Liefert den übergebenen Punkt zurück, ändert aber, wenn erforderlich,
+            seine Koordinaten so ab, dass der Punkt sich inklusive margin auf jeden
+            Fall innerhalb der Koordinaten des aktuellen Bildschirms befindet.
+            </summary>
+            <param name="point">Punkt, der möglicherweise nicht innerhalb des aktuellen Bildschirms liegt.</param>
+            <param name="horizontalMargin">Horizontaler Mindestabstand zu den Bildschirmrändern.</param>
+            <param name="verticalMargin">Vertikaler Mindestabstand zu den Bildschirmrändern.</param>
+            <returns>Punkt, der inklusive margin auf jeden Fall innerhalb des aktuellen Bildschirms liegt.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.ClipToAllScreens(System.Windows.Point,System.Double,System.Double)">
+            <summary>
+            Liefert den übergebenen Punkt zurück, ändert aber, wenn erforderlich,
+            seine Koordinaten so ab, dass der Punkt sich inklusive Margins auf jeden
+            Fall innerhalb der für alle Bildschirme maximalen Koordinaten befindet.
+            </summary>
+            <param name="point">Punkt, der möglicherweise nicht innerhalb des aktuellen Bildschirms liegt.</param>
+            <param name="horizontalMargin">Horizontaler Mindestabstand zu den Bildschirmrändern.</param>
+            <param name="verticalMargin">Vertikaler Mindestabstand zu den Bildschirmrändern.</param>
+            <returns>Punkt, der inklusive margin auf jeden Fall innerhalb des aktuellen Bildschirms liegt.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetLastActualScreenInfo">
+            <summary>
+            Liefert Eigenschaften des letzten aktuellen Bildschirms.
+            </summary>
+            <returns>Eigenschaften des letzten aktuellen Bildschirms</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetActualScreenInfoIndex(System.Windows.Window)">
+            <summary>
+            Liefert den Index des aktuellen Bildschirms in der Liste aller Bildschirme.
+            </summary>
+            <param name="window">Ein WPF-Window.</param>
+            <returns>Index des aktuellen Bildschirms in der Liste aller Bildschirme.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetActualScreenInfo(System.Windows.Window)">
+            <summary>
+            Liefert Eigenschaften des aktuellen Bildschirms.
+            </summary>
+            <param name="window">Ein WPF-Window.</param>
+            <returns>Eigenschaften des aktuellen Bildschirms.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetFirstScreenInfo">
+            <summary>
+            Liefert Eigenschaften des ersten (Haupt-) Bildschirms.
+            </summary>
+            <returns>Eigenschaften des ersten (Haupt-) Bildschirms.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetMainWindowScreenInfo">
+            <summary>
+            Liefert thread safe Position und Maße des MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.ThreadAccessMainWindowScreenInfoOnGuiDispatcher">
+            <summary>
+            Liefert thread safe Position und Maße des MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.GetAllScreenInfos(System.Windows.Window)">
+            <summary>
+            Infos für alle Bildschirme plus einem virtuellen Gesamtbildschirm.
+            </summary>
+            <param name="window">Ein WPF-Window.</param>
+            <returns>Eigenschaften aller Bildschirme plus eines virtuellen Gesamtbildschirms.</returns>
+        </member>
+        <member name="M:NetEti.MultiScreen.ScreenInfo.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+    </members>
+</doc>

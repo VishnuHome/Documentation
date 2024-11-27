@@ -1,0 +1,1685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vishnu.Interchange</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu.Interchange.AppSettings">
+             <summary>
+             Erbt allgemeingültige Einstellungen von BasicAppSettings oder davon abgeleiteten
+             Klassen und fügt anwendungsspezifische Properties hinzu.
+             Holt Applikationseinstellungen aus verschiedenen Quellen:
+             Kommandozeile, Vishnu.exe.config (app.config), Vishnu.exe.config.user, Environment, Registry.
+             <seealso cref="T:NetEti.ApplicationEnvironment.BasicAppSettings"/>
+             </summary>
+             <remarks>
+             File: AppSettings.cs
+             Autor: Erik Nagel, NetEti
+            
+             11.10.2013 Erik Nagel: erstellt.
+             28.01.2024 Erik Nagel: Property VishnuRoot hinzugefügt.
+             </remarks>
+        </member>
+        <member name="E:Vishnu.Interchange.AppSettings.UserParametersReloaded">
+            <summary>
+            Event, das ausgelöst wird, wenn User-Parameter neu geladen wurden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.InitUserParameterReader">
+            <summary>
+            Routine, die den ParameterReader entsprechend der vorher in
+            UserParameterReaderPath konfigurierten Parameter initialisiert.
+            Je nach UserParameterReader kann dieser Vorgang länger dauern und
+            wird deshalb hier nicht automatisch ausgeführt, sondern muss
+            extern und möglichst direkt nach Instanziierung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.AbortingAllowed">
+            <summary>
+            Bei True werden Knoten, die nicht auf kooperativen Cancel reagieren (können)
+            durch "Abort()" hart abgebrochen.
+            Immer: false; künftig wegfallend.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.AcceptNullResults">
+            <summary>
+            Bei True werden Null-Ergebnisse von Checkern wie True oder False-Ergebnisse behandelt.
+            Sie setzen dann z.B. Exceptions zurück, was bei erneutem Auftreten dieser Exceptions
+            zu erneutem Auslösen von Workern führt.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.AssemblyDirectories">
+            <summary>
+            Liste von Verzeichnissen, in denen nach zu ladenden Assemblies
+            gesucht werden soll.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.Autostart">
+            <summary>
+            Bei true wird der Tree automatisch gestartet.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.BreakTreeBeforeStart">
+            <summary>
+            Bei true wird vor jedem run der betroffene
+            Teilbaum gestoppt (Break).
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.ControlledNodeUserRunDialog">
+            <summary>
+            Steuert das Verhalten beim UserRun eines Knoten in einem Controlled-Tree,
+            der über ein TreeEvent getriggert wird und dessen Startvoraussetzungen
+            noch nicht erfüllt sind:
+            None: kein Start möglich,
+            Info: kein Start möglich - es erfolgt eine Meldung,
+            Question: es erfolgt eine mit "Nein" vorbelegte JaNein-Abfrage.
+            Defult: Question.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.DemoModus">
+            <summary>
+            Bei true befindet sich Vishnu im Demo-Modus.
+            Dies ist direkt nach Erstinstallation der Fall.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.FatalInitializationException">
+            <summary>
+            Wenn ungleich null, dann sollte die Anwendung die Exception melden und sich beenden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.FlatNodeListFilter">
+            <summary>
+            Kombinierbare Liste von Typen von Knoten des Trees zur Filterung
+            der Knoten in einer flachen Liste von Knoten (FlatNodeViewModelList).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.HelpPreference">
+            <summary>
+            Die bevorzugte Vishnu-Hilfe (wird über F1 oder das Kontext-Menü geladen):
+                "online": die Vishnu-Hilfe wird aus dem Internet geladen (default);
+                "local": die Vishnu-Hilfe wird als .chm lokal geladen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.InitAtUserRun">
+            <summary>
+            Bei True werden alle durch EventTrigger getriggerten Knoten
+            neu initialisiert, wenn der Anwender irgendeinen Knoten startet.
+            Experimentell, Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.IsInSleepTime">
+            <summary>
+            Returns true, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.
+            </summary>
+            <returns>True, wenn gerade eine vom User definierte Ruhezeit
+            für Vishnu-Akteure (Checker) läuft.</returns>
+        </member>
+        <member name="F:Vishnu.Interchange.AppSettings.JobDirPathes">
+            <summary>
+            Liste von Verzeichnissen, in denen nach zu ladenden Jobs
+            gesucht werden soll. Wird durch die Vishnu-Logik gefüllt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.LocalConfigurationDirectory">
+            <summary>
+            Der Dateipfad zum Verzeichnis der lokalen Konfiguration.
+            Default: Pfad zum AppConfigUser-Verzeichnis.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.LogicalChangedDelay">
+            <summary>
+            Verzögerung in Millisekunden, bevor ein LogicalCanged-Event weitergegeben wird.
+            Default: 0
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.LogicalChangedDelayPower">
+            <summary>
+            Basis zur Potenz der Hierarchie-Tiefe der aktuellen JobList
+            bezogen auf die Hierarchie der untergeordneten JobLists.
+            Wird mit LogicalChangedDelay verrechnet:
+            int calcDepth = jobPackage.Job.MaxSubJobDepth;
+            jobPackage.Job.LogicalChangedDelay = (int)(this._appSettings.LogicalChangedDelay
+             * Math.Pow(this._appSettings.LogicalChangedDelayPower, calcDepth));  
+            Default: 0
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.MainJobName">
+            <summary>
+            Name des Haupt-Jobs.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.ActScreenBounds">
+            <summary>
+            Wird programmintern als Merkfeld für die aktuellen Bildschirmgrenzen genutzt.
+            Wird von MainWindow.xaml.cs gesetzt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.NoWorkers">
+            <summary>
+            Bei True werden definierte Worker nicht aufgerufen.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.RootJobPackagePath">
+            <summary>
+            Dateipfad zum obersten Job.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.RootJobXmlName">
+            <summary>
+            XML-Name des obersten Jobs.
+            Default: JobDescription.xml.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.SizeOnVirtualScreen">
+            <summary>
+            Bei true werden mehrere Bildschirme als ein einziger
+            großer Bildschirm behandelt, ansonsten zählt für
+            Größen- und Positionsänderungen der Bildschirm, auf dem
+            sich das MainWindow hauptsächlich befindet (ActualScreen).
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.SleepTimeFrom">
+            <summary>
+            Beginn einer vom User definierten Ruhezeit für Vishnu-Akteure (Checker).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.SleepTimeTo">
+            <summary>
+            Ende einer vom User definierten Ruhezeit für Vishnu-Akteure (Checker).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.SnapshotSustain">
+            <summary>
+            Überlebensdauer eines Snapshots.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.SnapshotDirectory">
+            <summary>
+            Vom User definiertes Verzeichnis, in dem Snapshots von Knoten abgespeichert werden.
+            Ist der SnapshotDirectory-Pfad relativ oder leer (i.d.R. nicht sinnvoll), dann ist der
+            SnapshotDirectory-Pfad immer relativ zum Verzeichnis, in dem die JobDescription.xml
+            des MainJob liegt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.StartTreeOrientation">
+            <summary>
+            Ausrichtung des Trees beim Start der Anwendung.
+              AlternatingHorizontal: Alternierender Aufbau, waagerecht beginnend (Default).
+              Vertical: Senkrechter Aufbau.
+              Horizontal: Waagerechter Aufbau.
+              AlternatingVertical: Alternierender Aufbau, senkrecht beginnend.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.StartWithJobs">
+            <summary>
+            Bei True wird mit der Job-Ansicht gestartet, ansonsten mit der Tree-Ansicht (default: false).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.StartTriggeredNodesOnUserRun">
+            <summary>
+            Parameter zur Steuerung des Startverhaltens von getriggerten Knoten
+            beim Start durch den Anwender (UserRun):
+              None = kein direkter Start,
+              All = alle getriggerten Knoten innerhalb
+                     eines durch UserRun gestarteten (Teil-)Trees starten direkt
+                     (wie nicht getriggerte Knoten),
+              Direct = alle getriggerten Knoten starten direkt, wenn sie selbst
+                     durch UserRun gestartet wurden.
+              AllNoTreeEvents = wie All aber nicht durch TreeEvents getriggerte Knoten,
+              DirectNoTreeEvents = wie Direct aber nicht durch TreeEvents getriggerte Knoten.
+            Default: Direct.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.TryRunAsyncSleepTime">
+            <summary>
+            Die Zeit in Millisekunden, die gewartet wird, bevor ein
+            neuer Versuch gestartet wird, einen Knoten zu starten.
+            Default: 100.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.UncachedCheckers">
+            <summary>
+            Liste von INodeChecker-Dll-Namen, die für jeden Run neu geladen werden sollen.
+            Dient zum Debuggen von Memory Leaks, die mutmaßlich durch User-Checker verursacht werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.UserAssemblyDirectory">
+            <summary>
+            Verzeichnis, in dem Job-übergreifende Assemblies des Users abgelegt sind.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.UserParameterReaderPath">
+            <summary>
+            Dateipfad einer optionalen Dll, die IParameterReader implementiert.
+            Wenn vorhanden, wird die Dll dynamisch geladen und erweitert Vishnus
+            Fähigkeiten zur Parameter-Ersetzung in ReplaceWildcards.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.VishnuRoot">
+            <summary>
+            Das Vishnu-Rootverzeichnis zur Laufzeit.
+            Im Gegensatz zum optionalen Environment-Setting "Vishnu_Root" wird
+            diese Property, wenn sie nicht von außen als Parameter gesetzt wird,
+            durch die Vishnu-Programmlogik gefüllt, so dass sie immer so gut, wie
+            möglich gesetzt ist und somit auch von außen über "%VishnuRoot%"
+            genutzt werden kann.
+            Während "Vishnu_Root", sofern es gesetzt wurde, immer das Root-Verzeichnis
+            der Vishnu-Entwicklung bezeichnet, zeigt "VishnuRoot" bevorzugt auf
+            das Verzeichnis, in dem sich die gestartete Vishnu.exe befindet
+            ("ApplicationRootPath").
+            Nur, wenn sich auf gleicher Hierarchiestufe, wie "ApplicationRootPath"
+            kein Verzeichnis "UserAssemblies" befindet, wird "VishnuRoot", wenn nicht
+            von außen mitgegeben, so gut es geht, durch die Vishnu-Programmlogik auf
+            das das Root-Verzeichnis der Vishnu-Entwicklung gesetzt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.VishnuSourceRoot">
+            <summary>
+            VishnuSourceRoot bezeichnet immer das Root-Verzeichnis der Vishnu-Entwicklung.
+            Wenn im Programm-Environment kein Verzeichnis "Vishnu_Root" gesetzt wurde,
+            wird VishnuSourceRoot so gut es geht, durch die Vishnu-Programmlogik auf
+            das das Root-Verzeichnis der Vishnu-Entwicklung gesetzt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.VishnuWindowAspects">
+            <summary>
+            Datenklasse mit wesentlichen Darstellungsmerkmalen des Vishnu-MainWindow.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.VishnuProvider">
+            <summary>
+            Der Herausgeber der ClickOnce Installation.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.XUnlock">
+            <summary>
+            Nur für internen Gebrauch.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.ZipRelativeDummyDirectory">
+            <summary>
+            Wenn es sich beim MainJob um ein Zip handelt, wird dieses von Vishnu
+            in das WorkingDirectory entpackt. Hierbei ändert sich allerdings das
+            Bezugsverzeichnis bei relativen Pfadangaben von SubJobs.
+            Um - zumindest in einfachen Szenarien - SubJobs noch finden zu können,
+            wird im gleichen Verzeichnis, in dem sich das Zip-File befindet, ein
+            Unterverzeichnis angelegt und dies während der laufenden Vishnu-Session
+            zusätzlich als Ausgangs-Verzeichnis für die Suche nach SubJobs mit
+            relativen Pfadangaben genutzt.
+            Vishnu löscht dieses Verzeichnis dann wieder, bevor es sich beendet.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.LoadSettings">
+            <summary>
+            Lädt die Systemeinstellungen bei der Initialisierung oder lädt sie auf Anforderung erneut.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.ReplaceWildcards(System.String)">
+            <summary>
+            Ersetzt hier definierte Wildcards durch ihre Laufzeit-Werte:
+            '%HOME%': '...bin\Debug'.
+            </summary>
+            <param name="inString">Wildcard</param>
+            <returns>Laufzeit-Ersetzung</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.GetResolvedPath(System.String)">
+            <summary>
+            Löst den übergebenen Pfad unter Berücksichtigung der Suchreihenfolge
+            in einen gesicherten Pfad auf, wenn möglich.
+            </summary>
+            <param name="path">Pfad zur Dll/Exe.</param>
+            <returns>Gesicherter Pfad zur Dll/Exe</returns>
+            <exception cref="T:System.IO.IOException" />
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.RegisterUserStringValueGetter(NetEti.Globals.IGetStringValue)">
+            <summary>
+            Registriert die übergebene IGetStringValue-Instanz (UserParameterReader)
+            beim enthaltenen AppEnvReader. Der neue Getter wird in der Auswertungskette
+            direkt hinter CommandLineAccess eingehängt, was ihm (nach der Kommandozeile)
+            höchste Priorität gibt.
+            </summary>
+            <param name="stringValueGetter">Zu registrierende IGetStringValue-Instanz.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.#ctor">
+            <summary>
+            Private Konstruktor, wird ggf. über Reflection vom externen statischen
+            GenericSingletonProvider über GetInstance() aufgerufen.
+            Holt alle Infos und stellt sie als Properties zur Verfügung.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.OnUserParametersReloaded">
+            <summary>
+            Löst das UserParametersReloaded-Ereignis aus.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.ParameterReaderToIGetStringValue.GetStringValue(System.String,System.String)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis (string)</param>
+            <returns>Der Ergebnis-String</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.ParameterReaderToIGetStringValue.GetStringValues(System.String,System.String[])">
+            <summary>
+            Liefert ein string-Array zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis (string[])</param>
+            <returns>Das Ergebnis-String-Array</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.AppSettings.ParameterReaderToIGetStringValue.#ctor(Vishnu.Interchange.IParameterReader,System.String)">
+            <summary>
+            Konstruktor - übernimmt eine IParameterReader-Instanz und den Pfad dorthin.
+            </summary>
+            <param name="parameterReader">Zu kapselnde IParameterReader-Instanz.</param>
+            <param name="pathToReader">Pfad zum ParameterReader.</param>
+        </member>
+        <member name="P:Vishnu.Interchange.AppSettings.ParameterReaderToIGetStringValue.Description">
+            <summary>
+            Liefert einen beschreibenden Namen dieses StringValueGetters,
+            z.B. Name plus ggf. Quellpfad.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.NodeState">
+            <summary>
+            Verarbeitungszustände eines Knotens.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Null">
+            <summary>Interner Steuerungs-Zustand.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.None">
+            <summary>Startbereit, Zustand nach Initialisierung.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Waiting">
+            <summary>Beschäftigt, wartet auf Starterlaubnis.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Working">
+            <summary>Beschäftigt, arbeitet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Finished">
+            <summary>Startbereit, ist beendet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Triggered">
+            <summary>Ist zwar nicht busy aber Timer-gesteuert.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.InternalError">
+            <summary>Interner Fehler (für DEBUG-Zwecke).</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Ready">
+            <summary>Ist fertig oder wartet auf den nächsten Start durch den Timer.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.CanStart">
+            <summary>Startbereit</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeState.Busy">
+            <summary>Nicht startbereit, wartet oder arbeitet gerade</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.NodeLogicalState">
+            <summary>
+            Ergebnis-Zustände eines Knotens.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.Undefined">
+            <summary>Interner, technischer Zustand.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.None">
+            <summary>Zustand nach Initialisierung.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.Start">
+            <summary>Zustand direkt vor dem Start.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.Done">
+            <summary>Ohne Fehler, Timeout oder Abbruch beendet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.Fault">
+            <summary>Mit Fehler beendet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.Timeout">
+            <summary>Mit Timeout beendet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeLogicalState.UserAbort">
+            <summary>Durch Benutzerabbruch beendet.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.NodeWorkerState">
+            <summary>
+            Zustand evtl. zugeordneter Worker (None, Valid, Invalid).
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeWorkerState.None">
+            <summary>Hat keine Worker zugeordnet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeWorkerState.Valid">
+            <summary>Hat gültige Worker zugeordnet.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeWorkerState.Invalid">
+            <summary>Hat mindestens einen ungültigen Worker zugeordnet.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.TreeOrientation">
+            <summary>
+            Bestimmt die Ausrichtung bei der Darstellung der Elemente im Tree.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TreeOrientation.AlternatingHorizontal">
+            <summary>Alternierender Aufbau, waagerecht beginnend (Default).</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TreeOrientation.Vertical">
+            <summary>Senkrechter Aufbau.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TreeOrientation.Horizontal">
+            <summary>Waagerechter Aufbau.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TreeOrientation.AlternatingVertical">
+            <summary>Alternierender Aufbau, senkrecht beginnend.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.OrientationSwitch">
+            <summary>
+            Verändert die Ausrichtung bei der Darstellung der Elemente im jeweiligen Control.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.OrientationSwitch.Unchanged">
+            <summary>Unverändert (Default).</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.OrientationSwitch.Switched">
+            <summary>Horizontal wird zu Vertical und umgekehrt.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.OrientationSwitch.Horizontal">
+            <summary>Waagerechter Aufbau.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.OrientationSwitch.Vertical">
+            <summary>Senkrechter Aufbau.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.NodeTypes">
+            <summary>
+            Kombinierbare Typenliste der Endknoten des Trees.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.None">
+            <summary>Alles wird durchgelassen.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.NodeConnector">
+            <summary>NodeConnectoren.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.ValueModifier">
+            <summary>ValueModifier.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.JobConnector">
+            <summary>JobConnectoren.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.Constant">
+            <summary>Konstanten.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.Checker">
+            <summary>Checker.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.NodeList">
+            <summary>NodeList.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.JobList">
+            <summary>JobList.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.NodeTypes.Snapshot">
+            <summary>Snapshot.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.TriggeredNodeStartConstraint">
+            <summary>
+            Startverhalten von getriggerten Knoten
+            beim Start durch den Anwender (UserRun):
+              None = kein direkter Start,
+              All = alle getriggerten Knoten innerhalb
+                     eines durch UserRun gestarteten (Teil-)Trees starten direkt
+                     (wie nicht getriggerte Knoten),
+              Direct = alle getriggerten Knoten starten direkt, wenn sie selbst
+                     durch UserRun gestartet wurden.
+              NoTreeEvents = alles andere gilt nicht für durch TreeEvents getriggerte Knoten.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.None">
+            <summary>Getriggerte Knoten können nur durch ihren Trigger gestartet werden.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.NoTreeEvents">
+            <summary>Getriggerte Knoten ohne TreeEventTrigger können direkt gestartet werden.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.Direct">
+            <summary>Getriggerte Knoten können gestartet werden, wenn sie direkt ausgelöst werden.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.All">
+            <summary>Getriggerte Knoten können gestartet werden, wenn ihr (Teil-)Tree gestartet wurde.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.AllNoTreeEvents">
+            <summary>Getriggerte Knoten können gestartet werden, wenn ihr (Teil-)Tree gestartet wurde und ihr Trigger kein TreeEventTrigger ist.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggeredNodeStartConstraint.DirectNoTreeEvents">
+            <summary>Getriggerte Knoten können gestartet werden, wenn sie direkt ausgelöst werden und ihr Trigger kein TreeEventTrigger ist.</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.DialogSettings">
+            <summary>
+            Schalter für Dialog-Verhalten.
+            Die konkrete Ausformung der Dialoge wird in der jeweiligen Anwendungssituation festgelegt:
+            None: kein Dialog,
+            Info: Es erfolgt eine Meldung, die nur bestätigt werden kann.
+            Question: Es erfolgt eine Meldung, in der eine Auswahl getroffen werden kann (i.d.R. Ja/Nein).
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.DialogSettings.None">
+            <summary>Kein Dialog.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.DialogSettings.Info">
+            <summary>Es erfolgt eine Meldung, die nur bestätigt werden kann.</summary>
+        </member>
+        <member name="F:Vishnu.Interchange.DialogSettings.Question">
+            <summary>Es erfolgt eine Meldung, in der eine Auswahl getroffen werden kann (i.d.R. Ja/Nein).</summary>
+        </member>
+        <member name="T:Vishnu.Interchange.Extensions">
+            <summary>
+            Hier werden Erweiterungen für bestehende Klassen gesammelt.
+            Bisher implementiert: GetAbsolutePlacement für FrameworkElement.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.Extensions.GetAbsolutePlacement(System.Windows.FrameworkElement,System.Boolean)">
+            <summary>
+            Erweiterungsmethode für FrameworkElement: liefert Position und Maße
+            des beinhaltenden Controls als Rect mit Left und Top jeweils als
+            absoluten Bildschirmkoordinaten. 
+            </summary>
+            <returns>Position und Maße des beinhaltenden Controls als Rect mit Left und Top jeweils als absoluten Bildschirmkoordinaten.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.GenericPropertyGetter">
+             <summary>
+             Holt Properties aus einer vormals serialisierten Klasse,
+             bei der ein Typecast (in dieselbe Klasse) nicht funktioniert.
+             Wird bei eigenen Klassen benötigt, die innerhalb eines Vishnu-Trees
+             als ReturnObject verwendet werden sollen und über das Environment
+             von anderen Knoten als dem Erzeuger genutzt werden sollen.
+             Tritt auf, wenn Assemblies einerseits deserialisiert geladen werden,
+             andererseits aber in dynamisch geladenen Assemblies zu deren
+             Compilezeit referenziert wurden.
+             </summary>
+             <remarks>
+             File: GenericPropertyGetter.cs
+             Autor: Erik Nagel
+            
+             06.06.2014 Erik Nagel: erstellt
+             </remarks>
+            public static class GenericPropertyGetter
+        </member>
+        <member name="M:Vishnu.Interchange.GenericPropertyGetter.GetProperty``1(System.Object,System.String)">
+            <summary>
+            Liefert Properties aus einer Klasse, die nach vormaliger Serialisierung nicht in dieselbe
+            Klasse umgewandelt werden kann. Tritt bei dynamisch geladener Assembly auf.
+            </summary>
+            <typeparam name="T">Typ einer Property einer Instanz (instance), die wegen einer vormaligen Serialisierung
+            nicht in ihren Ursprungstyp gecastet werden kann.</typeparam>
+            <param name="instance">Instanz der Klasse, bei der ein direkter Typecast fehlschlägt.</param>
+            <param name="name">Name der auszulesenden Property.</param>
+            <returns>Gewünschte Property des Typs T.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.IBusinessLogicRoot">
+            <summary>
+            Definiert Methoden zum Zugriff auf die oberste JobList des Trees.
+            Wird intern beim Mergen von veränderten Jobs nach Reload genutzt.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.IBusinessLogicRoot.GetTopJobList">
+            <summary>
+            Liefert die oberste JobList des Trees als IVishnuNode.
+            </summary>
+            <returns>Die oberste JobList des Trees.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.IBusinessLogicRoot.SetTopJobList(Vishnu.Interchange.IVishnuNode)">
+            <summary>
+            Setzt die oberste JobList des Trees.
+            Returnt die bisher oberste JobList.
+            </summary>
+            <param name="topJobList">Die neue oberste JobList des Trees.</param>
+            <returns>Die bisher oberste JobList des Trees.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.ICanRun">
+             <summary>
+             Stellt die Funktion 'bool CanRun(...)' zur Verfügung.
+             </summary>
+             <remarks>
+             File: ICanRun.cs
+             Autor: Erik Nagel
+            
+             30.05.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.Interchange.ICanRun.CanRun(System.Object@,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Wird von Vishnu vor jedem Run eines Checkers, Workers oder vor
+            Start eines Triggers aufgerufen.
+            Returnt true, wenn der Run/Start ausgeführt werden kann.
+            </summary>
+            <param name="parameters">Aufrufparameter des Benutzers.</param>
+            <param name="treeParameters">Interne Parameter des Trees.</param>
+            <param name="source">Aufrufendes TreeEvent.</param>
+            <returns>True, wenn der Run/Start ausgeführt werden kann.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.IExpandableNode">
+             <summary>
+             Definiert die notwendigen Eigenschaften eines expandierbaren, respektive
+             zusammenklappbaren Knotens in einem Tree (aus Sicht der Klasse ConfigurationManager).
+             </summary>
+             <remarks>
+             File: IExpandableNode.cs
+             Autor: Erik Nagel
+            
+             10.02.2018 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.IExpandableNode.Id">
+            <summary>
+            Die Kennung des zugehörigen LogicalTaskTree-Knotens
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IExpandableNode.Name">
+            <summary>
+            Der Name des zugehörigen LogicalTaskTree-Knotens
+            für die UI verfügbar gemacht.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IExpandableNode.Path">
+            <summary>
+            Der eindeutige Pfad des zugehörigen LogicalTaskTree-Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IExpandableNode.IsExpanded">
+            <summary>
+            True, wenn der TreeView-Knoten, welcher mit diesem Knoten
+            assoziiert ist, ausgeklappt ist.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IExpandableNode.ChildOrientation">
+            <summary>
+            Definiert, ob die Kind-Elemente dieses Knotens
+            horizontal oder vertikal angeordnet werden sollen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.IExpandableNode.Traverse(System.Func{System.Int32,Vishnu.Interchange.IExpandableNode,System.Object,System.Object})">
+            <summary>
+            Geht rekursiv durch den Baum und ruft für jeden Knoten die Action auf.
+            </summary>
+            <param name="callback">Der für jeden Knoten aufzurufende Callback vom Typ Func&lt;int, IExpandableNode, object, object&gt;.</param>
+            <returns>Das oberste UserObjekt für den Tree oder null.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.INodeChecker">
+            <summary>
+            Eine Klasse, die als Prüf-Prozess in einem Endknoten eines
+            LogicalTaskTree arbeiten soll, muss dieses Interface implementieren.
+            </summary>
+        </member>
+        <member name="E:Vishnu.Interchange.INodeChecker.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungsfortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.INodeChecker.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.INodeChecker.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der (normalerweise externe) Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Spezifische Aufrufparameter oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.INodeLogger">
+             <summary>
+             Interface für eine Klasse, die Logging-Informationen
+             annehmen und verarbeiten kann.
+             </summary>
+             <remarks>
+             File: INodeLogger.cs
+             Autor: Erik Nagel
+            
+             25.07.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.Interchange.INodeLogger.Log(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent,System.Object)">
+            <summary>
+            Übernahme von diversen Logging-Informationen.
+            </summary>
+            <param name="loggerParameters">Spezifische Aufrufparameter oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="treeEvent">Objekt mit Informationen über das Ereignis.</param>
+            <param name="additionalEventArgs">Enthält z.B. beim Event 'Exception' die zugehörige Exception.</param>
+        </member>
+        <member name="T:Vishnu.Interchange.INodeTrigger">
+             <summary>
+             Interface für eine Klasse, die einen Prozess mehrfach anstoßen kann,
+             z.B. TimerTrigger oder FileWatcherTrigger.
+             </summary>
+             <remarks>
+             File: INodeTrigger.cs
+             Autor: Erik Nagel
+            
+             17.07.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.INodeTrigger.Info">
+            <summary>
+            Enthält Informationen zum besitzenden Trigger.
+            Implementiert sind NextRun und NextRunInfo. Für das Hinzufügen weiterer
+            Informationen kann diese Klasse abgeleitet werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.INodeTrigger.Start(System.Object,System.Object,System.Action{Vishnu.Interchange.TreeEvent})">
+            <summary>
+            Startet den Trigger; vorher sollte sich der Consumer in TriggerIt eingehängt haben.
+            </summary>
+            <param name="triggerController">Das Objekt, das Trigger.Start aufruft.</param>
+            <param name="triggerParameters">Spezifische Aufrufparameter oder null.</param>
+            <param name="triggerIt">Die aufzurufende Callback-Routine, wenn der Trigger feuert.</param>
+            <returns>True, wenn der Trigger durch diesen Aufruf tatsächlich gestartet wurde.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.INodeTrigger.Stop(System.Object,System.Action{Vishnu.Interchange.TreeEvent})">
+            <summary>
+            Stoppt den Trigger.
+            </summary>
+            <param name="triggerIt">Die aufzurufende Callback-Routine, wenn der Trigger feuert.</param>
+            <param name="triggerController">Das Objekt, das Trigger.Stop aufruft.</param>
+        </member>
+        <member name="T:Vishnu.Interchange.INodeWorker">
+            <summary>
+            Eine Klasse, die als Worker-Prozess (Aktion bei TreeEvent, z.B. Logical-Änderung) 
+            in einem Endknoten eines LogicalTaskTree arbeiten soll,
+            muss dieses Interface implementieren.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.INodeWorker.Exec(Vishnu.Interchange.TreeParameters,System.String,Vishnu.Interchange.TreeEvent,System.Boolean)">
+            <summary>
+            Startet einen zuständigen Worker, nachdem sich ein definierter Zustand
+            (TreEvent) im Tree geändert hat.
+            Intern wird für jeden Exec eine eigene Task gestartet.
+            </summary>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="nodeId">Id des Knotens, zu dem der Worker gehört.</param>
+            <param name="eventParameters">Klasse mit Informationen zum Ereignis.</param>
+            <param name="isResetting">True, wenn der Worker mit einem letzten Aufruf (ok-Meldung) beendet werden soll.</param>
+        </member>
+        <member name="T:Vishnu.Interchange.IParameterReader">
+             <summary>
+             Interface für Klassen, die Parameter-Werte
+             (string-&gt;string) zur Verfügung stellen.
+             </summary>
+             <remarks>
+             File: IParameterReader.cs
+             Autor: Erik Nagel
+            
+             30.05.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="E:Vishnu.Interchange.IParameterReader.ParametersReloaded">
+            <summary>
+            Event, das ausgelöst wird, wenn die Parameter neu geladen wurden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.IParameterReader.Init(System.Object)">
+            <summary>
+            Routine, die Startparameter übernimmt und den ParameterReader
+            entsprechend konfiguriert; muss direkt nach Instanziierung
+            aufgerufen werden.
+            </summary>
+            <param name="parameters">Ein Objekt zur Parameterübergabe.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.IParameterReader.ReadParameter(System.String)">
+            <summary>
+            Liefert zu einem String-Parameter einen String-Wert.
+            </summary>
+            <param name="parameterName">Parameter-Name.</param>
+            <returns>Parameter-Value or null.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.IValueModifier">
+             <summary>
+             Helper für einen ValueModifier; konvertiert einen Wert
+             in einen anderen Wert und/oder ein anderes Format.
+             </summary>
+             <remarks>
+             File: IValueModifier
+             Autor: Erik Nagel
+            
+             23.06.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.Interchange.IValueModifier.ModifyValue(System.Object)">
+            <summary>
+            Konvertiert einen Wert in das für diesen ValueModifier gültige Format.
+            </summary>
+            <param name="toConvert">Zu konvertierender Wert</param>
+            <returns>Konvertierter Wert.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.IViewModelRoot">
+            <summary>
+            Definiert Methoden zum Zugriff auf das oberste JobListViewModel des Trees.
+            Wird intern beim Mergen von veränderten Jobs nach Reload genutzt.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.IViewModelRoot.GetTopJobListViewModel">
+            <summary>
+            Liefert das oberste JobListViewModel des Trees als IVishnuViewModel.
+            </summary>
+            <returns>Das oberste JobListViewModel des Trees als IVishnuViewModel.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.IViewModelRoot.SetTopJobListViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Setzt das oberste JobListViewModel des Trees.
+            Returnt das bisherige oberste JobListViewModel.
+            </summary>
+            <param name="topJobListViewModel">Das neue oberste JobListViewModel des Trees.</param>
+            <returns>Das bisherige oberste JobListViewModel des Trees.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.IViewModelRoot.RefreshDependentAlternativeViewModels">
+            <summary>
+            Aktualisiert die ViewModels von eventuellen zusätzliche Ansichten,
+            die dieselbe BusinessLogic abbilden (hier: JobGroupViewModel).
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.IVishnuJobProvider">
+             <summary>
+             Interface für eine Klasse, die ein Fremdformat in ein XDocument
+             im Vishnu-Job-Format konvertiert und retourniert.
+             </summary>
+             <remarks>
+             File: IVishnuJobProvider.cs
+             Autor: Erik Nagel
+            
+             15.02.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.Interchange.IVishnuJobProvider.GetVishnuJobXml(System.String)">
+            <summary>
+            Lädt eine Jobbeschreibung in einem Fremdformat, konvertiert diese
+            in eine Vishnu JobDescription.xml und retourniert diese als XDocument.
+            </summary>
+            <param name="jobDirectory">Das Job-Verzeichnis.</param>
+            <returns>Job-Beschreibung im Vishnu-Format als XDocument.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.IVishnuNode">
+             <summary>
+             Bietet informativen Zugriff auf eine LogicalNode von Vishnu.
+             </summary>
+             <remarks>
+             File: IVishnuNode
+             Autor: Erik Nagel, NetEti
+            
+             06.08.2016 Erik Nagel, NetEti: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuNode.IdInfo">
+            <summary>
+            Die eindeutige Kennung des Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuNode.NameInfo">
+            <summary>
+            "Menschenfreundliche" Darstellung des Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuNode.PathInfo">
+            <summary>
+            Der Pfad zum Knoten.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuNode.TypeInfo">
+            <summary>
+            Der Knotentyp:
+              None, NodeConnector, ValueModifier, Constant, Checker.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuNode.LevelInfo">
+            <summary>
+            Die Hierarchie-Ebene des Knotens.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.IVishnuViewModel">
+            <summary>
+            Interface für die ViewModels von dynamischen User-Controls.
+            </summary>
+        </member>
+        <member name="E:Vishnu.Interchange.IVishnuViewModel.PropertyChanged">
+            <summary>
+            Wird ausgelöst, wenn sich eine Property ändert.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuViewModel.Result">
+            <summary>
+            Das ReturnObject der zugeordneten LogicalNode.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuViewModel.ParentView">
+            <summary>
+            Das Parent-Control.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.IVishnuViewModel.UserDataContext">
+            <summary>
+            Bindung an ein optionales, spezifisches User-ViewModel.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.Result">
+             <summary>
+             Nimmt die Ergebnisse eines Knotens des LogicalTaskTree auf.
+             </summary>
+             <remarks>
+             File: Result.cs
+             Autor: Erik Nagel
+            
+             01.12.2012 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.Id">
+            <summary>
+            Eindeutige Kennung des Knotens, zu dem dieses Result gehört.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.Logical">
+            <summary>
+            Das logische Ergebnis der Verarbeitung des Teilbaums dieses Knotens.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.State">
+            <summary>
+            Der Verarbeitungszustand des Knotens:
+            None, Waiting, Working, Finished, Busy (= Waiting | Working) oder CanStart (= None|Finished).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.LogicalState">
+            <summary>
+            Der Ergebnis-Zustand des Knotens:
+            None, Done, Fault, Timeout, UserAbort.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.Timestamp">
+            <summary>
+            Zeitpunkt der Entstehung des Results.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.Result.ReturnObject">
+            <summary>
+            Ein eventuelles Rückgabeobjekt des Knoten (Checker).
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.#ctor(System.String,System.Nullable{System.Boolean},System.Nullable{Vishnu.Interchange.NodeState},System.Nullable{Vishnu.Interchange.NodeLogicalState},System.Object)">
+            <summary>
+            Parametrisierter Konstruktor.
+            </summary>
+            <param name="id">Id des besitzenden Knoten.</param>
+            <param name="logical">Logisches Ergebnis des besitzenden Knoten (true, false, null).</param>
+            <param name="state">Verarbeitungszustand des besitzenden Knoten: None, Waiting, Working, Finished,
+            Busy (= Waiting | Working) oder CanStart (= None|Finished).</param>
+            <param name="logicalState">Logischer Zustand des besitzenden Knoten: None, Done, Fault, Timeout, UserAbort</param>
+            <param name="returnObject">Ein beliebiges Object.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Id des Knoten + ":" + ReturnObject.ToString()</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.Equals(System.Object)">
+            <summary>
+            Vergleicht Dieses Result mit einem übergebenen Result nach Inhalt.
+            Der Timestamp wird bewusst nicht in den Vergleich einbezogen.
+            </summary>
+            <param name="obj">Vergleichs-Result.</param>
+            <returns>True, wenn das übergebene Result inhaltlich (ohne Timestamp) gleich diesem Result ist.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.Result.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Result.
+            Der Timestamp wird bewusst nicht in den Vergleich einbezogen.
+            </summary>
+            <returns>Ein möglichst eindeutiger Integer für alle Properties einer Instanz zusammen.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.ResultDictionary">
+            <summary>
+            Typisierte Liste von Results.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.ResultDictionary.#ctor">
+            <summary>
+            Standard Konstruktor.
+            Dictionary&lt;string, Result&gt;.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.UndefinedTreeEventClass">
+            <summary>
+            Klassendefinition für ein undefiniertes TreeEvent.
+            Ersetzt null, um die elenden null-Warnungen bei der Verwendung von TreeEvents
+            zu umgehen, bei denen sichergestellt ist oder sein muss, dass sie zum Zeitpunkt
+            der Verwendung ungleich null sind, die aber im Konstruktor sonst noch nicht
+            sinnvoll instanziiert werden könnten.
+            Bei eventuellen späteren null-Abfragen muss null durch die statische Instanz
+            'UndefinedTreeEvent' (siehe weiter unten) ersetzt werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.UndefinedTreeEventClass.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.TreeEvent">
+             <summary>
+             Klasse mit diversen Informationen für Ereignisse im LogicalTaskTree.
+             </summary>
+             <remarks>
+             File: TreeEvent.cs
+             Autor: Erik Nagel
+            
+             25.07.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Vishnu.Interchange.TreeEvent.UndefinedTreeEvent">
+            <summary>
+            Statische Instanz für ein undefiniertes TreeEvent.
+            Ersetzt null, um die elenden null-Warnungen bei der Verwendung von TreeEvents
+            zu umgehen, bei denen sichergestellt ist oder sein muss, dass sie zum Zeitpunkt
+            der Verwendung ungleich null sind, die aber im Konstruktor sonst noch nicht
+            sinnvoll instanziiert werden könnten.
+            Bei eventuellen späteren null-Abfragen muss null durch diese Instanz ersetzt werden.
+            Es kann dann ggf. auf 'is IUndefinedElement' geprüft werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetUserEventNamesForInternalEventNames(System.String)">
+            <summary>
+            Mappt einen normalisierten String mit entsprechenden internen Ereignis-Namen
+            auf einen String mit durch Pipe ('|') getrennte Benutzer-freundliche Ereignis-Namen.
+            </summary>
+            <param name="internalEventNames">String mit durch '|' getrennten Programm-seitigen Event-Namen.</param>
+            <returns>String mit durch '|' getrennten entsprechenden Benutzer-freundlichen Event-Namen.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetUserEventNameForInternalEventName(System.String)">
+            <summary>
+            Mappt einen internen Ereignis-Namen auf einen Benutzer-freundlichen Ereignis-Namen.
+            </summary>
+            <param name="internalEventName">Der Programm-seitige Event-Name.</param>
+            <returns>Der Benutzer-freundliche Event-Name.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetInternalEventNamesForUserEventNames(System.String)">
+            <summary>
+            Mappt einen String mit durch Pipe ('|') getrennte Benutzer-freundliche Ereignis-Namen
+            auf einen normalisierten String mit entsprechenden internen Ereignis-Namen.
+            </summary>
+            <param name="userEventNames">String mit durch '|' getrennten Benutzer-freundlichen Event-Namen.</param>
+            <returns>Der normalisierte String mit durch '|' getrennten entsprechenden Programm-seitigen Event-Namen.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetInternalEventNameForUserEventName(System.String)">
+            <summary>
+            Mappt  einen Benutzer-freundlichen Ereignis-Namen auf einen internen Ereignis-Namen.
+            </summary>
+            <param name="userEventName">Der Benutzer-freundliche Event-Name.</param>
+            <returns>Der Programm-seitige Event-Name.</returns>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.Name">
+            <summary>User-Name des Ereignisses</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.Timestamp">
+            <summary>Datum und Uhrzeit des Ereignisses</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.ThreadId">
+            <summary>Id des zugehörigen Threads</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.SourceId">
+            <summary>Id des Knotens, in dem das Ereignis auftritt.</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.SenderId">
+            <summary>Id des Knotens, der das Ereignis meldet.</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.NodeName">
+            <summary>Name des Knotens, der das Ereignis meldet.</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.NodePath">
+            <summary>Pfad zum Knoten, der das Ereignis meldet.</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.Logical">
+            <summary>Logischer Wert des Knotens, der das Ereignis meldet (true, false oder null).</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.State">
+            <summary>Verarbeitungszustand des Knotens, der das Ereignis meldet (None, Start, Done, Fault, Timeout, UserAbort.).</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.Results">
+            <summary>Liste mit Verarbeitungsergebnissen des Knotens, der das Ereignis meldet.</summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeEvent.Environment">
+            <summary>Liste mit Verarbeitungsergebnissen der Vorläufer des Knotens, der das Ereignis meldet.</summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.#ctor(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean},Vishnu.Interchange.NodeLogicalState,Vishnu.Interchange.ResultDictionary,Vishnu.Interchange.ResultDictionary)">
+            <summary>
+            Konstruktor: übernimmt und erzeugt diverse Informationen für das TreeEvent.
+            </summary>
+            <param name="name">User-freundlicher Name des Events.</param>
+            <param name="sourceId">Id des Knotens, in dem das Ereignis auftritt.</param>
+            <param name="senderId">Id des feuernden Knoten.</param>
+            <param name="nodeName">Name des feuernden Knoten.</param>
+            <param name="nodePath">Pfad zum feuernden Knoten.</param>
+            <param name="lastLogical">Letztes gültiges logisches Ergebnis des Knotens (True oder False).</param>
+            <param name="logicalState">Verarbeitungszustand des Knotens (None, Start, Done, Fault, Timeout, UserAbort).</param>
+            <param name="results">List of Result (Verarbeitungsergebnisse der untergeordneten INodeChecker).</param>
+            <param name="environment">List of Result (Verarbeitungsergebnisse der untergeordneten INodeChecker der vorhergehenden Knoten).</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.ReplaceWildcards(System.String)">
+            <summary>
+            Ersetzt definierte Wildcards durch ihre Laufzeit-Werte:
+            '%HOME%': '...bin\Debug'.
+            </summary>
+            <param name="inString">Wildcard</param>
+            <returns>Laufzeit-Ersetzung</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetResolvedPath(System.String)">
+            <summary>
+            Löst den übergebenen Pfad unter Berücksichtigung der Suchreihenfolge
+            in einen gesicherten Pfad auf, wenn möglich.
+            </summary>
+            <param name="path">Pfad zur Dll/Exe.</param>
+            <returns>Gesicherter Pfad zur Dll/Exe</returns>
+            <exception cref="T:System.IO.IOException" />
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Id des Knoten + ":" + ReturnObject.ToString()</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.Equals(System.Object)">
+            <summary>
+            Vergleicht Dieses Result mit einem übergebenen Result nach Inhalt.
+            Der Timestamp wird bewusst nicht in den Vergleich einbezogen.
+            </summary>
+            <param name="obj">Vergleichs-Result.</param>
+            <returns>True, wenn das übergebene Result inhaltlich (ohne Timestamp) gleich diesem Result ist.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeEvent.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Result.
+            Der Timestamp wird bewusst nicht in den Vergleich einbezogen.
+            </summary>
+            <returns>Ein möglichst eindeutiger Integer für alle Properties einer Instanz zusammen.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.TreeParameters">
+             <summary>
+             Parameter, die Checkern bei jedem Aufruf
+             von Vishnu mitgegeben werden (nicht User-spezifisch).
+             </summary>
+             <remarks>
+             File: TreeParameters.cs
+             Autor: Erik Nagel
+            
+             16.06.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.LastParentViewAbsoluteScreenPosition">
+            <summary>
+            Die absolute Bildschirmposition der Mitte des beinhaltenden Controls.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.Name">
+            <summary>
+            Name des Trees.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.CheckerDllDirectory">
+            <summary>
+            Pfad zum Verzeichnis der Checker.dll.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.ParentView">
+            <summary>
+            Das zugehörige Control.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.GetParentViewAbsoluteScreenPosition">
+            <summary>
+            Absolute Bildschirmposition der Mitte des beinhaltenden Controls.
+            </summary>
+            <returns>Absolute Bildschirmposition der Mitte des Parent-Controls.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.#ctor(System.String,System.Windows.FrameworkElement)">
+            <summary>
+            Konstruktor - übernimmt den logischen Namen des Trees und das Parent-Control.
+            </summary>
+            <param name="name">Der logische Name des Trees.</param>
+            <param name="parentView">Das Parent-Control.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.#ctor(System.String)">
+            <summary>
+            Konstruktor - übernimmt den logischen Namen des Trees.
+            </summary>
+            <param name="name">Der logische Name des Trees.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.ToString">
+            <summary>
+            Überschriebene ToString-Methode - returniert nur den Namen.
+            </summary>
+            <returns>Name-Property der TreeParameters.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.Equals(System.Object)">
+            <summary>
+            Überschriebene Equals-Methode.
+            </summary>
+            <param name="obj">Vergleichs-TreeParameters.</param>
+            <returns>True, wenn beide Objekte Instanzen von TreeParameters sind und ihr Hashcode übereinstimmt.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.GetHashCode">
+            <summary>
+            Überschriebene GetHashCode-Methode.
+            </summary>
+            <returns>Ein möglichst eindeutiger Integer für alle Properties einer Instanz zusammen.</returns>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.BusinessLogicRoot">
+            <summary>
+            Interner, Assembly-übergreifender Parameter.
+            Enthält den LogicalTaskTree als IBusinessLogicRoot, um hier einen direkten
+            Assembly-Verweis auf LogicalTaskTree zu vermeiden.
+            Wird innerhalb der Assembly Vishnu.ViewModel wieder aufgelöst.
+            Dort existiert ein Verweis auf LogicalTaskTree.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TreeParameters.ViewModelRoot">
+            <summary>
+            Interner, Assembly-übergreifender Parameter.
+            Enthält das LogicalTaskTreeViewModel als IViewModelRoot, um hier einen direkten
+            Assembly-Verweis auf Vishnu.ViewModel zu vermeiden.
+            Wird innerhalb der Assembly Vishnu.ViewModel wieder aufgelöst.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.ThreadAccessMainWindowScreenInfo">
+            <summary>
+            Liefert threadsafe Position und Maße das MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TreeParameters.ThreadAccessMainWindowScreenInfoOnGuiDispatcher">
+            <summary>
+            Liefert threadsafe Position und Maße das MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="T:Vishnu.Interchange.TriggerBase">
+             <summary>
+             Basisklasse für spezifische Trigger - muss abgeleitet werden.
+             Löst abhängig von der jeweiligen Implementierung das Event 'triggerIt' aus.
+             Implementiert die Schnittstelle 'INodeTrigger' aus 'Vishnu.Interchange.dll', über
+             die sich der LogicalTaskTree von 'Vishnu' in das Event einhängen und den Trigger
+             starten und stoppen kann.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             26.06.2021 Erik Nagel: erstellt.
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.TriggerBase.Info">
+            <summary>
+            Enthält weitergehende Informationen zum Trigger.
+            Implementiert sind NextRun und NextRunInfo. Für das Hinzufügen weiterer
+            Informationen kann diese Property und/oder die Klasse TriggerInfo
+            abgeleitet werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.Start(System.Object,System.Object,System.Action{Vishnu.Interchange.TreeEvent})">
+            <summary>
+            Startet den Trigger; vorher sollte sich der Consumer in triggerIt eingehängt haben.
+            </summary>
+            <param name="triggerController">Das Objekt, das den Trigger definiert.</param>
+            <param name="triggerParameters">Trigger-spezifische Übergabeparameter. Werden als String von der
+            JobDescription.xml übernommen und im Prinzip unverändert an den implementierten Trigger übergeben.
+            Ausnahme: Vishnu versucht für in %-Zeichen eingeschlossene Zeichenketten eine Parameterersetzung.</param>
+            <param name="triggerIt">Die aufzurufende Callback-Routine, wenn der Trigger feuert.</param>
+            <returns>True, wenn der Trigger durch diesen Aufruf tatsächlich gestartet wurde (hier: immer true).</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.Stop(System.Object,System.Action{Vishnu.Interchange.TreeEvent})">
+            <summary>
+            Stoppt den Trigger.
+            </summary>
+            <param name="triggerController">Das Objekt, das den Trigger definiert.</param>
+            <param name="triggerIt">Die aufzurufende Callback-Routine, wenn der Trigger feuert.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TriggerBase.TriggerName">
+            <summary>
+            Die von TriggerBase abgeleitete Klasse kann diesen Namen setzen.
+            Er wird dann später in OnTriggerFired im TreeEvent mitgegeben.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggerBase._info">
+            <summary>
+            Interne Repräsentation der Property "Info". 
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggerBase._lastStart">
+            <summary>
+            Enthält den Zeitpunkt des letzten Trigger-Starts oder DateTime.MinValue.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggerBase._nextStart">
+            <summary>
+            Enthält den Zeitpunkt des nächsten Trigger-Starts, wenn dieser überhaupt
+            vorhersehbar ist, ansonsten DateTime.MinValue.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggerBase._syntaxInformation">
+            <summary>
+            Kann mit Trigger-spezifischen Syntax-Informationen ausgestattet werden,
+            wird dann im Fehlerfall im Zuge einer Exception ausgegeben, Default: null.
+            </summary>
+        </member>
+        <member name="F:Vishnu.Interchange.TriggerBase._isUserRun">
+            <summary>
+            Wird automatisch auf true gesetzt, wenn der besitzende Knoten im Vishnu-Tree
+            vom Benutzer manuell gestartet wurde. Kann für die Steuerung spezifischen
+            Trigger-Verhaltens genutzt werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.OnTriggerFired(System.Int64)">
+            <summary>
+            Diese Routine löst das Trigger-Event aus.
+            Für ein Setzen der Variablen "_lastStart" und "_nextStart" kann diese Routine
+            überschrieben werden.
+            </summary>
+            <param name="dummy">Aus Kompatibilitätsgründen, wird hier nicht genutzt.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.EvaluateParametersOrFail(System.Object@,System.Object)">
+            <summary>
+            Diese Routine wird von der Routine "Start" angesprungen, bevor der Trigger gestartet wird.
+            Hier wird nur der Parameter "|UserRun" ausgewertet und die Variable "_isUserRun" entsprechend gesetzt.
+            Für die Auswertung der eigentlichen Trigger-Parameter muss diese Routine überschrieben werden.
+            Bei Fehlern in der Parameterauswertung kann die Routine "ThrowSyntaxException(string errorMessage)"
+            aufgerufen werden.
+            </summary>
+            <param name="triggerParameters">Die von Vishnu weitergeleiteten Parameter aus der JobDescription.xml.</param>
+            <param name="triggerController">Der Knoten, dem dieser Trigger zugeordnet ist.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.TriggerBase.ThrowSyntaxException(System.String)">
+            <summary>
+            Wird aufgerufen, wenn die übergebenen Parameter fehlerhaft waren.
+            </summary>
+            <param name="errorMessage">Auslösender Fehler der Parameterprüfung.</param>
+        </member>
+        <member name="E:Vishnu.Interchange.TriggerBase._triggerIt">
+            <summary>
+            Wird ausgelöst, wenn das Trigger-Ereignis (z.B. Timer) eintritt. 
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.TriggerInfo">
+             <summary>
+             Enthält Informationen zum besitzenden Trigger.
+             Implementiert ist NextRun. Für das Hinzufügen weiterer
+             Informationen kann diese Klasse abgeleitet werden.
+             </summary>
+             <remarks>
+             File: TriggerInfo.cs
+             Autor: Erik Nagel
+            
+             12.10.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.TriggerInfo.NextRun">
+            <summary>
+            Der nächste Trigger-Zeitpunkt.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.TriggerInfo.NextRunInfo">
+            <summary>
+            Info-Text über den nächsten Trigger-Zeitpunkt:
+            bei TimerTriggern ein DateTime.Now.ToString();
+            bei sonstigen Triggern eine andere geeignete Information.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.VishnuAssemblyLoader">
+             <summary>
+             Stellt Methoden für das dynamische Laden von
+             Assemblies und das Instanziieren darin enthaltener Klassen
+             zur Verfügung.
+             </summary>
+             <remarks>
+             File: VishnuAssemblyLoader.cs
+             Autor: Erik Nagel
+            
+             10.04.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.GetAssemblyLoader(System.Collections.Generic.List{System.String})">
+            <summary>
+            Singleton-Provider - übernimmt Pfade zu Verzeichnissen, in denen zusätzlich
+            nach Assemblies gesucht werden soll.
+            </summary>
+            <param name="assemblyDirectories">Eine Liste von Verzeichnissen, in denen
+            nach der Assembly gesucht werden soll.</param>
+            <returns>Singleton-Instanz von AssemblyLoader</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.GetAssemblyLoader">
+            <summary>
+            Singleton-Provider - übernimmt Pfade zu Verzeichnissen, in denen zusätzlich
+            nach Assemblies gesucht werden soll.
+            </summary>
+            <returns>Singleton-Instanz von AssemblyLoader</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.ClearCache">
+            <summary>
+            Löscht den internen Assembly-Cache, sodass alle Assemblies beim nächsten Aufruf neu geladen werden.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.RegisterAssemblyPathForForcedNextReloading(System.String)">
+            <summary>
+            Registriert Pfade von dynamisch zu ladenden Assemblies, die beim nächsten Ladevorgang auf jeden
+            Fall neu von der Festplatte und nicht aus einem eventuell gecachtem Image geladen werden sollen.
+            </summary>
+            <param name="assemblyPathName">Der Pfad der Assembly, die beim nächsten Ladevorgang nicht aus dem Cache genommen werden soll.</param>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.DynamicLoadObjectOfTypeFromAssembly(System.String,System.Type,System.Boolean)">
+            <summary>
+            Lädt ein Objekt vom übergebenen Typ aus der angegebenen Assembly dynamisch.
+            Alle von der angegebenen Assembly referenzierten Assemblies werden zusätzlich
+            auch in assemblyDirectories gesucht.
+            </summary>
+            <param name="assemblyPathName">Die Assembly, die das zu ladende Objekt publiziert.</param>
+            <param name="objectType">Der Typ des aus der Assembly zu instanzierenden Objekts</param>
+            <param name="force">Optional - bei true wird die Assembly nicht aus dem Cache genomen, default: false</param>
+            <returns>Instanz aus der übergebenen Assembly vom übergebenen Typ oder null</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.#cctor">
+            <summary>
+            Statischer Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.dynamicLoadAssembly(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lädt die Assembly vom übergebenen Pfad.
+            </summary>
+            <param name="slavePathName">Pfad der zu ladenden Assembly.</param>
+            <param name="quiet">Keine Meldung bei Misserfolg.</param>
+            <param name="force">Optional - bei true wird die Assembly nicht aus dem Cache genomen, default: false</param>
+            <returns>Geladene Assembly oder null</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.VishnuAssemblyLoader.#ctor">
+            <summary>
+            Privater Konstruktor.
+            </summary>
+        </member>
+        <member name="T:Vishnu.Interchange.WindowAspects">
+             <summary>
+             Funktion: Datenklasse mit wesentlichen Darstellungsmerkmalen eines WPF-Windows.
+             </summary>
+             <remarks>
+             File: WindowAspects
+             Autor: Erik Nagel
+            
+             22.02.2019 Erik Nagel: erstellt
+             08.01.2024 Erik Nagel: WindowLeft und WindowTop durch WindowCenter ersetzt.
+             </remarks>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowCenterX">
+            <summary>
+            X-Koordinate der mittleren Bildschirmposition des Fensters (Einheit: geräteunabhängige Pixel).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowCenterY">
+            <summary>
+            Y-Koordinate der mittleren Bildschirmposition des Fensters (Einheit: geräteunabhängige Pixel).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowWidth">
+            <summary>
+            Breite des Fensters (Einheit: geräteunabhängige Pixel).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowHeight">
+            <summary>
+            Höhe des Fensters (Einheit: geräteunabhängige Pixel).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowScrollLeft">
+            <summary>
+            Geräteunabhängige Pixel, die der Fensterinhalt nach links verschoben ist (vorzeichenbehaftet).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowScrollTop">
+            <summary>
+            Geräteunabhängige Pixel, die der Fensterinhalt nach oben verschoben ist (vorzeichenbehaftet).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.WindowZoom">
+            <summary>
+            Vergrößerungsgrad des Fensterinhalts (vorzeichenbehaftet).
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.IsScrollbarVisible">
+            <summary>
+            True wenn mindestens ein Scrollbar sichtbar ist.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.ActScreenIndex">
+            <summary>
+            Der Index des Screens, in dem zum Zeitpunkt des Abspeicherns
+            das MainWindow angezeigt wird.
+            </summary>
+        </member>
+        <member name="P:Vishnu.Interchange.WindowAspects.ActTabControlTab">
+            <summary>
+            0: Tree-Ansicht, 1: Jobs-Ansicht.
+            </summary>
+        </member>
+        <member name="M:Vishnu.Interchange.WindowAspects.GetMainWindowMeasures">
+            <summary>
+            Liefert threadsafe Position und Maße das MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.WindowAspects.GetFrameworkElementAbsoluteScreenPosition(System.Windows.FrameworkElement,System.Boolean)">
+            <summary>
+            Absolute Bildschirmposition der Mitte des zugehörigen Controls.
+            </summary>
+            <param name="frameworkElement">Das Element, dessen Position ermittelt werden soll.</param>
+            <param name="failOnErrors">Bei false (default) wird bei NullReferenceException eine Ersatzposition zurück geliefert.</param>
+            <returns>Absolute Bildschirmposition der Mitte des zugehörigen Controls.</returns>
+            <exception cref="T:System.NullReferenceException">Tritt auf, wenn das Element selbst nicht sichtbar ist.</exception>
+        </member>
+        <member name="M:Vishnu.Interchange.WindowAspects.GetFallbackScreenPosition">
+            <summary>
+            Notfallroutine - wird angesprungen, wenn für den aktuellen Knoten
+            keine Bildschirmposition ermittelt werden kann.
+            Liefert den Mittelpunkt des MainWindow auf dem aktuellen Bildschirm
+            oder, wenn System.Windows.Application.Current auch null ist,
+            dieMitte des ersten (Haupt-) Bildschirms.
+            </summary>
+            <returns>Mittelpunkt des MainWindow auf dem aktuellen Bildschirm oder Ersatzkoordinaten.</returns>
+        </member>
+        <member name="M:Vishnu.Interchange.WindowAspects.ThreadAccessMainWindowMeasuresOnGuiDispatcher">
+            <summary>
+            Liefert threadsafe Position und Maße das MainWindow.
+            </summary>
+            <returns>Bildschirminformationen zum MainWindow.</returns>
+        </member>
+        <member name="T:NetEti.CustomControls.SplashScreenMessage">
+             <summary>
+             Definiert einen eigenen Klassentyp für
+             eine einfache String-Message, damit diese vom
+             InfoController über den Typ gesondert von anderen
+             Messages behandelt werden kann.
+             </summary>
+             <remarks>
+             File: SplashScreenMessage.cs
+             Autor: Erik Nagel
+            
+             09.07.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:NetEti.CustomControls.SplashScreenMessage.Message">
+            <summary>
+            Der Meldungstext.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashScreenMessage.#ctor(System.String)">
+            <summary>
+            Konstruktor - übernimmt den Meldungstext.
+            </summary>
+            <param name="message">Der Meldungstext.</param>
+        </member>
+        <member name="T:LogicalTaskTree.ThreadLocker">
+             <summary>
+             Verwaltet ein statisches Dictionary von Namen und Lock-Objekten.
+             Sperrt und entsperrt das einem Namen zugeordnete Objekt global.
+             </summary>
+             <remarks>
+             File: ThreadLocker.cs
+             Autor: Erik Nagel
+            
+             28.09.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:LogicalTaskTree.ThreadLocker.LockNameGlobal(System.String)">
+            <summary>
+            Sperrt ein dem übergebenen Namen intern zugeordnetes Objekt.
+            Der Eintrag mit Namen und Objekt wird ggf. vorher neu erzeugt.
+            </summary>
+            <param name="name">Ein Name, der über ein zugeordnetes Objekt global gesperrt werden soll.</param>
+        </member>
+        <member name="M:LogicalTaskTree.ThreadLocker.UnlockNameGlobal(System.String)">
+            <summary>
+            Entsperrt ein dem übergebenen Namen intern zugeordnetes Objekt.
+            </summary>
+            <param name="name">Ein Name, dessen zugeordnetes Objekt global entsperrt werden soll.</param>
+        </member>
+    </members>
+</doc>

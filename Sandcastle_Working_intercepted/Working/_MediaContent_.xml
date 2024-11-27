@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stockSharedContentDefinitions>
+  <item id="break_node">
+    <image file="break_node.png">
+      <altText>break node</altText>
+    </image>
+  </item>
+  <item id="CheckDependentNode">
+    <image file="CheckDependentNode.JPG">
+      <altText>Check Dependent Node</altText>
+    </image>
+  </item>
+  <item id="CheckParameterDemoRun">
+    <image file="CheckParameterDemoRun.png">
+      <altText>Check Parameter Demo Run</altText>
+    </image>
+  </item>
+  <item id="CheckParameterReader">
+    <image file="CheckParameterReader.png">
+      <altText>Check Parameter Reader</altText>
+    </image>
+  </item>
+  <item id="CheckSingleValueModifier">
+    <image file="CheckSingleValueModifier.png">
+      <altText>Check Single Value Modifier</altText>
+    </image>
+  </item>
+  <item id="CheckUserValueModifier">
+    <image file="CheckUserValueModifier.png">
+      <altText>Check User Value Modifier</altText>
+    </image>
+  </item>
+  <item id="CheckWildcardParameters">
+    <image file="CheckWildcardParameters.png">
+      <altText>Check Wildcard Parameters</altText>
+    </image>
+  </item>
+  <item id="Check_Treshold_50_10">
+    <image file="Check_Treshold_50_10.jpg">
+      <altText>Check Treshold 50 10</altText>
+    </image>
+  </item>
+  <item id="closed_down">
+    <image file="closed_down.png">
+      <altText>closed down</altText>
+    </image>
+  </item>
+  <item id="closed_right">
+    <image file="closed_right.png">
+      <altText>closed right</altText>
+    </image>
+  </item>
+  <item id="Contextmenu1">
+    <image file="Contextmenu1.png">
+      <altText>Contextmenu 1</altText>
+    </image>
+  </item>
+  <item id="Contextmenu2">
+    <image file="Contextmenu2.png">
+      <altText>Contextmenu 2</altText>
+    </image>
+  </item>
+  <item id="Darstellung_Speichern">
+    <image file="Darstellung_Speichern.png">
+      <altText>Darstellung Speichern</altText>
+    </image>
+  </item>
+  <item id="DemoJobXML_01">
+    <image file="DemoJobXML_01.PNG">
+      <altText>Demo JobXML 01</altText>
+    </image>
+  </item>
+  <item id="DemoJobXML_02">
+    <image file="DemoJobXML_02.PNG">
+      <altText>Demo JobXML 02</altText>
+    </image>
+  </item>
+  <item id="DemoJob_01">
+    <image file="DemoJob_01.PNG">
+      <altText>Demo Job 01</altText>
+    </image>
+  </item>
+  <item id="Demo_StartJob">
+    <image file="Demo_StartJob.png">
+      <altText>Demo Start Job</altText>
+    </image>
+  </item>
+  <item id="erik_at_reallyhuman_net">
+    <image file="erik_at_reallyhuman_net.png">
+      <altText>erik(at)reallyhuman net</altText>
+    </image>
+  </item>
+  <item id="Erststart">
+    <image file="Erststart.png">
+      <altText>Erststart</altText>
+    </image>
+  </item>
+  <item id="Escalator">
+    <image file="Escalator.png">
+      <altText>Escalator</altText>
+    </image>
+  </item>
+  <item id="Jobverzeichnis">
+    <image file="Jobverzeichnis.png">
+      <altText>Jobverzeichnis</altText>
+    </image>
+  </item>
+  <item id="mobile_erik">
+    <image file="mobile_erik.png">
+      <altText>+49 (0)172 7737589</altText>
+    </image>
+  </item>
+  <item id="NamedTriggerLogger">
+    <image file="NamedTriggerLogger.png">
+      <altText>Named Trigger Logger</altText>
+    </image>
+  </item>
+  <item id="noDrive_D">
+    <image file="noDrive_D.png">
+      <altText>no Drive D</altText>
+    </image>
+  </item>
+  <item id="opened_left">
+    <image file="opened_left.png">
+      <altText>opened left</altText>
+    </image>
+  </item>
+  <item id="opened_up">
+    <image file="opened_up.png">
+      <altText>opened up</altText>
+    </image>
+  </item>
+  <item id="Publish">
+    <image file="Publish.png">
+      <altText>Publish</altText>
+    </image>
+  </item>
+  <item id="run_node">
+    <image file="run_node.png">
+      <altText>run node</altText>
+    </image>
+  </item>
+  <item id="Sicherheitsabfrage">
+    <image file="Sicherheitsabfrage.png">
+      <altText>Sicherheitsabfrage</altText>
+    </image>
+  </item>
+  <item id="Sicherheitsabfrage2">
+    <image file="Sicherheitsabfrage2.png">
+      <altText>Sicherheitsabfrage 2</altText>
+    </image>
+  </item>
+  <item id="support">
+    <image file="support.png">
+      <altText>support</altText>
+    </image>
+  </item>
+  <item id="TimerTriggerDemo">
+    <image file="TimerTriggerDemo.png">
+      <altText>Timer Trigger Demo</altText>
+    </image>
+  </item>
+  <item id="TODO">
+    <image file="TODO.png">
+      <altText>TODO</altText>
+    </image>
+  </item>
+  <item id="UserCheckerDemo">
+    <image file="UserCheckerDemo.png">
+      <altText>User Checker Demo</altText>
+    </image>
+  </item>
+  <item id="UserCheckerDemoRun">
+    <image file="UserCheckerDemoRun.png">
+      <altText>User Checker Demo Run</altText>
+    </image>
+  </item>
+  <item id="UserCheckerSolution">
+    <image file="UserCheckerSolution.png">
+      <altText>User Checker Solution</altText>
+    </image>
+  </item>
+  <item id="UserViewDemoRun">
+    <image file="UserViewDemoRun.png">
+      <altText>User View Demo Run</altText>
+    </image>
+  </item>
+  <item id="UserViewSolution">
+    <image file="UserViewSolution.png">
+      <altText>User View Solution</altText>
+    </image>
+  </item>
+  <item id="Various_Triggers">
+    <image file="Various_Triggers.png">
+      <altText>Various Triggers</altText>
+    </image>
+  </item>
+  <item id="Vishnu">
+    <image file="Vishnu.png">
+      <altText>Vishnu</altText>
+    </image>
+  </item>
+  <item id="Vishnu_Servers_DiskSpace">
+    <image file="Vishnu_Servers_DiskSpace.PNG">
+      <altText>Vishnu Servers Disk Space</altText>
+    </image>
+  </item>
+  <item id="Vishnu_UserChecker_VSIX">
+    <image file="Vishnu_UserChecker_VSIX.png">
+      <altText>Vishnu User Checker VSIX</altText>
+    </image>
+  </item>
+  <item id="Vishnu_UserChecker_VSIX_select">
+    <image file="Vishnu_UserChecker_VSIX_select.png">
+      <altText>Vishnu User Checker VSIX select</altText>
+    </image>
+  </item>
+  <item id="Vishnu_UserView_VSIX">
+    <image file="Vishnu_UserView_VSIX.png">
+      <altText>Vishnu User View VSIX</altText>
+    </image>
+  </item>
+  <item id="Vishnu_UserView_VSIX_select">
+    <image file="Vishnu_UserView_VSIX_select.png">
+      <altText>Vishnu User View VSIX select</altText>
+    </image>
+  </item>
+  <item id="WeatherChecker">
+    <image file="WeatherChecker.JPG">
+      <altText>Weather Checker</altText>
+    </image>
+  </item>
+  <item id="YinYang">
+    <image file="YinYang.PNG">
+      <altText>Yin Yang</altText>
+    </image>
+  </item>
+</stockSharedContentDefinitions>

@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationControl.Logger">
+             <summary>
+             Schreibt Messages mit hinzugefügten Timestamps in Logfiles;
+             implementiert IInfoViewer.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             08.03.2012 Erik Nagel: erstellt
+             15.03.2014 Erik Nagel: Statistics eingebaut; Regex-Filter implementiert.
+             14.07.2016 Erik Nagel: Exceptions werden jetzt auf jeden Fall geloggt.
+             14.01.2018 Erik Nagel: Wegen Memory-Leaks überarbeitet (StringBuilder); Ausgabeformat optimiert.
+             21.01.2022 Erik Nagel: _replaceRegex implementiert.
+             06.11.2023 Erik Nagel: IShowable implementiert.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.HandleInfo(System.Object,NetEti.ApplicationControl.InfoArgs)">
+            <summary>
+            Callback zum Loggen der Message: wird vom zuständigen InfoController
+            aufgerufen, eine entsprechende vorherige Registrierung vorausgesetzt.
+            </summary>
+            <param name="sender">Der InfoController</param>
+            <param name="msgArgs">Die Message mit Text, Typ und Timestamp</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.WriteLog(System.String)">
+            <summary>
+            Schreibt einen Eintrag in's Logfile, wird aber von außen
+            nicht direkt aufgerufen; vielmehr muss man den Logger als Viewer über
+            seine Methode HandleInfoForLog beim InfoController eintragen.
+            </summary>
+            <param name="message">Der Message-Text</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.OrganizeLoggings(System.TimeSpan,System.Int32)">
+            <summary>
+            Benennt das Log (DebugFile) nach einer definierten Zeitspanne DebugFileArchivingInterval um
+            und löscht Logs (DebugFiles), die älter als DebugFileArchiveLifetime sind.
+            Um eventuelles Sperren des DebugFiles muss sich der aufrufende Prozess kümmern.
+            </summary>
+            <param name="debugArchivingInterval">Zeitabstand, in dem das aktuelle Log (DebugFile)
+            unter einem Namen mit Zeitangabe gesichert und geleert wird.</param>
+            <param name="debugArchiveMaxCount">Maximale Lebensdauer von archivierten Logs (DebugFiles).
+            Ältere Logs werden gelöscht.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor">
+            <summary>
+            Parameterloser Konstruktor: setzt das Logfile auf
+            GetEnvironmentVariable("TEMP") + \ + ProductName + @".log"
+            und ruft den nächsten Konstruktor auf.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor(System.Boolean)">
+            <summary>
+            Konstruktor: übernimmt plainMessage,
+            setzt das Logfile auf GetEnvironmentVariable("TEMP") + \ + ProductName + @".log"
+            und ruft den nächsten Konstruktor auf.
+            </summary>
+            <param name="plainMessage">Bei True werden keine Zusatzinformationen ausgegeben (Default: false).</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor(System.String)">
+            <summary>
+            Konstruktor: übernimmt logFilePathName,
+            setzt plainMessage auf false
+            und ruft den nächsten Konstruktor auf.
+            </summary>
+            <param name="logFilePathName">Pfad- und Name des Logfiles</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor(System.String,System.Boolean)">
+            <summary>
+            Konstruktor: übernimmt logFilePathName und plainMessage,
+            setzt regexFilter auf ""
+            und ruft den nächsten Konstruktor auf.
+            </summary>
+            <param name="logFilePathName">Pfad- und Name des Logfiles</param>
+            <param name="plainMessage">Bei True werden keine Zusatzinformationen ausgegeben (Default: false).</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor(System.Boolean,System.String)">
+            <summary>
+            Konstruktor: übernimmt plainMessage und regexFilter,
+            setzt das Logfile auf GetEnvironmentVariable("TEMP") + \ + ProductName + @".log"
+            und ruft den nächsten Konstruktor auf.
+            </summary>
+            <param name="plainMessage">Bei True werden keine Zusatzinformationen ausgegeben (Default: false).</param>
+            <param name="regexFilter">Nur Zeilen, die diesen regulären Ausdruck erfüllen, werden geloggt.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Vollständiger Konstruktor.
+            </summary>
+            <param name="logFilePathName">Pfad- und Name des Logfiles</param>
+            <param name="regexFilter">Nur Zeilen, die diesen regulären Ausdruck erfüllen, werden geloggt.</param>
+            <param name="plainMessage">Bei True werden keine Zusatzinformationen ausgegeben (Default: false).</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.Show">
+            <summary>
+            Kann überschrieben werden um das Log anzuzeigen;
+            bei Textdateien z.B. über Ausgabe in den Standard-Editor.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Logger.StandardIndent">
+            <summary>
+            Einrückung der Folgezeilen bei mehrzeiligen Messages.
+            Default: 4.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Logger.getTempLogPath">
+            <summary>
+            Statisch, ermittelt den Default für Logfile- Pfad und Namen.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NetEti.ApplicationControl.LoggerBase">
+             <summary>
+             Abstrakte Basis für diverse Logger;
+             implementiert IInfoViewer.
+             </summary>
+             <remarks>
+             File: LoggerBase.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             08.03.2012 Erik Nagel: CutLog(...) eingebaut.<br></br>
+             10.05.2013 Erik Nagel: CutLog(string logPath, long countItemsFromStart, long countItemsToEnd, bool countLines) neu;
+                                    beim Schreiben des gekürzten Logs System.Text.Encoding.Default eingefügt.<br></br>
+             27.08.2015 Erik Nagel: Asynchrones Logging implementiert.
+             11.08.2018 Erik Nagel: Sortieren nach Timestamp bei PlainMessage==False implementiert.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Dispose(System.Boolean)">
+            <summary>
+            Hier kann ggf. aufgeräumt werden.
+            </summary>
+            <param name="disposing">False, wenn die Methode vom eigenen Destruktor aufgerufen wurde.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.HandleInfo(System.Object,NetEti.ApplicationControl.InfoArgs)">
+            <summary>
+            Callback zum Loggen der Message: wird vom zuständigen InfoController
+            aufgerufen, eine entsprechende vorherige Registrierung vorausgesetzt.
+            </summary>
+            <param name="sender">Der InfoController</param>
+            <param name="msgArgs">Die Message mit Text, Typ und Timestamp</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Flush">
+            <summary>
+            Sorgt dafür, dass alle anstehenden Aktionen ausgeführt
+            werden, z.B. gefüllte Zwischentabellen (Buffer)
+            abgearbeitet (geflusht) werden.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.LogTargetInfo">
+            <summary>
+            Ziel-Pfad, z.B. bei Text-Logs Name und Pfad des Logfiles.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.IsTimerTriggered">
+            <summary>
+            Bei True ist die Logging-Ausgabe zeitgesteuert.
+            LoggingTriggerCounter gibt dann die Anzahl Millisekunden
+            bis zum nächsten Trigger-Event vor.
+            Bei False wird die Ausgabe durch die Gesamtzahl
+            Zählvorgänge gesteuert. LoggingTriggerCounter definiert
+            hier die Anzahl Zählvorgänge, nach der die Ausgabe erfolgt;
+            Default: True.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.LoggingTriggerCounter">
+            <summary>
+            Anzahl Millisekunden oder Anzahl Zählvorgänge bis zur
+            nächsten Logging-Ausgabe;
+            Default: 5000.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.MaxBufferLineCount">
+            <summary>
+            Maximale Anzahl Zeilen, die ein MessageBuffer aufnehmen kann,
+            bevor er zwangsweise geflusht wird. Diese Einstellung wirkt
+            auch bei Timer-gesteuerten Logging.
+            Default: 10000.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.DebugArchiveMaxCount">
+            <summary>
+            Maximale Anzahl von archivierten Logs (DebugFiles, o.ä.).
+            Bei Überzahl werden jeweils die ältesten gelöscht.
+            Default: 0 (entspricht unendlich vielen).
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.DebugArchivingInterval">
+            <summary>
+            Zeitabstand, in dem das aktuelle Logging (DebugFile, o.ä.)
+            archiviert und geleert wird. Muss von außen gesetzt werden.
+            Default: TimeSpan.Zero.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Log(System.String)">
+            <summary>
+            Übernimmt einen Eintrag für das Logging.
+            Bietet Timer- oder Counter-gesteuertes Puffern von Messages.
+            Loggt selbst nicht direkt, sondern ruft die hier abstract definierte Methode
+            WriteLog auf, in der dann das physikalische Schreiben erfolgt.
+            Flusht dann asynchron den Puffer um die Logging-Performance zu verbessern.
+            </summary>
+            <param name="message">Der Message-Text</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Show">
+            <summary>
+            Kann überschrieben werden um das Log anzuzeigen;
+            bei Textdateien z.B. über Ausgabe in den Standard-Editor.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.Stop">
+            <summary>
+            Muss am Schluss der Verarbeitung aufgerufen werden, um den Timer zu stoppen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.#ctor(System.String)">
+            <summary>
+            Konstruktor: setzt den Pfadnamen für das Logfile.
+            </summary>
+            <param name="logTargetInfo">Pfad- und Name des Logfiles, Tabellenname, etc.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.CutLog(System.String,System.Int64,System.Boolean)">
+            <summary>
+            Kürzt das Log-File 'logPath' auf die letzten 'countItems' Einträge.
+            Das ursprüngliche Log-File wird mit der Extension '.last' gesichert.
+            Wenn 'countLines' false ist, bleiben die Einträge mit den letzten 'countItems'
+            Datumswerten erhalten, ansonsten die letzten 'countItems' Zeilen.
+            </summary>
+            <param name="logPath">Pfad + Name des Logfiles.</param>
+            <param name="countItemsToEnd">Anzahl Datumseinträge oder Zeilen, die am Ende erhalten bleiben sollen.</param>
+            <param name="countLines">Bei True werden Zeilen gezählt, ansonsten Datumseinträge.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.CutLog(System.String,System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Kürzt das Log-File 'logPath' auf die letzten 'countItems' Einträge.
+            Das ursprüngliche Log-File wird mit der Extension '.last' gesichert.
+            Wenn 'countLines' false ist, bleiben die Einträge mit den letzten 'countItems'
+            Datumswerten erhalten, ansonsten die letzten 'countItems' Zeilen.
+            </summary>
+            <param name="logPath">Pfad + Name des Logfiles.</param>
+            <param name="countItemsFromStart">Anzahl Datumseinträge oder Zeilen, die am Anfang erhalten bleiben sollen.</param>
+            <param name="countItemsToEnd">Anzahl Datumseinträge oder Zeilen, die am Ende erhalten bleiben sollen.</param>
+            <param name="countLines">Bei True werden Zeilen gezählt, ansonsten Datumseinträge.</param>
+        </member>
+        <member name="P:NetEti.ApplicationControl.LoggerBase.PlainMessage">
+            <summary>
+            Bei True werden Messages unverändert ausgegeben; wegen der Asynchronität
+            des Message-Handlings kann es hier zu Reihenfolge-Vertauschungen kommen.
+            Bei False werden Messages mit einem Timestamp versehen und vor 
+            Flush des Message-Buffers nach dem Timestamp sortiert.
+            Default: False.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.WriteLog(System.String)">
+            <summary>
+            Schreibt einen Eintrag in's Logfile (oder irgendwo hin), wird aber von außen
+            nicht direkt aufgerufen; vielmehr sollte man den Logger als Viewer
+            beim InfoController eintragen.
+            </summary>
+            <param name="message">Der Message-Text</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.LoggerBase.OrganizeLoggings(System.TimeSpan,System.Int32)">
+            <summary>
+            Bietet die Möglichkeit, Loggings aufzuräumen. Macht selbst nichts, kann überschrieben werden.
+            </summary>
+            <param name="debugArchivingInterval">Zeitabstand, in dem das aktuelle Logging
+            archiviert und geleert wird.</param>
+            <param name="debugArchiveMaxCount">Maximale Anzahl von archivierten
+            Loggings bis sie gelöscht werden.</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.Statistics">
+            <summary>
+            Ermöglicht statistische Auswertungen ohne das System
+            bei häufig durchlaufenen Zählstellen mit zu vielen
+            Log-Aufrufen zu belasten.
+            Kann über Timer oder Anzahl Zählvorgänge getriggert werden.
+            </summary>
+            <remarks>
+            28.09.2013 Erik Nagel: erstellt
+            14.01.2018 Erik Nagel: Wegen Memory-Leaks und Zombie-Tasks überarbeitet; Ausgabeformat optimiert.
+            </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Statistics.Stop">
+            <summary>
+            Muss am Schluss der Verarbeitung aufgerufen werden, um die letzte
+            Statistik auszugeben und den Timer zu stoppen.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Statistics.IsTimerTriggered">
+            <summary>
+            Bei True ist die Statistik-Ausgabe zeitgesteuert.
+            LoggingTriggerCounter gibt dann die Anzahl Millisekunden
+            bis zum nächsten Trigger-Event vor.
+            Bei False wird die Statistik-Ausgabe durch die Gesamtzahl
+            Zählvorgänge gesteuert. LoggingTriggerCounter definiert
+            hier die Anzahl Zählvorgänge, nach der die Ausgabe erfolgt;
+            Default: True.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Statistics.LoggingTriggerCounter">
+            <summary>
+            Anzahl Millisekunden oder Anzahl Zählvorgänge bis zur
+            nächsten Statistik-Ausgabe;
+            Default: 5000.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Statistics.RegexFilter">
+            <summary>
+            Nur Zeilen, die diesen regulären Ausdruck erfüllen, werden geloggt.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Statistics.Inc(System.String)">
+            <summary>
+            Erhöht den Zähler mit dem übergebenen Namen um 1.
+            Der Zähler wird bei der ersten Referenzierung neu erzeugt.
+            </summary>
+            <param name="name">Name des Zählers.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Statistics.Reset(System.String)">
+            <summary>
+            Setzt den Zähler mit dem übergebenen Namen auf 0.
+            Der Zähler wird bei der ersten Referenzierung neu erzeugt.
+            Wird als Zähler-Name null übergeben, werden alle Zähler
+            auf 0 gesetzt und der interne Trigger zurückgesetzt.
+            </summary>
+            <param name="name">Name des Zählers oder null.</param>
+        </member>
+    </members>
+</doc>

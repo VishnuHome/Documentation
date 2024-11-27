@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.ExpressionParser</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ExpressionParser.ArithmeticParser">
+            <summary>
+            Ein Parser für arithmetische Ausdrücke (experimentell).
+            Erstellt aus einem Textausdruck einen äquivalenten Baum.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.ArithmeticParser.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="T:NetEti.ExpressionParser.BooleanParser">
+            <summary>
+            Ein Parser für boolesche Ausdrücke.
+            Erstellt aus einem Textausdruck einen äquivalenten Baum.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.BooleanParser.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="T:NetEti.ExpressionParser.SyntaxElement">
+            <summary>
+            Allgemeine Syntaxelemente, die in einem logischen Ausdruck
+            vorkommen können.
+            </summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.NONE">
+            <summary>Ein Operand</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.GROUP">
+            <summary>Eine öffnende Klammer</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.UNGROUP">
+            <summary>Eine schließende Klammer</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.OPERATOR">
+            <summary>Ein logischer oder arithmetischer Operator</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.LEFT">
+            <summary>Linker Operand für einen Operator (Teil-Ausdruck)</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.RIGHT">
+            <summary>Rechter Operand für einen Operator (Teil-Ausdruck)</summary>
+        </member>
+        <member name="F:NetEti.ExpressionParser.SyntaxElement.STRUCT">
+            <summary>Priorisierter Unter-Ausdruck (geklammerter Ausdruck)</summary>
+        </member>
+        <member name="T:NetEti.ExpressionParser.ExpressionParser">
+             <summary>
+             Ein Parser für allgemeine Ausdrücke.
+             Erstellt aus einem Textausdruck einen äquivalenten Baum.
+             Muss abgeleitet werden; in der Ableitung muss dann die Syntax definiert werden.
+             <see cref="T:NetEti.ExpressionParser.BooleanParser"/>
+             <see cref="T:NetEti.ExpressionParser.ArithmeticParser"/>
+             <see cref="T:NetEti.ExpressionParser.LogicalParser"/>
+             </summary>
+             <remarks>
+             File: ExpressionParser.cs
+             Autor: Erik Nagel, NetEti
+            
+             10/2012 Erik Nagel: erstellt
+             03/2013 Erik Nagel: LogicalParser erstellt (boolesche plus Vergleichsoperatoren);
+                                 Fehler beim Auswerten mehrwertiger Ausdrücke behoben.
+             06/2013 Erik Nagel: Endlosloop bei Einzelvariable ohne Operator abgefangen.
+             09.07.2016 Erik Nagel: Es werden jetzt auch User-Variablen, die "_" enthalten,
+             korrekt verarbeitet.
+             </remarks>
+        </member>
+        <member name="P:NetEti.ExpressionParser.ExpressionParser.Token">
+            <summary>
+            Liste von jeweils mehrern möglichen Text-Token mit jeweils
+            einem zugeordneten internen Schlüssel. <see cref="T:NetEti.ExpressionParser.BooleanParser"/>
+            </summary>
+        </member>
+        <member name="P:NetEti.ExpressionParser.ExpressionParser.Operators">
+            <summary>
+            Liste von jeweils ein oder zwei möglichen Operanden mit jeweils
+            einem zugeordneten Operator. <see cref="T:NetEti.ExpressionParser.BooleanParser"/>
+            </summary>
+        </member>
+        <member name="P:NetEti.ExpressionParser.ExpressionParser.OperatorPriority">
+            <summary>
+            Liste von Operatoren mit ihren relativen Prioritäten.
+            <see cref="T:NetEti.ExpressionParser.BooleanParser"/>
+            </summary>
+        </member>
+        <member name="P:NetEti.ExpressionParser.ExpressionParser.MetaRules">
+            <summary>
+            Liste von höherwertigen Operatoren mit zugeordneten Unterausdrücken.
+            <see cref="T:NetEti.ExpressionParser.BooleanParser"/>
+            </summary>
+        </member>
+        <member name="P:NetEti.ExpressionParser.ExpressionParser.ExpressionString">
+            <summary>
+            Der ursprünglich übergebene Text-Ausdruck.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.ExpressionParser.Parse(System.String)">
+            <summary>
+            Überführt einen Textausdruck anhand vorgegebener Regeln
+            in einen äquivalenten Syntaxbaum.
+            </summary>
+            <param name="expr">Logischer Textausdruck.</param>
+            <returns>SyntaxTree des geparsten logischen Textausdrucks.</returns>
+        </member>
+        <member name="M:NetEti.ExpressionParser.ExpressionParser.GetOperands(System.String)">
+            <summary>
+            Parst und retourniert alle Namen, die nicht zu den für diesen Parsertyp definierten Operatoren gehören.
+            </summary>
+            <param name="expression">Der zu parsende Ausdruck.</param>
+            <returns>Liste aller Operanden.</returns>
+        </member>
+        <member name="T:NetEti.ExpressionParser.LogicalParser">
+            <summary>
+            Ein Parser für erweiterte boolesche Ausdrücke.
+            Es werden zusätzlich zu den in BooleanParser definierten
+            Operatoren Operatoren für 'kleiner', 'gleich' und 'größer' berücksichtigt.
+            Aus Bequemlichkeitsgründen werden darüber hinaus auch noch Operatoren
+            für 'ungleich', 'kleiner gleich' und 'größer gleich' geparst.
+            Erstellt aus einem Textausdruck einen äquivalenten Baum.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.LogicalParser.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="T:NetEti.ExpressionParser.SyntaxTree">
+             <summary>
+             Generischer Tree mit geparstem logischem oder arithmetischen Ausdruck.
+             Funktion: Wertet Ausdrücke aus und erstellt passende Syntax-Bäume.
+             </summary>
+             <remarks>
+             File: SyntaxTree.cs
+             Autor: Erik Nagel, NetEti
+            
+             17.10.2012 Erik Nagel, NetEti: erstellt.
+             09.07.2016 Erik Nagel, NetEti: Bei fehlendem Operator wird der Identitätsoperator "IS" eingefügt.
+             </remarks>
+        </member>
+        <member name="P:NetEti.ExpressionParser.SyntaxTree.NodeName">
+            <summary>
+            Der Name des Knotens.
+            </summary>
+        </member>
+        <member name="P:NetEti.ExpressionParser.SyntaxTree.NodeType">
+            <summary>
+            Der Typ des Knotens.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.SyntaxTree.Parse">
+            <summary>
+            Erstellt aus einem Textausdruck mit vorgeparsten Token einen
+            äquivalenten Syntaxbaum.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.SyntaxTree.Show(System.String)">
+            <summary>
+            Stellt den SyntaxTree als Baum-Darstellung in eine StringList.
+            </summary>
+            <param name="indent">Zeichenkette für die Einrückung der Ebenen (normalerweise mehrere Leerzeichen).</param>
+            <returns>StringList mit der mehrzeiligen Baum-Darstellung.</returns>
+        </member>
+        <member name="M:NetEti.ExpressionParser.SyntaxTree.ShowFlat">
+            <summary>
+            Stellt den SyntaxTree als normalisierten Text-Ausdruck dar.
+            </summary>
+            <returns>Normalisierter Text-Ausdruck für den SyntaxTree.</returns>
+        </member>
+        <member name="T:NetEti.ExpressionParser.TresholdParser">
+            <summary>
+            Ein Parser mit der Fähigkeit, Schwellenwert-Operatoren aufzulösen.
+            Abgeleitet vom Parser für erweiterte boolesche Ausdrücke.
+            Es werden zusätzlich zu den in LogicalParser definierten
+            Operatoren neun Operatoren für 10%, 20%, ... , 80%, 90% Schwellenwert eingeführt.
+            Die Schwellenwert-Logik (treshold) prüft, ob ein bestimmter Prozentsatz der einem Job untergeordneter
+            Knoten das Ergebnis true geliefert hat. Wird der durch den gewählten Operator festgelegte
+            Prozentsatz (Schwellenwert) erreicht oder überschritten, geht der gesamte Job auf true (grüne Anzeige).
+            Erstellt aus einem Textausdruck einen äquivalenten Baum.
+            </summary>
+        </member>
+        <member name="M:NetEti.ExpressionParser.TresholdParser.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+    </members>
+</doc>

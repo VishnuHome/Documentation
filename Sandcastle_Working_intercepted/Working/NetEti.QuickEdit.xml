@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.QuickEdit</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.FileTools.EditorCaller">
+            <summary>
+            Gibt Textzeilen oder eine existierende Textdatei in NotePad.exe aus.
+            </summary>
+            <remarks>
+            17.11.2023 Erik Nagel: erstellt.
+            </remarks>
+        </member>
+        <member name="M:NetEti.FileTools.EditorCaller.Edit(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Calls notepad with a given content and/or file path.
+            </summary>
+            <param name="path">Rath to the logfile.</param>
+            <param name="lines">Text content.</param>
+            <exception cref="T:System.ArgumentException">Throws if lines and path are null or empty.</exception>
+        </member>
+        <member name="M:NetEti.FileTools.EditorCaller.GetTempLogPath">
+            <summary>
+            Statisch, ermittelt den Default für Logfile- Pfad und Namen.
+            </summary>
+            <returns>Default Logdatei-Pfad im TEMP-Verzeichnis.</returns>
+        </member>
+    </members>
+</doc>

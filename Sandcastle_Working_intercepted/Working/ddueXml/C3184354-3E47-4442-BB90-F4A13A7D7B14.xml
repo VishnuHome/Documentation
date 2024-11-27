@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="C3184354-3E47-4442-BB90-F4A13A7D7B14" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        Version 1.0.1.4 (Stand: 05.05.2013)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Baumdarstellung mit alternierender Ausrichtung pro Subtree</para>
+          </listItem>
+          <listItem>
+            <para>ValueModifier eingeführt</para>
+          </listItem>
+          <listItem>
+            <para>Externe ValueModifier mit zusätzlicher Logik (externe Dll)</para>
+          </listItem>
+          <listItem>
+            <para>ReturnObject-Wert anzeigen (bei Maus-hover)</para>
+          </listItem>
+          <listItem>
+            <para>GUI-Freeze bei wiederholtem Betätigen des Run-Buttons behoben, dabei massive Lastverringerung</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

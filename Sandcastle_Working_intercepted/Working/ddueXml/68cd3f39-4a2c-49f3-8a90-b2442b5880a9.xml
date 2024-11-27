@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="68cd3f39-4a2c-49f3-8a90-b2442b5880a9" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				In diesem Abschnitt werden echte Fehler oder Unzulänglichkeiten aufgeführt.
+				Eine durchgängige Priorisierung findet nicht statt.
+			</para>
+			<list class="bullet">
+				<listItem>
+					<para>
+						Der erste Start von <token>V</token> nach einem Neustart von Windows dauert u.U. sehr lange - bis zu 45 Sekunden,
+						bevor überhaupt erst mal der Splash-Screen erscheint.
+						Hintergrund: Windows checkt alle neu geladenen EXEn und DLLs auf Viren.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Der <token>V</token>-Installer (ClickOnce) wurde nach Migration auf .Net 7 deaktiviert.
+						Hier muss langfristig eine bessere Lösung gefunden werden
+						(siehe auch <link xlink:href="2e84f44c-6249-45dc-bdc2-c656de87c907" />).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+						<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+						wurden zwar nach Migration auf .Net 7 wieder funktionstüchtig gemacht, erzeugen aber bei der Generierung
+						neuer Projekte noch Fehlermeldungen. Ansonsten funktioniert aber alles.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Wenn das Log-Verzeichnis auf einem Netzwerklaufwerk liegt und das Netzwerk kurzzeitig nicht
+						erreichbar ist, beendet sich Vishnu.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Es kann ein Exklusiv-Oder-Problem bei Workern auftreten.
+						Hierbei können zuweilen Fehlermeldungen und OK-Meldung bei übergeordneten Jobs auftreten,
+						wenn die verursachenden Unterknoten nicht genau gleichzeitig auslösen
+						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls und dort CheckDependentNodeLogic).
+						Es existiert ein Workaround über <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Escalator">Escalatoren</link>.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Die in <token>V</token> implementierte einfache Schwellenwert-Logik (Treshold) erlaubt nur diskrete, vordefinierte
+						Operatoren <languageKeyword>TR10, TR20, TR30, ... , TR80, TR90</languageKeyword> und somit auch nur analoge Prozentwerte.
+						Besser wäre ein Operator mit variablen Prozentwerten.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Es existiert noch keine Lösung für das automatisierte Kürzen von Logfiles des <languageKeyword>CheckerHistoryLoggers</languageKeyword>.
+						Die Logfiles wachsen einfach unendlich weiter.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<database>ProductionJobProvider</database> überarbeiten
+					</para>
+					<para>
+						Der ProductionJobProvider ist noch Spaghetti-Code - strukturieren und dabei Json-JobDescriptions als
+						zusätzliche Option implementieren.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<database>Bildschirmdarstellung</database>
+					</para>
+					<para>
+						<token>V</token> wird nach dem ersten Umschalten auf die Jobs-Ansicht und zurück nicht mehr zentriert,
+						sondern mit gleicher linker oberer Ecke wie vorher die Jobs-Ansicht dargestellt.
+					</para>
+					<para>
+						Wenn der Schalter <database>SizeOnVirtualScreen</database> auf <database>true</database> steht,
+						<token>V</token> sich aktuell über mehrere Bildschirme erstreckt und man dann die Bildschirmdarstellung
+						abspeichert, wird <token>V</token> trotzdem beim nächsten Start nur im zuletzt aktiven Bisldschirm
+						angezeigt.
+					</para>
+				</listItem>
+			</list>
+		</introduction>
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="2e84f44c-6249-45dc-bdc2-c656de87c907" />
+				</para>
+			</content>
+		</section>
+		<relatedTopics />
+	</developerConceptualDocument>
+</topic>

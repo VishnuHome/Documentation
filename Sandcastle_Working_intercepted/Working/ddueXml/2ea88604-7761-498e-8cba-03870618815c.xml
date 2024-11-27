@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2ea88604-7761-498e-8cba-03870618815c" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 3.2.0.0 (Stand: 26.04.2018)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Neuer Parameter RegistryBasePath zur Ablage von User-Parametern in der Registry.</para>
+          </listItem>
+          <listItem>
+            <para>Neuer Parameter SingleInstance.</para>
+          </listItem>
+          <listItem>
+            <para>Statt Abbruch mit Fehlermeldung startet nach Ersteinrichtung ein Demo-Job.</para>
+          </listItem>
+          <listItem>
+            <para>
+              Erstellung und Distribution eines Starterprogramms für ClickOnce-Applikationen
+              "ClickOnceStarter.exe" zur Übergabe von Kommandozeilen-Parametern an eine ClickOnce-Anwendungsreferenz.
+            </para>
+          </listItem>
+          <listItem>
+            <para>Diverse Korrekturen.</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

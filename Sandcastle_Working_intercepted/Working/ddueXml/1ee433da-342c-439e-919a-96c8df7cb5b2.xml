@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1ee433da-342c-439e-919a-96c8df7cb5b2" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Version 5.1.0.0 Treshold (Stand: 04.08.2022)
+		  </para>
+	  </introduction>
+
+	  <section>
+		  <title>Änderungen in dieser Version</title>
+		  <content>
+			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  Implementierung einer einfachen Schwellenwert-Logik (Treshold).
+						  Durch die Operatoren <languageKeyword>TR10, TR20, TR30, ... , TR80, TR90</languageKeyword> kann auf Job-Ebene
+						  ein prozentualer Schwellenwert für die Anzahl untergeordneter Checker mit Ergebnis <languageKeyword>true</languageKeyword>
+						  festgelegt werden, ab welchem das Ergebnis des gesamten Jobs auf <languageKeyword>true</languageKeyword> wechselt.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Bugfix: Umschalten in die Job-Ansicht und Maus über einzelne Checker bewegen führte zum Programmabsturz - behoben.
+					  </para>
+				  </listItem>
+			  </list>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+	  </relatedTopics>
+	  
+  </developerConceptualDocument>
+</topic>

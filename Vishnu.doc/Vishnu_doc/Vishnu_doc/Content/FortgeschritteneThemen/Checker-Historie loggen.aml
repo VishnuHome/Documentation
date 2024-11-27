@@ -53,7 +53,7 @@
 				</code>
 				<para>
 					Über die vom <languageKeyword>CheckerHistoryLogger</languageKeyword> aufgerufene <database>WeatherChecker.dll</database>
-					werden für den aktuellen Tag und die sieben darauf folgendenden Tage je acht Wettervorhersagen im Abstand von jeweils
+					werden für den aktuellen Tag und die darauf folgendenden Tage Wettervorhersagen im Abstand von jeweils
 					drei Stunden geholt und über das eigene UserControl	<database>WeatherCheckerControl.dll</database> übersichtlich dargestellt.
 				</para>
 				<alert class="note">

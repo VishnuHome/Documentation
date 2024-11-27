@@ -18,7 +18,7 @@
       <!-- <autoOutline /> -->
       <para>
         <token>V</token> bietet eine globale Parameterersetzung an.
-        Das bedeutet, dass alle in Zeichenketten von Übergabeparametern befindlichen Parameternamen, wenn möglich,
+        Das bedeutet, dass alle in Übergabeparametern befindlichen Parameternamen, wenn möglich,
         durch ihre Laufzeitwerte ersetzt werden. Wie das im Detail aussieht, beschreibt dieses Kapitel.
       </para>
     </introduction>
@@ -31,9 +31,9 @@
       <content>
         <para>
           Generell versucht Vishnu, alle in <database>%</database>-Zeichen eingeschlossenen Parameternamen
-          durch ihre Laufzeitwerte zu ersetzen. Parameter sind alle Zeichenketten, die in einer
-          <languageKeyword>JobDescription.xml</languageKeyword> in den XML-Begrenzern <languageKeyword>&lt;Parameters&gt;</languageKeyword>
-          eingeschlossen sind.
+          durch ihre Laufzeitwerte zu ersetzen.<lineBreak/>
+		  Parameter sind alle Zeichenketten, die in einer <languageKeyword>JobDescription.xml</languageKeyword>
+		  in den XML-Begrenzern <languageKeyword>&lt;Parameters&gt;</languageKeyword> eingeschlossen sind.
         </para>
         <para>
           In dem nachfolgenden Code-Beispiel aus dem Demo-<languageKeyword>Job </languageKeyword> <database>CheckWildcardParameters</database>
@@ -43,7 +43,8 @@
            title="Definition und Parameter von Workern"></code>
         <para>
           In dem nachfolgenden Screenshot des <languageKeyword>Jobs</languageKeyword> CheckWildcardParameters
-          sieht man dann, dass die Variable durch ihren Wert <database>Vishnu</database> ersetzt wurde.
+          sieht man dann, dass die Variable <database>%ApplicationName%</database> durch ihren Wert
+		  <database>Vishnu</database> ersetzt wurde.
         </para>
         <mediaLink>
           <image xlink:href="CheckWildcardParameters"/>
@@ -149,13 +150,13 @@
           </listItem>
           <listItem>
             <para>
-              Über den Parameter <languageKeyword>UserAssemblyDirectory</languageKeyword> muss ein Verzeichnis gesetzt
+              Über den Parameter <languageKeyword>UserAssemblyDirectory</languageKeyword> kann ein Verzeichnis gesetzt
               werden, in dem <token>V</token> zusätzlich zu den jeweweiligen <languageKeyword>Job</languageKeyword>-Verzeichnissen
               nach Ihren
-              <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8">eingenen Checker-DLLs</link>,
+              <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8">eigenen Checker-DLLs</link>,
               <link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f">eigenen UserControls</link> oder auch
               <link xlink:href="f724b721-c805-4dbe-8db4-1529c0c68f3d">Ihrem eigenen Parameter-Reader</link> sucht.
-              Die Default-Einstellung ist schon auf <languageKeyword>UserAssemblies</languageKeyword> vorbelegt.
+              Die Default-Einstellung ist <languageKeyword>UserAssemblies</languageKeyword>.
             </para>
           </listItem>
           <listItem>

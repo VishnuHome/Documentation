@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.MVVMini</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.MVVMini.PropertiesChangedEventHandler">
+            <summary>
+            "PropertiesChangedEventHandler" definiert den Typ einer Eventhandler-Routine
+            für das Event "PropertiesChanged". "PropertiesChanged" kann von LogicalNodeViewmodel
+            abonniert werden. Dieses erhält über die übergebenen "PropertiesChangedEventArgs"
+            eine String-List mit Property-Namen und kann seinerseits über INotifyProperyChanged
+            die UI informieren.
+            </summary>
+        </member>
+        <member name="T:NetEti.MVVMini.INotifyPropertiesChanged">
+            <summary>
+            Exportiert das Event "PropertiesChanged" und den Typ "PropertiesChangedEventHandler".
+            Das Event "PropertiesChanged" kann von LogicalNodeViewmodel abonniert werden.
+            Dieses erhält über die übergebenen PropertiesChangedEventArgs eine String-List mit
+            Property-Namen und kann seinerseits über INotifyProperyChanged die UI informieren.
+            </summary>
+        </member>
+        <member name="E:NetEti.MVVMini.INotifyPropertiesChanged.PropertiesChanged">
+            <summary>
+            Dieses Event kann von LogicalNodeViewmodel abonniert werden.
+            Dieses erhält über die übergebenen PropertiesChangedEventArgs eine String-List mit
+            Property-Namen und kann seinerseits über INotifyProperyChanged die UI informieren.
+            </summary>
+        </member>
+        <member name="T:NetEti.MVVMini.IRelayCommand">
+            <summary>
+            Kapselt ICommand-Details für WPF-Kommandos.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.IRelayCommand.UpdateCanExecuteState(System.Windows.Threading.Dispatcher)">
+            <summary>
+            Erzwingt CanExecuteChanged.
+            </summary>
+            <param name="dispatcher">Der Dispatcher der UI.</param>
+        </member>
+        <member name="T:NetEti.MVVMini.ObservableObject">
+            <summary>
+            Basisklasse für ViewModels, kapselt INotifyPropertyChanged.
+            Übernommen und angepasst aus einer Version von:
+            Roman Semenov (poma) https://github.com/poma/SshConnect/blob/master/SshConnect/MvvmFoundation/ObservableObject.cs.
+            Vielen Dank für diese Starthilfe.
+            
+            13.05.2018 Erik Nagel: VerifyPropertyName in statische Klasse PropertySupport ausgelagert.
+            </summary>
+        </member>
+        <member name="E:NetEti.MVVMini.ObservableObject.PropertyChanged">
+            <summary>
+            Das PropertyChanged-Event für die UI.
+            </summary>
+        </member>
+        <member name="F:NetEti.MVVMini.ObservableObject.Dispatcher">
+            <summary>
+            Der Dispatcher der UI.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.ObservableObject.#ctor">
+            <summary>
+            Standard Konstruktor - ermittelt den Dispatcher.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.ObservableObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Meldet für die UI, wenn sich eine Property geändert hat.
+            </summary>
+            <param name="e">Informationen zur geänderten Property.</param>
+        </member>
+        <member name="M:NetEti.MVVMini.ObservableObject.RaisePropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Triggert OnPropertyChanged.
+            </summary>
+            <typeparam name="T">Typ der Property.</typeparam>
+            <param name="propertyExpression">Funktionalität der Property.</param>
+        </member>
+        <member name="M:NetEti.MVVMini.ObservableObject.RaisePropertyChanged(System.String)">
+            <summary>
+            Triggert OnPropertyChanged.
+            </summary>
+            <param name="propertyName">Name der Property.</param>
+        </member>
+        <member name="M:NetEti.MVVMini.ObservableObject.VerifyCalledOnUIThread">
+            <summary>
+            Checkt, ob ein Aufruf, aus dem richtigen Thread (Dispatcher) heraus erfolgt.
+            </summary>
+        </member>
+        <member name="T:NetEti.MVVMini.PropertiesChangedEventArgs">
+            <summary>
+            EventArgs für das Event "PropertiesChanged" aus "INotifyPropertiesChanged".
+            Das Event "PropertiesChanged" kann von LogicalNodeViewmodel abonniert werden.
+            Dieses erhält über die übergebenen PropertiesChangedEventArgs eine String-List mit
+            Property-Namen und kann seinerseits über INotifyProperyChanged die UI informieren.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.PropertiesChangedEventArgs.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Konstruktor - übernimmt eine String-List mit Property-Namen.
+            </summary>
+            <param name="properties">String-List mit Property-Namen.</param>
+        </member>
+        <member name="P:NetEti.MVVMini.PropertiesChangedEventArgs.Properties">
+            <summary>
+            Eine String-List mit Property-Namen für das Event "PropertiesChanged" aus
+            "INotifyPropertiesChanged".
+            </summary>
+        </member>
+        <member name="T:NetEti.MVVMini.PropertySupport">
+            <summary>
+            Prüft Expressions als Properties.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.PropertySupport.ExtractPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Prüft eine übergebene Expression auf ihren Status als public Property
+            und extrahiert ihren Namen als String.
+            </summary>
+            <typeparam name="T">Der Typ der Property.</typeparam>
+            <param name="propertyExpression">Die Property-Funktionalität.</param>
+            <returns>Der Name der Property.</returns>
+        </member>
+        <member name="M:NetEti.MVVMini.PropertySupport.VerifyPropertyName(System.Object,System.String)">
+            <summary>
+            Warnt, falls das Objekt keine öffentliche Property
+            mit dem übergebenen Namen hat(nur im Debug-Build).
+            </summary>
+            <param name="propertyOwner">Besitzer der Property.</param>
+            <param name="propertyName">Name der zu prüfenden Property.</param>
+        </member>
+        <member name="T:NetEti.MVVMini.RelayCommand">
+            <summary>
+            Kapselt ICommand-Details für WPF-Kommandos.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.RelayCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Konstruktor - übernimmt eine auszuführende Action.
+            </summary>
+            <param name="execute">Eine durch das Kommando auszuführende Action.</param>
+        </member>
+        <member name="M:NetEti.MVVMini.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Boolean})">
+            <summary>
+            Konstruktor - übernimmt eine auszuführende Action
+            und eine Check-Routine für die (De-)Aktivierung der Action.
+            </summary>
+            <param name="execute">Eine durch das Kommando auszuführende Action.</param>
+            <param name="canExecute">Eind Prüfroutine, die zur (De-)Aktivierung des Kommandos führt.</param>
+        </member>
+        <member name="E:NetEti.MVVMini.RelayCommand.CanExecuteChanged">
+            <summary>
+            Das Event für eine Veränderung des CanExecute-Status.
+            </summary>
+        </member>
+        <member name="M:NetEti.MVVMini.RelayCommand.UpdateCanExecuteState(System.Windows.Threading.Dispatcher)">
+            <summary>
+            Erzwingt CanExecuteChanged.
+            </summary>
+            <param name="dispatcher">Der Dispatcher der UI.</param>
+        </member>
+        <member name="M:NetEti.MVVMini.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Prüfungsroutine auf Ausführungserlaubnis für das Kommando für die UI.
+            </summary>
+            <param name="parameter">Vom Befehl verwendete Daten (optional).</param>
+            <returns>True, wenn der Befehl ausgeführt werden kann.</returns>
+        </member>
+        <member name="M:NetEti.MVVMini.RelayCommand.Execute(System.Object)">
+            <summary>
+            Führt das Kommando aus.
+            </summary>
+            <param name="parameter">Vom Befehl verwendete Daten (optional).</param>
+        </member>
+    </members>
+</doc>

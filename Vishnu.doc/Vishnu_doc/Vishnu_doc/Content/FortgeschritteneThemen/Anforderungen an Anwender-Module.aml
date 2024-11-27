@@ -30,7 +30,7 @@
         <autoOutline /> -->
         <para>
           Für <token>V</token> sind Ihre eigenen Programme/Dlls erst einmal unbekannte Komponenten.
-          Damit <token>V</token> sie in seine Verarbeitung integrieren kann, müssen sie ja nach Ausprägung bestimmte Mindestanforderungen erfüllen:
+          Damit <token>V</token> sie in seine Verarbeitung integrieren kann, müssen sie, je nach Ausprägung, bestimmte Mindestanforderungen erfüllen:
         </para>
         <list class="bullet">
           <listItem>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="9515F5F5-8824-4281-B22D-F244DE203686" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 2.6.1.0 (Stand: 17.10.2015)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Asynchrones Logging</para>
+          </listItem>
+          <listItem>
+            <para>NodeConnector auf JobList (automatisch, in <token>V</token> integriert)</para>
+          </listItem>
+          <listItem>
+            <para>Neues DefaultNodeControl "JobConnectorUserControl"</para>
+          </listItem>
+          <listItem>
+            <para>Darstellung für mehrere physikalische Bildschirme überarbeitet</para>
+          </listItem>
+          <listItem>
+            <para>Standard eingeführt: ausführende Jobs heißen "Check...", SnapshotJobs heißen "Show..."</para>
+          </listItem>
+          <listItem>
+            <para>Vishnu.exe.config.user eingeführt (kann außerhalb der ClickOnce-Installation liegen)</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

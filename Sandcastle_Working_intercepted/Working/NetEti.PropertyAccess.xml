@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.PropertyAccess</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationEnvironment.PropertyAccess">
+             <summary>
+             Zugriffe auf Properties der aktuellen Anwendung (AppSettings).<br></br>
+             Nutzt System.Reflection, implementiert IGetStringValue.
+             </summary>
+             <remarks>
+             File: PropertyAccess.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             11.01.2018 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.PropertyAccess.GetStringValue(System.String,System.String)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis (string)</param>
+            <returns>Der Ergebnis-String</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.PropertyAccess.GetStringValues(System.String,System.String[])">
+            <summary>
+            Liefert ein string-Array zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Liefert nur einen Einzelwert als Array verpackt, muss ggf. spaeter
+            erweitert werden.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis (string[])</param>
+            <returns>Das Ergebnis-String-Array</returns>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.PropertyAccess.Description">
+            <summary>
+            Liefert einen beschreibenden Namen dieses StringValueGetters,
+            z.B. Name plus ggf. Quellpfad.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.PropertyAccess.GetValue``1(System.String,``0)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, oder der Wert nicht vom Typ T ist, wird defaultValue zurückgegeben.
+            </summary>
+            <typeparam name="T">Der gewünschte Rückgabe-Typ</typeparam>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis vom Typ T</param>
+            <returns>Wert zum key in den Rückgabe-Typ gecastet</returns>
+            <exception cref="T:System.InvalidCastException">Typecast-Fehler</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.PropertyAccess.#ctor(System.Object)">
+            <summary>
+            Konstruktor - lädt alle Properties des übergebenen Objekts "owner" (i.d.R. AppSettings).
+            </summary>
+            <param name="owner">Objekt, dessen Properties ausgewertet werden sollen (i.d.R. AppSettings).</param>
+        </member>
+    </members>
+</doc>

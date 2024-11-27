@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.NetworkMappingsRefresher</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.FileTools.DriveProperties">
+            <summary>
+            Enthält Informationen zu einem (Netzwerk-)Laufwerk.
+            </summary>
+            <remarks>
+            28.02.2023 Erik Nagel: created.
+            </remarks>
+        </member>
+        <member name="P:NetEti.FileTools.DriveProperties.DriveLetter">
+            <summary>
+            Der Laufwerksbuchstabe.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.DriveProperties.Path">
+            <summary>
+            Der Laufwerkspfad.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.DriveProperties.IsReady">
+            <summary>
+            Laufwerksstatus
+            True: Laufwerk ist connected.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.DriveProperties.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Konstruktor - übernimmt driveLetter, path und isReady.
+            </summary>
+            <param name="driveLetter">Der Laufwerksbuchstabe.</param>
+            <param name="path">Der Laufwerkspfad.</param>
+            <param name="isReady">Laufwerksstatus - True: Laufwerk ist connected.</param>
+        </member>
+        <member name="M:NetEti.FileTools.DriveProperties.ToString">
+            <summary>
+            Überschriebene ToString-Methode.
+            </summary>
+            <returns>Properties als String.</returns>
+        </member>
+        <member name="T:NetEti.FileTools.NetworkMappingsRefresher">
+             <summary>
+             Aktualisiert die Mappings von Netzwerk-Laufwerken.
+             Benutzt dafür "net use".
+             </summary>
+             <remarks>
+             File: NetworkMappingsRefresher
+             Autor: Erik Nagel, NetEti
+            
+             20.02.2015 Erik Nagel: erstellt
+             28.02.2023 Erik Nagel: überarbeitet.
+             20.02.2024 Erik Nagel: erneut überarbeitet und GetNextReachablePath hinzugefügt.
+             </remarks>
+        </member>
+        <member name="M:NetEti.FileTools.NetworkMappingsRefresher.GetDriveList">
+            <summary>
+            Liefert ein Dictionary von Laufwerksbuchstaben mit ihren Pfaden
+            und je einem Status "IsReady" (True: Laufwerk ist connected).
+            </summary>
+            <returns>Ein Dictionary von Laufwerksbuchstaben mit ihren Pfaden
+            und je einem Status "IsReady" (True: Laufwerk ist connected).</returns>
+        </member>
+        <member name="M:NetEti.FileTools.NetworkMappingsRefresher.Refresh">
+            <summary>
+            Aktualisiert die Mappings von Netzwerk-Laufwerken.
+            Achtung: dies ist ein Dummy, der nur GetDriveList() aufruft,
+            welches seinerseits "net use" aufruft.
+            Sofern "net use" allein nicht zur erneuten Verbindung getrennter
+            Netzlaufwerke führt, ist diese Methode noch wirkungslos.
+            Sollte es erforderlich werden, könnte die unten kommentierte
+            Vorgehensweise Erfolg versprechen.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.NetworkMappingsRefresher.GetNextReachablePath(System.String,System.String[])">
+            <summary>
+            Übernimmt einen relativen Pfad (pathPart) oder null und eine Liste von Suchpfaden (searchDirectories).
+            Wenn der relative Pfad nicht null oder leer ist, liefert diese Routine den ersten erreichbaren,
+            aus Suchpfad und relativem Pfad kombinierten Pfad oder null.
+            Ist der relative Pfad null oder leer, liefert diese Routine den nächsten erreichbaren Suchpfad oder null.
+            </summary>
+            <param name="pathPart">Ein relativer Pfadanteil.</param>
+            <param name="searchDirectories">Eine Liste von Suchpfaden.</param>
+            <returns>Erster erreichbarer, ggf. aus Suchpfad und relativem Pfad kombinierter Pfad oder null.</returns>
+        </member>
+        <member name="F:NetEti.FileTools.NetworkMappingsRefresher._reachableServers">
+            <summary>
+            Dictionary mit allen bisher erreichbaren oder unerreichbaren Servern (aus diversen Dateipfaden).
+            Dient zur Optimierung der Abfragezeit; Wenn ein Pfad mit einem Server beginnt (\\Servername),
+            dann wird in diesem Dictionary vermerkt, ob der Server erreichbar ist, oder nicht.
+            </summary>
+        </member>
+    </members>
+</doc>

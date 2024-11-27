@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>
+				<token>V</token> setzt Ihren logischen Ausdruck (<languageKeyword>LogicalExpression</languageKeyword>,
+				siehe auch <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />) intern in eine entsprechende Baumstruktur (Tree) um,
+				die logisch verarbeitet wird und welche Sie dann letzten Endes in der Normaldarstellung ("Logical Task Tree") auch so wiederfinden.
+				Wie das im Detail aussieht und welche logischen Ausdrücke <token>V</token> versteht, lesen Sie in diesem Kapikel.
+			</para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="LogicalTaskTree">
+			<title>Logical Task Tree</title>
+			<content>
+				<!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+				<para>
+					Während der Verarbeitung ergibt sich das logische Ergebnis eines Knoten aus den Ergebnissen seiner Unterknoten.
+					Schauen wir uns zur Verdeutlichung noch mal den Demo-Job aus <link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" /> an.
+				</para>
+				<mediaLink>
+					<image xlink:href="DemoJob_01"/>
+				</mediaLink>
+				<para>
+					Der Knoten "CheckDiskSpace" wird rot dargestellt, weil der <languageKeyword>Checker</languageKeyword> des Unterknotens
+					"Check_D" "false" zurückgemeldet hat ("Frei" war mit 143636 MB kleiner als "Minimum" mit 200000 MB).
+					Da "CheckDiskSpace" seine Unterknoten mit einem logischen UND ("AND") verbindet, geht infolgedessen "Check_DiskSpace"
+					auch auf "false" (rot). Dies pflanzt sich dann im Tree nach oben fort und "Check All" geht auch auf "false" (rot).
+				</para>
+				<para>
+					Bei dem Knoten "CheckServers" müssen wir schon etwas genauer hinschauen. Dieser Knoten ist grün (true), obwohl einer
+					seiner "Enkel"-Knoten "Local_Backup" rot ist, also "false" zurückgemeldet hat.
+					Wie man an folgendem Ausschnitt aus der <languageKeyword>JobDescription.xml</languageKeyword> sehen kann, ist der
+					problematische Knoten "Local_Backup" über ein ODER ("OR") mit dem Knoten "Local" verbunden und diese Verbindung als
+					Ganzes geklammert.
+				</para>
+				<code source="..\Vishnu_doc\Examples\LogicalOrInBrackets.xml" language="xml"
+				   title="JobDescription.xml"></code>
+				<para>
+					Da es bei einem logischen ODER ausreicht, wenn einer der beiden Partner "true" (grün) ist, wird der von <token>V</token>
+					anstelle der Klammern eingezogene anonyme Zwischenknoten "true" (grün). Der andere anonyme Zwischenknoten, der "Google"
+					und "Heise" über "AND" verbindet ist ohnehin grün, womit "CheckServers" letztendlich auch grün wird.
+					Vishnu erzeugt immer dann Zwischenknoten, wenn in einem logischen Ausdruck mehrere Operatoren (AND, OR, etc.) mit
+					unterschiedlicher Bindungskraft (z.B. UND bindet enger als ODER) vorkommen oder von Ihnen Klammern gesetzt wurden.
+				</para>
+				<alert class="note">
+					<para>
+						Man kann Klammern auch setzen, wenn sie aus rein logischen Gesichtspunkten nicht erforderlich sind um <token>V</token>
+						dazu zu bringen, anonyme Zwischenknoten zu erzeugen, und damit die Bildschirmdarstellung kompakter gestalten.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Syntax">
+			<title>Logik-Elemente und Syntax</title>
+			<content>
+				<para>
+					<languageKeyword>LogicalExpressions</languageKeyword> können auf zwei leicht unterschiedliche Arten formuliert werden
+					(dargestellt an unserem obigen Beispiel):
+				</para>
+				<list class="ordered">
+					<listItem>
+						<para>
+							&lt;LogicalExpression&gt;(Google AND Heise) AND (Local OR Local_Backup)&lt;/LogicalExpression&gt;
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							&lt;LogicalExpression&gt;&lt;![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]&gt;&lt;/LogicalExpression&gt;
+						</para>
+					</listItem>
+				</list>
+				<para>
+					Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;![CDATA[" und "]]&gt;" eingeschlossen ist,
+					hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
+					<languageKeyword>Operatoren</languageKeyword> in ihrer Kurzform verwenden zu können (siehe nachfolgende Operatoren-Tabelle).
+				</para>
+				<table>
+					<title>gültige Vishnu-Operatoren</title>
+					<tableHeader>
+						<row>
+							<entry>
+								<para>Operator</para>
+							</entry>
+							<entry>
+								<para>Syntax</para>
+							</entry>
+							<entry>
+								<para>Kurzformen</para>
+							</entry>
+						</row>
+					</tableHeader>
+					<row>
+						<entry>
+							<para>Ist gleich (Identität)</para>
+						</entry>
+						<entry>
+							<para>'IS'</para>
+						</entry>
+						<entry>
+							<para>':'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>Ist nicht (Verneinung)</para>
+						</entry>
+						<entry>
+							<para>'NOT'</para>
+						</entry>
+						<entry>
+							<para>'!'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Logisches UND
+							</para>
+						</entry>
+						<entry>
+							<para>'AND'</para>
+						</entry>
+						<entry>
+							<para>'&amp;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Logisches ODER
+							</para>
+						</entry>
+						<entry>
+							<para>'OR'</para>
+						</entry>
+						<entry>
+							<para>'|'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Exklusiv ODER (entweder oder)
+							</para>
+						</entry>
+						<entry>
+							<para>'XOR'</para>
+						</entry>
+						<entry>
+							<para>'&gt;&lt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Implikation (daraus folgt)
+							</para>
+						</entry>
+						<entry>
+							<para>'IMP'</para>
+						</entry>
+						<entry>
+							<para>'=&gt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Logisches Nicht UND
+							</para>
+						</entry>
+						<entry>
+							<para>'NAND'</para>
+						</entry>
+						<entry>
+							<para>'!&amp;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Logisches Nicht ODER
+							</para>
+						</entry>
+						<entry>
+							<para>'NOR'</para>
+						</entry>
+						<entry>
+							<para>'!|'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Logisches Nicht Exklusiv ODER
+							</para>
+						</entry>
+						<entry>
+							<para>'XNOR'</para>
+						</entry>
+						<entry>
+							<para>'!&gt;&lt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Klammer auf
+							</para>
+						</entry>
+						<entry>
+							<para>'GROUP'</para>
+						</entry>
+						<entry>
+							<para>'(', '[', '{'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Klammer zu
+							</para>
+						</entry>
+						<entry>
+							<para>'UNGROUP'</para>
+						</entry>
+						<entry>
+							<para>')', ']', '}'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist gleich
+							</para>
+						</entry>
+						<entry>
+							<para>'EQ'</para>
+						</entry>
+						<entry>
+							<para>'==', '='</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist ungleich
+							</para>
+						</entry>
+						<entry>
+							<para>'NE'</para>
+						</entry>
+						<entry>
+							<para>'&lt;&gt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist kleiner
+							</para>
+						</entry>
+						<entry>
+							<para>'LT'</para>
+						</entry>
+						<entry>
+							<para>'&lt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist kleiner oder gleich
+							</para>
+						</entry>
+						<entry>
+							<para>'LE'</para>
+						</entry>
+						<entry>
+							<para>'&lt;='</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist größer
+							</para>
+						</entry>
+						<entry>
+							<para>'GT'</para>
+						</entry>
+						<entry>
+							<para>'&gt;'</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Ist größer oder gleich
+							</para>
+						</entry>
+						<entry>
+							<para>'GE'</para>
+						</entry>
+						<entry>
+							<para>'&gt;='</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								Schwellenwert 10%, 20%, ... , 80%, 90%
+							</para>
+						</entry>
+						<entry>
+							<para>'TR10', 'TR20', ... , 'TR80', 'TR90'</para>
+						</entry>
+						<entry>
+							<para>---</para>
+						</entry>
+					</row>
+				</table>
+				<alert class="important">
+					<para>
+						Eine Variable in einer <languageKeyword>LogicalExpression</languageKeyword> wie zum Beispiel "Google"
+						oder "Heise" kann in einem komplexeren logischen Konstrukt durchaus mehrfach auftreten.
+						<token>V</token> stellt sie dann im Tree auch mehrfach dar, sorgt aber intern dafür, dass ein zugehöriger
+						<languageKeyword>Checker</languageKeyword> nur einmal ausgeführt wird.
+					</para>
+				</alert>
+				<para>
+					<database>weitere Hinweise</database>
+				</para>
+				<para>
+					Die Schwellenwert-Logik (treshold) prüft, ob ein bestimmter Prozentsatz der dem Job untergeordneter Knoten
+					das Ergebnis <languageKeyword>true</languageKeyword> geliefert hat. Wird der durch den gewählten <languageKeyword>Operator</languageKeyword>
+					festgelegte Prozentsatz (Schwellenwert) erreicht oder überschritten, geht der gesamte Job auf <languageKeyword>true</languageKeyword>
+					(grüne Anzeige).<lineBreak/>
+					Im unteren Beispiel mit insgesamt 10 Checkern wurde über den Operator <database>TR50</database> der Schwellenwert 50% übergeben.
+					Wie zu sehen, geht ab dem 5. grünen Checker der Job auch auf grün (true).
+				</para>
+				<mediaLink>
+					<image xlink:href="Check_Treshold_50_10"/>
+				</mediaLink>
+				<para>
+					<languageKeyword>Operatoren</languageKeyword> können in der Regel in einer Kette mit insgesamt mehr als zwei Argumenten angewendet werden.
+					Das bedeutet, dass zum Beispiel über den Operator <database>XOR</database> mehr als nur zwei <languageKeyword>Checker</languageKeyword>
+					in Beziehung gesetzt werden können (siehe Bild unten). Gleiches gilt z.B. auch für Vergleichsoperatoren.
+				</para>
+				<mediaLink>
+					<image xlink:href="CheckDependentNode"/>
+				</mediaLink>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

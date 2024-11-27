@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="299e895d-8b62-46ee-9b9b-bd98c0cd8287" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 8.2.0 Arrival (Stand: 04.05.2024)
+			</para>
+			<alert class="note">
+				<para>
+					Diese Version ist getestet und stabil.
+					Das umfasst auch das Framework und alle Plugins.
+				</para>
+			</alert>
+		</introduction>
+
+		<section>
+			<title>Änderungen in dieser Version</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							Die Wetter-Api im WeatherChecker wurde von https://www.7timer.info auf https://open-meteo.com umgestellt.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Die Geolocation-Api im WeatherChecker wurde von http://ip-api.com/json auf https://get.geojs.io/v1/ip/geo.json umgestellt.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Der Vishnu-Start in App.cs wurde komplett überarbeitet und auf Mutex umgestellt.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Das Vishnu-Ende in App.cs wird jetzt nicht mehr normal durchlaufen, vielmehr wird Vishnu durch einen
+							selbst gestarteten externen ProcessTerminator gekillt. Das verhindert sporadisch auftretende Exceptions
+							im .Net Finalizer: System.ComponentModel.Win32Exception (1816): Not enough quota available, to process this command.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Das Ticket wegen Speicherfehlern im unmanaged heap ist mit dem Release von dotnet 8.0.2 vom 14.02.2024 abgeschlossen<lineBreak/>
+							(<externalLink>
+								<linkText>possibly  memory leak in .net 8 #96581</linkText>
+								<linkAlternateText>Der Fehler ist mit dem Release von dotnet 8.0.2 behoben!</linkAlternateText>
+								<linkUri>https://github.com/dotnet/runtime/issues/96581</linkUri>
+								<linkTarget>_blank</linkTarget>
+							</externalLink>).
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Die Anpassungen der Build- und Verteilerscripte für Visual Studio 2022 preview wurden wieder entfernt.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Die Darstellung der Vishnu-Onlinehilfe wurde angepasst:<lineBreak />
+							Es wurden Rückwärts- und Vorwärts-Buttons implementiert. Außerdem wurde das generierte Suchfeld
+							vorerst deaktiviert, da es ohnehin funktionslos war.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

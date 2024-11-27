@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="254588df-236b-40b3-9e3f-1cb09542d20b" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>
+        In diesem Bereich werden alle <token>V</token>-Unzulänglichkeiten gesammelt und nach
+        subjektiven Kriterien geordnet.
+      </para>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="Inhalt">
+      <title>Inhalt</title>
+      <content>
+        <para>Bitte wählen Sie ein Thema, um dort weiter zu lesen.</para>
+        <list class="bullet">
+          <listItem>
+            <para>
+              In dem Abschnitt
+              <link xlink:href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9">bekannte Fehler und Probleme</link>
+              werden echte Fehler oder Unzulänglichkeiten aufgeführt.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Im Kapitel
+              <link xlink:href="2e84f44c-6249-45dc-bdc2-c656de87c907">Ideensammlung</link>
+              finden Sie in loser Folge bisherige Überlegungen und Pläne zur Weiterentwicklung
+              von <token>V</token>.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+	<relatedTopics>
+	</relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

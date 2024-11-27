@@ -98,7 +98,7 @@
       <NamespaceSummaryItem name="NetEti.ObjectSerializer" isDocumented="True">Objekt-Serilalisierung und De-Serialisierung</NamespaceSummaryItem>
       <NamespaceSummaryItem name="ResourceDictionaryCodeBehind" isDocumented="False" />
     </NamespaceSummaries>
-    <HelpFileVersion>8.0.0.0</HelpFileVersion>
+    <HelpFileVersion>8.0.0.1</HelpFileVersion>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>Standard</SyntaxFilters>
@@ -172,7 +172,6 @@
     <Folder Include="Content\FortgeschritteneThemen" />
     <Folder Include="Content\Details" />
     <Folder Include="Content\Konfiguration und Parameter" />
-    <Folder Include="Content\DokuInArbeit" />
     <Folder Include="Content\Einstieg" />
     <Folder Include="Content\Baustellen" />
     <Folder Include="Content\VersionHistory" />
@@ -180,7 +179,6 @@
     <Folder Include="icons" />
     <Folder Include="media" />
     <Folder Include="Examples" />
-    <Folder Include="Work" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Baustellen\Baustellen.aml" />
@@ -194,6 +192,8 @@
     <None Include="Content\Details\Vishnu Akteure.aml" />
     <None Include="Content\Details\Vishnu Logik.aml" />
     <None Include="Content\Einstieg\woher der Name.aml" />
+    <None Include="Content\Konfiguration und Parameter\Vishnu.exe.config.user.aml" />
+    <None Include="Content\VersionHistory\v8.2.1.0.aml" />
     <None Include="Content\Vishnu unterstützen.aml" />
     <None Include="Content\FortgeschritteneThemen\Anforderungen an Anwender-Module.aml" />
     <None Include="Content\FortgeschritteneThemen\benannte Trigger und Logger.aml" />
@@ -278,7 +278,6 @@
     <None Include="Examples\Vishnu.exe.config.user.default" />
     <None Include="Examples\Vishnu.exe.config.user.Part.xml" />
     <None Include="Examples\weatherchecker.log" />
-    <None Include="Vishnu.exe.config.user.aml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons\Help.png" />
@@ -342,6 +341,10 @@
     <Image Include="media\Contextmenu1.png">
       <ImageId>Contextmenu1</ImageId>
       <AlternateText>Contextmenu 1</AlternateText>
+    </Image>
+    <Image Include="media\Contextmenu2.png">
+      <ImageId>Contextmenu2</ImageId>
+      <AlternateText>Contextmenu 2</AlternateText>
     </Image>
     <Image Include="media\Darstellung_Speichern.png">
       <ImageId>Darstellung_Speichern</ImageId>

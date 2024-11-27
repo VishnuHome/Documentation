@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConstantNodeUserControl</name>
+    </assembly>
+    <members>
+        <member name="T:Vishnu.UserControls.ConstantNodeUserControl">
+            <summary>
+            Interaktionslogik für ConstantNodeUserControl.xaml
+            </summary>
+            <summary>
+            ConstantNodeUserControl
+            </summary>
+        </member>
+        <member name="M:Vishnu.UserControls.ConstantNodeUserControl.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:Vishnu.UserControls.ConstantNodeUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

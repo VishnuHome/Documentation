@@ -85,7 +85,7 @@
 				</listItem>
 				<listItem>
 					<para>
-						Uptime mit im Window-Header anzeigen.
+						<token>V</token>-<languageKeyword>Uptime</languageKeyword> anzeigen.
 					</para>
 					<para>
 						Aktuelle Vishnu-Version und Uptime zusätzlich in Tooltip auf Window-Header anzeigen (auch bei Dialog-Checkern).
@@ -177,7 +177,7 @@
 						<token>V</token> als Mobile-App
 					</para>
 					<para>
-						Der sich hier natürlich anbietende Weg geht über <languageKeyword>Xamarin</languageKeyword>.
+						Der sich hier natürlich anbietende Weg geht über <languageKeyword>Xamarin (Maui)</languageKeyword>.
 					</para>
 				</listItem>
 				<listItem>

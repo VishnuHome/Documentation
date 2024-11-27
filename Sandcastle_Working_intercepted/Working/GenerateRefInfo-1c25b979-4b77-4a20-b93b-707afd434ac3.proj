@@ -1,0 +1,1108 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Generate" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Sandcastle Tools MSBuild Tasks.  https://GitHub.com/EWSoftware/SHFB -->
+  <PropertyGroup>
+    <SHFBTaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net472\</SHFBTaskFolder>
+    <SHFBTaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netcoreapp3.1\</SHFBTaskFolder>
+  </PropertyGroup>
+  <UsingTask TaskName="Sandcastle.Tools.MSBuild.MRefBuilder" AssemblyFile="C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\$(SHFBTaskFolder)MRefBuilder.dll" />
+  <!-- Task properties -->
+  <PropertyGroup>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <WorkingFolder>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\</WorkingFolder>
+    <ReferencePath Condition=" '$(ReferencePath)' == '' ">
+    </ReferencePath>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <UseTargetPlatformAsNuGetTargetMoniker>false</UseTargetPlatformAsNuGetTargetMoniker>
+  </PropertyGroup>
+  <!-- The common targets require OutputPath to be valid -->
+  <PropertyGroup>
+    <OutputPath>.\</OutputPath>
+  </PropertyGroup>
+  <!-- Import the common targets -->
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <!-- This defines the dependencies for the Generate target -->
+  <PropertyGroup>
+    <GenerateDependsOn>
+			ResolveReferences;
+			BeforeGenerateRefInfo;
+			GenerateRefInfo;
+			AfterGenerateRefInfo
+		</GenerateDependsOn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\Accessibility.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>C:\Users\micro\.nuget\packages\SharpZipLib\1.4.2\lib\net6.0\ICSharpCode.SharpZipLib.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\Microsoft.CSharp.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.Abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.Binder\7.0.3\lib\net7.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.CommandLine\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.EnvironmentVariables\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.FileExtensions\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.Json\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.UserSecrets">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Configuration.UserSecrets\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.UserSecrets.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.DependencyInjection\7.0.0\lib\net7.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.DependencyInjection.Abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.FileProviders.Abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.FileProviders.Physical\7.0.0\lib\net7.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.FileSystemGlobbing\7.0.0\lib\net7.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Hosting\7.0.1\lib\net7.0\Microsoft.Extensions.Hosting.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Hosting.Abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.Abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.Configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.Console\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.Console.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.Debug\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventLog">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.EventLog\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.EventLog.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventSource">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Logging.EventSource\7.0.0\lib\net7.0\Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Options\7.0.1\lib\net7.0\Microsoft.Extensions.Options.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Options.ConfigurationExtensions\7.0.0\lib\net7.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Extensions.Primitives\8.0.0\lib\net8.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\Microsoft.VisualBasic.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Core">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\Microsoft.VisualBasic.Core.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Forms">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\Microsoft.VisualBasic.Forms.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Web.WebView2\1.0.2210.55\lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Web.WebView2\1.0.2210.55\lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf">
+      <HintPath>C:\Users\micro\.nuget\packages\Microsoft.Web.WebView2\1.0.2210.55\lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\Microsoft.Win32.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\Microsoft.Win32.Registry.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry.AccessControl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\Microsoft.Win32.Registry.AccessControl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="Microsoft.Win32.SystemEvents">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\Microsoft.Win32.SystemEvents.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\mscorlib.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="NetEti.AppEnvReader">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.AppEnvReader.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.BasicAppSettings">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.BasicAppSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.CommandLineAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.CommandLineAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.CustomProgressBar">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl\../../../../../ReadyBin/Assemblies/NetEti.CustomProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.EnvAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.EnvAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.ExpressionParser">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.ExpressionParser.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.Global">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\AppEnvReader\AppEnvReader\../../../ReadyBin/Assemblies/NetEti.Global.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.InfoController">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\ProcessTools\ProcessTools\../../../ReadyBin/Assemblies/NetEti.InfoController.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.IniAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.IniAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.Logging">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.MultiScreen">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\..\..\..\ReadyBin\Assemblies\NetEti.MultiScreen.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.MVVMini">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.MVVMini.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.NetworkMappingsRefresher">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.NetworkMappingsRefresher.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.ObjectSerializer">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.ObjectSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.ProcessTools">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.ProcessTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.PropertyAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.PropertyAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.QuickEdit">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.ViewModel\../../../ReadyBin/Assemblies/NetEti.QuickEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.RegAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.RegAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.SettingsAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.SettingsAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.TaskWorker">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.TaskWorker.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.TimerMessageBox">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.ViewModel\../../../ReadyBin/Assemblies/NetEti.TimerMessageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.XMLAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\../../../ReadyBin/Assemblies/NetEti.XMLAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.ZipAccess">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\../../../ReadyBin/Assemblies/NetEti.ZipAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="NetEti.ZoomBox">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.WPF_UI\../../../ReadyBin/Assemblies/NetEti.ZoomBox.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\netstandard.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationCore.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.Aero.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.Aero2.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.AeroLite">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.AeroLite.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.Classic">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.Classic.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.Luna">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.Luna.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationFramework.Royale">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationFramework.Royale.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="PresentationUI">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\PresentationUI.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\ReachFramework.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\WorkFrame\ZipAccess\ZipAccess\Assemblies\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.AppContext.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Buffers.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.CodeDom">
+      <HintPath>C:\Users\micro\.nuget\packages\System.CodeDom\8.0.0\lib\net8.0\System.CodeDom.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Collections.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Collections.Concurrent.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Collections.Immutable.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Collections.NonGeneric.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Collections.Specialized.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.Annotations.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.DataAnnotations.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.EventBasedAsync.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ComponentModel.TypeConverter.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Configuration.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Configuration.ConfigurationManager.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Console.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Core.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Data.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Data.Common.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Data.DataSetExtensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Design">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Design.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.Contracts.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.Debug.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.EventLog">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.EventLog.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.PerformanceCounter.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.Process.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.StackTrace.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.Tools.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.TraceSource.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Diagnostics.Tracing.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.DirectoryServices.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Drawing.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Drawing.Common.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Drawing.Design">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Drawing.Design.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Drawing.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Dynamic.Runtime.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Formats.Asn1">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Formats.Asn1.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Formats.Tar">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Formats.Tar.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Globalization.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Globalization.Calendars.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Globalization.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Compression.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Compression.Brotli">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Compression.Brotli.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Compression.FileSystem.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Compression.ZipFile.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.FileSystem.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.FileSystem.AccessControl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.FileSystem.DriveInfo.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.FileSystem.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.FileSystem.Watcher.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.IsolatedStorage.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.MemoryMappedFiles.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Packaging">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.IO.Packaging.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Pipes.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.Pipes.AccessControl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.Pipes.AccessControl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.IO.UnmanagedMemoryStream.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Linq.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Linq.Expressions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Linq.Parallel.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Linq.Queryable.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Management">
+      <HintPath>C:\Users\micro\.nuget\packages\System.Management\8.0.0\lib\net8.0\System.Management.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Memory.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Http.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Http.Json">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Http.Json.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.HttpListener">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.HttpListener.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Mail">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Mail.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.NameResolution.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.NetworkInformation.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Ping.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Quic">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Quic.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Requests.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Security.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.ServicePoint">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.ServicePoint.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.Sockets.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.WebClient">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.WebClient.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.WebHeaderCollection.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.WebProxy">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.WebProxy.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.WebSockets.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Net.WebSockets.Client.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Numerics.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Numerics.Vectors.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ObjectModel.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Printing">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Printing.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.DispatchProxy">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.DispatchProxy.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Emit.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Emit.ILGeneration.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Emit.Lightweight.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Metadata.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Reflection.TypeExtensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Reflection.TypeExtensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Resources.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Resources.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Resources.Reader.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Resources.ResourceManager.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Resources.Writer.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Handles.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.InteropServices.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.JavaScript">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.InteropServices.JavaScript.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Intrinsics">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Intrinsics.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Loader">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Loader.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Numerics.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Serialization.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Serialization.Formatters.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Serialization.Json.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Runtime.Serialization.Xml.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.AccessControl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.AccessControl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Claims.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Cng.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Csp.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Encoding.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.OpenSsl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.OpenSsl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Pkcs.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.ProtectedData.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Security.Cryptography.Xml.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Security.Permissions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Principal.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.Principal.Windows.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Security.SecureString.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ServiceModel.Web.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ServiceProcess.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.Encoding.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.Encoding.CodePages.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.Encoding.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.Encodings.Web.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.Json.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Text.RegularExpressions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.AccessControl">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Threading.AccessControl.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Channels">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Channels.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Overlapped.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Tasks.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Tasks.Dataflow.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Tasks.Parallel.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Thread.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.ThreadPool.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Threading.Timer.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Transactions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Transactions.Local">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Transactions.Local.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.ValueTuple.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Web.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Web.HttpUtility">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Web.HttpUtility.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Windows.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Controls.Ribbon.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Extensions">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Extensions.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Forms.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Forms.Design">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Forms.Design.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Forms.Design.Editors">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Forms.Design.Editors.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Forms.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Forms.Primitives.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Input.Manipulations">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Input.Manipulations.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Windows.Presentation">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Windows.Presentation.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\System.Xaml.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.Linq.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.ReaderWriter.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.Serialization.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.XDocument.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.XmlDocument.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.XmlSerializer.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.XPath.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\System.Xml.XPath.XDocument.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="UIAutomationClient">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\UIAutomationClient.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="UIAutomationClientSideProviders">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\UIAutomationClientSideProviders.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\UIAutomationProvider.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\UIAutomationTypes.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\8.0.5\ref\net8.0\WindowsBase.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\8.0.5\ref\net8.0\WindowsFormsIntegration.dll</HintPath>
+      <FromPackageReference>true</FromPackageReference>
+    </Reference>
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.ViewModel\../../../ReadyBin/Assemblies/WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\CustomProgressBar\CustomProgressBar\bin\Debug\net8.0-windows7.0\NetEti.CustomProgressBar.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\ExpressionParser\ExpressionParser\bin\Debug\net8.0\NetEti.ExpressionParser.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\VishnuHelpBrowser\VishnuHelpBrowser\bin\Debug\net8.0-windows\win-x64\VishnuHelpBrowser.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\ConstantNodeUserControl\ConstantNodeUserControl\bin\Debug\net8.0-windows7.0\ConstantNodeUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\JobConnectorUserControl\JobConnectorUserControl\bin\Debug\net8.0-windows7.0\JobConnectorUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\JobListUserControl\JobListUserControl\bin\Debug\net8.0-windows7.0\JobListUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\NodeListUserControl\NodeListUserControl\bin\Debug\net8.0-windows7.0\NodeListUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\SingleNodeUserControl\SingleNodeUserControl\bin\Debug\net8.0-windows7.0\SingleNodeUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\DefaultNodeControls\SnapshotUserControl\SnapshotUserControl\bin\Debug\net8.0-windows7.0\SnapshotUserControl.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\LogicalTaskTree\bin\Debug\net8.0-windows7.0\LogicalTaskTree.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.Interchange\bin\Debug\net8.0-windows7.0\Vishnu.Interchange.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.ViewModel\bin\Debug\net8.0-windows7.0\Vishnu.ViewModel.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\Vishnu\Vishnu.WPF_UI\bin\Debug\net8.0-windows7.0\Vishnu.WPF_UI.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\VishnuHome\ZoomBox\ZoomBox\bin\Debug\net8.0-windows7.0\NetEti.ZoomBox.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\AppEnvReader\AppEnvReader\bin\Debug\net8.0\NetEti.AppEnvReader.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\BasicAppSettings\BasicAppSettings\bin\Debug\net8.0\NetEti.BasicAppSettings.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\CommandLineAccess\CommandLineAccess\bin\Debug\net8.0\NetEti.CommandLineAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\EnvAccess\EnvAccess\bin\Debug\net8.0\NetEti.EnvAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\Global\Global\bin\Debug\net8.0\NetEti.Global.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\InfoController\InfoController\bin\Debug\net8.0\NetEti.InfoController.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\InfoController\Logging\bin\Debug\net8.0\NetEti.Logging.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\IniAccess\IniAccess\bin\Debug\net8.0\NetEti.IniAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\MultiScreen\MultiScreen\bin\Debug\net8.0-windows7.0\NetEti.MultiScreen.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\MVVMini\MVVMini\bin\Debug\net8.0-windows7.0\NetEti.MVVMini.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\ObjectSerializer\ObjectSerializer\bin\Debug\net8.0\NetEti.ObjectSerializer.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\ProcessTools\ProcessTools\bin\Debug\net8.0\NetEti.ProcessTools.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\PropertyAccess\PropertyAccess\bin\Debug\net8.0\NetEti.PropertyAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\QuickEdit\QuickEdit\bin\Debug\net8.0-windows\NetEti.QuickEdit.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\RegAccess\RegAccess\bin\Debug\net8.0\NetEti.RegAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\SettingsAccess\SettingsAccess\bin\Debug\net8.0\NetEti.SettingsAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\TaskWorker\TaskWorker\bin\Debug\net8.0\NetEti.TaskWorker.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\XMLAccess\XMLAccess\bin\Debug\net8.0\NetEti.XMLAccess.dll" />
+    <Assembly Include="D:\Daten\private4\WPF\openVishnu8\WorkFrame\ZipAccess\ZipAccess\bin\Debug\net8.0\NetEti.ZipAccess.dll" />
+  </ItemGroup>
+  <Target Name="Generate" DependsOnTargets="$(GenerateDependsOn)" />
+  <!-- The Generate Ref Info target -->
+  <Target Name="GenerateRefInfo">
+    <!-- Run MRefBuilder.  Reference build items are added to this template by the build process.  The
+				 ResolveReferences dependency target will resolve them to absolute paths that can be passed to
+				 MRefBuilder using the /dep command line option.  Assembly build items are added by the build
+				 process to define the assemblies to reflect. -->
+    <Sandcastle.Tools.MSBuild.MRefBuilder WorkingFolder="$(WorkingFolder)" ConfigurationFile="MRefBuilder.config" ReflectionFilename="reflection.org" Assemblies="@(Assembly)" References="@(ReferencePath)" />
+  </Target>
+  <!-- The following targets may be overridden or replaced to perform additional processing. -->
+  <Target Name="BeforeGenerateRefInfo" />
+  <Target Name="AfterGenerateRefInfo" />
+</Project>

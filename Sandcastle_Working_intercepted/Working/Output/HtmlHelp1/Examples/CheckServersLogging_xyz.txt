@@ -1,0 +1,5 @@
+2020.01.24 09:23:05,963918 Event: LogicalResultChanged
+        Knoten: NotPresent|NotPresent, Logical: False, Quelle: NotPresent
+        AnyServer, Thread: 0022/19564, Tree: Tree 1
+        AND(CheckServersLogging)/OR(Internal_2)/NotPresent, Status: Done
+        WorkingDirectory: C:\Users\<user>\AppData\Local\Temp\Vishnu.CheckServersLogging\20544

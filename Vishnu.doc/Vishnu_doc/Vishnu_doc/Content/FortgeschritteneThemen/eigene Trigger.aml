@@ -44,7 +44,8 @@
 							<database>TimerTrigger</database>
 						</para>
 						<para>
-							TimerTrigger rufen <languageKeyword>Checker</languageKeyword> in regelmäßigen Zeitabständen auf.
+							TimerTrigger rufen <languageKeyword>Checker</languageKeyword>
+							oder <languageKeyword>Worker</languageKeyword> in regelmäßigen Zeitabständen auf.
 						</para>
 					</listItem>
 					<listItem>
@@ -106,7 +107,7 @@
 				</para>
 				<alert class="note">
 					<para>
-						Allgemeine Informationen über Trigger und wie diese in der <languageKeyword>JobDecription.xml</languageKeyword>
+						Allgemeine Informationen über Trigger und wie diese in der <languageKeyword>JobDescription.xml</languageKeyword>
 						definiert werden können Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Trigger" /> nachschlagen.
 					</para>
 				</alert>

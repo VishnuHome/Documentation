@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.IniAccess</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.FileTools.IniAccess">
+             <summary>
+             Liest Werte aus einer ini-Datei ein.
+             </summary>
+             <remarks>
+             File: IniAccess.cs<br></br>
+             Implementiert IGetStringValue<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.FileTools.IniAccess.GetStringValue(System.String,System.String)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis (string)</param>
+            <returns>Der Ergebnis-String</returns>
+        </member>
+        <member name="M:NetEti.FileTools.IniAccess.GetStringValues(System.String,System.String[])">
+            <summary>
+            Liefert ein string-Array zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis (string[])</param>
+            <returns>Das Ergebnis-String-Array</returns>
+        </member>
+        <member name="P:NetEti.FileTools.IniAccess.Description">
+            <summary>
+            Liefert einen beschreibenden Namen dieses StringValueGetters,
+            z.B. Name plus ggf. Quellpfad.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.IniAccess.#ctor(System.String)">
+            <summary>
+            Konstruktor: lädt die ini-Datei in ein Dictionary für spätere Abfragen.
+            </summary>
+            <exception cref="T:System.ArgumentException">Ungültiger filePath.</exception>
+            <exception cref="T:System.IO.IOException">filePath nicht gefunden oder keine Rechte, etc.</exception>
+            <param name="filePath">Pfad und Name der ini-Datei</param>
+        </member>
+        <member name="M:NetEti.FileTools.IniAccess.ReadSetting(System.String,System.String,System.String)">
+            <summary>
+            Liest den Wert eines Entries aus einer Section der ini-Datei ein.
+            Wird der gewünschte Eintrag nicht gefunden, zieht der Default.
+            </summary>
+            <param name="section">Die Section [...] in der Datei</param>
+            <param name="entry">Der konkrete Parameter</param>
+            <param name="defaultValue">Der zu returnierende Default bei Misserfolg</param>
+            <returns>Wert des gesuchten Eintrags oder Default</returns>
+        </member>
+    </members>
+</doc>

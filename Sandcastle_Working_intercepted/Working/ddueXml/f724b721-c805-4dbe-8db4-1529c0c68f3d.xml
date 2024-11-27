@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f724b721-c805-4dbe-8db4-1529c0c68f3d" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+      <para>
+        Dieses Kapitel handelt von selbst erstellten <languageKeyword>ParameterReadern</languageKeyword>.
+        Über eigene <languageKeyword>ParameterReader</languageKeyword> können Sie Ihre business-spezifischen Parameter
+        an <token>V</token> übergeben, so dass diese in Folge wie alle sonstigen <token>V</token>-Parameter behandelt
+        werden und z.B. auch Gegenstand der <token>V</token>-Wildcard-Ersetzung sein können.
+        Hier wird auf das Demo-Projekt <database>DemoParameterProvider</database> selbst eingegangen.
+        Die Beschreibung eines zugehörigen <token>V</token> Test-<languageKeyword>Jobs</languageKeyword> finden Sie unter
+        <link xlink:href="15204f64-ecf7-44b6-822d-74e36b99927d#erweiterteParameterersetzungDurchEigenenParameterReader"></link>.
+      </para>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="ParameterReaderDemoProjektRun">
+      <title>Das Demo-Projekt</title>
+      <content>
+        <para>
+          Sehen wir uns zuerst die Ausgabe des Demo-Projekts an:
+        </para>
+        <mediaLink>
+          <image xlink:href="CheckParameterDemoRun"/>
+        </mediaLink>
+        <para>
+          Wie zu sehen ist, liefert das Programm den Wert <database>Gefunden!</database> zu einem
+          Parameter namens <database>GesuchterParameter</database>.<lineBreak/>
+          Das Ganze wiederholt sich alle 1 Minute und 2 Sekunden.
+        </para>
+      </content>
+    </section>
+
+    <section address="ParameterReaderSource">
+      <title>Der Parameter-Reader</title>
+      <content>
+        <para>
+          Verantwortlich für die im Demo-Projekt gezeigte Parameterersetzung ist die Klasse <database>DemoParameterProvider</database>,
+          siehe folgendes Code-Listing:
+        </para>
+        <code source="..\Vishnu_doc\Examples\DemoParameterProvider.cs" language="C#"
+           title="DemoParameterProvider.cs Auszug"></code>
+        <para>
+          Die Klasse DemoParameterProvider implementiert die von <token>V</token> bereitgestellte Schnittstelle
+          <codeEntityReference qualifyHint="true">T:Vishnu.Interchange.IParameterReader</codeEntityReference>.
+          In der <database>Init</database>-Routine werden Anwender-Einstellungen übernommen, die business-spezifischen
+          Parameter geladen (Ausführung in der Unterroutine "ReloadApplicationParameters()") und ggf.
+          ein Timer für den regelmäßigen Refresh der Parameter eingerichtet.
+        </para>
+        <para>
+          Die Methode <database>ReadParameter(string parameterName)</database> wird später von <token>V</token>
+          immer dann aufgerufen, wenn ein <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360"><token>V</token>-Akteur</link>
+          einen Parameter abfragt.
+        </para>
+        <alert class="note">
+          <para>
+            Ihr eigener <languageKeyword>ParameterReader</languageKeyword> wird in der Priorität an zweiter Stelle direkt
+            hinter dem <languageKeyword>ParameterReader</languageKeyword> für Kommandozeilen-Parameter eingereiht.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <relatedTopics>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

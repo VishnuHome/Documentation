@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>VishnuHelpBrowser</name>
+  </assembly>
+  <members>
+    <member name="M:NetEti.CustomControls.Program.Main">
+      <summary>
+             The main entry point for the application.
+            </summary>
+    </member>
+    <member name="T:NetEti.CustomControls.Properties.Resources">
+      <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.ResourceManager">
+      <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.Culture">
+      <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.back_disabled">
+      <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.back_enabled">
+      <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.forward_disabled">
+      <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.forward_enabled">
+      <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+    </member>
+    <member name="P:NetEti.CustomControls.Properties.Resources.search">
+      <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+            </summary>
+    </member>
+    <member name="T:NetEti.CustomControls.VishnuHelpBrowser">
+      <summary>
+             Standalone Webbrowser zur Anzeige der Vishnu Onlinehilfe.
+             Die Anwendung merkt sich die Position und Größe dieses Bildschirms
+             und stellt sie beim nächsten Aufruf wieder her. Ebenso wird mit der letzten Url verfahren.
+             Diese letzten Einstellungen werden unter c:\Users\&lt;user&gt;\AppData\Local\NetEti\VishnuHelpBrowser gespeichert.
+             </summary>
+      <remarks>
+            
+             24.01.2024 Erik Nagel: erstellt.
+             </remarks>
+    </member>
+    <member name="M:NetEti.CustomControls.VishnuHelpBrowser.#ctor">
+      <summary>
+            Standard Konstruktor.
+            </summary>
+    </member>
+    <member name="F:NetEti.CustomControls.VishnuHelpBrowser.components">
+      <summary>
+             Required designer variable.
+            </summary>
+    </member>
+    <member name="M:NetEti.CustomControls.VishnuHelpBrowser.Dispose(System.Boolean)">
+      <summary>
+             Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="M:NetEti.CustomControls.VishnuHelpBrowser.InitializeComponent">
+      <summary>
+             Required method for Designer support - do not modify
+             the contents of this method with the code editor.
+            </summary>
+    </member>
+    <member name="T:NetEti.CustomControls.ApplicationConfiguration">
+      <summary>
+             Bootstrap the application configuration.
+            </summary>
+    </member>
+    <member name="M:NetEti.CustomControls.ApplicationConfiguration.Initialize">
+      <summary>
+             Bootstrap the application as follows:
+             <code>
+             global::System.Windows.Forms.Application.EnableVisualStyles();
+             global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+             global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            </code></summary>
+    </member>
+    <member name="R:Project_Vishnu_doc.de">
+      <summary>Dieser Teil der Vishnu-Dokumentation richtet sich an Software-Entwickler oder Anwender,  die Grundkenntnisse in der Entwicklung von .Net Software haben. Den anwendungsorientierten Teil der Dokumentation finden Sie unter <a href="ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm">Vishnu - Prozesse beobachten und steuern</a>.</summary>
+    </member>
+    <member name="N:LogicalTaskTree">
+      <summary>Haupt-Verarbeitungslogik von Vishnu</summary>
+    </member>
+    <member name="N:LogicalTaskTree.Provider">
+      <summary>Provider für Vishnu-Jobs</summary>
+    </member>
+    <member name="N:NetEti.ApplicationControl">
+      <summary>Allgemeine Routinen zur Anwendungssteuerung</summary>
+    </member>
+    <member name="N:NetEti.ApplicationEnvironment">
+      <summary>Ermittlung von Umgebungsparametern der Applikation</summary>
+    </member>
+    <member name="N:NetEti.CustomControls">
+      <summary>Eigene oder angepasste Controls für die Verwendung in Vishnu</summary>
+    </member>
+    <member name="N:NetEti.ExpressionParser">
+      <summary>Verarbeitungsroutinen für logische Ausdrücke</summary>
+    </member>
+    <member name="N:NetEti.FileTools">
+      <summary>Routinen zum Zugriff über das Filesystem</summary>
+    </member>
+    <member name="N:NetEti.FileTools.Zip">
+      <summary>ZIP Pack/Unpack-Routinen</summary>
+    </member>
+    <member name="N:NetEti.Globals">
+      <summary>Globale Typen, Konstanten, Klassen und statische Funktionen</summary>
+    </member>
+    <member name="N:NetEti.MultiScreen">
+      <summary>Unterstützung zur Nutzung mehrerer Bildschirme</summary>
+    </member>
+    <member name="N:NetEti.MVVMini">
+      <summary>Basis-Funktionalitäten für MVVM Anwendungen</summary>
+    </member>
+    <member name="N:NetEti.ObjectSerializer">
+      <summary>Objekt-Serilalisierung und De-Serialisierung</summary>
+    </member>
+    <member name="N:Vishnu.Interchange">
+      <summary>Definitionen, Schnittstellen und Klassen, die in Anwender-Elementen zum Tragen kommen</summary>
+    </member>
+    <member name="N:Vishnu.UserControls">
+      <summary>In Vishnu darstellbare UserControls. Enthält die Standard-UserControls von Vishnu.</summary>
+    </member>
+    <member name="N:Vishnu.ViewModel">
+      <summary>MVVM ViewModel für Vishnu</summary>
+    </member>
+    <member name="N:Vishnu.WPF_UI">
+      <summary>Vishnu Bildschirmoberfläche</summary>
+    </member>
+    <member name="N:Vishnu.WPF_UI.Behaviours">
+      <summary>Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</summary>
+    </member>
+    <member name="N:Vishnu.WPF_UI.DependencyProperties">
+      <summary>Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</summary>
+    </member>
+    <member name="N:Vishnu.WPF_UI.ValueConverter">
+      <summary>Hilfsklassen für die WPF-Bildschirmoberfläche von Vishnu</summary>
+    </member>
+  </members>
+</doc>

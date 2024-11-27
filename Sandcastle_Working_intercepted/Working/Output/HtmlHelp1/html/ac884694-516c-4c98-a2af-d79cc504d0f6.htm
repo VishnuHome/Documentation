@@ -1,0 +1,30 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="de-de" /><meta name="Microsoft.Help.Locale" content="de-de" /><meta name="Microsoft.Help.TopicLocale" content="de-de" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-de-DE.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>benannte Trigger und Logger</title><meta name="Microsoft.Help.Id" content="ac884694-516c-4c98-a2af-d79cc504d0f6" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Description" content="Trigger und Logger sind in der Regel anonym, da sie einem Job oder Checker direkt zugeordnet sind. Dadurch entfällt für sie die Notwendigkeit, über einen LogicalName ansprechbar zu sein." /><link rel="stylesheet" type="text/css" href="../styles/branding-Help1.css" /></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div id="PageHeader" class="pageHeader">Vishnu - der logische Prozess-Monitor</div><div class="pageBody"><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>benannte Trigger und Logger</h1></td></tr></table><div><p><span class="keyword">Trigger</span> und <span class="keyword">Logger</span> sind in der Regel anonym,
+        da sie einem <span class="keyword">Job</span> oder <span class="keyword">Checker</span> direkt zugeordnet sind.
+        Dadurch entfällt für sie die Notwendigkeit, über einen <span class="keyword">LogicalName</span> ansprechbar zu sein.
+        In manchen Anwendungsfällen kann es aber sinnvoll sein, <span class="keyword">Trigger</span> oder <span class="keyword">Logger</span>
+        von verschiedenen <span class="keyword">Checkern</span> oder <span class="keyword">SubJobs</span> gemeinsam zu verwenden.
+        Sie können solchen <span class="keyword">Triggern</span> oder <span class="keyword">Loggern</span> dafür
+        einen <span class="keyword">LogicalName</span> vergeben und sie über diesen
+        <span class="keyword">LogicalName</span> in anderen Checkern oder auch SubJobs referenzieren.
+      </p></div><div class="collapsibleAreaRegion" id="Beispiel"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Beispiel</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+          Angenommen, Sie möchten von verschiedenen <strong>Vishnu</strong>-Knoten
+          (Knoten: Oberbegriff für alle <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm">Vishnu Akteure</a>) mit gleichen Parametern in
+          das gemeinsame Logfile schreiben.
+          Dann können Sie das erreichen, indem Sie dem <span class="keyword">Logger</span> einen <span class="keyword">LogicalName</span>
+          vergeben und diesen von verschiedenen <strong>Vishnu</strong>-Knoten aus referenzieren.
+          Dasselbe gilt für <span class="keyword">Trigger</span>, die verschiedene Knoten zeitgleich starten sollen.
+        </p><p>
+          In dem unteren Beispiel referenziert der Knoten mit "Checker_1" den "FirstNamedTimerTrigger" und den "FirstNamedLogger".
+          Weitere <span class="keyword">Checker</span> im aktuellen <span class="keyword">Job</span> oder in
+          <span class="keyword">SubJobs</span> könnten dies ebenfalls tun. Sie würden dann von denselben Ereignissen
+          gestartet und mit denselben Parametern loggen wie "Checker_1".
+        </p><div class="mediaNear"><img alt="Named Trigger Logger" src="../media/NamedTriggerLogger.png" /></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Achtung" />  Achtung</th></tr><tr><td><p>
+            Der <span class="keyword">Logger</span> oder <span class="keyword">Trigger</span> muss dafür im selben oder
+            einem dem aktuellen <span class="keyword">Job</span> übergeordneten <span class="keyword">Job</span> in einem
+            eigenen Abschnitt (siehe Beispiel-Code) definiert worden sein, damit er auch von allen verwendenden Knoten gefunden werden kann.
+          </p></td></tr></table></div></div></div></div><div id="PageFooter" class="pageFooter">Naturgemäß basieren viele Erkenntnisse und Entwicklungen auf im Internet frei zugänglichen Informationen. Eventuell fehlende Verweise auf ursprüngliche Autoren sind unbeabsichtigt und werden nach Meldung sofort nachgepflegt.<p>Copyright © 2012-2024 Erik Nagel</p><div class="feedbackLink">Senden Sie Kommentare zu diesem Feature an
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Ihre Rückmeldung wird für die Verbesserung der Dokumentation und des Produktes genutzt. Ihre Email-Adresse wird zu keinem anderen Zweck benutzt und wird nach der Behebung des gemeldeten Problems gelöscht. Während der Arbeit an dem Problem kann es sein dass Sie per Email kontaktiert werden für weitergehende Details oder Abklärung zur Rückmeldung von Ihnen. Nachdem das Problem eingegrenzt worden ist kann es sein dass Sie eine Email erhalten zur Problembehebung.");
+        </script></div></body></html>

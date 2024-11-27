@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="626044E0-05D1-4532-B07F-EC3320821C19" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 1.0.3.6 (Stand: 22.12.2013)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Erweiterte Parameterübergabe an Logger, Checker, Worker</para>
+          </listItem>
+          <listItem>
+            <para>Trigger mit Referenz auf TreeEvents</para>
+          </listItem>
+          <listItem>
+            <para>Job als Verzeichnis und / oder ZIP</para>
+          </listItem>
+          <listItem>
+            <para>Bei gleichnamigen Checkern dieselbe Instanz referenzieren</para>
+          </listItem>
+          <listItem>
+            <para>Worker auf TreeEvents umgestellt</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

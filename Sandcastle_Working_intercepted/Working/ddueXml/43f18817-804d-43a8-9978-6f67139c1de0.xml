@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="43f18817-804d-43a8-9978-6f67139c1de0" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 4.9.0.1 Repository and Install (Stand: 05.08.2020)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Vishnu, Framework, PluginProjects, etc. neu strukturiert.<lineBreak />
+              Alles in Git-Repository überführt, Shellscripe zur Massenverarbeitung erstellt,
+              Remote-Repository auf GitHub eingerichtet.<lineBreak />
+            </para>
+          </listItem>
+          <listItem>
+            <para>Vishnu mit Company-Integration und produktiver Distribution.</para>
+          </listItem>
+          <listItem>
+            <para>Bugfix: UserJob ließ sich u.U. nicht neu starten (Sanduhr).</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

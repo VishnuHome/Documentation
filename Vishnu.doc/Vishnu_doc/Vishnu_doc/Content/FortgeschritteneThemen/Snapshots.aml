@@ -87,10 +87,10 @@
       <title>Anzeigen von Snapshots</title>
       <content>
         <para>
-          Im folgenden Beispiel wird ein Snapshot aus dem obigen Beispiel-<languageKeyword>Job </languageKeyword>
-          <link xlink:href="#ErzeugenVonSnapshots">Check TreeEventTrigger Snapshot</link> in einem anderen <languageKeyword>Job</languageKeyword> angezeigt:
+          Im folgenden Beispiel wird ein Snapshot aus dem obigen Beispiel-Job
+          <link xlink:href="#ErzeugenVonSnapshots"> Check TreeEventTrigger Snapshot</link> in einem anderen Job angezeigt:
         </para>
-        <code source="..\Vishnu_doc\Examples\Simple\ShowRefCheckTreeEventTriggerSnapshot_JobDescription.xml" language="XML"
+        <code source="..\Vishnu_doc\Examples\Simple\ShowRefCheckTreeEventTriggerSnapshot_JobDescription.xml" language="xml"
            title="JobDescription.xml">
         </code>
         <para>

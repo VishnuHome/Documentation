@@ -47,7 +47,7 @@
 				<para>
 					Den wesentlichen Unterschied zum Demo-Job für eigene Checker (siehe <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />)
 					macht die zusätzliche Anweisung
-					<languageKeyword>&lt;UserControlPath&gt;Plugin\UserView.dll&lt;/UserControlPath&gt;</languageKeyword>.
+					<languageKeyword>&lt;UserControlPath&gt;Plugin\UserView.dll&lt;&#47;UserControlPath&gt;</languageKeyword>.
 				</para>
 				<para>
 					Hierüber wird <token>V</token> mitgeteilt, dass sich im Verzeichnis <database>Plugin</database> eine eigene

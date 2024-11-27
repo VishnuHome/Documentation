@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.AppEnvReader</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationEnvironment.AppEnvReader">
+             <summary>
+             Verwaltet eine Liste von IGetStringValue-Objekten und fragt diese
+             der Reihe nach ab um das erste gültige Ergebnis selbst wieder als IGetStringValue
+             an den Aufrufer zurück zu geben.<br></br>Für Values, die Wildcards der Form '%Name%'
+             enthalten, findet eine rekursive Ersetzung statt (nur für GetStringValue(...)).<br></br>
+             Verwaltet eine zusätzliche Liste, die von außen mit Key-Value Paaren gefüllt
+             werden kann; diese Liste wird bei der Suche ebenfalls berücksichtigt.
+             </summary>
+             <remarks>
+             File: AppEnvReader<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             08.03.2012 Erik Nagel: erstellt.<br></br>
+             08.03.2012 Erik Nagel: In Defaults werden jetzt Platzhalter der Form '%abc%' ebenfalls ersetzt.<br></br>
+             24.08.2012 Erik Nagel: GetValue T (string key, T defaultValue) eingebaut.<br></br>
+             21.04.2013 Erik Nagel: Verarbeitung über Array-Kopie in getStringValueReku.<br></br>
+             23.01.2014 Erik Nagel: Null-Referenz-Fehler in GetStringValue behoben.
+             31.03.2014 Erik Nagel: IsDefault implementiert.<br></br>
+             29.07.2018 Erik Nagel: GetParametersSources implementiert.<br></br>
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.GetStringValue(System.String,System.String)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Wildcards der Form %Name% werden, wenn möglich, rekursiv ersetzt.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis (string)</param>
+            <returns>Der Ergebnis-String</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.GetStringValues(System.String,System.String[])">
+            <summary>
+            Liefert ein string-Array zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            </summary>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis (string[])</param>
+            <returns>Das Ergebnis-String-Array</returns>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.AppEnvReader.Description">
+            <summary>
+            Liefert einen beschreibenden Namen dieses StringValueGetters,
+            z.B. Name plus ggf. Quellpfad.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationEnvironment.AppEnvReader.DebugGuid">
+            <summary>
+            Nur zu Debug-Zwecken - kann später gelöscht werden.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.GetParametersSources">
+            <summary>
+            Liefert ein Dictionary, das zu jedem Parameter den Namen der Quelle enthält.
+            Kann in bestimmten Fällen für die Fehlersuche hilfreich sein.
+            </summary>
+            <returns>Dictionary, das zu jedem Parameter den Namen der Quelle enthält.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.IsDefault(System.String)">
+            <summary>
+            Gibt true zurück, wenn die übergebene Eigenschaft nicht über
+            externe Quellen, sondern durch den Default-Wert gefüllt wurde.
+            </summary>
+            <param name="key">Der Name der Property.</param>
+            <returns>True, wenn die übergebene Eigenschaft durch den Default-Wert gefüllt wurde.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.RegisterStringValueGetter(NetEti.Globals.IGetStringValue)">
+            <summary>
+            Fügt stringValueGetter an das Ende der Liste an.
+            </summary>
+            <param name="stringValueGetter">Die anzufügende IGetStringValue Instanz</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.RegisterStringValueGetterBefore(NetEti.Globals.IGetStringValue,NetEti.Globals.IGetStringValue)">
+            <summary>
+            Fügt stringValueGetter vor dem anchor in die Liste ein.
+            </summary>
+            <param name="stringValueGetter">Die einzufügende IGetStringValue Instanz</param>
+            <param name="anchor">Die IGetStringValue Instanz vor der eingefügt wird</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.RegisterStringValueGetterAt(NetEti.Globals.IGetStringValue,System.Int32)">
+            <summary>
+            Fügt stringValueGetter am übergebenen index in die Liste ein.
+            </summary>
+            <param name="stringValueGetter">Die einzufügende IGetStringValue Instanz.</param>
+            <param name="index">Der Index (0-basiert), an dem eingefügt wird.</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.UnregisterStringValueGetter(NetEti.Globals.IGetStringValue)">
+            <summary>
+            Löscht stringValueGetter aus der Liste.
+            </summary>
+            <param name="stringValueGetter">Die aus der Liste zu löschende IGetStringValue Instanz</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.RegisterKeyValue(System.String,System.Object)">
+            <summary>
+            Liste, die von außen mit Key-Value Paaren gefüllt werden kann.
+            Diese Liste wird bei der Suche ebenfalls berücksichtigt.
+            </summary>
+            <param name="key">Der Key des zu registrierenden KeyValue-Paares.</param>
+            <param name="value">Der Wert des zu registrierenden KeyValue-Paares.</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.UnregisterKey(System.String)">
+            <summary>
+            Liste, die von außen mit Key-Value Paaren gefüllt werden kann.
+            Der gegebene Key wird aus der Liste entfernt.
+            </summary>
+            <param name="key">Der String-Key</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.GetValue``1(System.String,``0)">
+            <summary>
+            Liefert genau einen Wert zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Wildcards der Form %Name% werden, wenn möglich, rekursiv ersetzt;
+            Es wird versucht, den ermittelten String-Wert in den Rückgabetyp T zu casten.
+            </summary>
+            <typeparam name="T">Der gewünschte Rückgabe-Typ</typeparam>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValue">Das default-Ergebnis vom Typ T</param>
+            <returns>Wert zum key in den Rückgabe-Typ gecastet</returns>
+            <exception cref="T:System.InvalidCastException">Typecast-Fehler</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.GetValues``1(System.String,``0[])">
+            <summary>
+            NICHT IMPLEMENTIERT!
+            Liefert ein Array von Werten zu einem Key. Wenn es keinen Wert zu dem
+            Key gibt, wird defaultValue zurückgegeben.
+            Wildcards der Form %Name% werden, wenn möglich, rekursiv ersetzt;
+            Es wird versucht, den ermittelten String-Wert in den Rückgabetyp T zu casten.
+            </summary>
+            <typeparam name="T">Der gewünschte Rückgabe-Typ</typeparam>
+            <param name="key">Der Zugriffsschlüssel (string)</param>
+            <param name="defaultValues">Das default-Ergebnis vom Typ T[]</param>
+            <returns>Wert-Array zum key in den Rückgabe-Typ gecastet</returns>
+            <exception cref="T:System.InvalidCastException">Typecast-Fehler</exception>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppEnvReader.#ctor">
+            <summary>
+            Parameterloser Konstruktor, initialisiert die Listen.
+            </summary>
+        </member>
+        <member name="T:NetEti.ApplicationEnvironment.AppSettingsRegistry">
+            <summary>
+            Stellt für mehrere AppEnvReader-Instanzen ein gemeinsames statisches ConcurrentDictionary
+            zur Verfügung, über das eine gemeinsame Parameterliste verwaltet werden kann.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.RegisterKeyValue(System.String,System.Object)">
+            <summary>
+            Liste, die von außen mit Key-Value Paaren gefüllt werden kann.
+            Diese Liste wird bei der Suche ebenfalls berücksichtigt.
+            </summary>
+            <param name="key">Der Key des zu registrierenden KeyValue-Paares.</param>
+            <param name="value">Der Wert des zu registrierenden KeyValue-Paares.</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.UnregisterKey(System.String)">
+            <summary>
+            Liste, die von außen mit Key-Value Paaren gefüllt werden kann.
+            Der gegebene Key wird aus der Liste entfernt.
+            </summary>
+            <param name="key">Der String-Key</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.ContainsKey(System.String)">
+            <summary>
+            Liefert true, wenn der Key in der Aufzählung enthalten ist.
+            </summary>
+            <param name="key">Zu suchender Key.</param>
+            <returns>True, wenn der Key in der Aufzählung enthalten ist.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.GetValue(System.String)">
+            <summary>
+            Liefert aus der Aufzählung den Wert zum übergebenen Key.
+            </summary>
+            <param name="key">Key zum zu suchenden Wert.</param>
+            <returns>Der Wert zum Key als object.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.RememberParameterSource(System.String,System.String,System.String)">
+            <summary>
+            Merkt sich den Namen der Quelle des Werts eines übergebenen Parameters
+            in einer Aufzählung für spätere Debug-Ausgaben aller Parameter und
+            der letzten Quellen ihrer Werte.
+            </summary>
+            <param name="key">Der Key des Parameters.</param>
+            <param name="parameterSource">Die Quelle des Parameters.</param>
+            <param name="value">Der Wert des Parameters.</param>
+        </member>
+        <member name="M:NetEti.ApplicationEnvironment.AppSettingsRegistry.GetParametersSources">
+            <summary>
+            Liefert ein Dictionary, das zu jedem Parameter den Namen der Quelle
+            und den letzten Wert enthält.
+            Kann in bestimmten Fällen für die Fehlersuche hilfreich sein.
+            </summary>
+            <returns>Dictionary, das zu jedem Parameter den Namen der Quelle und den letzten Wert enthält.</returns>
+        </member>
+    </members>
+</doc>

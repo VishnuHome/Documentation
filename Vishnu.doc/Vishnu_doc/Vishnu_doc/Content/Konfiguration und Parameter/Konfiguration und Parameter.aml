@@ -509,10 +509,10 @@
                     <languageKeyword>StartCollapsed</languageKeyword>
                   </para>
                   <para>
-                    Alle <languageKeyword>Jobs</languageKeyword> werden qua Grundeinstellung eingeklappt dargestellt, d.h.
+                    Alle <languageKeyword>Jobs</languageKeyword> werden qua Grundeinstellung ausgeklappt dargestellt, d.h.
                     Unterelemente wie z.B. <languageKeyword>Checker</languageKeyword> oder weitere <languageKeyword>Jobs</languageKeyword>
-                    sind erstmal nicht sichtbar. Um dieses Verhalten zu ändern, können Sie <languageKeyword>StartCollapsed</languageKeyword>
-                    auf <database>false</database> setzen.
+                    sind erstmal sichtbar. Um dieses Verhalten zu ändern, können Sie <languageKeyword>StartCollapsed</languageKeyword>
+                    auf <database>true</database> setzen.
                   </para>
                   <alert class="note">
                     <para>

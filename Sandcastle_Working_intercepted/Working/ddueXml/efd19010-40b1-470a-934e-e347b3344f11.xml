@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="efd19010-40b1-470a-934e-e347b3344f11" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				Auch wenn Vishnu open source und frei ist, kostet die Entwicklung doch
+				viel Zeit und Arbeit und nicht zuletzt das Hosting u.a. der Dokumentation auch Geld.
+			</para>
+			<para>
+				Wenn Sie dieses Projekt und meine Arbeit unterstützen möchten,
+				können Sie dies über den PayPal Button weiter unten gerne tun.
+				Sie werden dann noch nach einem Betrag Ihrer Wahl gefragt, bevor
+				Sie den Vorgang abschließen können und Ihre Spende wirksam wird.
+			</para>
+			<para>
+				Auf jeden Fall freue ich mich über Ihren Einsatz.
+			</para>
+			<para>
+				<markup>
+					<a href="https://www.paypal.com/donate/?hosted_button_id=G8VDT54WPYWFL"
+					   target="_blank" >
+						<img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" alt="zur sicheren PayPal Seite" />
+					</a>
+				</markup>
+			</para>
+			<para>
+				Herzlich willkommen im engeren Kreis der Vishnu-Freunde<lineBreak />
+				Ihr Erik Nagel
+			</para>
+		</introduction>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="eaef89f3-95f7-441f-9153-f9d6b397a684#Inhaltlich_Verantwortlicher_gemäß_Pf10_Absatz3_MDStV" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics />
+	</developerConceptualDocument>
+</topic>

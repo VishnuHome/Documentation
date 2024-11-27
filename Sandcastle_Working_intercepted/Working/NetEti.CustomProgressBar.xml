@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.CustomProgressBar</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.CustomControls.CustomProgressBar">
+             <summary>
+             Stellt eine ProgressBar mit zusätzlichen Eigenschaften zur Verfügung:
+             abschaltbarer glow-Effekt, wählbare Farbe, zentrierter Zusatztext.
+             </summary>
+             <remarks>
+             File: CustomProgressBar.xaml.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             21.01.2013 Erik Nagel: erstellt<br></br>
+             </remarks>
+            <summary>
+            CustomProgressBar
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CustomProgressBar.ValueProperty">
+            <summary>
+            Prozentwert der ProgressBar - kann von außen gelesen und gesetzt werden.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.CustomProgressBar.Value">
+            <summary>
+            Prozentwert der ProgressBar - kann von außen gelesen und gesetzt werden.
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CustomProgressBar.IsIndeterminateProperty">
+            <summary>
+            Schaltet zwischen von links nach rechts laufender und ewig hin und her laufender ProgressBar um.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.CustomProgressBar.IsIndeterminate">
+            <summary>
+            Schaltet zwischen von links nach rechts laufender und ewig hin und her laufender ProgressBar um.
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CustomProgressBar.IsGlowingProperty">
+            <summary>
+            Schaltet den Glow-Effekt der ProgressBar an oder aus.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.CustomProgressBar.IsGlowing">
+            <summary>
+            Schaltet den Glow-Effekt der ProgressBar an oder aus.
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CustomProgressBar.TextProperty">
+            <summary>
+            Setzt oder liest einen auf der ProgressBar zentrierten Zusatztext.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.CustomProgressBar.Text">
+            <summary>
+            Setzt oder liest einen auf der ProgressBar zentrierten Zusatztext.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.CustomProgressBar.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.CustomProgressBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

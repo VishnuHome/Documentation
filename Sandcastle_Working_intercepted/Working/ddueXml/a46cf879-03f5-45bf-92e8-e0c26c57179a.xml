@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="a46cf879-03f5-45bf-92e8-e0c26c57179a" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Version 7.0.1.6 Hard Core (Stand: 16.10.2023)
+		  </para>
+		  <para>
+			  Dieser Version ist die erste komplett auf .Net 7.0 migrierte Vishnu-Software.<lineBreak />
+			  Dies umfasst auch das Framework, alle Plugins und die Dokumentation.
+			  Diese Version ist getestet und stabil.
+		  </para>
+	  </introduction>
+
+	  <section>
+		  <title>Änderungen in dieser Version</title>
+		  <content>
+			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  Der <token>V</token>-Installer (ClickOnce) wurde nach Migration auf .Net 7 deaktiviert.
+						  Hier muss langfristig eine bessere Lösung gefunden werden.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+						  <token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+						  wurden zwar nach Migration auf .Net 7 wieder funktionstüchtig gemacht, erzeugen aber bei der Generierung
+						  neuer Projekte noch Fehlermeldungen. Ansonsten funktioniert aber alles.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Erstellung von NuGet-Packages über eine allgemeingültige Lösung für alle Projekte
+						  über Environment-Variable NETETI_CIB=true und
+						  ...\AddOn\proj\Conditional_NuGet_Package_Properties.proj implementiert.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  MicroMailer (und alle sonstigen Worker): Parameter überarbeitet und, wo nötig, ausgelagert.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Vishnu-Positionierung und Resizing bei Multiscreen-Orientierung (-SizeOnVirtualScreen=true)
+						  überarbeitet.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Die Ausrichtung des <token>V</token>-Trees kann jetzt zur Laufzeit zusätzlich zum 
+						  Klick auf das YinYang-Symbol auch über F4 geändert werden.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Vishnu-eigene Meldungen mit korrekter Positionierung, Zoom-Funktionen und Icons implementiert.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  ToolTips mit Copy-Funktion realisiert.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  InPlug/WebScraper: eigene Lösung über Verkürzen und Herunterzählen der Chrome-Version für
+						  den Download einer passenden Treiberversion implementiert.
+					  </para>
+				  </listItem>
+			  </list>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+	  </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,627 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.ProcessTools</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationControl.Abortable">
+            <summary>
+            DotNet 7.0 threading helper class.
+            Behaves like Thread, except the following specials:
+                - Abort() works similarly to previous runtime versions;
+                - Abortable offers an additional property 'AbortableException';
+                - Abortable implements IDisposable.
+            Usage: replace "new Thread..." with "new Abortable...",
+                   Call Dispose on Abortable-instance when it's no longer used.
+            
+            Attention: This class uses <see cref="M:System.Runtime.ControlledExecution.Run(System.Action,System.Threading.CancellationToken)"/>,
+            which was released with.Net 7.0. Although this method is new, it has been marked as "deprecated"!
+            </summary>
+            <remarks>
+            17.03.2023 Erik Nagel: created.
+            06.08.2023 Erik Nagel: Added missing comments.
+            </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetThread">
+            <summary>
+            Returns the current helper-thread or null.
+            </summary>
+            <returns>Current helper-thread of this or a given Abortable or null.</returns>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.AbortableException">
+            <summary>
+            Contans an optional exception of the executed thread.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.#ctor(System.Threading.ThreadStart)">
+            <summary>
+            Creates a new Abortable-instance for a parameterless thread.
+            </summary>
+            <param name="start">The method to run (parameterless).</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.#ctor(System.Threading.ThreadStart,System.Int32)">
+            <summary>
+            Creates a new Abortable-instance for a parameterless thread
+            with a given maximum stacksize.
+            </summary>
+            <param name="start">The method to run (parameterless).</param>
+            <param name="maxStackSize">Maximum stacksize that can be consumed by the running method.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.#ctor(System.Threading.ParameterizedThreadStart)">
+            <summary>
+            Creates a new Abortable-instance for a parameterized thread.
+            </summary>
+            <param name="start">The method to run (including a user-parameter).</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.#ctor(System.Threading.ParameterizedThreadStart,System.Int32)">
+            <summary>
+            Creates a new Abortable-instance for a parameterized thread
+            with a given maximum stacksize.
+            </summary>
+            <param name="start">The method to run (including a user-parameter).</param>
+            <param name="maxStackSize">Maximum stacksize that can be consumed by the running method.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Abort">
+             <summary>
+             Throws a System.Threading.ThreadAbortException on the thread on which the call
+             was done to start thread termination.
+             By calling this method the thread is usually terminated.
+             
+             Exceptions:
+             T:System.PlatformNotSupportedException:
+             .NET Core only: This member is not supported.
+            
+             T:System.Security.SecurityException:
+             The caller does not have the required permission.
+            
+             T:System.Threading.ThreadStateException:
+             The thread that was killed is currently suspended.
+             
+             </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Start(System.Object)">
+            <summary>Causes the operating system to change the state of the current instance to <see cref="F:System.Threading.ThreadState.Running"/>, and optionally supplies an object containing data to be used by the method the thread executes.</summary>
+            <param name="parameter">An object that contains data to be used by the method the thread executes.</param>
+            <exception cref="T:System.Threading.ThreadStateException">The thread has already been started.</exception>
+            <exception cref="T:System.OutOfMemoryException">There is not enough memory available to start this thread.</exception>
+            <exception cref="T:System.InvalidOperationException">This thread was created using a <see cref="T:System.Threading.ThreadStart"/> delegate instead of a <see cref="T:System.Threading.ParameterizedThreadStart"/> delegate.</exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Start">
+            <summary>Causes the operating system to change the state of the current instance to <see cref="F:System.Threading.ThreadState.Running"/>.</summary>
+            <exception cref="T:System.Threading.ThreadStateException">The thread has already been started.</exception>
+            <exception cref="T:System.OutOfMemoryException">There is not enough memory available to start this thread.</exception>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.ManagedThreadId">
+            <summary>
+            Leads to the extern int thread-id.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.SpinWait(System.Int32)">
+            <summary>
+            Wait for a length of time proportional to 'iterations'.  Each iteration is should
+            only take a few machine instructions.  Calling this API is preferable to coding
+            a explicit busy loop because the hardware can be informed that it is busy waiting.
+            </summary>
+            <param name="iterations">Iteration - only takes a few machine instructions.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Yield">
+            <summary>
+            Leads to YieldInternal.
+            </summary>
+            <returns>A boolean, that indicates, whether to continue or not.</returns>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.IsAlive">
+            <summary>Returns true if the thread has been started and is not dead.</summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.IsBackground">
+            <summary>
+            Return whether or not this thread is a background thread.  Background
+            threads do not affect when the Execution Engine shuts down.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.IsThreadPoolThread">
+            <summary>Returns true if the thread is a threadpool thread.</summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.Priority">
+            <summary>Returns the priority of the thread.</summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.ThreadState">
+            <summary>
+            Return the thread state as a consistent set of bits.  This is more
+            general then IsAlive or IsBackground.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetApartmentState">
+            <summary>
+            Leads to the internal Interop ApartmentState.
+            </summary>
+            <returns>The internal Interop ApartmentState.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.DisableComObjectEagerCleanup">
+            <summary>
+            Leads to the extern void DisableComObjectEagerCleanup.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Interrupt">
+            <summary>
+            Interrupts a thread that is inside a Wait(), Sleep() or Join().  If that
+            thread is not currently blocked in that manner, it will be interrupted
+            when it next begins to block.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Join(System.Int32)">
+            <summary>
+            Waits for the thread to die or for timeout milliseconds to elapse.
+            </summary>
+            <param name="millisecondsTimeout">Timeout in milliseconds</param>
+            <returns>
+            Returns true if the thread died, or false if the wait timed out. If
+            -1 is given as the parameter, no timeout will occur.
+            </returns>
+            <exception cref="T:System.ArgumentException">if timeout &lt; -1 (Timeout.Infinite)</exception>
+            <exception cref="T:System.Threading.ThreadInterruptedException">if the thread is interrupted while waiting</exception>
+            <exception cref="T:System.Threading.ThreadStateException">if the thread has not been started yet</exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetCurrentProcessorId">
+            <summary>
+            Returns the current processor-id.
+            </summary>
+            <returns>The current processor-id.</returns>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.CurrentCulture">
+            <summary>
+            Contains the current culture.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.CurrentUICulture">
+            <summary>
+            Contains the current ui-culture.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.CurrentPrincipal">
+            <summary>
+            Contains the current principal or null.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.CurrentThread">
+            <summary>
+            Leads to the CurrentThread.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Sleep(System.Int32)">
+            <summary>
+            Suspends the current thread for timeout milliseconds. If timeout == 0,
+            forces the thread to give up the remainder of its timeslice.  If timeout
+            == Timeout.Infinite, no timeout will occur.
+            </summary>
+            <param name="millisecondsTimeout"></param>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.ExecutionContext">
+            <summary>
+            Leads to Thread.ExecutionContext.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.Name">
+            <summary>
+            Contains the thread-name or null.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.UnsafeStart">
+            <summary>Causes the operating system to change the state of the current instance to <see cref="F:System.Threading.ThreadState.Running"/>.</summary>
+            <exception cref="T:System.Threading.ThreadStateException">The thread has already been started.</exception>
+            <exception cref="T:System.OutOfMemoryException">There is not enough memory available to start this thread.</exception>
+            <remarks>
+            Unlike <see cref="M:NetEti.ApplicationControl.Abortable.Start"/>, which captures the current <see cref="P:NetEti.ApplicationControl.Abortable.ExecutionContext"/> and uses that context to invoke the thread's delegate,
+            <see cref="M:NetEti.ApplicationControl.Abortable.UnsafeStart"/> explicitly avoids capturing the current context and flowing it to the invocation.
+            </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.UnsafeStart(System.Object)">
+            <summary>Causes the operating system to change the state of the current instance to <see cref="F:System.Threading.ThreadState.Running"/>, and optionally supplies an object containing data to be used by the method the thread executes.</summary>
+            <param name="parameter">An object that contains data to be used by the method the thread executes.</param>
+            <exception cref="T:System.Threading.ThreadStateException">The thread has already been started.</exception>
+            <exception cref="T:System.OutOfMemoryException">There is not enough memory available to start this thread.</exception>
+            <exception cref="T:System.InvalidOperationException">This thread was created using a <see cref="T:System.Threading.ThreadStart"/> delegate instead of a <see cref="T:System.Threading.ParameterizedThreadStart"/> delegate.</exception>
+            <remarks>
+            Unlike <see cref="M:NetEti.ApplicationControl.Abortable.Start(System.Object)"/>, which captures the current <see cref="P:NetEti.ApplicationControl.Abortable.ExecutionContext"/> and uses that context to invoke the thread's delegate,
+            <see cref="M:NetEti.ApplicationControl.Abortable.UnsafeStart"/> explicitly avoids capturing the current context and flowing it to the invocation.
+            </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Abort(System.Object)">
+             <summary>
+             Is no longer supported.
+             
+             Throws a System.Threading.ThreadAbortException on the thread on which the call
+             was done to start thread termination.
+             By calling this method the thread is usually terminated.
+             
+             Exceptions:
+             T:System.PlatformNotSupportedException:
+             .NET Core only: This member is not supported.
+            
+             T:System.Security.SecurityException:
+             The caller does not have the required permission.
+            
+             T:System.Threading.ThreadStateException:
+             The thread that was killed is currently suspended.
+             
+             </summary>
+             <param name="stateInfo">StateInfo or null.</param>
+             <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.ResetAbort">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Suspend">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Resume">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.BeginCriticalRegion">
+            <summary>
+            Leads to Thread.BeginCriticalRegion().
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.EndCriticalRegion">
+            <summary>
+            Leads to Thread.EndCriticalRegion().
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.BeginThreadAffinity">
+            <summary>
+            Leads to Thread.BeginThreadAffinity().
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.EndThreadAffinity">
+            <summary>
+            Leads to Thread.EndThreadAffinity().
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.AllocateDataSlot">
+            <summary>
+            Leads to Thread.AllocateDataSlot().
+            </summary>
+            <returns>LocalDataStoreSlot</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.AllocateNamedDataSlot(System.String)">
+            <summary>
+            Leads to Thread.AllocateNamedDataSlot(...).
+            </summary>
+            <param name="name">Name of the DataSlot.</param>
+            <returns>LocalDataStoreSlot</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetNamedDataSlot(System.String)">
+            <summary>
+            Leads to Thread.GetNamedDataSlot(...).
+            </summary>
+            <param name="name">The name of the DataSlot.</param>
+            <returns>LocalDataStoreSlot</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.FreeNamedDataSlot(System.String)">
+            <summary>
+            Leads to Thread.FreeNamedDataSlot(...).
+            </summary>
+            <param name="name">The name of the DataSlot.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetData(System.LocalDataStoreSlot)">
+            <summary>
+            Leads to Thread.GetNamedDataSlot(...).
+            </summary>
+            <param name="slot">The LocalDataStoreSlot.</param>
+            <returns>object?</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.SetData(System.LocalDataStoreSlot,System.Object)">
+            <summary>
+            Leads to Thread.SetData(...).
+            </summary>
+            <param name="slot">The LocalDataStoreSlot.</param>
+            <param name="data">The data to store.</param>
+        </member>
+        <member name="P:NetEti.ApplicationControl.Abortable.ApartmentState">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.SetApartmentState(System.Threading.ApartmentState)">
+            <summary>
+            Leads to Thread.SetApartmentState(...).
+            </summary>
+            <param name="state">ApartmentState</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.TrySetApartmentState(System.Threading.ApartmentState)">
+            <summary>
+            Leads to Thread.TrySetApartmentState(...).
+            </summary>
+            <param name="state">ApartmentState</param>
+            <returns>Boolean indicating success.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetCompressedStack">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <returns>CompressedStack.</returns>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.SetCompressedStack(System.Threading.CompressedStack)">
+            <summary>
+            Is no longer supported.
+            </summary>
+            <param name="stack">CompressedStack</param>
+            <exception cref="T:System.PlatformNotSupportedException"></exception>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetDomain">
+            <summary>
+            Leads to Thread.GetDomain().
+            </summary>
+            <returns>AppDomain</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetDomainID">
+            <summary>
+            Leads to Thread.GetDomainID().
+            </summary>
+            <returns>DomainID</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.GetHashCode">
+            <summary>
+            Leads to Thread.GetHashCode().
+            </summary>
+            <returns>HashCode</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Join">
+            <summary>
+            Leads to Thread.Join().
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Join(System.TimeSpan)">
+            <summary>
+            Leads to Thread.Join(...).
+            </summary>
+            <param name="timeout">TimeSpan timeout.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.MemoryBarrier">
+            <summary>
+            Leads to Thread.MemoryBarrier.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.Sleep(System.TimeSpan)">
+            <summary>
+            Leads to Thread.Sleep(...).
+            </summary>
+            <param name="timeout">Timeout as TimeSpan.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Byte@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>byte</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Double@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Int16@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>short</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Int32@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Int64@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>long</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.IntPtr@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>IntPtr</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Object@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>object?</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.SByte@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>sbyte</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.Single@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>float</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.UInt16@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>ushort</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.UInt32@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>uint</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.UInt64@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>ulong</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileRead(System.UIntPtr@)">
+            <summary>
+            Leads to Thread.VolatileRead(...).
+            </summary>
+            <param name="address">address</param>
+            <returns>UIntPtr</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Byte@,System.Byte)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Double@,System.Double)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Int16@,System.Int16)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Int32@,System.Int32)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Int64@,System.Int64)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.IntPtr@,System.IntPtr)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Object@,System.Object)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.SByte@,System.SByte)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.Single@,System.Single)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.UInt16@,System.UInt16)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.UInt32@,System.UInt32)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.UInt64@,System.UInt64)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Abortable.VolatileWrite(System.UIntPtr@,System.UIntPtr)">
+            <summary>
+            Leads to Thread.VolatileWrite(...).
+            </summary>
+            <param name="address">address</param>
+            <param name="value">value</param>
+        </member>
+        <member name="T:NetEti.ApplicationControl.Messaging">
+            <summary>
+            Provides Windows message handling via System.Runtime.InteropServices.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.Messaging.HWND_BROADCAST">
+            <summary>Broadcast message flag.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.Messaging.WM_SHOWME">
+            <summary>Registered message type for a Window activation request.</summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Messaging.PostMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Wrapper for external PostMessage.
+            </summary>
+            <param name="hwnd">Window handle.</param>
+            <param name="msg">Message to be posted.</param>
+            <param name="wparam">Pointer to the message.</param>
+            <param name="lparam">Length of the message.</param>
+            <returns>True on success.</returns>
+        </member>
+        <member name="M:NetEti.ApplicationControl.Messaging.RegisterWindowMessage(System.String)">
+            <summary>
+            Wrapper for external RegisterMessage.
+            </summary>
+            <param name="message">The message to listen for.</param>
+            <returns>Message-ID on success (0xC000-0xFFFF) or Zero on Error.</returns>
+        </member>
+        <member name="T:NetEti.ApplicationControl.ProcessWorker">
+            <summary>
+            Statische Routinen für den Umgang mit Prozessen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.ProcessWorker.FinishChildProcesses(System.Diagnostics.Process,System.Int32)">
+            <summary>
+            Wartet, bis alle Child-Prozesse beendet sind oder ein Countdown abgelaufen ist.
+            Wenn bei abgelaufenem Countdown noch nicht alle Prozesse beendet sind, werden sie abgeschossen.
+            </summary>
+            <param name="process">Der Prozess, dessen Child-Prozesse beendet werden sollen.</param>
+            <param name="countdown">Zählt rückwärts, bei 1 werden alle Child-Prozesse beendet (default=6).</param>
+        </member>
+    </members>
+</doc>

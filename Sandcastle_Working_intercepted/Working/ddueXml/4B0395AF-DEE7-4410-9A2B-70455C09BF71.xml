@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="4B0395AF-DEE7-4410-9A2B-70455C09BF71" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 1.0.3.2 (Stand: 02.11.2013)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Externe, benutzer-definierte Trigger</para>
+          </listItem>
+          <listItem>
+            <para>Benannte Trigger, die auch von mehreren Knoten referenziert werden können</para>
+          </listItem>
+          <listItem>
+            <para>Externe Logger und benannte Logger, die auch von mehreren Knoten referenziert werden können</para>
+          </listItem>
+          <listItem>
+            <para>Umschalten zwischen horizontaler, vertikaler und alternierender Darstellung im Tree im Betrieb</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="b2bd8510-a131-4466-9fac-66f2033d92a0" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				Dieses Kapitel handelt von selbst erstellten <database>ValueModifiern</database>.<lineBreak />
+				Eigene <languageKeyword>ValueModifier</languageKeyword> werden Sie eher selten benötigen, da <token>V</token> schon
+				<languageKeyword>ValueModifier</languageKeyword> für die Standard-Ergebnistypen <languageKeyword>Boolean</languageKeyword>,
+				alle <languageKeyword>Integer</languageKeyword>-Typen, <languageKeyword>DateTime</languageKeyword> und
+				<languageKeyword>String</languageKeyword> mit Standard-<languageKeyword>C#</languageKeyword>-Formatierungen mitbringt.<lineBreak />
+				Was <languageKeyword>ValueModifier</languageKeyword> überhaupt sind und wie sie verwendet werden, wird ausführlich im Kapitel
+				<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#ValueModifier" /> unter <languageKeyword>ValueModifier</languageKeyword>
+				beschrieben.
+			</para>
+			<para>
+				Nehmen wir einmal an, Sie kommen mit den <token>V</token>-ValueModifiern nicht mehr aus und müssen eine erweiterte Logik implementieren
+				oder einen besonderen Ergebnistyp behandeln. Genau dafür sind eigene <languageKeyword>ValueModifier</languageKeyword> gedacht.
+			</para>
+			<para>
+				Im nachfolgenden Beispiel soll zu einem vorgegebenen Datum die zugehörige Mondphase dargestellt werden.
+				Der interne Ergebnistyp ist zwar, wie Sie weiter unten sehen können, einfach nur <languageKeyword>Int32</languageKeyword>,
+				aber die Umsetzung des Datums in den Wert einer Mondphase erfordert eine eigene Logik.
+			</para>
+			<alert class="note">
+				<para>
+					Das nachfolgende Beispiel zeigt nebenbei auch noch mal eine Anwendung für
+					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />.
+				</para>
+				<para>
+					Danke auch an https://www.freeimages.com/illustrations/vector/moonphase.
+				</para>
+			</alert>
+		</introduction>
+
+		<section address="ValueModifierDemoJob">
+			<title>der Demo Job</title>
+			<content>
+				<para>
+					So sieht der Demo-Job für eigene <languageKeyword>ValueModifier</languageKeyword> im Betrieb aus:
+				</para>
+				<mediaLink>
+					<image xlink:href="CheckUserValueModifier"/>
+				</mediaLink>
+				<para>
+					Über den Dialog <database>DatumInput</database> kann ein Datum eingegeben (oder ausgewählt) werden, welches im Knoten
+					<database>Mondphase</database> als Abbildung der zu dem Datum passenden Mondphase dargestellt wird.
+				</para>
+			</content>
+		</section>
+
+		<section address="ValueModifierDemoJobDescription">
+			<title>die zugehörige JobDescription.xml</title>
+			<content>
+				<para>
+					Dies ist die <languageKeyword>JobDescription.xml</languageKeyword> für den Demo-Job für eigene <languageKeyword>ValueModifier</languageKeyword>:
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckUserValueModifier.xml" language="xml"
+				   title="JobDescription.xml">
+				</code>
+				<para>
+					Wie man sieht, wird über die Anweisung
+					<languageKeyword>&lt;PhysicalPath&gt;Plugin\DateToMoonage.dll&lt;/PhysicalPath&gt;</languageKeyword> auf den eigenen
+					<languageKeyword>UserValueModifier</languageKeyword> verwiesen.<lineBreak/>
+					Der Typ wird für <token>V</token> allgemein auf <languageKeyword>Object</languageKeyword> festgelegt. Für die korrekte Behandlung
+					des tatsächlichen Ergebnistyps sind dann der <languageKeyword>UserValueModifier</languageKeyword> und die
+					<languageKeyword>UserView</languageKeyword><database> SingleNodeUserControl_CheckMoonPhase.dll</database> verantwortlich.
+				</para>
+				<para>
+					Der <languageKeyword>UserValueModifier</languageKeyword> <database> DateToMoonage.dll</database> ist wiederum für die korrekte
+					Behandlung des Ergebnisses des Knotens <database>DatumInput</database> verantwortlich, auf den mit der Anweisung
+					<languageKeyword>&lt;Reference&gt;DatumInput&lt;/Reference&gt;</languageKeyword> verwiesen wird.
+				</para>
+			</content>
+		</section>
+
+		<section address="ValueModifierDemoProjektDetails">
+			<title>das Demo Projekt - Details</title>
+			<content>
+				<para>
+					Die Klasse <database>DateToMoonAge</database> muss die Schnittstelle <database>IValueModifier</database> implementieren,
+					wie im nachfolgenden Code-Ausschnitt zu sehen ist.
+				</para>
+				<code source="..\Vishnu_doc\Examples\DateToMoonAge.cs" language="c#"
+				   title="Auszug aus der Klasse DateToMoonAge">
+				</code>
+				<alert class="note">
+					<para>
+						An dieser Stelle nochmal herzlichen Dank an Mostafa Kaisoun für seine Berechnungslogik
+						(https://www.codeproject.com/script/Membership/View.aspx?mid=1961229).
+						Wie die Berechnung im Detail erfolgt, ist hier nicht wesentlich, entscheidend ist nur, dass sie ein Ergebnis vom Typ
+						<languageKeyword>int</languageKeyword> (entspricht <languageKeyword>Int32</languageKeyword>) liefert.
+					</para>
+				</alert>
+				<para>
+					Die Klasse <database>DateToMoonAge</database> returniert ein Objekt vom Typ <database>DateToMoonAge_ReturnObject</database>.
+					Der folgenden Code-Ausschnitt zeigt Auszüge aus der zugehörigen Klasse.
+				</para>
+				<code source="..\Vishnu_doc\Examples\DateToMoonAge_ReturnObject.cs" language="c#"
+				   title="Auszug aus der Klasse DateToMoonAge_ReturnObject">
+				</code>
+				<para>
+					Diese Klasse dient dazu, das Ergebnis von <database>DateToMoonAge.cs</database> durch die <token>V</token>-Verarbeitung
+					(als anonymes Objekt) zu transportieren. <database>SingleNodeUserControl_CheckMoonPhase.dll</database> löst das für
+					<token>V</token> anonyme Objekt dann wieder als <database>DateToMoonAge_ReturnObject</database> auf.
+					Damit das funktioniert, müssen in <database>DateToMoonAge_ReturnObject</database> Routinen für die Serialisierung und
+					De-Serialisierung der zu transportierenden Daten (hier die Property <database>DateToMoonAge_ReturnObject</database>)
+					implementiert werden.
+				</para>
+				<para>
+					Die Serialisierung und De-Serialisierung ist im Prinzip immer gleichartig und wurde schon ausführlich im Kapitel
+					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f#Serialisierung" /> im Unterpunkt <languageKeyword>Serialisierung</languageKeyword>
+					beschrieben. Bitte lesen Sie gegebenenfalls dort nach.
+				</para>
+				<alert class="note">
+					<para>
+						Alle Code-Auszüge beschränken sich auf die für die Erklärung notwendigen Teile. Wenn Sie sich für weitere Details interessieren,
+						können Sie jederzeit die Originalquellen hinzuziehen.
+					</para>
+				</alert>
+			</content>
+		</section>
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#ValueModifier" />
+				</para>
+				<para>
+					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

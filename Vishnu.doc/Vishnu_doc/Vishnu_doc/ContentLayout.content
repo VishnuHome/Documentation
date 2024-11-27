@@ -29,10 +29,11 @@
     <Topic id="3ccc247e-ea3a-47fc-9ed6-4713baf96986" visible="True" />
     <Topic id="f14917bd-1d50-41f0-85ff-14462a770915" visible="True" />
   </Topic>
-  <Topic id="9023d1a6-ca92-460c-9f74-6edf78138638" visible="True" title="Versionshistorie">
+  <Topic id="9023d1a6-ca92-460c-9f74-6edf78138638" visible="True" isExpanded="true" title="Versionshistorie">
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
+    <Topic id="ace7a681-363c-41d2-a1fa-07c21f77eff0" visible="True" isSelected="true" title="Version 8.2.1" />
     <Topic id="299e895d-8b62-46ee-9b9b-bd98c0cd8287" visible="True" title="Version 8.2.0" />
     <Topic id="35c850d6-e5a8-433d-884b-9c612901a94f" visible="True" title="Version 8.1.6" />
     <Topic id="1d49d375-7fd6-4835-9539-34308c78fd02" visible="True" title="Version 8.0.2" />
@@ -132,5 +133,5 @@
     <Topic id="2e84f44c-6249-45dc-bdc2-c656de87c907" visible="True" />
   </Topic>
   <Topic id="eaef89f3-95f7-441f-9153-f9d6b397a684" visible="True" />
-  <Topic id="efd19010-40b1-470a-934e-e347b3344f11" visible="True" isSelected="true" title="Vishnu unterstützen" />
+  <Topic id="efd19010-40b1-470a-934e-e347b3344f11" visible="True" title="Vishnu unterstützen" />
 </Topics>

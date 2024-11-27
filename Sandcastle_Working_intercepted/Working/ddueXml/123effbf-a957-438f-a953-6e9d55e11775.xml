@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="123effbf-a957-438f-a953-6e9d55e11775" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Version 5.3.1.0 dotnet-framework-final (Stand: 18.02.2023)
+		  </para>
+		  <para>
+			  Diese Version ist nach meiner Grundsatzentscheidung vom Januar 2023 die letzte DotNet-Framework Version.<lineBreak />
+			  Die nächstfolgende Version werde ich auf DotNet-Core 7.0 umstellen.
+		  </para>
+	  </introduction>
+
+	  <section>
+		  <title>Änderungen in dieser Version</title>
+		  <content>
+			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  Es wurden mit der Versionsnummer v5.3.1.0 alle Repositories getagged.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Es wurde das TreeEvent <database>AnyResultChanged</database> implementiert.
+					  </para>
+				  </listItem>
+			  </list>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+	  </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -203,13 +203,15 @@
 				</para>
 				<para>
 					<languageKeyword>Worker</languageKeyword> werden immer abhängig von einem oder mehreren <languageKeyword>TreeEvents</languageKeyword>
-					ausgelöst. Festgelegt wird das über das Attribut <languageKeyword>&lt;LogicalExpression&gt;</languageKeyword> in der Form
-					<languageKeyword>&lt;LogicalExpression&gt;auslösender Knoten:TreeEvent[|TreeEvent]&lt;/LogicalExpression&gt;</languageKeyword>
+					ausgelöst. Festgelegt wird das über das Attribut <languageKeyword>&lt;LogicalExpression&gt;</languageKeyword> in der Form<lineBreak/>
+					<languageKeyword>
+						&lt;LogicalExpression&gt;auslösender Knoten:TreeEvent[|TreeEvent]&lt;/LogicalExpression&gt;
+					</languageKeyword><lineBreak/><lineBreak/>
 					(siehe auch nachfolgendes Beispiel).
 				</para>
 				<para>
-					Aufrufparameter für <languageKeyword>SubWorker</languageKeyword> werden wie auch bei <languageKeyword>Checkern</languageKeyword>
-					und Triggern in der <languageKeyword>JobDescription.xml</languageKeyword> über das Element '&lt;Parameters&gt;' mitgegeben werden.
+					Aufrufparameter für <languageKeyword>SubWorker</languageKeyword> werden, wie auch bei <languageKeyword>Checkern</languageKeyword>
+					und Triggern, in der <languageKeyword>JobDescription.xml</languageKeyword> über das Element '&lt;Parameters&gt;' mitgegeben.
 				</para>
 				<alert class="important">
 					<para>
@@ -249,8 +251,8 @@
 			<title>Escalator</title>
 			<content>
 				<para>
-					Mit einem <languageKeyword>Escalator</languageKeyword> können verschiedene <languageKeyword>Worker</languageKeyword>
-					hintereinandergeschaltet werden. Ein typisches Anwendungsbeispiel ist ein unerwünschtes Ergebnis eines
+					Über einen <languageKeyword>Escalator</languageKeyword> können verschiedene <languageKeyword>Worker</languageKeyword>
+					verschiedenen Schweregraden zugeordnet werden. Ein typisches Anwendungsbeispiel ist ein unerwünschtes Ergebnis eines
 					<languageKeyword>Checkers</languageKeyword> (i.d.R. <database>false</database> oder <database>Exception</database>),
 					auf das hin im ersten Schritt eine Fehlermeldung auf dem Bildschirm ausgegeben wird.
 					Erst wenn darauf nach einer gewissen Zeitspanne noch nicht reagiert wurde, folgt in einem weiteren Schritt
@@ -292,11 +294,11 @@
 				<para>
 					<lineBreak />
 					In der zugehörigen <languageKeyword>JobDefinition.xml</languageKeyword> kann man sehen, dass der
-					<languageKeyword>Checker</languageKeyword> <database> Datum</database> nicht mal zur
-					<languageKeyword>LogicalExpression</languageKeyword> (&lt;IS Tag&gt;) des <languageKeyword>Jobs</languageKeyword> gehört.
+					<languageKeyword>Checker</languageKeyword> <database> Datum</database> nicht mal zur LogicalExpression
+					"<languageKeyword>&lt;IS Tag&gt;</languageKeyword>" des <languageKeyword>Jobs</languageKeyword> gehört.
 					Er wird aber vom <languageKeyword>Job</languageKeyword> als <languageKeyword>anonymer Knoten</languageKeyword>
 					im Hintergrund ausgeführt und kann dann über den sichtbaren <languageKeyword>ValueModifier</languageKeyword>
-					<database> Tag</database> über <languageKeyword>&lt;Reference&gt;Datum&lt;/Reference&gt;</languageKeyword>
+					<database> Tag</database> über <languageKeyword>&lt;Reference&gt;Datum&lt;&#47;Reference&gt;</languageKeyword>
 					angesprochen werden.
 				</para>
 				<code source="..\Vishnu_doc\Examples\CheckSingleValueModifier.xml" language="xml"
@@ -385,7 +387,7 @@
 					<languageKeyword>TreeEvents</languageKeyword> ausgelöst.<lineBreak />
 					Festgelegt wird das über das Attribut
 					<languageKeyword>&lt;Parameters&gt;</languageKeyword> in der Form
-					<languageKeyword>&lt;Parameters&gt;TreeEvent[|TreeEvent][,sonstige_Parameter]&lt;/Parameters&gt;</languageKeyword>.
+					<languageKeyword>&lt;Parameters&gt;TreeEvent[|TreeEvent][,sonstige_Parameter]&lt;&#47;Parameters&gt;</languageKeyword>.
 				</para>
 				<code source="..\Vishnu_doc\Examples\CheckServersLogging.xml" language="xml"
 					  title="Definition von Loggern"></code>

@@ -1,0 +1,86 @@
+<doc>
+  <assembly>
+    <name>_InheritedDocs_</name>
+  </assembly>
+  <members>
+  <member name="F:Vishnu.ViewModel.DynamicUserControlBase.AttachedNameProperty"><summary>
+            Zusätzlicher Name, über den das Control im VisualTree gesucht
+            werden kann (wichtig bei UserControls).
+            </summary>
+</member><member name="P:Vishnu.ViewModel.DynamicUserControlBase.AttachedName"><summary>
+            Attached Property (String) für einen zusätzlichen Namen des UserControls.
+            </summary></member><member name="F:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour.CenterOnSizeChangeProperty"><summary>
+            Attached Property für das SizeChanged-Event eines Controls.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour.CenterOnSizeChange"><summary>
+            Attached Property (bool). Bei true soll sich das Control
+            auf dem Bildschirm zentrieren.
+            </summary>
+<value>Default: false.</value></member><member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.CollapsedCommandProperty"><summary>
+            Attached Property für das Collapsed-Event eines Expanders.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.CollapsedCommand"><summary>
+            Attached Property (ICommand) für das Collapsed-Event eines Expanders.
+            </summary></member><member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.ExpandedCommandProperty"><summary>
+            Attached Property (ICommand) für das Expanded-Event eines Expanders.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.ExpandedCommand"><summary>
+            Attached Property (ICommand) für das Expanded-Event eines Expanders.
+            </summary></member><member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SizeChangedCommandProperty"><summary>
+            Attached Property für das SizeChanged-Event eines Expanders.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SizeChangedCommand"><summary>
+            Attached Property (ICommand) für das SizeChanged-Event eines Expanders.
+            </summary></member><member name="F:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.HasParentProperty"><summary>
+            Bei True hat der Knoten einen Eltern-Knoten,
+            bei False ist er die Root.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.HasParent"><summary>
+            Attached Property (bool). Bei true hat der Knoten Child-Knoten.
+            </summary>
+<value>Default: false.</value></member><member name="P:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.LastNotNullLogical"><summary>
+            Attached Property für einen nullable Boolean zur Weitergabe des logischen Zustands
+            des dem Control zugeordneten Checkers (wird z.B. zur abhängigen Farbgebung
+            (false=rot, true=grün) einer übergeordneten Border in einem ControlTemplate genutzt):
+            Nach diversen Fehlversuchen hat sich als einzige gangbare Lösung folgende Vorgehensweise
+            herauskristallisiert: einem dem ControlTemplate übergeordneten Control oder
+            DataTemplate wird die AttachedProperty "LastNotNullLogical" zugeordnet:
+                &lt;Expander Name="Exp" Template="{StaticResource ExpanderStyleHeaderCentered}"
+                              ...
+                              attached:AttachedPropertiesContainer.LastNotNullLogical="{Binding LastNotNullLogical, diag:PresentationTraceSources.TraceLevel=High}"
+                &gt;
+            Die AttachedProperty "LastNotNullLogical" wird dabei direkt an "LastNotNullLogical" aus
+            dem DataContext, hier "LogicalNodeViewModel" gebunden.
+            Im untergeordneten ControlTemplate, hier &lt;ControlTemplate TargetType="ToggleButton"&gt;
+            in LogicalTaskTreeControlStaticResourceDictionary.xaml werden DataTrigger an das übergeordnete
+            Control mit Path auf die AttachedProperty "LastNotNullLogical" gebunden:
+               &lt;DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}},
+                               Path=(attached:AttachedPropertiesContainer.LastNotNullLogical)}" Value="True"&gt;
+                   &lt;Setter Property = "Border.BorderBrush" TargetName="ToggleButtonBorder" Value="{StaticResource ItemBorderBrushGreen}" /&gt;
+               &lt;/DataTrigger&gt;
+               &lt;DataTrigger Binding = "{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}},
+                               Path=(attached:AttachedPropertiesContainer.LastNotNullLogical)}" Value="False"&gt;
+                   &lt;Setter Property = "Border.BorderBrush" TargetName = "ToggleButtonBorder" Value = "{StaticResource ItemBorderBrushRed}" /&gt;
+               &lt;/ DataTrigger&gt;
+               
+               Wichtiger Hinweis: andere Lösungsansätze scheiterten spätestens bei Umschaltung der Tree-Orientierung.
+            </summary></member><member name="F:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.ParentChildOrientationProperty"><summary>
+            Ausrichtung der Kind-Knoten, horizontal oder vertikal.
+            </summary>
+</member><member name="P:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.ParentChildOrientation"><summary>
+            Attached Property (Orientation), Horizontal oder Vertical.
+            </summary>
+<value>Default: Vertical.</value></member><member name="P:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnCount"><summary>
+            Adds the specified number of Columns to ColumnDefinitions. 
+            Default Width is Auto.
+            </summary></member><member name="P:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnsProperties"><summary>
+            Makes the specified Column's Width equal to Auto or Star depending on GridHelpers._gridColumnUnitType.
+            Can set on multiple Columns.
+            </summary></member><member name="P:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowCount"><summary>
+            Adds the specified number of Rows to RowDefinitions. 
+            Default Height is Auto.
+            </summary></member><member name="P:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowsProperties"><summary>
+            Makes the specified Row's Height equal to Auto or Star depending on GridHelpers._gridRowUnitType. 
+            Can set on multiple Rows.
+            </summary></member></members>
+</doc>

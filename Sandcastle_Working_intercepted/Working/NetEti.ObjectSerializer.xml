@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.ObjectSerializer</name>
+    </assembly>
+    <members>
+        <member name="M:NetEti.ObjectSerializer.ItemHeader.#ctor(System.Int32,System.String)">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.ItemHeader.#ctor(System.Byte[])">
+            <summary>
+            Konstruktor - deserialisiert die Daten für ItemHeader aus einem übergebenen Bytearray.
+            </summary>
+        </member>
+        <member name="T:NetEti.ObjectSerializer.AnonymousDataMemberAttribute">
+            <summary>
+            AnonymousDataMember oder AnonymousDataMemberAttribute kennzeichnet
+            einen DataMember, der als 'object' deklariert wird, der aber zur Laufzeit
+            Instanzen verschiedener unbekannter Typen enthalten kann.
+            Hier kann nicht direkt über [DataContract] und [DataMember] serialisiert
+            werden, sondern es muss eine gesonderte Verarbeitung erfolgen.
+            </summary>
+        </member>
+        <member name="T:NetEti.ObjectSerializer.SerializationUtility">
+             <summary>
+             Bietet Unterstützung für die Serialisierung und De-Serialisierung von Objekten.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             15.03.2015 Erik Nagel: erstellt.
+             18.06.2023 Erik Nagel: im Zuge der Portierung auf .Net7 musste  dies Library komplett
+                        überarbeitet werden:
+                        SYSLIB0011 "BinaryFormatter.Serialize(Stream, object)" ist veraltet:
+                        "BinaryFormatter serialization is obsolete and should not be used.
+                        See https://aka.ms/binaryformatter for more information."
+                        Thanks to Brian Sullivan and Dzyann for their help on de-serializing Types:
+                        https://stackoverflow.com/questions/12306/can-i-serialize-a-c-sharp-type-object
+             31.08.2023 Erik Nagel: Neuen Schalter anonymousToString implementiert.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToBase64String(System.Object,System.Boolean)">
+            <summary>
+            Serialisiert ein Objekt in einen String mit einem gegebenen Encoding.
+            </summary>
+            <param name="obj">Das zu serialisierende Objekt.</param>
+            <param name="anonymousToString">Bei True werden enthaltene anonyme Datenobjekte
+            nur als Strings verschlüsselt; Default: false.</param>
+            <returns>Das Objekt als verschlüsselter String.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromBase64String(System.String)">
+            <summary>
+            Deserialisiert eine Byte-Liste in ein entsprechendes Objekt.
+            </summary>
+            <param name="encoded">Codierter string mit der Repräsentation des Objekts.</param>
+            <returns>Das deserialisierte Objekt.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToCodedString(System.Text.Encoding,System.Object,System.Boolean)">
+            <summary>
+            Serialisiert ein Objekt in einen String mit einem gegebenen Encoding.
+            </summary>
+            <param name="encoding">Verschlüsselungstyp (System.Text.Encoding).</param>
+            <param name="obj">Das zu serialisierende Objekt.</param>
+            <param name="anonymousToString">Bei True werden enthaltene anonyme Datenobjekte
+            nur als Strings verschlüsselt; Default: false.</param>
+            <returns>Das Objekt als verschlüsselter String.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromCodedString(System.Text.Encoding,System.String)">
+            <summary>
+            Deserialisiert eine Byte-Liste in ein entsprechendes Objekt.
+            </summary>
+            <param name="encoding">Verschlüsselungstyp (System.Text.Encoding).</param>
+            <param name="encoded">Codierter string mit der Repräsentation des Objekts.</param>
+            <returns>Das deserialisierte Objekt.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToByteList(System.Object,System.Boolean,System.Int32)">
+            <summary>
+            Serialisiert ein Objekt in eine Byte-Liste.
+            </summary>
+            <param name="obj">Das zu serialisierende Objekt.</param>
+            <param name="anonymousToString">Bei True werden enthaltene anonyme Datenobjekte
+            nur als Strings verschlüsselt; Default: false.</param>
+            <param name="reku">Nur für internen Gebrauch.</param>
+            <returns>Byte-Liste mit den bytes des Objekts.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromByteList(System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Deserialisiert eine Byte-Liste in ein entsprechendes Objekt.
+            </summary>
+            <param name="serialized">Byte-Liste mit den bytes des Objekts.</param>
+            <returns>Das deserialisierte Objekt.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromByteList(System.Collections.Generic.List{System.Byte},System.Int32@)">
+            <summary>
+            Deserialisiert eine Byte-Liste in ein entsprechendes Objekt.
+            </summary>
+            <param name="serialized">Byte-Liste mit den bytes des Objekts.</param>
+            <param name="srcOffset">im laufe der internen Rekursion wandernder Offset.</param>
+            <returns>Das deserialisierte Objekt.</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.Base64StringToByteArray(System.String)">
+            <summary>
+            Deserialisiert einen verschlüsselten String in ein Byte-Array.
+            </summary>
+            <param name="encoded">In einen String Verschlüsseltes Objekt.</param>
+            <returns>Der entschlüsselte String als Byte-Array.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.ByteArrayToBase64String(System.Byte[])">
+            <summary>
+            Serialisiert ein Byte-Array in einen Base64-verschlüsselten String.
+            </summary>
+            <param name="byteArray">Das zu verschlüsselnde Byte-Array.</param>
+            <returns>Das Byte-Array als Base64 verschlüsselter String.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.StringToByteArray(System.Text.Encoding,System.String)">
+            <summary>
+            Deserialisiert einen verschlüsselten String in ein Byte-Array.
+            </summary>
+            <param name="encoding">Verschlüsselungstyp, z.B. Base64.</param>
+            <param name="encoded">In einen String Verschlüsseltes Objekt.</param>
+            <returns>Der entschlüsselte String als Byte-Array.</returns>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.ByteArrayToString(System.Text.Encoding,System.Byte[])">
+            <summary>
+            Serialisiert ein Byte-Array in einen verschlüsselten String.
+            </summary>
+            <param name="encoding">Verschlüsselungstyp, z.B. UTF8.</param>
+            <param name="byteArray">Das zu verschlüsselnde Byte-Array.</param>
+            <returns>String mit dem verschlüsselten Byte-Array.</returns>
+        </member>
+    </members>
+</doc>

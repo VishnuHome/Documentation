@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.TaskWorker</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.ApplicationControl.TaskWorkerStatus">
+            <summary>
+            Aufzählungstyp für verschiedene Task-Zustände.
+            </summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.TaskWorkerStatus.Ready">
+            <summary>Kann gestartet werden.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.TaskWorkerStatus.Running">
+            <summary>Läuft gerade.</summary>
+        </member>
+        <member name="F:NetEti.ApplicationControl.TaskWorkerStatus.Halted">
+            <summary>Ist angehalten, kann mit ContinueTask wieder aktiviert werden.</summary>
+        </member>
+        <member name="T:NetEti.ApplicationControl.TaskWorker">
+             <summary>
+             Führt eine übergebene Action in einer eigenen Task aus.
+             </summary>
+             <remarks>
+             File: TaskWorker.cs
+             Autor: Erik Nagel, NetEti
+            
+             25.04.2013 Erik Nagel: erstellt
+             10.09.2013 Erik Nagel: RunTask mit Parameter-Übergabe implementiert.
+             </remarks>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor auferufen.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="E:NetEti.ApplicationControl.TaskWorker.TaskProgressChanged">
+            <summary>
+            Wird aufgerufen, wenn sich der Verarbeitungs-Fortschritt einer Task geändert hat.
+            </summary>
+        </member>
+        <member name="E:NetEti.ApplicationControl.TaskWorker.TaskProgressFinished">
+            <summary>
+            Wird aufgerufen, wenn die Verarbeitung einer Task abgeschlossen wurde.
+            </summary>
+        </member>
+        <member name="P:NetEti.ApplicationControl.TaskWorker.WorkerStatus">
+            <summary>
+            Aktueller Zustand des TaskWorkers: Ready, Running oder Halted.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.HaltTask">
+            <summary>
+            Versucht, den TaskWorker anzuhalten (Loop+Sleep).
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.ContinueTask">
+            <summary>
+            Lässt den angehaltenen TaskWorker weiterlaufen.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.RunTask(System.Action{NetEti.ApplicationControl.TaskWorker})">
+            <summary>
+            Startet die Verarbeitung einer asynchronen Task (ist selbst noch synchron).
+            </summary>
+            <param name="worker">Callback-Action für die Task.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.RunTask(System.Action{NetEti.ApplicationControl.TaskWorker,System.Object},System.Object)">
+            <summary>
+            Startet die Verarbeitung einer asynchronen Task (ist selbst noch synchron).
+            </summary>
+            <param name="worker">Callback-Action für die Task.</param>
+            <param name="parameters">Parameter für die Callback-Action für die Task.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.BreakTask">
+            <summary>
+            Abbrechen der Task.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.WaitForTask">
+            <summary>
+            Wartet auf das Beenden der Task.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.OnTaskProgressChanged(System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Meldet den Task-Fortschritt an Routinen, die sich in
+            TaskProgressChanged eingehängt haben.
+            </summary>
+            <param name="args">Informationen über den Verarbeitungsfortschritt.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.OnTaskProgressFinished(System.Exception)">
+            <summary>
+            Meldet das Task-Ende an Routinen, die sich in
+            TaskProgressFinished eingehängt haben.
+            </summary>
+            <param name="threadException">Eventuell Exception aus der Task oder null.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.cancelNotification">
+            <summary>
+            Informiert über den Abbruch der Verarbeitung.
+            </summary>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.runAsync(System.Int64,System.Object)">
+            <summary>
+            Eigene Task Action für den Run einer Task.
+            </summary>
+            <param name="dummy">Aus Kompatibilitätsgründen, wird hier nicht genutzt.</param>
+            <param name="parameters">Parameter für die asynchron auszuführende Routine.</param>
+        </member>
+        <member name="M:NetEti.ApplicationControl.TaskWorker.runAsync(System.Object)">
+            <summary>
+            Eigene Task Action für den Run einer Task.
+            </summary>
+            <param name="parameters">Parameter für die asynchron auszuführende Routine.</param>
+        </member>
+    </members>
+</doc>

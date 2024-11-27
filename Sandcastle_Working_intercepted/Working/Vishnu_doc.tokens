@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="Example">Token content</item>
+  <item id="SHFB"><ddue:externalLink xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">
+    <ddue:linkText>Sandcastle Help File Builder</ddue:linkText>
+    <ddue:linkUri>https://GitHub.com/EWSoftware/SHFB</ddue:linkUri>
+    </ddue:externalLink></item>
+  <item id="TD"><ddue:para xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <ddue:mediaLinkInline>
+    <ddue:image xlink:href="TODO" xmlns:xlink="http://www.w3.org/1999/xlink" />
+  </ddue:mediaLinkInline> TODO: ?
+</ddue:para></item>
+  <item id="V"><ddue:application xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">Vishnu</ddue:application></item>
+</content>

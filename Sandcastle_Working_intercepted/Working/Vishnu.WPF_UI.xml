@@ -1,0 +1,1017 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vishnu.WPF_UI</name>
+    </assembly>
+    <members>
+        <member name="T:ResourceDictionaryCodeBehind.CustomResources">
+            <summary>
+            CodeBehind für VishnuContextHelperResourceDictionary.xaml.
+            Steuert das Verhalten der ToolTips.
+            </summary>
+            <summary>
+            CustomResources
+            </summary>
+        </member>
+        <member name="M:ResourceDictionaryCodeBehind.CustomResources.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour">
+             <summary>
+             Zentriert das Fenster auf dem Screen, wenn sich dessen Größe geändert hat.
+             </summary>
+             <remarks>
+             File: CenterOnSizeChangeBehaviour
+             Autor: Erik - geklaut von Oger
+            
+             28.02.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour.CenterOnSizeChangeProperty">
+            <summary>
+            Attached Property für das SizeChanged-Event eines Controls.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (bool). Bei true soll sich das Control
+            auf dem Bildschirm zentrieren.
+            </summary>
+            <value>Default: false.</value>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour.GetCenterOnSizeChange(System.Windows.DependencyObject)">
+            <summary>
+            WPF-Getter für das ExpandedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Das Command.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.CenterOnSizeChangeBehaviour.SetCenterOnSizeChange(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            WPF-Setter für das ExpandedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Das Command.</param>
+        </member>
+        <member name="T:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour">
+             <summary>
+             Mappt Expander-Events auf Commands.
+             </summary>
+             <remarks>
+             File: ExpanderBehaviour.cs
+             Autor: Erik Nagel
+            
+             29.06.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.ExpandedCommandProperty">
+            <summary>
+            Attached Property (ICommand) für das Expanded-Event eines Expanders.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (ICommand) für das Expanded-Event eines Expanders.
+            </summary>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SetExpandedCommand(System.Windows.UIElement,System.Windows.Input.ICommand)">
+            <summary>
+            WPF-Setter für das ExpandedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Das Command.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.GetExpandedCommand(System.Windows.UIElement)">
+            <summary>
+            WPF-Getter für das ExpandedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Das Command.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.ExpandedEventHandler(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event-Handler für das Expanded-Event des Expanders.
+            </summary>
+            <param name="sender">Das Command.</param>
+            <param name="e">Argumente.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.CollapsedCommandProperty">
+            <summary>
+            Attached Property für das Collapsed-Event eines Expanders.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (ICommand) für das Collapsed-Event eines Expanders.
+            </summary>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SetCollapsedCommand(System.Windows.UIElement,System.Windows.Input.ICommand)">
+            <summary>
+            WPF-Setter für das CollapsedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Das Command.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.GetCollapsedCommand(System.Windows.UIElement)">
+            <summary>
+            WPF-Getter für das CollapsedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Das Command.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.CollapsedEventHandler(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event-Handler für das Collapsed-Event des Expanders.
+            </summary>
+            <param name="sender">Das Command.</param>
+            <param name="e">Argumente.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SizeChangedCommandProperty">
+            <summary>
+            Attached Property für das SizeChanged-Event eines Expanders.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (ICommand) für das SizeChanged-Event eines Expanders.
+            </summary>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SetSizeChangedCommand(System.Windows.UIElement,System.Windows.Input.ICommand)">
+            <summary>
+            WPF-Setter für das SizeChangedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Das Command.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.GetSizeChangedCommand(System.Windows.UIElement)">
+            <summary>
+            WPF-Getter für das SizeChangedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Das Command.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.Behaviours.ExpanderBehaviour.SizeChangedEventHandler(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event-Handler für das SizeChanged-Event des Expanders.
+            </summary>
+            <param name="sender">Das Command.</param>
+            <param name="e">Argumente.</param>
+        </member>
+        <member name="T:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer">
+             <summary>
+             Statischer Container für Attached Properties.
+             </summary>
+             <remarks>
+             File: AttachedPropertiesContainer.cs
+             Autor: Erik Nagel
+            
+             22.07.2013 Erik Nagel: erstellt
+             28.11.2022 Erik Nagel: LastNotNullLogicalProperty.
+             </remarks>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.LastNotNullLogicalProperty">
+            <summary>
+            Attached Property für einen nullable Boolean zur Weitergabe des logischen Zustands
+            des dem Control zugeordneten Checkers (wird z.B. zur abhängigen Farbgebung
+            (false=rot, true=grün) einer übergeordneten Border in einem ControlTemplate genutzt):
+            Nach diversen Fehlversuchen hat sich als einzige gangbare Lösung folgende Vorgehensweise
+            herauskristallisiert: einem dem ControlTemplate übergeordneten Control oder
+            DataTemplate wird die AttachedProperty "LastNotNullLogical" zugeordnet:
+                &lt;Expander Name="Exp" Template="{StaticResource ExpanderStyleHeaderCentered}"
+                              ...
+                              attached:AttachedPropertiesContainer.LastNotNullLogical="{Binding LastNotNullLogical, diag:PresentationTraceSources.TraceLevel=High}"
+                &gt;
+            Die AttachedProperty "LastNotNullLogical" wird dabei direkt an "LastNotNullLogical" aus
+            dem DataContext, hier "LogicalNodeViewModel" gebunden.
+            Im untergeordneten ControlTemplate, hier &lt;ControlTemplate TargetType="ToggleButton"&gt;
+            in LogicalTaskTreeControlStaticResourceDictionary.xaml werden DataTrigger an das übergeordnete
+            Control mit Path auf die AttachedProperty "LastNotNullLogical" gebunden:
+               &lt;DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}},
+                               Path=(attached:AttachedPropertiesContainer.LastNotNullLogical)}" Value="True"&gt;
+                   &lt;Setter Property = "Border.BorderBrush" TargetName="ToggleButtonBorder" Value="{StaticResource ItemBorderBrushGreen}" /&gt;
+               &lt;/DataTrigger&gt;
+               &lt;DataTrigger Binding = "{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}},
+                               Path=(attached:AttachedPropertiesContainer.LastNotNullLogical)}" Value="False"&gt;
+                   &lt;Setter Property = "Border.BorderBrush" TargetName = "ToggleButtonBorder" Value = "{StaticResource ItemBorderBrushRed}" /&gt;
+               &lt;/ DataTrigger&gt;
+               
+               Wichtiger Hinweis: andere Lösungsansätze scheiterten spätestens bei Umschaltung der Tree-Orientierung.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.SetLastNotNullLogical(System.Windows.DependencyObject,System.Nullable{System.Boolean})">
+            <summary>
+            WPF-Setter für die LastNotNullLogicalProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="val">Ein nullable Boolean, der dem letzten logischen Zustand des Controls entspricht.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.GetLastNotNullLogical(System.Windows.DependencyObject)">
+            <summary>
+            WPF-Getter für die LastNotNullLogicalProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Ein nullable Boolean, der dem letzten logischen Zustand des Controls entspricht.</returns>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.HasParentProperty">
+            <summary>
+            Bei True hat der Knoten einen Eltern-Knoten,
+            bei False ist er die Root.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (bool). Bei true hat der Knoten Child-Knoten.
+            </summary>
+            <value>Default: false.</value>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.GetHasParent(System.Windows.DependencyObject)">
+            <summary>
+            WPF-Getter für die HasParentProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>True, wenn der Knoten einen Eltern-Knoten besitzt.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.SetHasParent(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            WPF-Setter für die HasParentProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Boolescher Wert.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.ParentChildOrientationProperty">
+            <summary>
+            Ausrichtung der Kind-Knoten, horizontal oder vertikal.
+            </summary>
+            
+            <AttachedPropertyComments>
+            <summary>
+            Attached Property (Orientation), Horizontal oder Vertical.
+            </summary>
+            <value>Default: Vertical.</value>
+            </AttachedPropertyComments>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.GetParentChildOrientation(System.Windows.DependencyObject)">
+            <summary>
+            WPF-Getter für die ParentChildOrientationProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Ausrichtung der Kind-Knoten: Horizontal oder Vertical.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.AttachedPropertiesContainer.SetParentChildOrientation(System.Windows.DependencyObject,System.Windows.Controls.Orientation)">
+            <summary>
+            WPF-Setter für die ParentChildOrientationProperty.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Ausrichtung der Kind-Knoten: Horizontal oder Vertical.</param>
+        </member>
+        <member name="T:Vishnu.WPF_UI.DependencyProperties.BinaryModificationSwitch">
+             <summary>
+             DependencyObject-Hilfsklasse für die DependencyProperty
+             OrientationModification.
+             </summary>
+             <remarks>
+             File: BinaryModificationSwitch
+             Autor: Erik Nagel
+            
+             07.10.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.BinaryModificationSwitch.OrientationModificationProperty">
+            <summary>
+            HilfsProperty für die Parametrisierung des ValueConverters 'OrientationModifier':
+            Unchanged=unverändert, Switched=umgedreht (Horizontal in => Vertical out und umgekehrt),
+            Horizontal=immer horizontal, Vertical=immer vertikal.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.DependencyProperties.BinaryModificationSwitch.OrientationModification">
+            <summary>
+            Property für die OrientationModificationProperty. 
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter">
+             <summary>
+             Converter-Hilfsklasse für BinaryModificationSwitch.
+             Konvertiert OrientationSwitch zu string und umgekehrt.
+             </summary>
+             <remarks>
+             File: BinaryModificationSwitch.cs
+             Autor: Erik Nagel
+            
+             12.10.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.#cctor">
+            <summary>
+            Statischer Konstruktor - füllt defaultValues mit OrientationSwitch.Unchanged.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Liefert True, wenn der übergebene sourceType konvertiert werden könnte
+            (also vom Typ string ist).
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <param name="sourceType">Auf Konvertierbarkeit zu prüfender Source-Typ</param>
+            <returns>True, wenn sourceType von diesem TypeConverter konvertiert werden kann (also bei string).</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Liefert True, wenn in den übergebenen destinationType konvertiert werden könnte
+            (der destinationType also vom Typ string ist).
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <param name="destinationType">Auf Konvertierbarkeit zu prüfender Source-Typ</param>
+            <returns>True, wenn dieser TypeConverter in den destinationType konvertieren kann (also bei string).</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Konvertiert von string nach OrientationSwitch.
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <param name="culture">Länder-Info.</param>
+            <param name="value">Der zu konvertierende Wert (string).</param>
+            <returns>Der konvertierte Wert (OrientationSwitch).</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Konvertiert von OrientationSwitch nach string.
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <param name="culture">Länder-Info.</param>
+            <param name="value">Der zu konvertierende Wert (OrientationSwitch).</param>
+            <param name="destinationType">Der Typ, in den konvertiert werden soll (string).</param>
+            <returns>Der konvertierte Wert (string).</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Liefert True, wenn Standartwerte für die Konvertierung angeboten werden.
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <returns>True, wenn Standartwerte für die Konvertierung angeboten werden.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.OrientationSwitchTypeConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Eine optionale Sammlung von Standardwerten für die Konvertierung.
+            </summary>
+            <param name="context">WPF-Kontext.</param>
+            <returns>Sammlung von Standardwerten für die Konvertierung.</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.DependencyProperties.GridHelpers">
+            <summary>
+            Diese Klasse stellt DependencyProperties für die Zeilenzahl und Spaltenzahl
+            von WPF-Grids zur Verfügung. Damit wird es möglich, die Spalten- und Zeilenzahl
+            von Grids zur Laufzeit über Databinding zu setzen.
+            Ich habe die Logik nahezu unverändert von Rachel Lim's Blog auf
+            https://rachel53461.wordpress.com/2011/09/17/wpf-grids-rowcolumn-count-properties/
+            übernommen.
+            Thanks and respect to Rachel Lim on https://rachel53461.wordpress.com/
+            </summary>
+            <remarks>
+            03.10.2022 Erik Nagel: created.
+            </remarks>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowCountProperty">
+            <summary>
+            Adds the specified number of Rows to RowDefinitions. 
+            Default Height is Auto.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.GetRowCount(System.Windows.DependencyObject)">
+            <summary>
+            Returns the actual RowCount of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <returns>Actual RowCount of the given Grid.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.SetRowCount(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+            Sets the RowCount of a given Grid to the given value.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="value">New RowCount for the given Grid.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowCountChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Change Event - Adds the Rows.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="e">DependencyPropertyChangedEventArgs containing the new row count.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnCountProperty">
+            <summary>
+            Adds the specified number of Columns to ColumnDefinitions. 
+            Default Width is Auto.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.GetColumnCount(System.Windows.DependencyObject)">
+            <summary>
+            Returns the actual ColumnCount of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <returns>Actual ColumnCount of the given Grid.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.SetColumnCount(System.Windows.DependencyObject,System.Int32)">
+            <summary>
+            Sets the ColumnCount of a given Grid to the given value.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="value">New ColumnCount for the given Grid.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnCountChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Change Event - Adds the columns.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="e">DependencyPropertyChangedEventArgs containing the new column count.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowsPropertiesProperty">
+            <summary>
+            Makes the specified Row's Height equal to Auto or Star depending on GridHelpers._gridRowUnitType. 
+            Can set on multiple Rows.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.GetRowsProperties(System.Windows.DependencyObject)">
+            <summary>
+            Returns a string representing the value of the RowsPropertiesProperty of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <returns>A string representing the value of the RowsPropertiesProperty of a given Grid.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.SetRowsProperties(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the new value of the RowsPropertiesProperty of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="value">A string representing the value of the RowsPropertiesProperty of a given Grid.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.RowsPropertiesChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Change Event - Makes the specified Row's Height equal to Auto or Star depending on GridHelpers._gridRowUnitType. 
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="e">DependencyPropertyChangedEventArgs containing the new RowsPropertiesProperty as string.</param>
+        </member>
+        <member name="F:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnsPropertiesProperty">
+            <summary>
+            Makes the specified Column's Width equal to Auto or Star depending on GridHelpers._gridColumnUnitType.
+            Can set on multiple Columns.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.GetColumnsProperties(System.Windows.DependencyObject)">
+            <summary>
+            Returns a string representing the value of the ColumnsPropertiesProperty of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <returns>A string representing the value of the ColumnsPropertiesProperty of a given Grid.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.SetColumnsProperties(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the new value of the ColumnsPropertiesProperty of a given Grid.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="value">A string representing the value of the ColumnsPropertiesProperty of a given Grid.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.DependencyProperties.GridHelpers.ColumnsPropertiesChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Change Event - Makes specified Column's Width equal to Auto or Star depending on GridHelpers._gridColumnUnitType.
+            </summary>
+            <param name="obj">Grid as DependencyObject.</param>
+            <param name="e">DependencyPropertyChangedEventArgs containing the new ColumnsPropertiesProperty as string.</param>
+        </member>
+        <member name="T:Vishnu.WPF_UI.LogicalTaskJobGroupsControl">
+             <summary>
+             Interaktionslogik für LogicalTaskJobGroupsControl.xaml
+             </summary>
+             <remarks>
+             File: LogicalTaskJobGroupsControl.xaml.cs
+             Autor: Erik Nagel
+            
+             01.10.2014 Erik Nagel: erstellt
+             </remarks>
+            <summary>
+            LogicalTaskJobGroupsControl
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskJobGroupsControl.#ctor">
+            <summary>
+            Konstruktor: erzeugt eine Instanz von LogicalTaskJobGroupsControl
+            und ruft InitializeComponent().
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskJobGroupsControl.DoDispose">
+            <summary>
+            Hier werden die beim disposing notwendigen Aktionen durchgeführt.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskJobGroupsControl.OnDynamicUserControl_ContentRendered">
+            <summary>
+            Löst das OnDynamicUserControl_ContentRendered-Ereignis aus.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskJobGroupsControl.SetContextMenuDataContext">
+            <summary>
+            Setzt den konkreten DataContext für das ContextMenu.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskJobGroupsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.LogicalTaskTreeControl">
+             <summary>
+             Interaktionslogik für LogicalTaskTreeControl.xaml
+             </summary>
+             <remarks>
+             File: LogicalTaskTreeControl.xaml.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+            <summary>
+            LogicalTaskTreeControl
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskTreeControl.#ctor">
+            <summary>
+            Konstruktor: erzeugt eine Instanz von LogicalTaskTreeControl
+            und ruft InitializeComponent().
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.LogicalTaskTreeControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.MainWindow">
+            <summary>
+            Interaktionslogik für MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:Vishnu.WPF_UI.MainWindow.SaveWindowAspectsAndCallViewModelLogicCommand">
+            <summary>
+            Ruft die lokale Routine "SaveWindowAspectsAndCallViewModelLogic" auf.
+            Diese speichert die aktuellen Window-Darstellungsparameter in einer Instanz von "WindowAspects"
+            und gibt "WindowAspects" dan als Aufrufparameter an die ViewModel-Routine "SaveTreeState" weiter,
+            welche ihrerseits die WindowAspects zusammen mit Tree-relevanten Parametern abspeichert.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.MainWindow.SizeOnVirtualScreen">
+            <summary>
+            Bei true werden mehrere Bildschirme als ein einziger
+            großer Bildschirm behandelt, ansonsten zählt für
+            Größen- und Positionsänderungen der Bildschirm, auf dem
+            sich das MainWindow hauptsächlich befindet (ActualScreen).
+            Wird aktuell (02.02.2024) intern immer auf true gesetzt! Vormals default: false;
+            Muss von außen nach Instanziierung gesetzt werden.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.MainWindow.MinLeft">
+            <summary>
+            Ganz links auf dem aktuellen Screen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.MainWindow.MinTop">
+            <summary>
+            Ganz oben auf dem aktuellen Screen.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.MainWindow.FirstSelectedIndex">
+            <summary>
+            Bei 1 mit der Job-Ansicht gestartet, ansonsten mit der Tree-Ansicht (default: 0).
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.MainWindow.MainWindowAspects">
+            <summary>
+            Wesentlichen Darstellungsmerkmale des Vishnu-MainWindows.
+            Werden beim Start der Anwendung aus den AppSettings gefüllt.
+            </summary>
+        </member>
+        <member name="F:Vishnu.WPF_UI.MainWindow.IsRelocating">
+            <summary>
+            Zeigt an, dass das Hauptfenster gerade seinen Standort wechselt
+            und somit noch nicht die korrekte Endposition an Checker und Worker melden kann.
+            Wird in App.cs genutzt um beim Start der Applikation auf das erste Positionieren
+            des Hauptfensters zu warten, bevor ein Autostart durchgeführt wird.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.#ctor(System.Boolean,System.Boolean,Vishnu.Interchange.WindowAspects)">
+            <summary>
+            Konstruktor des Haupt-Fensters.
+            </summary>
+            <param name="startWithJobs">Bei true wird mit der Jobs-Ansicht gestartet, ansonsten mit der Tree-Ansicht (default: false).</param>
+            <param name="sizeOnVirtualScreen">Stillgelegter Parameter! Bei true wird über mehrere Bildschirme hinweg skaliert, ansonsten auf einen Bildschirm (aktuell: immer true!).</param>
+            <param name="mainWindowStartAspects">Eventuell vorher gespeicherte Darstellungseigenschaften des Vishnu-MainWindow oder Defaults.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.OnSourceInitialized(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Window.SourceInitialized event.
+            </summary>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.ForceRecalculateWindowMeasures(System.Object)">
+            <summary>
+            Setzt die Fenstergröße unter Berücksichtigung von Maximalgrenzen auf die
+            Höhe und Breite des Inhalts und die Property SizeToContent auf WidthAndHeight.
+            Zentriert das Window dann neu relativ zur letzten Position.
+            </summary>
+            <param name="parameter">Optionales Parameter-Objekt, hier ungenutzt.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.RecalculateWindowMeasures">
+            <summary>
+            Setzt die Fenstergröße unter Berücksichtigung von Maximalgrenzen auf die
+            Höhe und Breite des Inhalts und die Property SizeToContent auf WidthAndHeight.
+            Zentriert das Window dann neu relativ zur letzten Position.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.MoveWindowToStartPosition">
+            <summary>
+            Centers Window on Screen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.EvalMainWindowStartAspects">
+            <summary>
+            Trifft Vorbelegungen für das aktuelle Window nach vorher gespeicherten Bildschirmeinstellungen (Strg-s).
+            Diese Routine wird im Konstruktor von MainWindow noch vor InitializeComponent aufgerufen.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.ActivateMainWindowStartAspects">
+            <summary>
+            Aktiviert Vorbelegungen für das aktuelle Window nach vorher gespeicherten Bildschirmeinstellungen (Strg-s).
+            Diese Routine kann erst im Eventhandler window_ContentRendered aufgerufen werden, wenn alle Controls schon
+            vorhanden sind.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.SaveWindowAspectsAndCallViewModelLogicCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Speichert die aktuellen Window-Darstellungsparameter in einer Instanz von "WindowAspects"
+            und gibt "WindowAspects" dann als Aufrufparameter an die ViewModel-Routine "SaveTreeState" weiter,
+            welche ihrerseits die WindowAspects ergänzt und zusammen mit Tree-relevanten Parametern abspeichert.
+            </summary>
+            <param name="target">Auslöser (Besitzer) des Commands.</param>
+            <param name="e">Das RoutedCommand.</param>
+        </member>
+        <member name="M:Vishnu.WPF_UI.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.NodeErrorControl">
+            <summary>
+            Interaktionslogik für NodeErrorControl.xaml
+            </summary>
+            <summary>
+            NodeErrorControl
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.NodeErrorControl.DllPath">
+            <summary>
+            Pfad zur Dll, die nicht geladen werden konnte.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.NodeErrorControl.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="P:Vishnu.WPF_UI.NodeErrorControl.NodeErrorUserResultViewModel">
+            <summary>
+            ViewModel für einen Ladefehler-Knoten.
+            </summary>
+        </member>
+        <member name="M:Vishnu.WPF_UI.NodeErrorControl.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Der DataContext als IVishnuViewModel.</param>
+            <returns>Ein NodeErrorViewModel.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.NodeErrorControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.ChildOrientationToExpandDirection">
+             <summary>
+             ValueConverter, wandelt Die Child-Anordnung eines Knotens (Horizontal, Vertical)
+                       in eine ExpandDirection für den anzeigenden Expander (Down, Right).
+             </summary>
+             <remarks>
+             File: ChildOrientationToExpandDirection.cs
+             Autor: Erik Nagel
+            
+             20.05.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.ChildOrientationToExpandDirection.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt Orientation in ExpandDirection
+            ("Horizontal" in "Down" und "Vertical" in "Right").
+            </summary>
+            <param name="value">Orientation</param>
+            <param name="targetType">ExpandDirection</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>ExpandDirection (Down, Right)</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.ChildOrientationToExpandDirection.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt ExpandDirection in Orientation.
+            </summary>
+            <param name="value">ExpandDirection</param>
+            <param name="targetType">Orientation</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Orientation (Horizontal, Vertical)</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.EqualityConverter">
+             <summary>
+             Compares two Properties (Thanks to Jason Tyler).
+             </summary>
+             <remarks>
+             Author: Jason Tyler on https://stackoverflow.com/questions/37302270/comparing-two-dynamic-values-in-datatrigger
+            
+             03.03.2021 Erik Nagel, original from Jason Tyler.
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.EqualityConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            MultiValueConverter - returns true, if two values are equal.
+            </summary>
+            <param name="values">Array of two Property-values.</param>
+            <param name="targetType">Object.</param>
+            <param name="parameter">Optional convert-parameters, null here.</param>
+            <param name="culture">Globalization.CultureInfo.</param>
+            <returns>Object of type 'targetType'.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.EqualityConverter.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            There is no way back => not implemented.
+            </summary>
+            <param name="value">Object.</param>
+            <param name="targetTypes">Array of two Property-values.</param>
+            <param name="parameter">Optional convert-parameters.</param>
+            <param name="culture">Globalization.CultureInfo.</param>
+            <returns>Not implemented.</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.NotEmptyToTrue">
+             <summary>
+             ValueConverter, wandelt einen nicht leeren String in Boolean True.
+             </summary>
+             <remarks>
+             File: NotEmptyToTrue.cs
+             Autor: Erik Nagel
+            
+             30.05.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.NotEmptyToTrue.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen nicht leeren String in Boolean true.
+            ("" oder Null: true, alles andere: false).
+            </summary>
+            <param name="value">Zu prüfenderString</param>
+            <param name="targetType">Boolean</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>True, wenn der String nicht leer ist.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.NotEmptyToTrue.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt ExpandDirection in Orientation.
+            </summary>
+            <param name="value">Boolean</param>
+            <param name="targetType">String</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Orientation (Horizontal, Vertical)</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.NullableBoolToBrush">
+             <summary>
+             ValueConverter, wandelt einen nullable bool in Farben:
+             null: gelb, true: grün, false: rot.
+             </summary>
+             <remarks>
+             File: NullableBoolToBrush.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.NullableBoolToBrush.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen nullable bool in Farben (SolidColorBrush):
+            null: gelb, true: grün, false: rot.
+            </summary>
+            <param name="values">Nullable-Bool und besitzendes FrameworkElement.</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>SolidColorBrush (gelb, grün, rot)</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.NullableBoolToBrush.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt die Farben gelb, grün, rot (SolidColorBrush)
+            in null, true, false.
+            </summary>
+            <param name="value">SolidColorBrush (gelb, grün, rot)</param>
+            <param name="targetTypes">Nullable-Bool und besitzendes FrameworkElement.</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Nullable-Bool</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.OrientationModifier">
+             <summary>
+             ValueConverter, wandelt eine Orientation (Horizontal, Vertical)
+                       abhängig von einem zusätzlichen Schalter vom Typ OrientationSwitch um:
+                       Unchanged=unverändert, Switched=umgedreht, Horizontal=horizontal, Vertical=vertikal.
+             </summary>
+             <remarks>
+             File: OrientationModifier.cs
+             Autor: Erik Nagel
+            
+             05.10.2014 Erik Nagel: erstellt
+             23.07.2022 Erik Nagel: Im DesignMode wird jetzt ein definierter Wert (Horizontal) zurückgegeben.
+                                    Visual Studio 2022 zeigte vorher den Fehler "XDG0062 Die angegebene Umwandlung ist ungültig."
+                                    auf dem besitzenden DataTemplate.
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.OrientationModifier.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt eine Orientation (Horizontal, Vertical)
+                      abhängig von einem zusätzlichen Schalter vom Typ OrientationSwitch um:
+                      Unchanged=unverändert, Switched=umgedreht, Horizontal=horizontal, Vertical=vertikal.
+            </summary>
+            <param name="values">Array: [Orientation][OrientationSwitch].</param>
+            <param name="targetType">Orientation</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>ExpandDirection (Down, Right)</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.OrientationModifier.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt ExpandDirection in Orientation.
+            </summary>
+            <param name="value">Orientation.</param>
+            <param name="targetTypes">Array: [Orientation][OrientationSwitch].</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Array: [Orientation][OrientationSwitch].</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.Path2UserControlBase">
+             <summary>
+             ValueConverter, wandelt einen nicht leeren String in Boolean True.
+             </summary>
+             <remarks>
+             File: NotEmptyToTrue.cs
+             Autor: Erik Nagel
+            
+             30.05.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.Path2UserControlBase.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Instanziiert nach einer Pfadangabe aus einer dynamisch geladenen,
+            externen dll ein Objekt vom Typ DynamicUserControlBase.
+            </summary>
+            <param name="values">Pfad zur externen Dll und aktueller DataContext.</param>
+            <param name="targetType">DynamicUserControl.DynamicUserControlBase</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Instanz vom Typ DynamicUserControl.DynamicUserControlBase oder null.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.Path2UserControlBase.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Ist nicht implementiert.
+            </summary>
+            <param name="value">Instanz vom Typ DynamicUserControl.DynamicUserControlBase.</param>
+            <param name="targetType">String und object.</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Exception</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.VisualNodeStateToBitmapImage">
+             <summary>
+             Setzt einen Enum-Typ in ein BitmapImage um.
+             </summary>
+             <remarks>
+             File: VisualNodeStatToBitmapImage
+             Autor: Erik Nagel
+            
+             27.02.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.VisualNodeStateToBitmapImage.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Übersetzt eine Knoten-Zustand (Enum) in ein Bild.
+            </summary>
+            <param name="values">Array: [Status des Knotens][ResourceDictionary mit BitmapImages].</param>
+            <param name="targetType">Der Zieltyp (BitmapImage).</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen</param>
+            <returns>BitmapImage.</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.VisualNodeStateToBitmapImage.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Ist nicht implementiert.
+            </summary>
+            <param name="value">BitmapImage</param>
+            <param name="targetTypes">Array: [Status des Knotens][ResourceDictionary mit BitmapImages].</param>
+            <param name="parameter">Wird nicht genutzt.</param>
+            <param name="culture">Sprache, Sonderzeichen</param>
+            <returns>VisualNodeState als Object.</returns>
+        </member>
+        <member name="T:Vishnu.WPF_UI.ValueConverter.VisualNodeWorkerStateToText">
+             <summary>
+             ValueConverter, wandelt einen nullable bool in Farben:
+             null: gelb, true: grün, false: rot.
+             </summary>
+             <remarks>
+             File: NullableBoolToBrush.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.VisualNodeWorkerStateToText.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen VisualNodeWorkerState in Text:
+            none: " ", Valid: "W", Invalid: "X".
+            </summary>
+            <param name="value">VisualNodeWorkerState</param>
+            <param name="targetType">string-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Text (" ", "W", "X")</returns>
+        </member>
+        <member name="M:Vishnu.WPF_UI.ValueConverter.VisualNodeWorkerStateToText.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt die Farben gelb, grün, rot (SolidColorBrush)
+            in null, true, false.
+            </summary>
+            <param name="value">SolidColorBrush (gelb, grün, rot)</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Nullable-Bool</returns>
+        </member>
+        <member name="T:NetEti.CustomControls.SplashWindow">
+            <summary>
+            Demo-Logik für SplashWindow
+            (thanks to amr azab, http://www.codeproject.com/Articles/116875/WPF-Loading-Splash-Screen,
+            and Nate Lowry, http://blog.dontpaniclabs.com/post/2013/11/14/Dynamic-Splash-Screens-in-WPF).
+            </summary>
+            <summary>
+            SplashWindow
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.SplashWindow.Version">
+            <summary>
+            Versionsstring.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashWindow.StartSplashWindow">
+            <summary>
+            Erzeugt das SplashWindow, startet es und gibt eine Referenz darauf zurück.
+            </summary>
+            <returns>Referenz auf das SplashWindow.</returns>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashWindow.ShowMessage(System.String)">
+            <summary>
+            Gibt eine Meldung im SplashWindow aus.
+            </summary>
+            <param name="message">Meldung, die im SplashWindow ausgegeben werden soll.</param>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashWindow.ShowVersion(System.String)">
+            <summary>
+            Gibt die Programmversion im SplashWindow aus.
+            </summary>
+            <param name="version">Meldung, die im SplashWindow ausgegeben werden soll.</param>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashWindow.FinishAndClose">
+            <summary>
+            Schließt das SplashWindow.
+            </summary>
+        </member>
+        <member name="E:NetEti.CustomControls.SplashWindow.PropertyChanged">
+            <summary>
+            EventHandler für INotifyPropertyChanged (löst bei Änderungen an öffentlichen Properties aus).
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.SplashWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

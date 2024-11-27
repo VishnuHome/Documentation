@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="C73BC741-899E-4C69-9420-1CAA366FEABA" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 3.0.2.8 (Stand: 19.03.2016)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>FileChecker überarbeitet</para>
+          </listItem>
+          <listItem>
+            <para>Jobs\CheckAll erzeugt Race-Conditions. Nach dem ersten Shock Problem erkannt:
+                  die neue <token>V</token>-Version parallelisiert sauberer und arbeitet performanter;
+                  Beides zusammen deckte eine schon in früheren Versionen latente Fehlerquelle bei nicht Thread-sicheren User-Checkern auf;
+                  Zur Lösung wurde dem Element "ThreadLocked" ein Attribut"LockName" mitgegeben und die (nicht Thread-Save-)Jobs
+                  entsprechend übergreifend gelockt</para>
+          </listItem>
+          <listItem>
+            <para>
+              <token>V</token>-SplashScreen mit Versionsanzeige</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

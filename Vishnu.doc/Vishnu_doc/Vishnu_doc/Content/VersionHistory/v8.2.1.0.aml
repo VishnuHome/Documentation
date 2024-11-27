@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ace7a681-363c-41d2-a1fa-07c21f77eff0" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Version 8.2.1 Arrival-patch-01 (Stand: 05.07.2024)
+		  </para>
+		  <alert class="note">
+			  <para>
+				  Von dieser Version ist nur das BuxFix im aktuellen Release enthalten.
+				  Für das geänderte Kontextmenü müssen auf das "Latest" Release zusätzlich 
+				  ProcessTools und Vishnu heruntergeladen und umgewandelt werden.
+			  </para>
+		  </alert>
+	  </introduction>
+
+	  <section>
+		  <title>Änderungen in dieser Version</title>
+		  <content>
+			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  BugFix: Laden eines UserParameterReaders innerhalb eines root-Verzeichnisses,
+						  welches Leerzeichen im Namen hat, führte zu einer Exception.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Beenden aller Slave-Prozesse (Meldungen, Logfenster) mit in das Kontextmenü aufgenommen.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  In den Vordergrund Holen aller Slave-Prozesse (Meldungen, Logfenster) mit in das Kontextmenü aufgenommen.
+					  </para>
+				  </listItem>
+			  </list>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+	  </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

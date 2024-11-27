@@ -1,0 +1,693 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetEti.ZipAccess</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.FileTools.Zip.ICSharpWorker">
+            <summary>
+            Funktion: Routinen zum Packen und Entpacken von ZIP-Archiven.
+                      Nutzt die ICSharpCode.SharpZipLib.dll.
+            </summary>
+            <remarks>
+            Die Microsoft eigenen Routinen legen bei Archiven > 4GIG die Ohren an und können keine Passwörter!<br></br>
+            Autor: Peter Bromberg (http://www.eggheadcafe.com/tutorials/aspnet/9ce6c242-c14c-4969-9251-af95e4cf320f/zip--unzip-folders-and-f.aspx)<br />
+            Vielen Dank dafür.
+            zurechtgepfuscht von: Erik Nagel, NetEti<br />
+            <br></br>
+            24.02.2023 Erik Nagel: erstellt<br />
+            </remarks>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.ICSharpWorker.ZipProgressChanged">
+            <summary>
+            Ereignis das Eintritt, wenn sich der Fortschritt von ZipAccess ändert.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.ICSharpWorker.ZipProgressFinished">
+            <summary>
+            Ereignis das Eintritt, wenn ZipAccess beendet wird.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.IsZip(System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv mit mindestens einem Eintrag ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.GetZipEntryList(System.String,System.String)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als String-Liste.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort für das Archiv</param>
+            <returns>String-Liste mit dem Inhaltsverzeichnis des Archivs</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.UnZipArchive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.UnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            neues Unterverzeichnis mit dem Namen des Archivs im outputFolder.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.UnZipArchiveFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+            <param name="filePathes">Liste der zu entpackenden Dateien (inklusive relative Pfade)</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.ZipDirectory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten</param>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort</param>
+            <param name="packRootAsDir">Den Ordner im Zip mit anlegen</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.ZipFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Packt die Files aus "filePathes" in ein Archiv "zipPathAndFile".
+            Optional kann ein Passwort mitgegeben werden.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="commonRootPath">Pfad und Name des Verzeichnisses, unterhalb dem sich alle zu packenden Dateien/Verzeichnisse befinden müssen.</param>
+            <param name="password">Passwort für das Archiv oder null.</param>
+            <param name="packRootAsDir">Bei true wird das Root-Verzeichnis mit eingepackt, bei false nur die enthaltenen Dateien/Verzeichnisse.</param>
+            <param name="filePathes">String-Array mit Pfaden der zu packenden Dateien/Verzeichnissen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.Abort">
+            <summary>
+            Muss im externen EventHandler aufgerufen werden werden,
+            wenn der laufende Vorgang abgebrochen werden soll.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.OnZipProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Löst das ZipProgressChanged-Ereignis aus.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.IcsUnzipFirstDumpToFile(System.String,System.String,System.Int32)">
+            <summary>
+            Entpackt das erste File aus dem Archiv (keine Unterordner)
+            und liefert Informationen darüber zurück. Wenn maxBytes > 0 ist,
+            werden zur Ermittlung der Informationen nur maxBytes entpackt.
+            Diese Routine dient in erster Linie dazu, schnell den Anfang
+            von gepackten Dumps zu entpacken, um an Informationen zu kommen,
+            ohne den ganzen Dump (i.d.R. > 3GB) entpacken zu müssen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="newFilePath">
+            Pfad und Name der entpackten Datei, wenn null oder ""
+            wird der Original Pfadname aus dem Archiv verwendet
+            </param>
+            <param name="maxBytes">Wenn > 0, nur entsprechend Bytes entpacken</param>
+            <returns>Pfad, Größe und Timestamp der Datei im Archiv</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ICSharpWorker.IcsUnzipFirstDumpToFile(System.String)">
+            <summary>
+            Ruft UnzipFirstDumpToFile(zipPathAndFile, "", 0, null).
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <returns>Pfad, Größe und Timestamp der Datei im Archiv</returns>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.IZipWorker.ZipProgressChanged">
+            <summary>
+            Ereignis das Eintritt, wenn sich der Fortschritt von ZipAccess ändert.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.IZipWorker.ZipProgressFinished">
+            <summary>
+            Ereignis das Eintritt, wenn ZipAccess beendet wird.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.IsZip(System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.GetZipEntryList(System.String,System.String)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als ZippedFileInfo.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort für das Archiv</param>
+            <returns>String-Liste mit dem Inhaltsverzeichnis des Archivs</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.UnZipArchive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.UnZipArchiveFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+            <param name="filePathes">Liste der zu entpackenden Dateien (inklusive relative Pfade)</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.UnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            neues Unterverzeichnis mit dem Namen des Archivs im outputFolder.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.ZipDirectory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten</param>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort</param>
+            <param name="packRootAsDir">Den Ordner im Zip mit anlegen</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.ZipFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Packt die Files aus "filePathes" in ein Archiv "zipPathAndFile".
+            Optional kann ein Passwort mitgegeben werden.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="commonRootPath">Pfad und Name des Verzeichnisses, unterhalb dem sich alle zu packenden Dateien/Verzeichnisse befinden müssen.</param>
+            <param name="password">Passwort für das Archiv oder null.</param>
+            <param name="packRootAsDir">Bei true wird das Root-Verzeichnis mit eingepackt, bei false nur die enthaltenen Dateien/Verzeichnisse.</param>
+            <param name="filePathes">String-Array mit Pfaden der zu packenden Dateien/Verzeichnissen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.IZipWorker.Abort">
+            <summary>
+            Muss im externen EventHandler aufgerufen werden werden,
+            wenn der laufende Vorgang abgebrochen werden soll.
+            </summary>
+        </member>
+        <member name="T:NetEti.FileTools.Zip.MSCompressionWorker">
+            <summary>
+            Funktion: Routinen zum Packen und Entpacken von ZIP-Archiven.
+                      Nutzt die ICSharpCode.SharpZipLib.dll.
+            </summary>
+            <remarks>
+            Die Microsoft eigenen Routinen legen bei Archiven > 4GIG die Ohren an und können keine Passwörter!<br></br>
+            Autor: Peter Bromberg (http://www.eggheadcafe.com/tutorials/aspnet/9ce6c242-c14c-4969-9251-af95e4cf320f/zip--unzip-folders-and-f.aspx)<br />
+            Vielen Dank dafür.
+            zurechtgepfuscht von: Erik Nagel, NetEti<br />
+            <br></br>
+            24.02.2023 Erik Nagel: erstellt<br />
+            </remarks>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.MSCompressionWorker.ZipProgressChanged">
+            <summary>
+            Ereignis das Eintritt, wenn sich der Fortschritt von ZipAccess ändert.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.MSCompressionWorker.ZipProgressFinished">
+            <summary>
+            Ereignis das Eintritt, wenn ZipAccess beendet wird.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.IsZip(System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.GetZipEntryList(System.String,System.String)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als String-Liste.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort für das Archiv</param>
+            <returns>String-Liste mit dem Inhaltsverzeichnis des Archivs</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.UnZipArchive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.UnZipArchiveFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen in einen gegebenen Ordner.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="outputFolder">Wohin entpackt werden soll.</param>
+            <param name="password">Passwort oder null.</param>
+            <param name="deleteZipFile">Bei true wird das Archiv hinterher gelöscht.</param>
+            <param name="filePathes">Liste der zu entpackenden Dateien (inklusive relative Pfade)</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.UnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            neues Unterverzeichnis mit dem Namen des Archivs im outputFolder.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.ZipDirectory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten</param>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort</param>
+            <param name="packRootAsDir">Den Ordner im Zip mit anlegen</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.ZipFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Packt die Files aus "filePathes" in ein Archiv "zipPathAndFile".
+            Optional kann ein Passwort mitgegeben werden.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="commonRootPath">Pfad und Name des Verzeichnisses, unterhalb dem sich alle zu packenden Dateien/Verzeichnisse befinden müssen.</param>
+            <param name="password">Passwort für das Archiv oder null.</param>
+            <param name="packRootAsDir">Bei true wird das Root-Verzeichnis mit eingepackt, bei false nur die enthaltenen Dateien/Verzeichnisse.</param>
+            <param name="filePathes">String-Array mit Pfaden der zu packenden Dateien/Verzeichnissen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.Abort">
+            <summary>
+            Muss im externen EventHandler aufgerufen werden werden,
+            wenn der laufende Vorgang abgebrochen werden soll.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.MSCompressionWorker.OnZipProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Löst das ZipProgressChanged-Ereignis aus.
+            </summary>
+        </member>
+        <member name="T:NetEti.FileTools.Zip.SevenZipWorker">
+            <summary>
+            Funktion: Routinen zum Packen und Entpacken von ZIP-Archiven.
+                      Nutzt die ICSharpCode.SharpZipLib.dll.
+            </summary>
+            <remarks>
+            Die Microsoft eigenen Routinen legen bei Archiven > 4GIG die Ohren an und können keine Passwörter!<br></br>
+            Autor: Peter Bromberg (http://www.eggheadcafe.com/tutorials/aspnet/9ce6c242-c14c-4969-9251-af95e4cf320f/zip--unzip-folders-and-f.aspx)<br />
+            Vielen Dank dafür.
+            zurechtgepfuscht von: Erik Nagel, NetEti<br />
+            <br></br>
+            24.02.2023 Erik Nagel: erstellt<br />
+            </remarks>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.SevenZipWorker.ZipProgressChanged">
+            <summary>
+            Ereignis das Eintritt, wenn sich der Fortschritt von ZipAccess ändert.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.SevenZipWorker.ZipProgressFinished">
+            <summary>
+            Ereignis das Eintritt, wenn ZipAccess beendet wird.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.#ctor">
+            <summary>
+            Standard-Konstruktor - Setzt den Pfad zur passenden 7Zip-dll (32/64).
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.IsZip(System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.IsZip(System.String,System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv.</param>
+            <param name="password">Ein optionales Passwort.</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.GetZipEntryList(System.String,System.String)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als List&lt;ZippedFileInfo&gt;.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort für das Archiv</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.SevenGetZipEntryInfos(SevenZip.SevenZipExtractor)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als List&lt;ZippedFileInfo&gt;.
+            </summary>
+            <param name="extractor">Ein gültiger SevenZipExtractor.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.UnZipArchive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.UnZipArchiveFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen in einen gegebenen Ordner.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="outputFolder">Wohin entpackt werden soll.</param>
+            <param name="password">Passwort oder null.</param>
+            <param name="deleteZipFile">Bei true wird das Archiv hinterher gelöscht.</param>
+            <param name="filePathes">Liste der zu entpackenden Dateien (inklusive relative Pfade)</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.UnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            neues Unterverzeichnis mit dem Namen des Archivs im outputFolder.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.ZipDirectory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten.</param>
+            <param name="zipPath">Das zu erzeugende Zip-Archiv.</param>
+            <param name="password">Ein optionales Passwort.</param>
+            <param name="packRootAsDir">Bei true den Ordner im Zip mit anlegen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.ZipFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Packt die Files aus "filePathes" in ein Archiv "zipPathAndFile".
+            Optional kann ein Passwort mitgegeben werden.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="commonRootPath">Pfad und Name des Verzeichnisses, unterhalb dem sich alle zu packenden Dateien/Verzeichnisse befinden müssen.</param>
+            <param name="password">Passwort für das Archiv oder null.</param>
+            <param name="packRootAsDir">Bei true wird das Root-Verzeichnis mit eingepackt, bei false nur die enthaltenen Dateien/Verzeichnisse.</param>
+            <param name="filePathes">String-Array mit Pfaden der zu packenden Dateien/Verzeichnissen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.Abort">
+            <summary>
+            Muss im externen EventHandler aufgerufen werden werden,
+            wenn der laufende Vorgang abgebrochen werden soll.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.SevenZipDirectoryAtOnce(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten</param>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort</param>
+            <param name="packRootAsDir">Den Ordner im Zip mit anlegen</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.SevenUnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            gegebenes Verzeichnis in Unterverzeichnisse mit den Namen
+            der jeweiligen Archive.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.OnSevenZipProgressChanged(System.Object,SevenZip.ProgressEventArgs)">
+            <summary>
+            Löst das ZipProgressChanged-Ereignis aus.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.SevenZipWorker.OnZipProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Löst das ZipProgressChanged-Ereignis aus.
+            </summary>
+        </member>
+        <member name="T:NetEti.FileTools.Zip.StaticZipHelpers">
+            <summary>
+            Stellt ein paar allgemeine Hilfsroutinen für alle beteiligten Klassen zur Verfügung.
+            </summary>
+            <remarks>
+            24.02.2023 Erik Nagel: created.
+            </remarks>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.StaticZipHelpers.GetZipEntryFilePathes(System.Collections.Generic.List{NetEti.FileTools.Zip.ZippedFileInfo})">
+            <summary>
+            Liefert ein string-Array mit den FilePathes aus einer ZippedFileInfo-List.
+            </summary>
+            <param name="infos">Liste mit ZippedFileInfos.</param>
+            <returns>String-Array mit den FilePathes aus infos.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.StaticZipHelpers.ConvertFromDateTimeOffset(System.DateTimeOffset)">
+            <summary>
+            Konvertiert ein DateTimeOffset nach DateTime.
+            </summary>
+            <param name="dateTime">Ein Zeitpunkt als DateTimeOffset.</param>
+            <returns>Lokale DateTime</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.StaticZipHelpers.GenerateFileList(System.String,System.Int64@)">
+            <summary>
+            Liefert eine Liste aller Dateinamen und Unterverzeichnisnamen
+            und deren Dateinamen und Unterverzeichnisnamen u.s.w. rekursiv.
+            benutzt die interne Hilfsroutine GenerateFileListIntern.
+            </summary>
+            <param name="rootDir">Das Root-Verzeichnis</param>
+            <param name="allBytes">out-Parameter: liefert die Gesamt-Byte-Anzahl aller Dateien.</param>
+            <returns>String-Liste mit Datei- und Verzeichnisnamen</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.StaticZipHelpers.GenerateFileListIntern(System.String,System.Int64@)">
+            <summary>
+            Liefert eine Liste aller Dateinamen und Unterverzeichnisnamen
+            und deren Dateinamen und Unterverzeichnisnamen u.s.w. rekursiv.
+            Interne Hilfsroutine von GenerateFileList.
+            </summary>
+            <param name="rootDir">Das Root-Verzeichnis für den aktuellen Durchlauf</param>
+            <param name="allBytes">ref-Parameter: liefert die Gesamt-Byte-Anzahl aller Dateien.</param>
+            <returns>String-Liste mit Datei- und Verzeichnisnamen</returns>
+        </member>
+        <member name="T:NetEti.FileTools.Zip.ZipAccess">
+            <summary>
+            Funktion: Routinen zum Packen und Entpacken von ZIP-Archiven.
+                      Nutzt die SevenZipSharp.dll, System.IO.Compress und SevenZip
+                      Die mit Ics beginnenden Routinen setzen auf 'ICSharpCode.SharpZipLib.dll' und 7Zip auf.
+            </summary>
+            <remarks>
+            File: ZipAccess.cs<br />
+            Die Microsoft eigenen Routinen legen bei Archiven > 4GIG die Ohren an und können keine Passwörter!<br></br>
+            Autor: Peter Bromberg (http://www.eggheadcafe.com/tutorials/aspnet/9ce6c242-c14c-4969-9251-af95e4cf320f/zip--unzip-folders-and-f.aspx)<br />
+            Vielen Dank dafür.
+            zurechtgepfuscht von: Erik Nagel, NetEti<br />
+            <br></br>
+            09.03.2012 Erik Nagel: erstellt<br />
+            26.03.2012 Erik Nagel: Fehlerkorrektur bei ZIPs mit mehreren Entries.
+            30.03.2012 Erik Nagel: Umstellung von statisch auf instantiiert wegen Problemen bei Abbruch und Wiederanlauf;
+                                   Fortschrittsmeldungen über Events und mit mehr Infos.
+            25.04.2013 Erik Nagel: Archive werden jetzt mit SevenZipSharp.SevenZipExtractor entpackt.
+            26.04.2013 Erik Nagel: 7zip.dll wird jetzt differenziert für 32bit- oder 64bit-Systeme geladen (7z32.dll/7z64.dll).
+            16.02.2014 Erik Nagel: Pfad für 7zip.dll wird jetzt über HTMLEncode vorbereitet.
+            16/17.10.2016 Erik Nagel: Überarbeitet und neu strukturiert.
+            11.10.2017 Erik Nagel: Exceptions bei 7Zip auf neuere Windows(Deflate?)-Formate abgefangen
+                                   und auf System.IO.Compression - Routinen umgeleitet.
+            </remarks>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.dispose(System.Boolean)">
+            <summary>
+            Hier kann aufgeräumt werden.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.ZipAccess.ZipProgressChanged">
+            <summary>
+            Ereignis das Eintritt, wenn sich der Fortschritt von ZipAccess ändert.
+            </summary>
+        </member>
+        <member name="E:NetEti.FileTools.Zip.ZipAccess.ZipProgressFinished">
+            <summary>
+            Ereignis das Eintritt, wenn ZipAccess beendet wird.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.IsZip(System.String)">
+            <summary>
+            Prüft, ob eine Datei ein Zip-Archiv ist.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <returns>True, wenn es sich um ein Zip-Archiv handelt</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.GetZipEntryList(System.String,System.String)">
+            <summary>
+            Liefert das Inhaltsverzeichnis des Zip-Archivs als String-Liste.
+            </summary>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort für das Archiv</param>
+            <returns>String-Liste mit dem Inhaltsverzeichnis des Archivs</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.UnZipArchive(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.UnZipArchiveFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Entpackt alles aus dem Archiv incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs</param>
+            <param name="outputFolder">Wohin entpackt werden soll</param>
+            <param name="password">Passwort oder null</param>
+            <param name="deleteZipFile">ob das Archiv hinterher gelöscht werden soll</param>
+            <param name="filePathes">Liste der zu entpackenden Dateien (inklusive relative Pfade)</param>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.UnzipAllArchives(System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Entpackt alle ZIP-Archive aus dem Verzeichnis zipsFolder in ein
+            neues Unterverzeichnis mit dem Namen des Archivs im outputFolder.
+            </summary>
+            <param name="zipsFolder">Das Verzeichnis mit den zu entpackenden ZIP-Archiven</param>
+            <param name="outputFolder">Das Ziel-Verzeichnis</param>
+            <param name="password">Ein optionales gemeinsames Passwort oder null</param>
+            <param name="moveZipFile">Wenn true, wird das Archiv nach erfolgreichem Entpacken nach 'moveDir' verschoben;<br />
+                                      Sollte 'moveDir' leer oder ungültig sein, wird das ZIP-Archiv gelöscht.</param>
+            <param name="moveDir">Ein Verzeichnis, in das die Archive nach dem Entpacken geschoben werden.</param>
+            <returns>Liste der neuen Verzeichnisse im outputFolder mit den entpackten Dateien</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.ZipDirectory(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Packt alles aus dem Verzeichnis inputFolderPath in das Archiv
+            zipPathAndFile incl. Unterverzeichnis-Strukturen.
+            </summary>
+            <param name="inputFolderPath">Das Verzeichnis mit den zu packenden Daten</param>
+            <param name="zipPathAndFile">Das Zip-Archiv</param>
+            <param name="password">Ein optionales Passwort</param>
+            <param name="packRootAsDir">Den Ordner im Zip mit anlegen</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.ZipFiles(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Packt die Files aus "filePathes" in ein Archiv "zipPathAndFile".
+            Optional kann ein Passwort mitgegeben werden.
+            </summary>
+            <param name="zipPathAndFile">Pfad und Name des Archivs.</param>
+            <param name="commonRootPath">Pfad und Name des Verzeichnisses, unterhalb dem sich alle zu packenden Dateien/Verzeichnisse befinden müssen.</param>
+            <param name="password">Passwort für das Archiv oder null.</param>
+            <param name="packRootAsDir">Bei true wird das Root-Verzeichnis mit eingepackt, bei false nur die enthaltenen Dateien/Verzeichnisse.</param>
+            <param name="filePathes">String-Array mit Pfaden der zu packenden Dateien/Verzeichnissen.</param>
+            <returns>List&lt;ZippedFileInfo&gt; = Infos über alle Archiv_Einträge.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.Abort">
+            <summary>
+            Muss im externen EventHandler aufgerufen werden werden,
+            wenn der laufende Vorgang abgebrochen werden soll.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZipAccess.#ctor">
+            <summary>
+            Standard-Konstruktor - Setzt den Pfad zur passenden 7Zip-dll (32/64).
+            </summary>
+        </member>
+        <member name="T:NetEti.FileTools.Zip.ZippedFileInfo">
+            <summary>
+            Informationen für eine Datei im Archiv:
+            Pfad, Größe, Timestamp und Flag IsDirectory.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.Zip.ZippedFileInfo.FilePath">
+            <summary>
+            Dateiname und -Pfad der Datei im Archiv.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.Zip.ZippedFileInfo.Size">
+            <summary>
+            Größe der Datei im Archiv.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.Zip.ZippedFileInfo.LastWriteTime">
+            <summary>
+            Timestamp der Datei im Archiv.
+            </summary>
+        </member>
+        <member name="P:NetEti.FileTools.Zip.ZippedFileInfo.IsDirectory">
+            <summary>
+            Bei true handelt es sich um ein Verzeichnis.
+            </summary>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZippedFileInfo.ToString">
+            <summary>
+            Überschriebene ToString-Methode.
+            </summary>
+            <returns>ZippedFileInfo als aufbereiteten String.</returns>
+        </member>
+        <member name="M:NetEti.FileTools.Zip.ZippedFileInfo.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+    </members>
+</doc>
