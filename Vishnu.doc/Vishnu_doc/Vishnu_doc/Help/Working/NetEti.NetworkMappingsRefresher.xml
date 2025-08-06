@@ -54,6 +54,7 @@
              20.02.2015 Erik Nagel: erstellt
              28.02.2023 Erik Nagel: überarbeitet.
              20.02.2024 Erik Nagel: erneut überarbeitet und GetNextReachablePath hinzugefügt.
+             31.05.2025 Erik Nagel: Bugfix in IsPathServerReachable: Berücksichtigung von Pfaden, die mit "." beginnen.
              </remarks>
         </member>
         <member name="M:NetEti.FileTools.NetworkMappingsRefresher.GetDriveList">

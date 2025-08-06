@@ -9,6 +9,7 @@
   <topic id="E6ECB24A-CA5C-4785-9514-992F359D394A" file="E6ECB24A-CA5C-4785-9514-992F359D394A">
     <topic id="15204f64-ecf7-44b6-822d-74e36b99927d" file="15204f64-ecf7-44b6-822d-74e36b99927d" />
     <topic id="9b9475bc-f8a9-4e7a-a84a-373276329b00" file="9b9475bc-f8a9-4e7a-a84a-373276329b00" />
+    <topic id="d83d6ee1-195a-422c-9e97-9542261fa55c" file="d83d6ee1-195a-422c-9e97-9542261fa55c" />
   </topic>
   <topic id="fdd9dbc7-ba68-49fb-b91f-17eb2decbaf2" file="fdd9dbc7-ba68-49fb-b91f-17eb2decbaf2">
     <topic id="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" file="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" />
@@ -1804,14 +1805,22 @@
         <topic id="M:NetEti.ObjectSerializer.AnonymousDataMemberAttribute.#ctor" file="M_NetEti_ObjectSerializer_AnonymousDataMemberAttribute__ctor" />
       </topic>
       <topic id="T:NetEti.ObjectSerializer.SerializationUtility" file="T_NetEti_ObjectSerializer_SerializationUtility">
-        <topic id="M:NetEti.ObjectSerializer.SerializationUtility.#ctor" file="M_NetEti_ObjectSerializer_SerializationUtility__ctor" />
         <topic id="Methods.T:NetEti.ObjectSerializer.SerializationUtility" file="Methods_T_NetEti_ObjectSerializer_SerializationUtility">
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromJson__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromJsonOrXml__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromXml__1" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromBase64String(System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeObjectFromBase64String" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromByteList(System.Collections.Generic.List{System.Byte})" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeObjectFromByteList" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromCodedString(System.Text.Encoding,System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_DeserializeObjectFromCodedString" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_LoadFromJsonFile__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_LoadFromXmlFile__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)" file="M_NetEti_ObjectSerializer_SerializationUtility_SaveToJsonFile__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)" file="M_NetEti_ObjectSerializer_SerializationUtility_SaveToXmlFile__1" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToBase64String(System.Object,System.Boolean)" file="M_NetEti_ObjectSerializer_SerializationUtility_SerializeObjectToBase64String" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToByteList(System.Object,System.Boolean,System.Int32)" file="M_NetEti_ObjectSerializer_SerializationUtility_SerializeObjectToByteList" />
           <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToCodedString(System.Text.Encoding,System.Object,System.Boolean)" file="M_NetEti_ObjectSerializer_SerializationUtility_SerializeObjectToCodedString" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)" file="M_NetEti_ObjectSerializer_SerializationUtility_SerializeToJson__1" />
+          <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)" file="M_NetEti_ObjectSerializer_SerializationUtility_SerializeToXml__1" />
         </topic>
       </topic>
     </topic>

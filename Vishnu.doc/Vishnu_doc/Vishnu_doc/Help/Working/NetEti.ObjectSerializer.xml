@@ -39,6 +39,7 @@
                         Thanks to Brian Sullivan and Dzyann for their help on de-serializing Types:
                         https://stackoverflow.com/questions/12306/can-i-serialize-a-c-sharp-type-object
              31.08.2023 Erik Nagel: Neuen Schalter anonymousToString implementiert.
+             25.04.2025 Erik Nagel: Neue Routinen für Json und Xml hinzugefügt; Klasse statisch gemacht.
              </remarks>
         </member>
         <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToBase64String(System.Object,System.Boolean)">
@@ -100,6 +101,91 @@
             <param name="srcOffset">im laufe der internen Rekursion wandernder Offset.</param>
             <returns>Das deserialisierte Objekt.</returns>
             <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)">
+            <summary>
+            Überträgt einen String, der ein Json- oder Xml-Objekt
+            repräsentiert in das entsprechende Objekt.
+            </summary>
+            <param name="jsonOrXml">Ein String, der ein Json- oder Xml-Objekt repräsentiert.</param>
+            <param name="noException">Bei true wird im Fehlerfall keine Exception erzeugt; Default: false.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <returns>Eine gefüllte Objekt-Instanz vom Typ T.</returns>
+            <exception cref="T:System.ArgumentException">Wird geworfen, wenn der String 'jsonOrXml' kein gültiges unterstütztes Format hat.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)">
+            <summary>
+            Serialisiert eine Objekt in ein Json-Format.
+            </summary>
+            <param name="obj">Zu serialisierendes Objekt.</param>
+            <param name="includeFields">Bei true werden auch öffentliche Felder ohne Getter und Setter serielisiert; Default: false.</param>
+            <typeparam name="T">Datenklasse des Serialisierungsobjekts.</typeparam>
+            <returns>String mit dem serialisierten Objekt.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler bei der Serialisierung des Objekts.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)">
+            <summary>
+            Deserialisiert eine Objekt aus einem Json-Format.
+            </summary>
+            <param name="json">Json-String mit einem serialisierten Objekt.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <returns>Aus einem Json-String deserialisiertes Objekt oder null.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler bei der Deserialisierung des Objekts.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)">
+            <summary>
+            Lädt ein Objekt aus einer Json-Datei.
+            </summary>
+            <param name="filePath">Pfad zur Json-Datei.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <returns>Aus einer Json-Datei geladenes Objekt.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler beim Laden des Objekts aus einer Json-Datei.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)">
+            <summary>
+            Speichert ein Objekt in eine Json-Datei.
+            </summary>
+            <param name="obj">Zu speicherndes Objekt.</param>
+            <param name="filePath">Pfad zur Json-Datei.</param>
+            <param name="includeFields">Bei true werden auch öffentliche Felder ohne Getter und Setter serielisiert; Default: false.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <exception cref="T:System.Exception">Mögliche Fehler beim Speichern des Objekts.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)">
+            <summary>
+            Serialisiert ein Objekt in ein XML-Format.
+            </summary>
+            <param name="obj">Zu serialisierendes Objekt.</param>
+            <typeparam name="T">Datenklasse des Serialisierungsobjekts.</typeparam>
+            <returns>String mit dem serialisierten Objekt.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler bei der Serialisierung des Objekts.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)">
+            <summary>
+            Deserialisiert ein Objekt aus einem XML-Format.
+            </summary>
+            <param name="xml">Xml-String mit einem serialisierten Objekt.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <returns>Aus einem Xml-String deserialisiertes Objekt oder null.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler bei der Deserialisierung des Objekts.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)">
+            <summary>
+            Lädt ein Objekt aus einer XML-Datei.
+            </summary>
+            <param name="filePath">Pfad zur Xml-Datei.</param>
+            <typeparam name="T">Datenklasse des Deserialisierungsobjekts.</typeparam>
+            <returns>Aus einer Xml-Datei geladenes Objekt.</returns>
+            <exception cref="T:System.Exception">Mögliche Fehler beim Laden des Objekts aus einer Xml-Datei.</exception>
+        </member>
+        <member name="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)">
+            <summary>
+            Speichert ein Objekt in eine Xml-Datei.
+            </summary>
+            <param name="obj">Zu speicherndes Objekt.</param>
+            <param name="filePath">Pfad zur Xml-Datei.</param>
+            <typeparam name="T">Datenklasse des Serialisierungsobjekts.</typeparam>
+            <exception cref="T:System.Exception">Mögliche Fehler beim Speichern des Objekts.</exception>
         </member>
         <member name="M:NetEti.ObjectSerializer.SerializationUtility.Base64StringToByteArray(System.String)">
             <summary>

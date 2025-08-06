@@ -8,6 +8,7 @@
   <topic id="E6ECB24A-CA5C-4785-9514-992F359D394A" type="MAML" />
   <topic id="15204f64-ecf7-44b6-822d-74e36b99927d" type="MAML" />
   <topic id="9b9475bc-f8a9-4e7a-a84a-373276329b00" type="MAML" />
+  <topic id="d83d6ee1-195a-422c-9e97-9542261fa55c" type="MAML" />
   <topic id="fdd9dbc7-ba68-49fb-b91f-17eb2decbaf2" type="MAML" />
   <topic id="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" type="MAML" />
   <topic id="c8911ff4-4ce7-406b-8467-e8ddff1ec56c" type="MAML" />
@@ -1477,13 +1478,21 @@
   <topic id="M:NetEti.ObjectSerializer.AnonymousDataMemberAttribute.#ctor" type="API" />
   <topic id="T:NetEti.ObjectSerializer.SerializationUtility" type="API" />
   <topic id="Methods.T:NetEti.ObjectSerializer.SerializationUtility" type="API" />
-  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.#ctor" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromBase64String(System.String)" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromByteList(System.Collections.Generic.List{System.Byte})" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromCodedString(System.Text.Encoding,System.String)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToBase64String(System.Object,System.Boolean)" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToByteList(System.Object,System.Boolean,System.Int32)" type="API" />
   <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToCodedString(System.Text.Encoding,System.Object,System.Boolean)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)" type="API" />
+  <topic id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)" type="API" />
   <topic id="N:Vishnu.Interchange" type="API" />
   <topic id="T:Vishnu.Interchange.AppSettings" type="API" />
   <topic id="Methods.T:Vishnu.Interchange.AppSettings" type="API" />

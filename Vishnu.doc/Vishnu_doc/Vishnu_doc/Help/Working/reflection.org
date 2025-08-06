@@ -53,7 +53,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+0794241e736afaae6e257279e23d462fa1679121</value>
+            <value>1.0.0+8465b4879d4ba442326188bd1bb0bc13c349a4b1</value>
           </argument>
         </attribute>
       </attributes>
@@ -72,7 +72,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -91,7 +91,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -110,7 +110,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -129,7 +129,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -148,7 +148,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -167,7 +167,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -186,13 +186,13 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
     </assembly>
     <assembly name="Vishnu.Interchange">
-      <assemblydata version="8.2.0.3" culture="" key="" hash="SHA1" />
+      <assemblydata version="8.2.1.0" culture="" key="" hash="SHA1" />
       <attributes>
         <attribute>
           <type api="T:System.Runtime.CompilerServices.ExtensionAttribute" ref="true" />
@@ -201,14 +201,14 @@
           <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>8.2.0.3</value>
+            <value>8.2.1.0</value>
           </argument>
         </attribute>
         <attribute>
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -227,7 +227,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -246,7 +246,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+d75bac576d44afb64cfff79fd3665c8ca1172cbc</value>
+            <value>1.0.0+dce90da0c12f4992d2441068e45946f18bda6a16</value>
           </argument>
         </attribute>
       </attributes>
@@ -284,7 +284,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+611fa1239a6e379986324d5a4023cd737a7da7a6</value>
+            <value>1.0.0+4bb77d0666864aa9aa8a6784f80c819326adb65a</value>
           </argument>
         </attribute>
       </attributes>
@@ -303,7 +303,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+47f2d73d44cbabd9edbd44700dbe27e722340f78</value>
+            <value>1.0.0+a4b6ee54e385add900e086270ec347d6ec69a1a7</value>
           </argument>
         </attribute>
       </attributes>
@@ -341,7 +341,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+878e28844b0821f624df030dddb4364a06da759c</value>
+            <value>1.0.0+b6ed748358c027cd934c65ea442ba2f5d05a7eae</value>
           </argument>
         </attribute>
       </attributes>
@@ -360,7 +360,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+9e45bc96a63c7bb901730bcd263b98db5a48e949</value>
+            <value>1.0.0+0b474b70ba1706d203f1854c7d7581948469e0fc</value>
           </argument>
         </attribute>
       </attributes>
@@ -379,26 +379,26 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+acaf81dbf65483efca2a792d55c719cf92119339</value>
+            <value>1.0.0+51fe5b7276589153c944e2c8ee8374e1aeadbb38</value>
           </argument>
         </attribute>
       </attributes>
     </assembly>
     <assembly name="NetEti.Logging">
-      <assemblydata version="8.0.1.0" culture="" key="" hash="SHA1" />
+      <assemblydata version="8.0.2.0" culture="" key="" hash="SHA1" />
       <attributes>
         <attribute>
           <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>8.0.1.0</value>
+            <value>8.0.2.0</value>
           </argument>
         </attribute>
         <attribute>
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+acaf81dbf65483efca2a792d55c719cf92119339</value>
+            <value>1.0.0+51fe5b7276589153c944e2c8ee8374e1aeadbb38</value>
           </argument>
         </attribute>
       </attributes>
@@ -464,20 +464,20 @@
       </attributes>
     </assembly>
     <assembly name="NetEti.ObjectSerializer">
-      <assemblydata version="8.0.0.0" culture="" key="" hash="SHA1" />
+      <assemblydata version="8.0.3.0" culture="" key="" hash="SHA1" />
       <attributes>
         <attribute>
           <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>8.0.0.0</value>
+            <value>8.0.3.0</value>
           </argument>
         </attribute>
         <attribute>
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+e2f5e8f28ca5d2718d55e6ce4abc69184365aeb8</value>
+            <value>1.0.0+cef3dab6c6766f2a627a684ab8c1762a92fc9e32</value>
           </argument>
         </attribute>
       </attributes>
@@ -572,7 +572,7 @@
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+db59020278b6ac7296ebb0928c7c1501e867b8e9</value>
+            <value>1.0.0+e2ae2d33ef793f18acd3382e72b9b7301b61807b</value>
           </argument>
         </attribute>
       </attributes>
@@ -616,20 +616,20 @@
       </attributes>
     </assembly>
     <assembly name="NetEti.ZipAccess">
-      <assemblydata version="8.0.0.0" culture="" key="" hash="SHA1" />
+      <assemblydata version="8.0.1.0" culture="" key="" hash="SHA1" />
       <attributes>
         <attribute>
           <type api="T:System.Reflection.AssemblyFileVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>8.0.0.0</value>
+            <value>8.0.1.0</value>
           </argument>
         </attribute>
         <attribute>
           <type api="T:System.Reflection.AssemblyInformationalVersionAttribute" ref="true" />
           <argument>
             <type api="T:System.String" ref="true" />
-            <value>1.0.0+2996eef2bd6ad690f9f33134f6dd182957ec1b3e</value>
+            <value>1.0.0+3dfefb55e562b2ce5747cafa6cb7003b7ef4f9a1</value>
           </argument>
         </attribute>
       </attributes>
@@ -24179,7 +24179,7 @@
     </api>
     <api id="T:NetEti.ObjectSerializer.SerializationUtility">
       <apidata name="SerializationUtility" group="type" subgroup="class" />
-      <typedata visibility="public" serializable="false" defaultConstructor="M:NetEti.ObjectSerializer.SerializationUtility.#ctor" />
+      <typedata visibility="public" abstract="true" sealed="true" serializable="false" />
       <family>
         <ancestors>
           <type api="T:System.Object" ref="true" />
@@ -24192,16 +24192,85 @@
         <element api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromCodedString(System.Text.Encoding,System.String)" />
         <element api="M:NetEti.ObjectSerializer.SerializationUtility.SerializeObjectToByteList(System.Object,System.Boolean,System.Int32)" />
         <element api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeObjectFromByteList(System.Collections.Generic.List{System.Byte})" />
-        <element api="M:NetEti.ObjectSerializer.SerializationUtility.#ctor" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)" />
+        <element api="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)" />
       </elements>
       <containers>
         <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
         <namespace api="N:NetEti.ObjectSerializer" />
       </containers>
     </api>
-    <api id="M:NetEti.ObjectSerializer.SerializationUtility.#ctor">
-      <apidata name=".ctor" group="member" subgroup="constructor" />
-      <memberdata visibility="public" special="true" />
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)">
+      <apidata name="DeserializeFromJson" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="json">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJson``1(System.String)" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)">
+      <apidata name="DeserializeFromJsonOrXml" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="jsonOrXml">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="noException" optional="true">
+          <type api="T:System.Boolean" ref="false" />
+          <argument>
+            <type api="T:System.Boolean" ref="false" />
+            <value>False</value>
+          </argument>
+        </parameter>
+      </parameters>
+      <returns>
+        <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromJsonOrXml``1(System.String,System.Boolean)" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)">
+      <apidata name="DeserializeFromXml" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="xml">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.DeserializeFromXml``1(System.String)" />
+      </returns>
       <containers>
         <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
         <namespace api="N:NetEti.ObjectSerializer" />
@@ -24263,6 +24332,97 @@
       <returns>
         <type nullable="true" api="T:System.Object" ref="true" />
       </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)">
+      <apidata name="LoadFromJsonFile" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="filePath">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromJsonFile``1(System.String)" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)">
+      <apidata name="LoadFromXmlFile" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="filePath">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
+      <returns>
+        <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.LoadFromXmlFile``1(System.String)" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)">
+      <apidata name="SaveToJsonFile" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="obj">
+          <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.SaveToJsonFile``1(``0,System.String,System.Boolean)" />
+        </parameter>
+        <parameter name="filePath">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+        <parameter name="includeFields" optional="true">
+          <type api="T:System.Boolean" ref="false" />
+          <argument>
+            <type api="T:System.Boolean" ref="false" />
+            <value>False</value>
+          </argument>
+        </parameter>
+      </parameters>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)">
+      <apidata name="SaveToXmlFile" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="obj">
+          <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.SaveToXmlFile``1(``0,System.String)" />
+        </parameter>
+        <parameter name="filePath">
+          <type api="T:System.String" ref="true" />
+        </parameter>
+      </parameters>
       <containers>
         <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
         <namespace api="N:NetEti.ObjectSerializer" />
@@ -24347,6 +24507,55 @@
             <type api="T:System.Boolean" ref="false" />
             <value>False</value>
           </argument>
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)">
+      <apidata name="SerializeToJson" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="obj">
+          <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToJson``1(``0,System.Boolean)" />
+        </parameter>
+        <parameter name="includeFields" optional="true">
+          <type api="T:System.Boolean" ref="false" />
+          <argument>
+            <type api="T:System.Boolean" ref="false" />
+            <value>False</value>
+          </argument>
+        </parameter>
+      </parameters>
+      <returns>
+        <type api="T:System.String" ref="true" />
+      </returns>
+      <containers>
+        <library assembly="NetEti.ObjectSerializer" module="NetEti.ObjectSerializer" kind="DynamicallyLinkedLibrary" />
+        <namespace api="N:NetEti.ObjectSerializer" />
+        <type api="T:NetEti.ObjectSerializer.SerializationUtility" ref="true" />
+      </containers>
+    </api>
+    <api id="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)">
+      <apidata name="SerializeToXml" group="member" subgroup="method" />
+      <memberdata visibility="public" static="true" />
+      <proceduredata virtual="false" />
+      <templates>
+        <template name="T" />
+      </templates>
+      <parameters>
+        <parameter name="obj">
+          <template name="T" index="0" api="M:NetEti.ObjectSerializer.SerializationUtility.SerializeToXml``1(``0)" />
         </parameter>
       </parameters>
       <returns>

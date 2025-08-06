@@ -13,9 +13,10 @@
             Die Microsoft eigenen Routinen legen bei Archiven > 4GIG die Ohren an und können keine Passwörter!<br></br>
             Autor: Peter Bromberg (http://www.eggheadcafe.com/tutorials/aspnet/9ce6c242-c14c-4969-9251-af95e4cf320f/zip--unzip-folders-and-f.aspx)<br />
             Vielen Dank dafür.
-            zurechtgepfuscht von: Erik Nagel, NetEti<br />
+            zurechtgepfuscht von: Erik Nagel, NetEti
             <br></br>
-            24.02.2023 Erik Nagel: erstellt<br />
+            24.02.2023 Erik Nagel: erstellt.
+            22.05.2023 Erik Nagel: IsZip um vorgeschaltete Prüfung erweitert um möglichst Exceptions zu vermeiden.
             </remarks>
         </member>
         <member name="E:NetEti.FileTools.Zip.ICSharpWorker.ZipProgressChanged">

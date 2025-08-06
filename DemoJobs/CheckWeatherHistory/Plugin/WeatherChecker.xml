@@ -1,0 +1,1359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeatherChecker</name>
+    </assembly>
+    <members>
+        <member name="T:WeatherChecker.AddressDetails_ReturnObject">
+            <summary>
+            Class to receive the return from https://nominatim.openstreetmap.org/reverse.
+            </summary>
+            <remarks>
+            26.04.2025 Erik Nagel: erstellt
+            </remarks>
+        </member>
+        <member name="P:WeatherChecker.AddressDetails_ReturnObject.Address">
+            <summary>
+            Full country name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.AddressDetails_ReturnObject.Licence">
+            <summary>
+            Copyright license.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.Address">
+            <summary>
+            Class containing the postal address.
+            </summary>
+            <remarks>
+            28.04.2024 Erik Nagel: erstellt
+            </remarks>
+        </member>
+        <member name="P:WeatherChecker.Address.Country">
+            <summary>
+            Full country name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Address.State">
+            <summary>
+            Region or state name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Address.City">
+            <summary>
+            City name.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.GeoLocation_geojs_ReturnObject">
+            <summary>
+            Class to receive the return from the api-call to https://www.geojs.io/.
+            Created by Erik Nagel and Bard (Gemini) on 04.03.2024.
+            
+            04.03.2024 Erik Nagel: erstellt
+            </summary>
+            <remarks>
+            This class corresponds to the following JSON structure:
+            ```json
+            {
+              "country_code": "DE",
+              "country_code3": "DEU",
+              "continent_code": "EU",
+              "region": "North Rhine-Westphalia",
+              "latitude": "51.2402",
+              "longitude": "6.7785",
+              "accuracy": 5,
+              "country": "Germany",
+              "timezone": "Europe/Berlin",
+              "city": "Düsseldorf",
+              "organization": "AS3320 Deutsche Telekom AG",
+              "asn": 3320,
+              "ip": "87.146.129.31",
+              "area_code": "0",
+              "organization_name": "Deutsche Telekom AG"
+            }
+            ```
+            </remarks>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.CountryCode">
+            <summary>
+            Two-letter country code (ISO 3166-1 alpha-2).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.CountryCode3">
+            <summary>
+            Three-letter country code (ISO 3166-1 alpha-3).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.ContinentCode">
+            <summary>
+            Continent code.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Region">
+            <summary>
+            Region or state name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Latitude">
+            <summary>
+            Latitude coordinate.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Longitude">
+            <summary>
+            Longitude coordinate.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Accuracy">
+            <summary>
+            Reported accuracy of the location data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Country">
+            <summary>
+            Full country name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Timezone">
+            <summary>
+            Time zone identifier.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.City">
+            <summary>
+            City name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Organization">
+            <summary>
+            Organization name associated with the IP address.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Asn">
+            <summary>
+            Autonomous System Number (ASN) associated with the IP address.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.Ip">
+            <summary>
+            IP address used for the geolocation lookup.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.AreaCode">
+            <summary>
+            Area code associated with the IP address (may not be available).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_geojs_ReturnObject.OrganizationName">
+            <summary>
+            Full organization name associated with the IP address (may differ from Organization).
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.#ctor">
+            <summary>
+            Standard constructor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungskontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende GeoLocation_ReturnObject.</param>
+            <returns>True, wenn das übergebene GeoLocation_ReturnObject inhaltlich
+            gleich diesem GeoLocation_ReturnObject ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_geojs_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:WeatherChecker.GeoLocation_ReturnObject">
+            <summary>
+            Class to receive the return from the api-call to https://www.geojs.io/.
+            </summary>
+            <remarks>
+            28.04.2024 Erik Nagel: erstellt
+            </remarks>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.Country">
+            <summary>
+            Full country name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.Region">
+            <summary>
+            Region or state name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.City">
+            <summary>
+            City name.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.Latitude">
+            <summary>
+            Latitude coordinate.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.Longitude">
+            <summary>
+            Longitude coordinate.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.GeoLocation_ReturnObject.Elevation">
+            <summary>
+            Elevation of the requested location (in meters).
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.#ctor">
+            <summary>
+            Standard constructor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungskontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende GeoLocation_ReturnObject.</param>
+            <returns>True, wenn das übergebene GeoLocation_ReturnObject inhaltlich
+            gleich diesem GeoLocation_ReturnObject ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.GeoLocation_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker">
+             <summary>
+             DemoChecker-Projekt für Vishnu.
+             Die WeatherChecker.dll kann später in einer Vishnu-JobDescription.xml referenziert
+             werden und von Vishnu bei der Ausführung des Jobs aus dem Plugin-Unterverzeichnis
+             oder einem konfigurierten UserAssemblyDirectory dynamisch geladen werden.
+             Vishnu ruft dann je nach weiteren Konfigurationen (Trigger) die öffentliche
+             Methode "Run" des UserCheckers auf.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             The weather forecasts come from https://open-meteo.com. Thanks to the team.
+             Further I want to thank the developer-teams of https://get.geojs.io/v1/ip/geo.json
+             and http://ip-api.com/ who provide geolocation services, which are free for non commercial usage.
+             
+             (The weather forecasts formerly came from https://www.7timer.info.
+              Many thanks to Chenzhou Cui and his friends, who runned this wonderful free weather-forecast site)
+             
+             11.10.2020 Erik Nagel: erstellt
+             26.04.2024 Erik Nagel: auf open.meteo.com geaendert.
+             14.09.2024 Erik Nagel: für die zusätzliche Darstellung von Einzelinformationen erweitert.
+             10.04.2025 Erik Nagel: für höhere Genauigkeit die Windows-Standort Abfrage hinzugefügt.
+             </remarks>
+        </member>
+        <member name="E:WeatherChecker.WeatherChecker.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungsfortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Ihre Aufrufparameter aus der JobDescription.xml oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null (z.Zt. unbenutzt).</param>
+            <param name="source">Auslösendes TreeEvent (kann null sein).</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker.Dispose(System.Boolean)">
+            <summary>
+            Abschlussarbeiten.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_7Timer_ReturnObject">
+             <summary>
+             ReturnObject für das Ergebnis des WeatherCheckers.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             12.10.2022 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint">
+            <summary>
+            Eine Wettervorhersage für einen bestimmten Zeitabschnitt.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.Direction">
+            <summary>
+            Windrichtung: N, NE, E, SE, S, SW, W, NW.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.Speed">
+            <summary>
+            Windgeschwindigkeit:
+                1	unter 0.3m/s    (ruhig)
+                2	0.3-3.4m/s      (leicht)
+                3	3.4-8.0m/s      (gemäßigt)
+                4	8.0-10.8m/s     (frisch)
+                5	10.8-17.2m/s    (stark)
+                6	17.2-24.5m/s    (heftig)
+                7	24.5-32.6m/s    (stürmisch)
+                8	über 32.6m/s    (Orkan)
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Timepoint">
+            <summary>
+            Definiert den Aufsetz-Zeitpunkt.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Cloudcover">
+            <summary>
+            Bewölkung:
+                1	0%-6%
+                2	6%-19%
+                3	19%-31%
+                4	31%-44%
+                5	44%-56%
+                6	56%-69%
+                7	69%-81%
+                8	81%-94%
+                9	94%-100%
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Lifted_Index">
+            <summary>
+            Stabilitätsindikator - je kleiner, desto instabiler ist die Wetterlage:
+                -10	    Below -7
+                 -6	    -7 to -5
+                 -4	    -5 to -3
+                 -1	    -3 to 0
+                  2	     0 to 4
+                  6	     4 to 8
+                 10	     8 to 11
+                 15	    Over 11
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Prec_Type">
+            <summary>
+            Niederschlag: snow, rain, frzr (freezing rain), icep (ice pellets), none.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Prec_Amount">
+            <summary>
+            Niederschlagsmenge:
+                0	None
+                1    0-0.25mm/hr
+                2	 0.25-1mm/hr
+                3	 1-4mm/hr
+                4	 4-10mm/hr
+                5	10-16mm/hr
+                6	16-30mm/hr
+                7	30-50mm/hr
+                8	50-75mm/hr
+                9	Over 75mm/hr
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Temp2m">
+            <summary>
+            Temperatur (in 2 m Höhe über dem Erdboden gemessen): -76 to 60: -76C to +60C.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Rh2m">
+            <summary>
+            Relative Luftfeuchtigkeit (in 2 m Höhe über dem Erdboden gemessen): 0 to 100: 0% to 100%.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Wind10m">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Weather">
+            <summary>
+            Wetterbeschreibung:
+                clearday, clearnight	        Total cloud cover less than 20%
+                pcloudyday, pcloudynight        Total cloud cover between 20%-60%
+                mcloudyday, mcloudynight        Total cloud cover between 60%-80%
+                cloudyday, cloudynight          Total cloud cover over over 80%
+                humidday, humidnight            Relative humidity over 90% with total cloud cover less than 60%
+                lightrainday, lightrainnight    Precipitation rate less than 4mm/hr with total cloud cover more than 80%
+                oshowerday, oshowernight        Precipitation rate less than 4mm/hr with total cloud cover between 60%-80%
+                ishowerday, ishowernight        Precipitation rate less than 4mm/hr with total cloud cover less than 60%
+                lightsnowday, lightsnownight    Precipitation rate less than 4mm/hr
+                rainday, rainnight              Precipitation rate over 4mm/hr
+                snowday, snownight              Precipitation rate over 4mm/hr
+                rainsnowday, rainsnownight      Precipitation type to be ice pellets or freezing rain.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Der zu vergleichende ForecastDataPoint.</param>
+            <returns>True, wenn der übergebene ForecastDataPoint inhaltlich gleich diesem ForecastDataPoint ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ForecastDataPoint.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.Product">
+            <summary>
+            Die ausgewählte Unter-Routine der Api http://www.7timer.info/bin/api.pl.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.Init">
+            <summary>
+            Datum und Stunde der Initialisierung.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.Dataseries">
+            <summary>
+            Array von Wettervorhersagen für aufeinander folgende Zeitabschnitte.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.Location">
+            <summary>
+            Enthält Ortsinformationen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_7Timer_ReturnObject.RecordCount">
+            <summary>
+            Liefert die Anzahl ForecastDataPoints.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende WeatherChecker_ReturnObject.</param>
+            <returns>True, wenn das übergebene WeatherChecker_ReturnObject inhaltlich gleich diesem WeatherChecker_ReturnObject ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_7Timer_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:WeatherChecker.HourlyUnits">
+            <summary>
+            This class defines the units used in the hourly data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.Time">
+            <summary>
+            The unit of time used for the timestamps in the hourly data (e.g., "ISO8601").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.Temperature2m">
+            <summary>
+            The unit of measurement for the 2-meters temperature data (e.g., "celsius").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.RelativeHumidity2m">
+            <summary>
+            The unit of measurement for the relative humidity at 2 meters data (e.g., "%").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.ApparentTemperature">
+            <summary>
+            The unit of measurement for the apparent temperature data (e.g., "celsius").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.PrecipitationProbability">
+            <summary>
+            The unit of measurement for the precipitation probability data (e.g., "%").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.Rain">
+            <summary>
+            The unit of measurement for the rain data (e.g., "mm").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.Showers">
+            <summary>
+            The unit of measurement for the showers data (e.g., "mm").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.Snowfall">
+            <summary>
+            The unit of measurement for the snowfall data (e.g., "cm").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.SnowDepth">
+            <summary>
+            The unit of measurement for the snow depth data (e.g., "m").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.WeatherCode">
+            <summary>
+            The unit of measurement for the weather code data (e.g., "wmo code").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.SurfacePressure">
+            <summary>
+            The unit of measurement for the surface pressure data (e.g., "hPa").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.CloudCover">
+            <summary>
+            The unit of measurement for the cloud cover data (e.g., "%").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.WindSpeed10m">
+            <summary>
+            The unit of measurement for the 10-meters wind speed data (e.g., "km/h").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.WindDirection10m">
+            <summary>
+            The unit of measurement for the 10-meters wind direction data (e.g., "%").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.HourlyUnits.WindGusts10m">
+            <summary>
+            The unit of measurement for the 10-meters wind gusts data (e.g., "km/h").
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.HourlyUnits.#ctor">
+            <summary>
+            Standard constructor, necessary for json-deserialization.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.Hourly">
+            <summary>
+            This class represents the hourly weather data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.Time">
+            <summary>
+            List of timestamps for each data point (same unit as specified in HourlyUnits.Time).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.Temperature2m">
+            <summary>
+            List of 2-meter temperature values in the specified unit (from HourlyUnits.Temperature2m).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.RelativeHumidity2m">
+            <summary>
+            List of relative humidity values at 2 meters (from HourlyUnits.RelativeHumidity2m).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.ApparentTemperature">
+            <summary>
+            List of apparent temperature values (from HourlyUnits.ApparentTemperature).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.PrecipitationProbability">
+            <summary>
+            List of precipitation probability values (from HourlyUnits.PrecipitationProbability).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.Rain">
+            <summary>
+            List of rain values (from HourlyUnits.Rain).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.Showers">
+            <summary>
+            List of showers values (from HourlyUnits.Showers).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.Snowfall">
+            <summary>
+            List of snowfall values (from HourlyUnits.Snowfall).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.WeatherCode">
+            <summary>
+            List of weather codes for each data point.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.SurfacePressure">
+            <summary>
+            List of surface pressure data (from HourlyUnits.SurfacePressure).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.CloudCover">
+            <summary>
+            List of cloud cover data (from HourlyUnits.CloudCover).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.WindSpeed10m">
+            <summary>
+            List of 10-meters wind speed data (from HourlyUnits.SurfacePressure).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.WindDirection10m">
+            <summary>
+            The unit of measurement for the 10-meters wind direction data (e.g., "%").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Hourly.WindGusts10m">
+            <summary>
+            The unit of measurement for the 10-meters wind gusts data (e.g., "km/h").
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.Hourly.#ctor">
+            <summary>
+            Standard constructor, necessary for json-deserialization.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.Hourly.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.Hourly.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization method.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.Hourly.ToString">
+            <summary>
+            ToString method.
+            </summary>
+            <returns>This object.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.Hourly.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.Hourly.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:WeatherChecker.DailyUnits">
+            <summary>
+            This class defines the units used in the daily data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.Time">
+            <summary>
+            The unit of time used for the timestamps in the daily data (e.g., "ISO8601").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.Temperature2mMax">
+            <summary>
+            The unit of measurement for the 2-meters maximum temperature data (e.g., "celsius").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.ApparentTemperatureMax">
+            <summary>
+            The unit of measurement for the maximum apparent temperature data (e.g., "celsius").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.Sunrise">
+            <summary>
+            The unit of time used for sunrise and sunset times (e.g., "ISO8601").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.Sunset">
+            <summary>
+            The unit of time used for sunrise and sunset times (e.g., "ISO8601").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.SunshineDuration">
+            <summary>
+            The unit of time used for sunshine duration (e.g., "s").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.RainSum">
+            <summary>
+            The unit of measurement for the rain sum data (e.g., "mm").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.ShowersSum">
+            <summary>
+            The unit of measurement for the showers sum data (e.g., "mm").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.DailyUnits.SnowfallSum">
+            <summary>
+            The unit of measurement for the snowfall sum data (e.g., "cm").
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.DailyUnits.#ctor">
+            <summary>
+            Standard constructor, necessary for json-deserialization.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.Daily">
+            <summary>
+            This class represents the daily weather data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.Time">
+            <summary>
+            List of timestamps for each data point (same unit as specified in DailyUnits.Time).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.Temperature2mMax">
+            <summary>
+            List of 2-meter temperature maximum values in the specified unit (from DailyUnits.Temperature2mMax).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.ApparentTemperatureMax">
+            <summary>
+            List of apparent temperature maximum values (from DailyUnits.ApparentTemperatureMax).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.Sunrise">
+            <summary>
+            List of sunrise times for each day (in the unit specified by DailyUnits.Sunrise).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.Sunset">
+            <summary>
+            List of sunset times for each day (in the unit specified by DailyUnits.Sunset).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.SunshineDuration">
+            <summary>
+            List of sunshine duration times for each day (in the unit specified by DailyUnits.SunshineDuration).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.RainSum">
+            <summary>
+            List of rain sum values (from DailyUnits.RainSum).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.ShowersSum">
+            <summary>
+            List of showers sum values (from DailyUnits.ShowersSum).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.Daily.SnowfallSum">
+            <summary>
+            List of snowfall sum values (from DailyUnits.SnowfallSum).
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.Daily.#ctor">
+            <summary>
+            Standard constructor, necessary for json-deserialization.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.Daily.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.Daily.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization method.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.Daily.ToString">
+            <summary>
+            ToString method.
+            </summary>
+            <returns>This object.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.Daily.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.Daily.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject">
+            <summary>
+            This class represents the root object of the OpenWeatherMap API response.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Latitude">
+            <summary>
+            Geographic latitude of the requested location.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Longitude">
+            <summary>
+            Geographic longitude of the requested location.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.GenerationTimeMs">
+            <summary>
+            Time taken to generate the response in milliseconds.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.UtcOffsetSeconds">
+            <summary>
+            Offset from UTC time in seconds.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Timezone">
+            <summary>
+            Timezone name for the requested location.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.TimezoneAbbreviation">
+            <summary>
+            Abbreviated timezone name for the requested location.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Elevation">
+            <summary>
+            Elevation of the requested location (in meters).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.HourlyUnits">
+            <summary>
+            Hourly weather data.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Hourly">
+            <summary>
+            Hourly weather data points.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.DailyUnits">
+            <summary>
+            Daily data units.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Daily">
+            <summary>
+            Daily weather data points.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.#ctor">
+            <summary>
+            Standard constructor, necessary for json-deserialization.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization method.
+            </summary>
+            <param name="info">Property container.</param>
+            <param name="context">Transscription context.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.ToString">
+            <summary>
+            ToString method.
+            </summary>
+            <returns>This object.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_OpenMeteo_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="F:WeatherChecker.ConversionHelpers.WindDirectionNames">
+            <summary>
+            This dictionary maps WMO weather codes to simplified weather names.
+            </summary>
+        </member>
+        <member name="F:WeatherChecker.ConversionHelpers.WmoWeatherName">
+            <summary>
+            This dictionary maps WMO weather codes to simplified weather names.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_ReturnObject">
+             <summary>
+             ReturnObject für das Ergebnis des WeatherCheckers.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel, NetEti
+            
+             12.10.2022 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint">
+            <summary>
+            Eine Wettervorhersage für einen bestimmten Zeitabschnitt.
+            </summary>
+        </member>
+        <member name="T:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Direction">
+            <summary>
+            Windrichtung: N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Speed">
+            <summary>
+            Windgeschwindigkeit:
+                1	unter 0.3m/s    (ruhig)
+                2	0.3-3.4m/s      (leicht)
+                3	3.4-8.0m/s      (gemäßigt)
+                4	8.0-10.8m/s     (frisch)
+                5	10.8-17.2m/s    (stark)
+                6	17.2-24.5m/s    (heftig)
+                7	24.5-32.6m/s    (stürmisch)
+                8	über 32.6m/s    (Orkan)
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.GustsSpeed">
+            <summary>
+            Windgeschwindigkeit:
+                1	unter 0.3m/s    (ruhig)
+                2	0.3-3.4m/s      (leicht)
+                3	3.4-8.0m/s      (gemäßigt)
+                4	8.0-10.8m/s     (frisch)
+                5	10.8-17.2m/s    (stark)
+                6	17.2-24.5m/s    (heftig)
+                7	24.5-32.6m/s    (stürmisch)
+                8	über 32.6m/s    (Orkan)
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj"></param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem Objekt ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Timepoint">
+            <summary>
+            Definiert den Aufsetz-Zeitpunkt ("2024-04-28T00:00").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Temperature">
+            <summary>
+            Temperatur (in 2 m Höhe über dem Erdboden gemessen): -76 to 60: -76C to +60C.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Humidity">
+            <summary>
+            Relative Luftfeuchtigkeit (in 2 m Höhe über dem Erdboden gemessen): 0 to 100: 0% to 100%.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.ApparentTemperature">
+            <summary>
+            The unit of measurement for the apparent temperature data (e.g., "celsius").
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.PrecipitationProbability">
+            <summary>
+            List of precipitation probability values (from HourlyUnits.PrecipitationProbability).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Rain">
+            <summary>
+            List of rain values (from HourlyUnits.Rain).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Showers">
+            <summary>
+            List of showers values (from HourlyUnits.Showers).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Snowfall">
+            <summary>
+            List of snowfall values (from HourlyUnits.Snowfall).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Weather">
+            <summary>
+            Wetterbeschreibung:
+                clearday, clearnight	        Total cloud cover less than 20%
+                pcloudyday, pcloudynight        Total cloud cover between 20%-60%
+                mcloudyday, mcloudynight        Total cloud cover between 60%-80%
+                cloudyday, cloudynight          Total cloud cover over over 80%
+                humidday, humidnight            Relative humidity over 90% with total cloud cover less than 60%
+                lightrainday, lightrainnight    Precipitation rate less than 4mm/hr with total cloud cover more than 80%
+                oshowerday, oshowernight        Precipitation rate less than 4mm/hr with total cloud cover between 60%-80%
+                ishowerday, ishowernight        Precipitation rate less than 4mm/hr with total cloud cover less than 60%
+                lightsnowday, lightsnownight    Precipitation rate less than 4mm/hr
+                rainday, rainnight              Precipitation rate over 4mm/hr
+                snowday, snownight              Precipitation rate over 4mm/hr
+                rainsnowday, rainsnownight      Precipitation type to be ice pellets or freezing rain.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.SurfacePressure">
+            <summary>
+            List of surface pressure data (from HourlyUnits.SurfacePressure).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Cloudcover">
+            <summary>
+            Bewölkung:
+                1	0%-6%
+                2	6%-19%
+                3	19%-31%
+                4	31%-44%
+                5	44%-56%
+                6	56%-69%
+                7	69%-81%
+                8	81%-94%
+                9	94%-100%
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Wind10m">
+            <summary>
+            Unterklasse: fasst Windrichtung und Windgeschwindigkeit zusammen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Sunrise">
+            <summary>
+            List of sunrise times for each day (in the unit specified by DailyUnits.Sunrise).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Sunset">
+            <summary>
+            List of sunset times for each day (in the unit specified by DailyUnits.Sunset).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.SunshineDuration">
+            <summary>
+            List of sunshine duration times for each day (in the unit specified by DailyUnits.SunshineDuration).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.RainSum">
+            <summary>
+            List of rain sum values (from DailyUnits.RainSum).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.ShowersSum">
+            <summary>
+            List of showers sum values (from DailyUnits.ShowersSum).
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.SnowfallSum">
+            <summary>
+            List of snowfall sum values (from DailyUnits.SnowfallSum).
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Der zu vergleichende ForecastDataPoint.</param>
+            <returns>True, wenn der übergebene ForecastDataPoint inhaltlich gleich diesem ForecastDataPoint ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ForecastDataPoint.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.Creation">
+            <summary>
+            Datum und Stunde der Initialisierung.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.Location">
+            <summary>
+            Enthält Ortsinformationen.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.Dataseries">
+            <summary>
+            Array von Wettervorhersagen für aufeinander folgende Zeitabschnitte.
+            </summary>
+        </member>
+        <member name="P:WeatherChecker.WeatherChecker_ReturnObject.RecordCount">
+            <summary>
+            Liefert die Anzahl ForecastDataPoints.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende WeatherChecker_ReturnObject.</param>
+            <returns>True, wenn das übergebene WeatherChecker_ReturnObject inhaltlich gleich diesem WeatherChecker_ReturnObject ist.</returns>
+        </member>
+        <member name="M:WeatherChecker.WeatherChecker_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:Windows_Geolocation.LocationService">
+             <summary>
+             Klasse zum Ermitteln des Standortes über den Windows Standort (Geolocation-Dienst).
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             10.04.2025 Erik Nagel: neu erstellt.
+             </remarks>
+        </member>
+        <member name="M:Windows_Geolocation.LocationService.GetCurrentLocationAsync">
+            <summary>
+            Fordert den aktuellen Standort des Geräts vom Windows System an.
+            </summary>
+            <returns>Eine Task, die ein GeoPosition liefert.</returns>
+            <exception cref="T:System.UnauthorizedAccessException">Exception, wenn der Standortzugriff unter Windows nicht erlaubt ist.</exception>
+        </member>
+    </members>
+</doc>

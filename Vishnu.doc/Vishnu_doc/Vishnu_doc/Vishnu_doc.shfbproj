@@ -193,6 +193,7 @@
     <None Include="Content\Details\Vishnu Logik.aml" />
     <None Include="Content\Einstieg\woher der Name.aml" />
     <None Include="Content\Konfiguration und Parameter\Vishnu.exe.config.user.aml" />
+    <None Include="Content\Konfiguration und Parameter\Vishnu.exe.config.user.json.aml" />
     <None Include="Content\VersionHistory\v8.2.1.0.aml" />
     <None Include="Content\VersionHistory\v8.3.0.0.aml" />
     <None Include="Content\Vishnu unterstützen.aml" />
