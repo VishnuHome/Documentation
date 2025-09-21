@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckDateDialog</LogicalName>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception|S:15</Reference>
+    <Parameters>Check TreeEventTrigger Snapshot</Parameters>
+  </JobSnapshotTrigger>
+  <LogicalExpression>
+    <![CDATA[IS DatumInput]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>DatumInput</LogicalName>
+      <PhysicalPath>WPFDateDialog.dll</PhysicalPath>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>H:1</Parameters>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>DatumInput:True</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Information" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

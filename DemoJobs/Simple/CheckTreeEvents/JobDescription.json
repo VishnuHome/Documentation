@@ -1,0 +1,53 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check TreeEvents",
+    "LogicalExpression": "flipflop1 XOR flipflop2",
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "Exception|LogicalResultChanged"
+    },
+    "Checkers": [
+      {
+        "Checker": [
+          {
+            "LogicalName": "flipflop1",
+            "PhysicalPath": "TrueFalseExceptionChecker.dll",
+            "Parameters": "Null:True:False:Exception",
+            "Trigger": {
+              "PhysicalPath": "TimerTrigger.dll",
+              "Parameters": "S:10"
+            }
+          }
+        ]
+      },
+      {
+        "Checker": [
+          {
+            "LogicalName": "flipflop2",
+            "PhysicalPath": "TrueFalseExceptionChecker.dll",
+            "Parameters": "True:False",
+            "Trigger": {
+              "Reference": "AnyLogicalResultChanged|Exception",
+              "Parameters": "flipflop1"
+            }
+          }
+        ]
+      }
+    ],
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "flipflop1:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Test Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

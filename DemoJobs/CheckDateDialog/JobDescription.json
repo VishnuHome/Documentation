@@ -1,0 +1,37 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckDateDialog",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception|S:15",
+      "Parameters": "Check TreeEventTrigger Snapshot"
+    },
+    "LogicalExpression": "IS DatumInput",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "DatumInput",
+          "PhysicalPath": "WPFDateDialog.dll"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "DatumInput:True",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Information\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

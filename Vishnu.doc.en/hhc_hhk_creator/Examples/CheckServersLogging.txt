@@ -1,0 +1,7 @@
+...
+2020.01.24 09:23:03,952339 Event: LogicalResultChanged
+        Knoten: Google|Google, Logical: True, Quelle: Google
+        AnyServer, Thread: 0020/08904, Tree: Tree 1
+        AND(CheckServersLogging)/AND(Internal_1)/Google, Status: Done
+        WorkingDirectory: C:\Users\<user>\AppData\Local\Temp\Vishnu.CheckServersLogging\20544
+...

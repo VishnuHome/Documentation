@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1ccf9fe4-94f8-49ff-9234-506c5ad9daa7" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>Hier finden Sie weiterführende Informationen.</para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section>
+			<title>Inhalt</title>
+			<content>
+				<para>Wählen Sie ein Thema unten aus, um direkt dort hin zu springen.</para>
+
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="ac884694-516c-4c98-a2af-d79cc504d0f6" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="628bbc96-dcd7-4563-a515-5a2edf9ebc10" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="f724b721-c805-4dbe-8db4-1529c0c68f3d" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="b2bd8510-a131-4466-9fac-66f2033d92a0" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="c2c472b6-b252-4bd6-bf6a-0b15bc404ea4" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="3ccc247e-ea3a-47fc-9ed6-4713baf96986" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="f14917bd-1d50-41f0-85ff-14462a770915" />
+						</para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PieControls</name>
+    </assembly>
+    <members>
+        <member name="T:NetEti.CustomControls.PieChart">
+            <summary>
+            Stellt ein WPF-Tortendiagramm plus Zusatzinfos zur Verfügung.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary>
+            <summary>
+            PieChart
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.PieChart.values">
+            <summary>
+            Daten für das aktuelle Tortendiagramm.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieChart.PopupBrush">
+            <summary>
+            Farbe für Popups mit Zusatzinformationen.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieChart.Data">
+            <summary>
+            Holt oder setzt die Daten für das aktuelle Tortendiagramm.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieChart.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieChart.PieWidth">
+            <summary>
+            Holt oder setzt die Breite des Fensters für das Tortendiagramm.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieChart.PieHeight">
+            <summary>
+            Holt oder setzt die Höhe des Fensters für das Tortendiagramm.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieChart.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Wird beim Zeichnen des PieCharts angesprungen - fügt PieChart spezifische
+            Darstellungen hinzu.
+            </summary>
+            <param name="dc"></param>
+        </member>
+        <member name="M:NetEti.CustomControls.PieChart.GetFormattedText(System.String,System.Double,System.Windows.Media.Brush)">
+            <summary>
+            Liefert einen einen entsprechend der "fontSize" und "brush" und der
+            lokalen Einstellungen formatierten Text zurück.
+            </summary>
+            <param name="textToFormat">Der zu formatierende Text.</param>
+            <param name="fontSize">Die Schriftgröße.</param>
+            <param name="brush">Zeicheninformationen, Farbe, Liniendicke.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetEti.CustomControls.PieChart.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieCollectionHelper">
+            <summary>
+            Enthält Hilfsroutinen für PieCharts:
+            liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieCollectionHelper.GetTotal(System.Collections.ObjectModel.ObservableCollection{NetEti.CustomControls.PieSegment})">
+            <summary>
+            Liefert eine Gesamtsumme für die in "collection" übergebenen PieChart-Segmente.
+            </summary>
+            <param name="collection">1-n PieChart Segmente.</param>
+            <returns>Gesamtsumme für die übergebenen Segmente.</returns>
+        </member>
+        <member name="T:NetEti.CustomControls.CompassDirection">
+            <summary>
+            Einfache Aufzählung für Himmelsrichtungen.
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.N">
+            <summary>Nord.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.North">
+            <summary>Nord.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.NE">
+            <summary>Nordost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.NorthEast">
+            <summary>Nordost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.E">
+            <summary>Ost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.East">
+            <summary>Ost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.SE">
+            <summary>Südost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.SouthEast">
+            <summary>Südost.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.S">
+            <summary>Süd.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.South">
+            <summary>Süd.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.SW">
+            <summary>Südwest.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.SouthWest">
+            <summary>Südwest.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.W">
+            <summary>West.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.West">
+            <summary>West.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.NW">
+            <summary>Nordwest.</summary>
+        </member>
+        <member name="F:NetEti.CustomControls.CompassDirection.NorthWest">
+            <summary>Nordwest.</summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieControl">
+            <summary>
+            Stellt ein WPF-Tortendiagramm plus Zusatzinfos zur Verfügung.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary> 
+            <summary>
+            PieControl
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.PieControl.StartSegmentCompassProperty">
+            <summary>
+            Definiert, in welcher Himmelsrichtung das erste Segment des PieChart beginnt (linke Kante).
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieControl.StartSegmentCompass">
+            <summary>
+            Definiert, in welcher Himmelsrichtung das erste Segment des PieChart beginnt (linke Kante).
+            </summary>
+        </member>
+        <member name="F:NetEti.CustomControls.PieControl.PopupBrushProperty">
+            <summary>
+            Holt oder setzt die Schrift- und Farbeinstellungen für Popup-Informationen.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieControl.PopupBrush">
+            <summary>
+            Holt oder setzt die Schrift- und Farbeinstellungen für Popup-Informationen.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieControl.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieControl.Data">
+            <summary>
+            Daten für das aktuelle PieChart.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieDataCollection">
+            <summary>
+            Sammlung von Segmenten mit Daten für das aktuelle PieChart.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieDataCollection.CollectionName">
+            <summary>
+            Name der Collection.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieDataCollection.RadialLine">
+            <summary>
+            Holt oder setzt Informationen zum Zeichnen eines
+            Radius (z.B. Anzeige für Maximal- Minimalwert).
+            </summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieRadialLine">
+             <summary>
+             Fügt der PieChart-Klasse (Tortendiagramm) einen farblich abgesetzten Radius hinzu.
+             Dient zur Veranschaulichung von Grenzwerten innerhalb des Tortendiagramms.
+             </summary>
+             <remarks>
+             File: PieRadialLine.cs<br></br>
+             Autor: Erik Nagel, NetEti<br></br>
+            <br></br>
+             17.01.2015 Erik Nagel: erstellt<br></br>
+             </remarks>
+        </member>
+        <member name="E:NetEti.CustomControls.PieRadialLine.PropertyChanged">
+            <summary>
+            WPF-Event für die UI.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieRadialLine.Value">
+            <summary>
+            Holt oder setzt den Wert für den Radius - bestimmt die Ausrichtung im PieChart.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieRadialLine.Color">
+            <summary>
+            Holt oder setzt die Farbe für den Radius.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieRadialLine.SolidBrush">
+            <summary>
+            Holt die Zeicheninformationen für den Radius.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieRadialLine.Width">
+            <summary>
+            Holt oder setzt die Breite für den Radius.
+            </summary>
+        </member>
+        <member name="T:NetEti.CustomControls.PieSegment">
+            <summary>
+            Stellt ein Segment eines WPF-Tortendiagramms plus Zusatzinfos zur Verfügung.
+            Projekt von Kashif Imran auf Code Project - vielen Dank dafür.
+            https://www.codeproject.com/Articles/442506/Simple-and-Easy-to-Use-Pie-Chart-Controls-in-WPF
+            </summary>
+        </member>
+        <member name="E:NetEti.CustomControls.PieSegment.PropertyChanged">
+            <summary>
+            WPF-Event für die UI.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieSegment.Value">
+            <summary>
+            Holt oder setzt den (Prozent-)Wert für dieses Segment.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieSegment.Color">
+            <summary>
+            Holt oder setzt die Farbe für dieses Segment.
+            </summary>
+        </member>
+        <member name="M:NetEti.CustomControls.PieSegment.#ctor">
+            <summary>
+            Konstructor - initialisiert den Cache für die Color-Brushes.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieSegment.GradientBrush">
+            <summary>
+            Liefert einen Farbverlauf für das aktuelle Segment.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieSegment.SolidBrush">
+            <summary>
+            Liefert eine Farbe für das aktuelle Segment.
+            </summary>
+        </member>
+        <member name="P:NetEti.CustomControls.PieSegment.Name">
+            <summary>
+            Holt oder setzt den Namen für dieses Segment.
+            </summary>
+        </member>
+    </members>
+</doc>

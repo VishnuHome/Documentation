@@ -1,0 +1,195 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-US" /><meta name="Microsoft.Help.Locale" content="en-US" /><meta name="Microsoft.Help.TopicLocale" content="en-US" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Custom Loggers</title><meta name="Microsoft.Help.Id" content="3ccc247e-ea3a-47fc-9ed6-4713baf96986" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Description" content="This chapter is about self-created loggers. You can use your Custom Loggerss to process TreeEvents in the Vishnu tree according to your requirements and write them to a log file." /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div id="PageHeader" class="pageHeader">Vishnu - logical monitoring job controller</div><div class="pageBody"><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Custom Loggers</h1></td></tr></table><div><p>
+									This chapter deals with self-created <span class="keyword">Loggers</span>.
+				Using custom <span class="keyword">Loggers</span> you can document <span class="keyword">TreeEvents</span>
+				according to your requirements and write them to a log file.
+			</p></div><div class="collapsibleAreaRegion" id="EigeneLogger"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Custom Loggers</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+										We will first look at the logging output of the demo project <strong>LoggerDemo</strong>
+										from the project folder <strong>...\InPlug\TextFileLogger</strong> then the integration
+					of the TextFileLogger into the demo program and finally excerpts from the class <strong>TextFileLogger.cs</strong>.
+				
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+					The output of the demo program itself is simply a console window that you can close with Enter (so not of interest here).
+				</p><p>
+					General information about loggers and how they are used in the <span class="keyword">JobDecription.xml</span>
+					can be found on <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Logger">Vishnu actors</a>.
+					
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TextFileLoggerDemoProjektRun"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The demo project</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+										Here are the logging outputs of the demo project first:
+				
+				</p><p>
+										The demo job generates two log files, one on the <span class="keyword">Standard LogPath</span>
+											and one directly in a new subdirectory:
+					
+					<strong>...\TextFileLogger\TextFileLoggerDemo\bin\Debug\sub1\TextFileLoggerDemo.log</strong></p><div id="IDCBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDCBEAB_tab1" class="codeSnippetContainerTabSingle">Output from TextFileLogger on the default path</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDCBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDCBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDCBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-number">2021.07</span>.<span class="highlight-number">03</span> <span class="highlight-number">09</span>:<span class="highlight-number">41</span>:<span class="highlight-number">13</span>,<span class="highlight-number">961124</span> Event: Event on standard LogPath
+        Node: one node|<span class="highlight-number">0815</span>, Logical: False, Source: <span class="highlight-number">4711</span>
+        AnyServer, Thread: <span class="highlight-number">0001</span>/<span class="highlight-number">08292</span>, Tree: Test-Tree, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\TextFileLoggerDemo\<span class="highlight-number">1844</span></pre></div></div></div><div id="IDDBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDDBEAB_tab1" class="codeSnippetContainerTabSingle">Output from the TextFileLogger on a special path</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDDBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDDBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDDBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-number">2021.07</span>.<span class="highlight-number">03</span> <span class="highlight-number">09</span>:<span class="highlight-number">41</span>:<span class="highlight-number">14</span>,<span class="highlight-number">226374</span> Event: Event on special LogPath
+        Node: one node|<span class="highlight-number">0815</span>, Logical: False, Source: <span class="highlight-number">4711</span>
+        AnyServer, Thread: <span class="highlight-number">0001</span>/<span class="highlight-number">08292</span>, Tree: Test-Tree, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\TextFileLoggerDemo\<span class="highlight-number">1844</span></pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />  Important</th></tr><tr><td><p>
+												Der <span class="keyword">Standard LogPath</span> will be discussed via the integration of the
+						
+				  The default log path is set by including the <span class="keyword">Vishnu.Interchange.dll</span> and is by default
+				  <br /><strong>%TempDirectory%\TextFileLoggerDemo\&lt;ProcessId&gt;\TextFileLoggerDemo.log</strong>.
+				</p><p>
+          When the <strong>Vishnu</strong> is later called by Vishnu, the default log path points to the <strong>Vishnu</strong>-log file.
+						<span class="keyword">Vishnu.Interchange.dll</span> and is set by default <br /><strong>%TempDirectory%\TextFileLoggerDemo\&lt;ProcessId&gt;\TextFileLoggerDemo.log</strong>.
+				</p></td></tr></table></div><p>
+					Integration and calling of the class <strong>Logger.cs</strong> in the demo project,
+					see the following code listing:
+				
+				</p><div id="IDGBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDGBEAB_tab1" class="codeSnippetContainerTabSingle">Program.cs in the demo program</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDGBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDGBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDGBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">using</span> System;
+<span class="highlight-keyword">using</span> Vishnu.Interchange;
+
+<span class="highlight-keyword">namespace</span> TextFileLogger
+{
+    <span class="highlight-keyword">class</span> Program
+    {
+        <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> Main(<span class="highlight-keyword">string</span>[] args)
+        {
+            TextFileLogger myLogger = <span class="highlight-keyword">new</span> TextFileLogger();
+            myLogger.Log(<span class="highlight-keyword">zero</span>, <span class="highlight-keyword">new</span> TreeParameters(<span class="highlight-literal">"Test-Tree"</span>, <span class="highlight-keyword">zero</span>),
+              <span class="highlight-keyword">new</span> TreeEvent(<span class="highlight-literal">"Event on standard LogPath"</span>, <span class="highlight-literal">"4711"</span>, <span class="highlight-literal">"0815"</span>, <span class="highlight-literal">"a knot"</span>, <span class="highlight-literal">""</span>,
+                            <span class="highlight-keyword">false</span>, NodeLogicalState.Done, <span class="highlight-keyword">zero</span>, <span class="highlight-keyword">zero</span>), <span class="highlight-keyword">zero</span>);
+            myLogger.Log(<span class="highlight-literal">@"sub1\TextFileLoggerDemo.log"</span>, <span class="highlight-keyword">new</span> TreeParameters(<span class="highlight-literal">"Test-Tree"</span>, <span class="highlight-keyword">zero</span>),
+              <span class="highlight-keyword">new</span> TreeEvent(<span class="highlight-literal">"Event on special LogPath"</span>, <span class="highlight-literal">"4711"</span>, <span class="highlight-literal">"0815"</span>, <span class="highlight-literal">"a knot"</span>, <span class="highlight-literal">""</span>,
+                            <span class="highlight-keyword">false</span>, NodeLogicalState.Done, <span class="highlight-keyword">zero</span>, <span class="highlight-keyword">zero</span>), <span class="highlight-keyword">zero</span>);
+            Console.WriteLine(<span class="highlight-literal">"End with Enter"</span>);
+            Console.ReadLine();
+        }
+    }
+}</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td>
+	        <p>
+	        	The call to <span class="keyword">Logger</span> in the demo project shown above is for illustration purposes only.
+	        	You do not need to call the logger yourself, just configure it in a <span class="keyword">JobDescription.xml</span>.
+	        	<strong>Vishnu</strong> will then take care of the call itself later.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TextFileLoggerSource"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The TextFileLogger</span></div><div id="IDFABSection" class="collapsibleSection"><p>
+										The actual logger in our example is the class <strong>TextFileLogger</strong>,
+					see the following code listing:
+				
+				</p><div id="IDBBFAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDBBFAB_tab1" class="codeSnippetContainerTabSingle">TextFileLogger.cs excerpt</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDBBFAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDBBFAB');return false;" title="Copy">Copy</a></div></div><div id="IDBBFAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Logs Vishnu events in a log file.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> TextFileLogger : INodeLogger
+{
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Transfer of various logging information and output to a log file.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="loggerParameters"&gt;Specific call parameters or null.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="treeParameters"&gt;Parameters valid for the entire tree or null.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="treeEvent"&gt;Object with information about the event.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="additionalEventArgs"&gt;Contains the associated exception for the 'Exception' event, for example.&lt;/param&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> Log(<span class="highlight-keyword">object</span> loggerParameters, TreeParameters treeParameters, TreeEvent treeEvent, <span class="highlight-keyword">object</span> additionalEventArgs)
+    {
+        <span class="highlight-comment">// Set the path to the log file</span>
+        <span class="highlight-keyword">this</span>SetLogFilePath(loggerParameters, treeEvent);
+
+        <span class="highlight-comment">// Assemble the message to be logged</span>
+        <span class="highlight-keyword">string</span> bigMessage = BuildLogMessage(treeParameters, treeEvent, additionalEventArgs);
+
+        <span class="highlight-keyword">this</span>.WriteLog(bigMessage);
+    }
+
+    ...
+    <span class="highlight-comment">// Accepts either a transferred, specific path to a log file</span>
+    <span class="highlight-comment">// or set the default path. If necessary, create the target directory.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> SetLogFilePath(<span class="highlight-keyword">object</span> loggerParameters, TreeEvent treeEvent)
+    {
+        <span class="highlight-keyword">if</span> (loggerParameters != <span class="highlight-keyword">zero</span>)
+        {
+            <span class="highlight-keyword">this</span>._debugFile = loggerParameters.ToString();
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">this</span>._debugFile = treeEvent.ReplaceWildcards(<span class="highlight-literal">"%DebugFile%"</span>);
+        }
+        <span class="highlight-keyword">if</span> (!Directory.Exists(Path.GetDirectoryName(<span class="highlight-keyword">this</span>._debugFile)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(<span class="highlight-keyword">this</span>._debugFile));
+        }
+    }
+
+    <span class="highlight-comment">// Assembles a single formatted string from the parameters passed.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">string</span> BuildLogMessage(TreeParameters treeParameters, TreeEvent treeEvent, <span class="highlight-keyword">object</span> additionalEventArgs)
+    {
+        <span class="highlight-keyword">string</span> indent = <span class="highlight-literal">" "</span>;
+        <span class="highlight-keyword">string</span> addInfos = indent;
+        <span class="highlight-keyword">if</span> (treeEvent.Name.Contains(<span class="highlight-literal">"Exception"</span>))
+        {
+            addInfos += (additionalEventArgs <span class="highlight-keyword">as</span> Exception).Message;
+        }
+        <span class="highlight-keyword">if</span> (treeEvent.Name.Contains(<span class="highlight-literal">"ProgressChanged"</span>))
+        {
+            addInfos += String.Format(<span class="highlight-literal">"Progress {0:d3}%"</span>, Convert.ToInt32(additionalEventArgs));
+        }
+        <span class="highlight-keyword">string</span> timestamp = System.String.Format(System.Globalisation.CultureInfo.CurrentCulture,
+            <span class="highlight-literal">"{0:yyyy.MM.dd HH:mm:ss,ffffff}"</span>, <span class="highlight-keyword">new</span> <span class="highlight-keyword">object</span>[] { treeEvent.Timestamp });
+        StringBuilder bigMessage = <span class="highlight-keyword">new</span> StringBuilder(timestamp + <span class="highlight-literal">" Event: "</span> + treeEvent.Name);
+        <span class="highlight-keyword">string</span> IdName = treeEvent.NodeName + <span class="highlight-literal">"|"</span> + treeEvent.SenderId;
+        bigMessage.Append(Environment.NewLine + indent + <span class="highlight-literal">"Node: "</span> + IdName);
+        bigMessage.Append(<span class="highlight-literal">", Logical: "</span> + treeEvent.Logical);
+        bigMessage.Append(<span class="highlight-literal">", source: "</span> + treeEvent.SourceId);
+        bigMessage.Append(Environment.NewLine + indent + treeEvent.ReplaceWildcards(<span class="highlight-literal">"%MachineName%"</span>)
+            + <span class="highlight-literal">", thread: "</span> + treeEvent.ThreadId.ToString());
+        bigMessage.Append(<span class="highlight-literal">", Tree: "</span> + treeParameters.ToString());
+        <span class="highlight-keyword">if</span> (addInfos.Trim() != <span class="highlight-literal">""</span>)
+        {
+            bigMessage.Append(Environment.NewLine + addInfos);
+        }
+        <span class="highlight-keyword">if</span> (!String.IsNullOrEmpty(treeEvent.NodePath))
+        {
+            bigMessage.Append(Environment.NewLine + indent + treeEvent.NodePath);
+        }
+        bigMessage.Append(<span class="highlight-literal">", status: "</span> + treeEvent.State.ToString());
+        bigMessage.Append(Environment.NewLine + indent + <span class="highlight-literal">"WorkingDirectory: "</span>
+            + treeEvent.ReplaceWildcards(<span class="highlight-literal">"%WorkingDirectory%"</span>));
+        <span class="highlight-keyword">return</span> bigMessage.ToString();
+    }
+
+    <span class="highlight-comment">// The routine attempts to enter a node that may have several nodes at the same time.</span>
+    <span class="highlight-comment">// used log file; does not throw an exception in the event of an error, but</span>
+    <span class="highlight-comment">// tries again until a counter has expired.</span>
+    <span class="highlight-comment">// In the worst case, the logging attempt may fail.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> WriteLog(<span class="highlight-keyword">string</span> message)
+    {
+        <span class="highlight-keyword">int</span> maxTries = <span class="highlight-number">5</span>;
+        StreamWriter streamWriter;
+        <span class="highlight-keyword">int</span> i = <span class="highlight-number">0</span>;
+        <span class="highlight-keyword">do</span>
+        {
+            <span class="highlight-keyword">try</span>
+            {
+                <span class="highlight-keyword">using</span> (streamWriter = <span class="highlight-keyword">new</span> StreamWriter(<span class="highlight-keyword">new</span> FileStream(<span class="highlight-keyword">this</span>._debugFile,
+                    FileMode.Append, FileAccess.Write), Encoding.Default))
+                {
+                    streamWriter.WriteLine(message);
+                    i = maxTries; <span class="highlight-comment">// successful, end loop</span>
+                }
+
+            }
+            <span class="highlight-keyword">catch</span> (SystemException)
+            {
+                Thread.Sleep(<span class="highlight-number">10</span>); <span class="highlight-comment">// Wait 10 thousandths of a second</span>
+            }
+        } <span class="highlight-keyword">while</span> (++i &lt; maxTries);
+    }
+...</pre></div></div></div><p>
+											The TextFileLogger class implements the functions defined by the <strong>Vishnu</strong> provided interface
+					
+					<a href="T_Vishnu_Interchange_INodeLogger.htm">Vishnu.Interchange<span id="LST11AB78F2_0" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>INodeLogger</a>.
+					The only routine <strong>Log(...)</strong> takes over the path to the log file
+					(subroutine SetLogFilePath), builds a coherent message text from the transferred parameters
+					(subroutine BuildLogMessage) and finally calls the internal routine <strong>WriteLog</strong>,
+					in which an attempt is made to write the message to the log file.
+				
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td><p>
+					Since, when used later in <strong>Vishnu</strong>, several <span class="keyword">Loggers</span> may attempt to write to the same
+					log file at the same time, one or more write attempts may fail. This <span class="keyword">Logger</span>-implementation therefore
+					tries a total of five times before giving up (without any further error message).
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="SieheAuch"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDGAB')" onkeypress="SectionExpandCollapse_CheckKey('IDGAB', event)" tabindex="0"><img id="IDGABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See also</span></div><div id="IDGABSection" class="collapsibleSection"><p><a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Logger">Vishnu actors</a></p><p><a href="0af46309-8c47-467f-a231-36615b7488d4.htm">Requirements for user modules</a></p><p><a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a></p></div></div></div><div id="PageFooter" class="pageFooter">Naturally, many findings and developments are based on information freely available on the Internet. Any missing references to original authors are unintentional and will be updated as soon as they are reported.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Send comments about this feature to
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+        </script></div></body></html>

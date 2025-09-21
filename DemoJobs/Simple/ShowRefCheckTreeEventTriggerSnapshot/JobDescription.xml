@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>ShowRefCheckTreeEventTriggerSnapshot</LogicalName>
+  <LogicalExpression>IS CheckTreeEventTriggerSnapshot</LogicalExpression>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>CheckTreeEventTriggerSnapshot</LogicalName>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

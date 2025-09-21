@@ -1,0 +1,27 @@
+{
+  "JobDescription": {
+    "LogicalName": "UserCheckerDemo",
+    "LogicalExpression": "Predecessor AND UserChecker",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Predecessor",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False:True:Exception|10|Predecessor: Hello World",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:3|S:5"
+          }
+        },
+        {
+          "LogicalName": "UserChecker",
+          "PhysicalPath": "Plugin\\UserChecker.dll",
+          "Trigger": {
+            "Reference": "True",
+            "Parameters": "Predecessor"
+          }
+        }
+      ]
+    }
+  }
+}

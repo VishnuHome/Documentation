@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check All</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression>
+    <![CDATA[CheckServers & CheckDiskSpace]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception|S:30</Reference>
+    <Parameters>Check All</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>LogicalResultChanged|Exception</Parameters>
+    </Logger>
+  </Loggers>
+  <!--JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>AnyLogicalResultChanged|Exception</Parameters>
+  </JobLogger-->
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckServers</LogicalName>
+      <PhysicalPath>..\CheckServers</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckDiskSpace</LogicalName>
+      <PhysicalPath>..\CheckDiskSpace</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

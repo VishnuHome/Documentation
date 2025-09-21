@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f14917bd-1d50-41f0-85ff-14462a770915" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Dieses Kapitel behandelt <languageKeyword>CheckerHistoryLogger</languageKeyword>.
+				CheckerHistoryLogger loggen die Ergebnisse beliebiger anderer <languageKeyword>Checker</languageKeyword>.
+			</para>
+		</introduction>
+
+		<section address="CheckerHistoryLogger">
+			<title>CheckerHistoryLogger</title>
+			<content>
+				<para>
+					Ein <languageKeyword>CheckerHistoryLogger</languageKeyword> erzeugt Logfiles für die Ergebnisse beliebiger Checker.
+					Der CheckerHistoryLogger wird selbst als Checker im Job definiert und ruft seinerseits den tatsächlichen Checker,
+					dessen Name in den Parametern übergeben wurde, als <languageKeyword>Sub-Checker</languageKeyword> auf.
+				</para>
+				<para>
+					Danach erstellt der CheckerHistoryLogger eine Logdatei mit historische Werten des Sub-Checkers oder ergänzt eine schon vorhandene
+					Logdatei mit den aktuell ermittelten Werten.
+				</para>
+				<alert class="important">
+					<para>
+						Die Dll des Sub-Checkers muss sich (inkl. dort referenzierter Assemblies) im Plugin-Verzeichnis des aktuellen Jobs befinden.
+					</para>
+				</alert>
+				<alert class="note">
+					<para>
+						Die Logdateien der CheckerHistoryLogger finden Sie im <languageKeyword>SnapshotDirectory</languageKeyword> des aktuellen <languageKeyword>Jobs</languageKeyword>.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="CheckerHistoryLoggerDemoJob">
+			<title>der Demo Job</title>
+			<content>
+				<para>
+					So sieht der Demo-Job <database>CheckWeatherHistory</database> für den <database>CheckerHistoryLogger</database> im Betrieb aus:
+				</para>
+				<mediaLink>
+					<image xlink:href="WeatherChecker"/>
+				</mediaLink>
+				<para>
+					Und so sieht die zugehörige <database>JobDescription.xml</database> aus:
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckWeatherHistory.xml" language="xml"
+				   title="JobDescription.xml">
+				</code>
+				<para>
+					Über die vom <languageKeyword>CheckerHistoryLogger</languageKeyword> aufgerufene <database>WeatherChecker.dll</database>
+					werden für den aktuellen Tag und die darauf folgendenden Tage Wettervorhersagen im Abstand von jeweils
+					drei Stunden geholt und über das eigene UserControl	<database>WeatherCheckerControl.dll</database> übersichtlich dargestellt.
+				</para>
+				<alert class="note">
+					<para>
+						Für dieses Demo-Programm ist ein Internet-Zugang erforderlich.
+					</para>
+					<para>
+						Vielen Dank an das Team von open-meteo.com und auch an Chenzhou Cui und seine Freunde, die die Seite 7timer.info für Wettervorhersagen betreiben:
+						https://open-meteo.com und https://www.7timer.info.
+					</para>
+					<para>
+						Vielen Dank auch an die Entwickler und Sponsoren der freien Seite für Geolocation:
+						https://www.geojs.io.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="WeatherCheckerDemoProjektLog">
+			<title>Das Logfile des Demo-Projekts</title>
+			<content>
+				<para>
+					Hier sehen Sie die Logging-Ausgaben des Demo-Projekts:
+				</para>
+				<para>
+					Sie finden die Logdatei im <languageKeyword>SnapshotDirectory</languageKeyword> des aktuellen <languageKeyword>Jobs</languageKeyword>
+					mit dem Namen des Sub-Checkers in Kleinbuchstaben und der Endung ".log", in diesem Beispiel also:
+					<database>%SnapshotDirectory%/CheckWeatherHistory/weatherchecker.log</database>
+				</para>
+				<code source="..\Vishnu_doc\Examples\weatherchecker.log"
+					  title="Logfile vom CheckerHistoryLogger"></code>
+				<alert class="note">
+					<para>
+						Der verwendete <languageKeyword>CheckerHistoryLogger</languageKeyword> arbeitet nur mit ToString(),
+						da ihm der Typ des konkreten ReturnObjects des Sub-Checkers unbekannt ist.
+					</para>
+					<para>
+						Für ein spezifischeres Logging des ReturnObjects des SubCheckers können die Klasse
+						<database>CheckerHistoryLogger</database> abgeleitet und die virtuellen Methoden
+						<database>SetupSubCheckerResultsLogging</database>, <database>LogSubCheckerData</database>
+						und <database>ReadHistory</database> überschrieben werden.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />
+				</para>
+				<para>
+					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />
+				</para>
+				<para>
+					<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Logger" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

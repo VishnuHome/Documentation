@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1d49d375-7fd6-4835-9539-34308c78fd02" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Version 8.0.2 Discovery (Stand: 18.11.2023)
+		  </para>
+		  <para>
+			  Diese Version ist die erste komplett auf .Net 8.0 migrierte Vishnu-Software.<lineBreak />
+			  Das umfasst auch das Framework, alle Plugins und die Dokumentation.
+		  </para>
+		  <alert class="caution">
+			  <para>
+				  Abschließende Tests stehen noch aus.
+			  </para>
+			  <para>
+				  Diese Version enthält noch Anpassungen (Build- und Verteilerscripte) für Visual Studio 2022 preview.
+			  </para>
+		  </alert>
+	  </introduction>
+
+	  <section>
+		  <title>Änderungen in dieser Version</title>
+		  <content>
+			  <list class="bullet">
+				  <listItem>
+					  <para>
+						  Die Anzeige der Vishnu-Version wurde in dieser Hilfe von 4 auf 3 Stellen verkürzt;
+						  die 4. Stelle bleibt ab sofort für interne Updates reserviert.
+					  </para>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Das Kontextmenü wurde erweitert und auch für die <languageKeyword>Jobs</languageKeyword>-Ansicht
+						  (zweiter Tab) funktionstüchtig gemacht.<lineBreak />
+						  Neue Menüpunkte sind:
+					  </para>
+					  <list class="bullet">
+						  <listItem>
+							  <para>
+								  <database>Show Log</database>
+							  </para>
+							  <para>
+								  Gibt das aktuelle Vishnu-Log und eventuelle Logs von Checkern in <database>notepad.exe</database> aus.
+							  </para>
+						  </listItem>
+						  <listItem>
+							  <para>
+								  <database>Show Settings</database>
+							  </para>
+							  <para>
+								  Gibt die aktuellen Vishnu-Einstellungen und Parameter in <database>notepad.exe</database> aus.
+							  </para>
+						  </listItem>
+					  </list>
+				  </listItem>
+				  <listItem>
+					  <para>
+						  Tooltips funktionieren jetzt auch in der <languageKeyword>Jobs</languageKeyword>-Ansicht.
+					  </para>
+				  </listItem>
+			  </list>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+	  </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

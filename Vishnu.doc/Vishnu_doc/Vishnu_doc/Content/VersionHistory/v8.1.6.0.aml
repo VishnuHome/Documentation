@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="35c850d6-e5a8-433d-884b-9c612901a94f" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 8.1.6 Progress (Stand: 02.02.2024)
+			</para>
+			<alert class="caution">
+				<para>
+					Abschließende Tests stehen noch aus.
+				</para>
+				<para>
+					Diese Version enthält noch Anpassungen (Build- und Verteilerscripte) für Visual Studio 2022 preview.
+				</para>
+				<para>
+					Es ist noch ein Ticket wegen möglicher Speicherfehler im unmanaged heap offen:<lineBreak/>
+					<externalLink>
+						<linkText>possibly  memory leak in .net 8 #96581</linkText>
+						<linkAlternateText>Ich warte auf den Release von dotnet 8.0.2</linkAlternateText>
+						<linkUri>https://github.com/dotnet/runtime/issues/96581</linkUri>
+						<linkTarget>_blank</linkTarget>
+					</externalLink>
+					<lineBreak/>danmoseley commented: The fix for #95362 will be in 8.0.2 which will be released Feb 13.
+				</para>
+			</alert>
+		</introduction>
+
+		<section>
+			<title>Änderungen in dieser Version</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							Die Positionierung von Fenstern, WPF-Dialog-Checkern und Meldungen auf einem und mehreren
+							Bildschirmen wurde komplett überarbeitet.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Die <token>V</token>-Hilfe wurde über <database>F1</database> und im <languageKeyword>Kontext-Menü</languageKeyword>
+							integriert.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Neuer <token>V</token>-Parameter: <database>HelpPreference</database>
+						</para>
+						<list class="bullet">
+							<listItem>
+								<para>
+									<database>online</database>: Es wird bevorzugt die Onlinehilfe geladen.<lineBreak/>
+									Dies ist die Voreinstellung.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									<database>local</database>: Es wird bevorzugt die lokale Hilfe geladen.
+								</para>
+							</listItem>
+						</list>
+					</listItem>
+					<listItem>
+						<para>
+							Die <database>Plugin</database>-Verzeichnisse unterhalb von "VishnuHome/Vishnu"
+							und "ReadyBin/Vishnu.bin" wurden abgeschafft.
+							Betroffene User-Assemblies wurden bei den anderen User-Assemblies integriert.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Der Parameter <database>UserAssemblyDirectory</database> sollte in den allermeisten
+							Fällen obsolet geworden sein. User-Assemblies werden jetzt bei Standard-Verzeichnisstrukturen
+							sowohl beim <token>V</token>-Debugging, als auch aus <database>Vishnu.bin</database> heraus gefunden.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Die Suche nach <database>Jobs</database> wurde verbessert. Es genügt jetzt, die dem Job direkt
+							übergeordneten Verzeichnisse mit anzugeben; Also zum Beispiel: <database>DemoJobs\CheckServers</database>,
+							anstelle von <database>%VishnuSourceRoot%\VishnuHome\Documentation\DemoJobs\CheckServers</database>.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix: Worker wurden bei existierenden NodeConnectoren auf SingleNodes mehrfach gestartet.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix: UserRun oder UserBreak auf einen Knoten bei pausiertem Tree führte zum Deadlock.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

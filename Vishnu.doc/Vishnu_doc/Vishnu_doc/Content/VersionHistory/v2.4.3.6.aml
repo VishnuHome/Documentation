@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2174305B-CE4A-48F4-A8EB-94BD469A4C8D" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 2.4.3.6 (Stand: 23.03.2015)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Snapshot: ResultLists werden jetzt mit übertragen (Base64 Serialisierung)</para>
+          </listItem>
+          <listItem>
+            <para>Intelligente Zoom-Darstellung (Strg + Mausrad) und SizeToScreen (Strg + rechte Maustaste)</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

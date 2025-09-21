@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="eaef89f3-95f7-441f-9153-f9d6b397a684" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para> </para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="Datenschutzerklärung">
+			<title>Datenschutzerklärung</title>
+			<content>
+				<!-- Uncomment this to create a sub-section outline <autoOutline /> -->
+				<para> </para>
+			</content>
+			<!-- If a section contains a sections element, its content creates
+           sub-sections.  These are not collapsible. -->
+			<sections>
+				<section address="Datenschutz">
+					<title>Datenschutz</title>
+					<content>
+						<para></para>
+						<para>
+							Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen
+							Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+						</para>
+						<para>
+							Die Nutzung unserer Website ist ohne Angabe personenbezogener Daten möglich. Auf unserer Webseite werden keine
+							personenbezogenen Daten erhoben. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift
+							oder E-Mail-Adressen) angezeigt werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre
+							ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+						</para>
+						<para>
+							Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken
+							aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Über unsere Webseiten
+							ist allerdings keine Kommunikation via E-Mail o.ä. möglich.
+						</para>
+					</content>
+				</section>
+				<section address="Cookies">
+					<title>Cookies</title>
+					<content>
+						<para></para>
+						<para>
+							Unsere Internetseiten verwenden keine Cookies
+						</para>
+						<para>
+							Wenn Sie allerdings von unsere Webseiten über entsprechend gekennzeichnete Verweise (Links) auf andere Webseiten
+							verzweigen, können wir nicht ausschließen, dass diese Cookies verwenden. Bitte informieren Sie sich dann über deren
+							Datenschutzerklärungen.
+						</para>
+						<para>
+							(Cookies sind kleine Text-Dateien und werden vom Browser gespeichert – sie richten auf Ihrem Rechner keinen Schaden
+							an und enthalten keine Viren).
+						</para>
+						<para>
+							Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im
+							Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische
+							Löschen der Cookies beim Schließen des Browser aktivieren.
+						</para>
+					</content>
+				</section>
+				<section address="Logdateien">
+					<title>Logdateien</title>
+					<content>
+						<para></para>
+						<para>
+							Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr
+							Browser automatisch an uns übermittelt. Dies sind:
+						</para>
+						<list class="bullet">
+							<listItem>
+								<para>Browsertyp und Browserversion</para>
+							</listItem>
+							<listItem>
+								<para>verwendetes Betriebssystem</para>
+							</listItem>
+							<listItem>
+								<para>Referrer URL</para>
+							</listItem>
+							<listItem>
+								<para>Hostname des zugreifenden Rechners</para>
+							</listItem>
+							<listItem>
+								<para>Uhrzeit der Serveranfrage</para>
+							</listItem>
+						</list>
+						<para>
+							Diese Daten sind u.U. einer bestimmten Person zuordenbar. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird
+							nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu prüfen, wenn uns konkrete Anhaltspunkte für eine
+							rechtswidrige Nutzung bekannt werden.
+						</para>
+					</content>
+				</section>
+				<section address="Recht_auf_Auskunft_Löschung_Sperrung">
+					<title>Recht auf Auskunft, Löschung, Sperrung</title>
+					<content>
+						<para></para>
+						<para>
+							Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft
+							und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+							Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen
+							Adresse an uns wenden.
+						</para>
+					</content>
+				</section>
+			</sections>
+		</section>
+
+		<section address="Impressum">
+			<title>Impressum</title>
+			<content>
+				<!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+				<para> </para>
+			</content>
+			<!-- If a section contains a sections element, its content creates
+           sub-sections.  These are not collapsible. -->
+			<sections>
+				<section address="Diese_Seite">
+					<title>Diese Seite</title>
+					<content>
+						<para></para>
+						<para>
+							Vishnu_doc.de.chm<lineBreak />
+							<externalLink>
+								<linkText>online: https://neteti.de/Vishnu.doc.de</linkText>
+								<linkAlternateText>https://neteti.de/Vishnu.doc.de</linkAlternateText>
+								<linkUri>https://neteti.de/Vishnu.doc.de</linkUri>
+							</externalLink>
+						</para>
+					</content>
+				</section>
+				<section address="Inhaltlich_Verantwortlicher_gemäß_Pf10_Absatz3_MDStV">
+					<title>
+						Inhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV
+					</title>
+					<content>
+						<para></para>
+						<para>
+							Erik Nagel, Marschallstraße 24, 40477 Düsseldorf
+						</para>
+						<para>
+							vollständige Kontaktdaten:
+						</para>
+						<para>
+							  Erik Nagel<lineBreak />
+							  Marschallstraße 24<lineBreak />
+							  40477 Düsseldorf<lineBreak />
+							<mediaLinkInline>
+								<image xlink:href="mobile_erik" />
+							</mediaLinkInline><lineBreak />
+							<mediaLinkInline>
+								<image xlink:href="erik_at_reallyhuman_net" />
+							</mediaLinkInline>
+						</para>
+					</content>
+				</section>
+				<section address="Haftungsausschluss">
+					<title>Haftungsausschluss</title>
+					<content>
+						<para></para>
+						<list class="ordered">
+							<listItem>
+								<para>
+									<database>Inhalt des Onlineangebotes</database><lineBreak />
+									Wir sind stets bemüht, qualitativ hochwertige Informationen zur Verfügung zu stellen. Trotzdem übernehmen wir keinerlei Gewähr
+									für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen.
+									Haftungsansprüche gegen die 'Inhaltlich Verantwortlichen' (s.o.) , die sich auf Schäden materieller oder ideeller Art beziehen,
+									welche durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und
+									unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens der
+									'Inhaltlich Verantwortlichen' kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									<database>Verweise und Links</database><lineBreak />
+									Sofern auf Verweisziele ("Links") direkt oder indirekt verwiesen wird, die ausserhalb des Verantwortungsbereiches des Autors liegen,
+									haftet allein der Anbieter dieser Seiten, nicht derjenige, der über Links auf die jeweilige Veröffentlichung lediglich verweist.
+									Diese Einschränkung gilt gleichermaßen auch für Fremdeinträge in vom Autor eingerichteten Gästebüchern, Diskussionsforen und Mailinglisten.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									<database>Urheberrecht</database><lineBreak />
+									Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Grafiken, Videos, Sounds und Texte zu beachten,
+									von ihm selbst erstellte Grafiken, Videos, Sounds und Texte zu nutzen oder auf lizenzfreie Grafiken, Videos, Sounds und Texte
+									zurückzugreifen. Sollte sich auf den jeweiligen Seiten dennoch eine ungekennzeichnete, aber durch fremdes Copyright geschützte
+									Grafik, ein Sound, Video oder Text befinden, so konnte das Copyright vom Autor nicht festgestellt werden.
+									Im Falle einer solchen Copyrightverletzung wird der Autor das entsprechende Objekt nach Benachrichtigung aus seiner Publikation
+									entfernen bzw. mit dem entsprechenden Copyright kenntlich machen.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									<database>Rechtswirksamkeit dieses Haftungsausschlusses</database><lineBreak />
+									Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde.
+									Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig
+									entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
+								</para>
+							</listItem>
+						</list>
+					</content>
+				</section>
+			</sections>
+		</section>
+
+		<relatedTopics>
+			<!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

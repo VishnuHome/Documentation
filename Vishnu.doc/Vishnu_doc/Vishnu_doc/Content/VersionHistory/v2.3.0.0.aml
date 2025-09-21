@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="A2EBB2EB-C3B8-4D88-800A-BF236B7AD859" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 2.3.0.0 (Stand: 04.11.2014)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Einstellbare optische Eigenschaften von LogicalTaskTree in Resource zentralisieren und als Demo zweiten Skin entworfen</para>
+          </listItem>
+          <listItem>
+            <para>
+              <token>V</token> als Job-Steuerung</para>
+          </listItem>
+          <listItem>
+            <para>Checker dürfen auch null zurückgeben</para>
+          </listItem>
+          <listItem>
+            <para>Results von übergeordneten Jobs in "Environment"-Parameter aufnehmen</para>
+          </listItem>
+          <listItem>
+            <para>Checker mit WPF-Oberflächen (WPFDialogChecker)</para>
+          </listItem>
+          <listItem>
+            <para>Knoten-Viewer dynamisch laden</para>
+          </listItem>
+          <listItem>
+            <para>ToolTips für Zusatzinformationen</para>
+          </listItem>
+          <listItem>
+            <para>Alternative <token>V</token>-Darstellung als Liste von Knoten nach extern konfigurierbaren Filterkriterien</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

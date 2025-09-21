@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckServersLogging</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Google AND Heise) & (Local OR NotPresent)]]>
+  </LogicalExpression>
+  <SingleNodeUserControlPath>Plugin\SingleNodeUserControl_CheckServer.dll</SingleNodeUserControlPath>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Google</LogicalName>
+      <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+      <Parameters>8.8.8.8|200|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|S:20</Parameters>
+      </Trigger>
+      <Logger>
+	      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+  	    <Parameters>Exception|LogicalResultChanged</Parameters>
+      </Logger>
+    </Checker>
+    <Checker>
+      <LogicalName>Heise</LogicalName>
+      <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+      <Parameters>www.heise.de|200|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:3|S:20</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>Local</LogicalName>
+      <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+      <Parameters>Localhost|1000|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:20|S:300</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>NotPresent</LogicalName>
+      <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+      <Parameters>9.8.7.6|200|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:2|S:20</Parameters>
+      </Trigger>
+      <Logger>
+	      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+  	    <Parameters>Exception|LogicalResultChanged,%TempDirectory%\xyz.log</Parameters>
+      </Logger>
+    </Checker>
+  </Checkers>
+</JobDescription>

@@ -1,0 +1,258 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-US" /><meta name="Microsoft.Help.Locale" content="en-US" /><meta name="Microsoft.Help.TopicLocale" content="en-US" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Custom Triggers</title><meta name="Microsoft.Help.Id" content="c2c472b6-b252-4bd6-bf6a-0b15bc404ea4" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Description" content="This chapter is about self-created triggers. You can use your Custom Triggers to restart checkers in the Vishnu tree depending on events in your business processes." /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div id="PageHeader" class="pageHeader">Vishnu - logical monitoring job controller</div><div class="pageBody"><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Custom Triggers</h1></td></tr></table><div><p>
+        This chapter is about self-created <span class="keyword">Triggers</span>. Using your own <span class="keyword">Triggers</span>,
+        you can restart <span class="keyword">Checkers</span> in the <strong>Vishnu</strong>-tree depending on events in your business processes.
+			</p></div><div class="collapsibleAreaRegion" id="Vorbemerkungen"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Preliminary remarks</span></div><div id="IDDABSection" class="collapsibleSection">
+				
+				<p><span class="keyword">Triggers</span> should primarily be used to start other <strong>Vishnu</strong>-actors, such as
+					 <span class="keyword">Checkers</span>, immediately after external or Vishnu-internal events. <strong>Vishnu</strong> already
+					 provides the following three <span class="keyword">Triggers</span> for this, which were also introduced on
+					 <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Trigger">Vishnu actors</a>:
+				</p><ul><li><p><strong>TimerTrigger</strong></p><p>
+														TimerTriggers call <span class="keyword">Checkers</span> or <span class="keyword">Workers</span>
+														at regular intervals.
+						
+						</p></li><li><p><strong>FileWatcherTrigger</strong></p><p>
+														FileWatcherTriggers start <span class="keyword">Checkers</span> whenever watched files change.
+						
+						</p></li><li><p><strong>TreeEventTrigger</strong></p><p>
+														TreeEventTriggers are <strong>Vishnu</strong>-internal triggers that react to events (<span class="keyword">TreeEvents</span>)
+							within the <strong>Vishnu</strong>-tree and can then start <span class="keyword">Checkers</span>.
+						
+						</p></li></ul><p>
+							
+							In particular, <span class="keyword">TreeEventTriggers</span> in combination with <span class="keyword">Checkers</span>
+							are a kind of Swiss Army knife for dealing with non-periodic events or more complicated contexts.
+				</p><p>
+					
+            In short: before inventing a new trigger, you should first check whether an immediate reaction to an event is really required
+            or whether the task might not be better suited to a checker, which in turn is triggered by one of the existing triggers.				
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+					
+					  Although <span class="keyword">TreeEventTriggers</span> are <strong>Vishnu</strong>-internal modules, they can be configured in
+					  the <span class="keyword">JobDescription.xml</span> like other triggers. For more information about
+					  <span class="keyword">TreeEvents</span> see <a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a>.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="EigeneTrigger"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Custom Triggers</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+
+            As already mentioned in the brief overview in the chapter <a href="0af46309-8c47-467f-a231-36615b7488d4.htm">Requirements for user modules</a>,
+            your own <span class="keyword">Triggers</span> must implement the <a href="T_Vishnu_Interchange_INodeTrigger.htm">Vishnu.Interchange<span id="LSTF25662C_0" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>INodeTrigger</a> interface.
+            However, you don't have to worry about this if you derive your trigger from the <strong>TriggerBase</strong> class.
+				</p><p>
+            Let's take a look at the output of the demo project <strong>TimerTriggerDemo</strong> from the solution folder
+            <strong>...\InPlug\TimerTrigger</strong> and then excerpts from the implementation of <strong>TimerTrigger</strong>.
+
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+												General information about triggers and how they are used in the <span class="keyword">JobDescription.xml</span>
+													can be found on <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Trigger">Vishnu actors</a>.
+					
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TimerTriggerDemoProjektRun"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The demo project</span></div><div id="IDFABSection" class="collapsibleSection"><p>
+										Here is the output of the demo project first:
+				
+				</p><div class="mediaNear"><img alt="Timer Trigger Demo" src="../media/TimerTriggerDemo.png" /></div><p>
+											As can be seen, the trigger fires after a waiting time of 5 seconds
+					at intervals of 3 seconds until you stop it.
+				
+				</p><p>
+										Integration and call of the class <strong>TimerTrigger</strong> within the demo project
+					can be seen the following code listing:
+				
+				</p><div id="IDEBFAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDEBFAB_tab1" class="codeSnippetContainerTabSingle">Program.cs in the demo program</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDEBFAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDEBFAB');return false;" title="Copy">Copy</a></div></div><div id="IDEBFAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-keyword">class</span> Program
+{
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> Main(<span class="highlight-keyword">string</span>[] args)
+    {
+        TimerTrigger.TimerTrigger trigger = <span class="highlight-keyword">new</span> TimerTrigger.TimerTrigger();
+        trigger.Start(<span class="highlight-keyword">zero</span>, <span class="highlight-literal">@"S:5|S:3"</span>, trigger_TriggerIt);
+        Console.WriteLine(<span class="highlight-literal">"Stop trigger with Enter"</span>);
+        Console.WriteLine();
+        Console.ReadLine();
+        trigger.Stop(<span class="highlight-keyword">zero</span>, trigger_TriggerIt);
+        Console.WriteLine(<span class="highlight-literal">"Trigger stopped"</span>);
+        Console.ReadLine();
+    }
+
+    <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> trigger_TriggerIt(TreeEvent source)
+    {
+        Console.WriteLine($<span class="highlight-literal">"{source.Name} fires ({source.SourceId} {source.SenderId})."</span>);
+    }
+}</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td>
+	        <p>
+	        	The TimerTrigger call shown above in the demo project is for illustration purposes only.
+	        	You do not need to call the TimerTrigger yourself, just configure it in a <span class="keyword">JobDescription.xml</span>.
+	        	<strong>Vishnu</strong> will then take care of the call itself later.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TimerTriggerSource"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDGAB')" onkeypress="SectionExpandCollapse_CheckKey('IDGAB', event)" tabindex="0"><img id="IDGABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The TimerTrigger</span></div><div id="IDGABSection" class="collapsibleSection"><p>
+										The actual trigger in our example is the class <strong>TimerTrigger</strong>,
+					see the following code listing:
+				
+				</p><div id="IDBBGAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDBBGAB_tab1" class="codeSnippetContainerTabSingle">TimerTrigger.cs Extract</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDBBGAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDBBGAB');return false;" title="Copy">Copy</a></div></div><div id="IDBBGAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Triggers the "Start" routine at regular, configurable intervals.</span>
+<span class="highlight-comment">/// passed event 'triggerIt' from.</span>
+<span class="highlight-comment">/// Implements the interface 'INodeTrigger' from 'Vishnu.Interchange.dll', via</span>
+<span class="highlight-comment">/// which the LogicalTaskTree of 'Vishnu' hooks into the event and activates the trigger</span>
+<span class="highlight-comment">/// can start and stop.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> TimerTrigger : TriggerBase
+{
+    ...
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Starts the trigger; the consumer should first have mounted itself in TriggerIt.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerController"&gt;The object that calls the trigger.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerParameters"&gt;Time until first start and interval separated by pipe ('|').</span>
+    <span class="highlight-comment">/// The time specifications consist of a unit and a value separated by a colon.</span>
+    <span class="highlight-comment">/// Units are: "MS" milliseconds, "S" seconds, "M" minutes, "H" hours and "D" days.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerIt"&gt;The callback routine to be called when the trigger fires.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;returns&gt;True if the trigger was actually started by this call.&lt;/returns&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">bool</span> Start(<span class="highlight-keyword">object</span> triggerController, <span class="highlight-keyword">object</span> triggerParameters, Action&lt;TreeEvent&gt; triggerIt)
+    {
+        <span class="highlight-comment">// Passing on the start call to the base class</span>
+        <span class="highlight-keyword">base</span>.Start(triggerController, triggerParameters, triggerIt);
+
+        <span class="highlight-comment">// Trigger-specific code - start</span>
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">this</span>._nodeCancellationTokenSource != <span class="highlight-keyword">zero</span>)
+        {
+            <span class="highlight-keyword">this</span>._nodeCancellationTokenSource.Dispose();
+        }
+        <span class="highlight-keyword">this</span>._nodeCancellationTokenSource = <span class="highlight-keyword">new</span> CancellationTokenSource();
+        <span class="highlight-keyword">this</span>._cancellationToken = <span class="highlight-keyword">this</span>._nodeCancellationTokenSource.Token;
+        <span class="highlight-keyword">this</span>._cancellationToken.Register(() =&gt; CancelNotification());
+        <span class="highlight-keyword">this</span>._timerTask = Observable.Timer(<span class="highlight-keyword">this</span>._firstRun, <span class="highlight-keyword">this</span>._interval);
+        <span class="highlight-keyword">this</span>._nextStart = DateTime.Now.AddMilliseconds(<span class="highlight-keyword">this</span>._firstRun.TotalMilliseconds);
+        <span class="highlight-keyword">this</span>._cancellationToken.Register(<span class="highlight-keyword">this</span>._timerTask.Subscribe(<span class="highlight-keyword">this</span>.OnTriggerFired).Dispose);
+        <span class="highlight-comment">// Trigger-specific code - End</span>
+
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">true</span>;
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Stops the trigger.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerController"&gt;The object that defines the trigger &lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerIt"&gt;The callback routine to be called when the trigger fires.&lt;/param&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> Stop(<span class="highlight-keyword">object</span> triggerController, Action&lt;TreeEvent&gt; triggerIt)
+    {
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">this</span>._nodeCancellationTokenSource != <span class="highlight-keyword">zero</span>)
+        {
+            <span class="highlight-keyword">this</span>._nodeCancellationTokenSource.Cancel();
+
+            <span class="highlight-comment">// Passing on the stop call to the base class</span>
+            <span class="highlight-keyword">base</span>.Stop(triggerController, triggerIt);
+        }
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Standard constructor.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-keyword">public</span> TimerTrigger() : <span class="highlight-keyword">base</span>()
+    {
+        <span class="highlight-comment">// Optional: transfer of a specific name (otherwise "Trigger" is generally set)</span>
+        <span class="highlight-keyword">this</span>TriggerName = <span class="highlight-literal">"TimerTrigger"</span>;
+
+        <span class="highlight-comment">// Optional: Formulation of a syntax help (is output in the event of an error)</span>
+        <span class="highlight-keyword">this</span>._syntaxInformation =
+            <span class="highlight-literal">"Call parameter: [Delay] Interval"</span>
+          + Environment.NewLine
+          + <span class="highlight-literal">"Format of delay, interval: unit + ':' + integer value"</span>
+          + Environment.NewLine
+          + <span class="highlight-literal">"Unit: MS=milliseconds, S=seconds, M=minutes, H=hours, D=days."</span>
+          + Environment.NewLine
+          + <span class="highlight-literal">"Example: TimerTrigger S:5 M:10 (fires every 10 minutes after a waiting time of 5 seconds)"</span>;
+    }
+
+    ...
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// This routine is started by the "Start" routine before the trigger is started.</span>
+    <span class="highlight-comment">/// Extended TriggerBase.EvaluateParametersOrFail; only the parameter set by Vishnu, if applicable, is evaluated there.</span>
+    <span class="highlight-comment">/// Parameter "|UserRun" evaluated and the variable "_isUserRun" set accordingly.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerParameters"&gt;The parameters forwarded by Vishnu from the JobDescription.xml.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="triggerController"&gt;The node to which this trigger is assigned.&lt;/param&gt;</span>
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> EvaluateParametersOrFail(<span class="highlight-keyword">ref</span> <span class="highlight-keyword">object</span> triggerParameters, <span class="highlight-keyword">object</span> triggerController)
+    {
+        <span class="highlight-comment">// Forwarding to the basic routine</span>
+        <span class="highlight-keyword">base</span>EvaluateParametersOrFail(<span class="highlight-keyword">ref</span> triggerParameters, triggerController);
+
+        <span class="highlight-comment">// From here, the trigger-specific check and transfer of the data entered via the JobDescription.xml</span>
+        <span class="highlight-comment">// parameters passed to the system. Character strings enclosed in %-characters may have been removed from the</span>
+        <span class="highlight-comment">// Vishnu parameter replacement with their current runtime values.</span>
+        <span class="highlight-keyword">string</span> firstArg = (triggerParameters.ToString() + <span class="highlight-literal">"|"</span>).split(<span class="highlight-literal">'|'</span>)[<span class="highlight-number">0</span>];
+        <span class="highlight-keyword">string</span> secondArg = <span class="highlight-literal">""</span>;
+        <span class="highlight-keyword">if</span> (!firstArg.Equals(<span class="highlight-literal">""</span>))
+        {
+            secondArg = (triggerParameters.ToString() + <span class="highlight-literal">"|"</span>).split(<span class="highlight-literal">'|'</span>)[<span class="highlight-number">1</span>];
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">this</span>.ThrowSyntaxException(<span class="highlight-literal">"At least a time must be specified."</span>);
+        }
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">this</span>._isUserRun)
+        {
+            firstArg = secondArg; <span class="highlight-comment">// wait one run first, as the node has already been started directly by UserRun.</span>
+        }
+        <span class="highlight-keyword">string</span> firstUnity = (firstArg + <span class="highlight-literal">":"</span>).split(<span class="highlight-literal">':'</span>)[<span class="highlight-number">0</span>ToUpper();
+        <span class="highlight-keyword">if</span> (!(<span class="highlight-keyword">new</span> <span class="highlight-keyword">string</span>[] { <span class="highlight-literal">"MS"</span>, <span class="highlight-literal">"S"</span>, <span class="highlight-literal">"M"</span>, <span class="highlight-literal">"H"</span>, <span class="highlight-literal">"D"</span> }).Contains(firstUnity))
+        {
+            <span class="highlight-keyword">this</span>.ThrowSyntaxException(<span class="highlight-literal">"No valid unit (MS, S, M, H, D) was specified."</span>);
+        }
+        <span class="highlight-keyword">double</span> firstValue = Convert.ToDouble((firstArg + <span class="highlight-literal">":"</span>).split(<span class="highlight-literal">':'</span>)[<span class="highlight-number">1</span>]); <span class="highlight-comment">// may throw an exception, must then be like this</span>
+        <span class="highlight-keyword">switch</span> (firstUnity)
+        {
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"MS"</span>: <span class="highlight-keyword">this</span>._firstRun = TimeSpan.FromMilliseconds(Convert.ToDouble(firstValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"S"</span>: <span class="highlight-keyword">this</span>._firstRun = TimeSpan.FromSeconds(Convert.ToDouble(firstValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"M"</span>: <span class="highlight-keyword">this</span>._firstRun = TimeSpan.FromMinutes(Convert.ToDouble(firstValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"H"</span>: <span class="highlight-keyword">this</span>._firstRun = TimeSpan.FromHours(Convert.ToDouble(firstValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"D"</span>: <span class="highlight-keyword">this</span>._firstRun = TimeSpan.FromDays(Convert.ToDouble(firstValue)); <span class="highlight-keyword">break</span>;
+        }
+        <span class="highlight-keyword">string</span> secondUnity = (secondArg + <span class="highlight-literal">":"</span>).split(<span class="highlight-literal">':'</span>)[<span class="highlight-number">0</span>ToUpper();
+        <span class="highlight-keyword">if</span> (!(<span class="highlight-keyword">new</span> <span class="highlight-keyword">string</span>[] { <span class="highlight-literal">"MS"</span>, <span class="highlight-literal">"S"</span>, <span class="highlight-literal">"M"</span>, <span class="highlight-literal">"H"</span>, <span class="highlight-literal">"D"</span> }).Contains(secondUnity))
+        {
+            <span class="highlight-keyword">this</span>.ThrowSyntaxException(<span class="highlight-literal">"No valid unit (MS, S, M, H, D) was specified."</span>);
+        }
+        <span class="highlight-keyword">double</span> secondValue = Convert.ToDouble((secondArg + <span class="highlight-literal">":"</span>).split(<span class="highlight-literal">':'</span>)[<span class="highlight-number">1</span>]); <span class="highlight-comment">// may throw an exception, must then be like this</span>
+        <span class="highlight-keyword">switch</span> (secondUnity)
+        {
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"MS"</span>: <span class="highlight-keyword">this</span>._interval = TimeSpan.FromMilliseconds(Convert.ToDouble(secondValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"S"</span>: <span class="highlight-keyword">this</span>._interval = TimeSpan.FromSeconds(Convert.ToDouble(secondValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"M"</span>: <span class="highlight-keyword">this</span>._interval = TimeSpan.FromMinutes(Convert.ToDouble(secondValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"H"</span>: <span class="highlight-keyword">this</span>._interval = TimeSpan.FromHours(Convert.ToDouble(secondValue)); <span class="highlight-keyword">break</span>;
+            <span class="highlight-keyword">case</span> <span class="highlight-literal">"D"</span>: <span class="highlight-keyword">this</span>._interval = TimeSpan.FromDays(Convert.ToDouble(secondValue)); <span class="highlight-keyword">break</span>;
+        }
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// This routine triggers the trigger event.</span>
+    <span class="highlight-comment">/// To set the variables "_lastStart" and "_nextStart", this routine overwrites</span>
+    <span class="highlight-comment">/// TriggerBase.OnTriggerFired.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="dummy"&gt;Not used here for compatibility reasons.&lt;/param&gt;</span>
+    <span class="highlight-keyword">protected</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">void</span> OnTriggerFired(<span class="highlight-keyword">long</span> dummy)
+    {
+        <span class="highlight-keyword">this</span>._lastStart = DateTime.Now;
+        <span class="highlight-keyword">this</span>._nextStart = <span class="highlight-keyword">this</span>._lastStart.AddMilliseconds(<span class="highlight-keyword">this</span>._interval.TotalMilliseconds);
+
+        <span class="highlight-comment">// Forwarding to the basic routine</span>
+        <span class="highlight-keyword">base</span>.OnTriggerFired(dummy);
+    }
+...</pre></div></div></div><p>
+
+					The TimerTrigger class is derived from the base class <strong>TriggerBase</strong>, which in turn	implements the
+				  <a href="T_Vishnu_Interchange_INodeTrigger.htm">Vishnu.Interchange<span id="LSTF25662C_1" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>INodeTrigger</a>.
+					interface provided by <strong>Vishnu</strong>.
+	        User settings are adopted in the <strong>EvaluateParametersOrFail</strong> routine.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+						The form and syntax of the transferred parameters is not fixed. You can determine this completely freely.
+						The only thing that matters is that your own trigger understands the format that you specify in the
+						<span class="keyword">JobDescription.xml</span>.
+					
+					</p></td></tr></table></div><p>
+						The <strong>Start</strong>-method takes the parameters and also the routine to be called when the trigger fires
+						and starts the <span class="keyword">Trigger</span>. <strong>Vishnu</strong> calls this method later.
+            Accordingly, <strong>Vishnu</strong> calls the Stop method when the trigger should be stopped.
+            The <strong>OnTriggerFired</strong>-method is overwritten in the example in order to provide information about the
+            last and next run for display.
+				</p></div><div class="collapsibleAreaRegion" id="SieheAuch"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDHAB')" onkeypress="SectionExpandCollapse_CheckKey('IDHAB', event)" tabindex="0"><img id="IDHABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See also</span></div><div id="IDHABSection" class="collapsibleSection"><p><a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Trigger">Vishnu actors</a></p><p><a href="0af46309-8c47-467f-a231-36615b7488d4.htm">Requirements for user modules</a></p><p><a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a></p></div></div></div><div id="PageFooter" class="pageFooter">Naturally, many findings and developments are based on information freely available on the Internet. Any missing references to original authors are unintentional and will be updated as soon as they are reported.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Send comments about this feature to
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+        </script></div></body></html>

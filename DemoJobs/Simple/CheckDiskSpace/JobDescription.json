@@ -1,0 +1,31 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Disk Space",
+    "LogicalExpression": "Check_C AND Check_D",
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Check_C",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll",
+          "Parameters": "c:|200000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "M:10"
+          }
+        },
+        {
+          "LogicalName": "Check_D",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll",
+          "Parameters": "d:|200000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|M:10"
+          }
+        }
+      ]
+    }
+  }
+}

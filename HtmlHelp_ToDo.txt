@@ -1,0 +1,499 @@
+----------------------------------------------------------------------------------------------------------------------------
+Deutsche und englische Online-Hilfe und deutsches und englisches *.chm erstellen
+(siehe auch GitHubPagesJekyllReadme.txt)
+----------------------------------------------------------------------------------------------------------------------------
+...\openVishnu8\VishnuHome\Documentation\HthmHelp_ToDo.txt
+...\openVishnu8\ClubChaos\Admin\HthmHelp_ToDo.txt
+! Bis mir was besseres einfällt, beide HthmHelp_ToDo.txt immer manuell gleich halten !
+
+------------------------------------------
+Quellen und Projekte
+
+	------------------------------------------
+	Deutsches *.chm erstellen
+	------------------------------------------
+		Über Visual Studio das Projekt
+		...\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\Vishnu_doc.shfbproj umwandeln.
+		Vorher in den Projekteinstellungen das Häkchen entfernen bei
+			"Clean intermediate code after a successful build".
+		Nach dem build
+			...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\Vishnu_doc.de.hhc und
+			...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\Vishnu_doc.de.hhk
+			nach ...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\ kopieren
+		und ggf. ...\Vishnu.doc.en\hhc_hhk_creator\VishnuHtml2Chm.hhp aktualisieren mit Hilfe von
+			...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\Help1x.hhp
+
+	------------------------------------------
+	Deutsche Vishnu Online Hilfe erstellen
+	------------------------------------------
+	...\openVishnu8\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\
+			Das Original-Sandcastle-Projekt für die deutsche Hilfe.
+			Erstellt die deutschen *.htm-Dateien für die Online-Hilfe und die deutsche Vishnu_doc.de.chm.
+				-	die über das Visual Studio Projekt erstellten *.htm-Dateien im Ordner html werden im Postbuild
+					mit dem Projekt ...\VishnuHome\Documentation\VishnuHtmlHelpModifier\VishnuHtmlHelpModifier.sln
+					von den PageHeadern befreit
+
+	Wird automatisch im Vishnu_doc Postbuild aufgerufen:
+	...\openVishnu8\VishnuHome\Documentation\VishnuHtmlHelpModifier\
+			entfernt aus den deutschen *.htm-Dateien für die Online-Hilfe die PageHeader mit dem Suchfeld
+				(sonst gibt es doppelte Kopfzeilen in der Online Hilfe in Vishnus HtmlHelpBrowser).
+			(string writeText = Regex.Replace(allFileText,
+				"\\<div\\s+id=\"PageHeader\".+<button id=\"SearchButton\"\\s+type=\"submit\"></button></form></div>", "");).
+		Hintergrund: das hat sowieso nie funktioniert und in ...\openVishnu8\VishnuHome\VishnuHelpBrowser\
+								 hätte das auch ohne größeren Aufwand nicht eingebunden werden können.
+	
+	Die Vishnu Online Hilfe muss später manuell nach https://neteti.de/Vishnu.doc.de/
+	übertragen werden. Dort muss dann auch die Vishnu_doc.de.chm hin kopiert werden.
+	Download-Hinweise finden sich in der GitHub-Doku.
+
+	------------------------------------------
+	Englische Vishnu Online Hilfe erstellen
+	------------------------------------------
+		Ablauf:
+			Verzeichnis html leer machen
+			alle *.htm aus html.en.online.stripped nach html kopieren
+			hhc_translator.py
+			hhk_translator.py
+			htm_chm_preparer.py
+			hhc.exe VishnuHtml2Chm.en.hhp
+
+	! NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN !
+		Die *.htm ohne PageHeader in
+		...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\html.en.online.stripped
+		wurden einmalig und kostenpflichtig	über DeepL aus den deutschen *.htm in's Englische übersetzt
+		und von Hand nachbearbeitet (daher stammen auch die *.bak-Dateien).
+	! NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN NICHT LÖSCHEN !
+
+		...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\html.en.online.stripped
+				Hier befinden sich die einmalig und kostenpflichtig	über DeepL aus den deutschen
+				in's Englische übersetzten und von Hand nachbearbeiteten *.htm-Dateien
+				(nach VishnuHtmlHelpModifier)
+				und die Python-Scripte zur Vorbereitung der Generierung der englischen Vishnu_doc.en.chm.
+		hhc_translator.py: Erzeugt eine englische Content-Datei Vishnu_doc.en.hhc mit Hilfe der
+											 deutschen Vishnu_doc.de.hhc und der *.htm-Dateien aus html.en.online.stripped.
+		hhk_translator.py: Erzeugt eine englische Key-Datei Vishnu_doc.en.hhk mit Hilfe der
+											 deutschen Vishnu_doc.de.hhk und der *.htm-Dateien aus html.en.online.stripped.
+		[htm_translator_deprecated.py: Einmalanwendung: Übersetzt bestimmte Teile der
+											 (über DeepL vorübersetzten) *.htm-Dateien nachträglich in's Englische
+											 (das geht über die kostenfreie Lizenz von DeepL).
+								Quelle: html.en.online.stripped
+								  Ziel: html.en.online.stripped
+											  Die modifizierten *.htm-Dateien wurden nach Lauf dieses Scripts
+												von Hand nach html.en.online.stripped zurückkopiert.
+												Die ursprünglichen *.htm-Dateien (vor diesem Script) sind in
+												html.en.online.stripped noch als *.org vorhanden.]
+		htm_chm_preparer.py: 
+											 Fügt einen englischen pageHeader ein und es wird aus allen *.htm-Dateien
+											 die HTML-Navigation auf der linken Seite (leftNav-Einträge) entfernt.
+									 		 Ergebnis:
+									 		 ...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\html
+						 Achtung:  Es muss von Hand auch styles\branding-Website.css editiert werden.
+	
+	Die Vishnu Online Hilfe muss später manuell nach https://neteti.de/Vishnu.doc.en/
+	übertragen werden. Dort muss dann auch die Vishnu_doc.en.chm hin kopiert werden.
+	Download-Hinweise finden sich in der GitHub-Doku.
+	------------------------------------------
+	Englische Vishnu Online Hilfe Pflege
+	------------------------------------------
+	Nachträgliche Veränderungen/Erweiterungen der deutschen Hilfe:
+		geänderte und neue deutsche *.htm-Dateien nach
+			...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\html_to_translate\
+		kopieren
+		htm_full_translator.py
+		danach Einträge in filepath_title_hhc_addon.json, welche neu sind,
+		in filepath_title_hhc.json und filepath_title_hhk.json nachpflegen.
+	
+	Nachträgliche Feinbearbeitung der englischen Hilfe:
+		htm_post_translator.py 
+		verarbeitet die *.htm-Dateien in html.en.online.stripped
+		kann beliebig oft laufen (muss aber nur einmal)
+	------------------------------------------
+	Englisches *.chm erstellen
+	------------------------------------------
+		hhc.exe VishnuHtml2Chm.en.hhp
+
+siehe auch:
+https://www-user.tu-chemnitz.de/~heha/hsn/chm/chmspec.chm/hhp.html
+
+Englische Vishnu Online Hilfe erstellen
+	! NICHT LÖSCHEN !
+	Die *.htm ohne PageHeader in ...\Python\hhc_hhk_creator\html.en.online.stripped
+	wurden einmalig und kostenpflichtig	über DeepL in's Englische übersetzt
+	und von Hand nachbearbeitet. Hier muss auch immer nachgepflegt werden, wenn die deutsche Hilfe geändert wurde.
+
+Englisches *.chm erstellen (...\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\test\Vishnu_doc.en.chm)
+	Den Ordner test/html.en.online nach test/hhc_hhk_creator als Ordner html kopieren.
+	...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\Vishnu_doc.de.hhc und
+	...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\Vishnu_doc.de.hhk
+			nach ...\openVishnu8\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\ kopieren
+	Dann über Visual Studio Code oder Kommandozeile im Ordner test/hhc_hhk_creator hhc_translator.py ausführen
+			Dadurch wird Vishnu_doc.en.hhc erzeugt und die englischen *.htm-Dateien um einen englischen PageHeader ergänzt.
+
+1.	HTML Help Workshop installieren
+		Hinweis: Im HTML Help Workshop ist es grundsätzlich nicht möglich, Dateien mit absoluten Pfaden in der .hhp-Datei hinzuzufügen.
+		Der HTML Help Compiler erwartet, dass alle Dateien relative Pfade haben, die auf den Projektpfad verweisen.	Dies dient dazu,
+		die Portabilität des Projekts zu gewährleisten, sodass die CHM-Datei auf anderen Systemen funktioniert, unabhängig von deren Dateistruktur.
+
+2.	Projektdatei ..\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\test\VishnuHtml2Chm.hhp vorbereiten.
+		Hinweis: die VishnuHtml2Chm.hhp stammt ursprünglich als Help1x.hhp
+			aus ...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\
+		Vor dem build der deutschen Vishnu-Hilfe in den Projekteinstellungen das Häkchen entfernen bei
+			"Clean intermediate code after a successful build".
+		Die ursprünglich deutsche VishnuHtml2Chm.hhp dann noch von Hand auf die englische Version anpassen.
+
+3.	HTML-Dateien vorbereiten
+
+html-Dateien für das *.chm haben einen PageHeader:
+  <div id="PageHeader" class="pageHeader">
+    Vishnu - logical monitoring job controller
+    <form id="SearchForm" method="get" action="#" onsubmit=
+    "TransferToSearchPage(); return false;" name="SearchForm">
+      <input id="SearchTextBox" type="text" maxlength=
+      "200"><button id="SearchButton" type="submit"></button>
+    </form>
+  </div>
+html-Dateien für die Online-Hilfe haben keinen PageHeader:
+
+html-Dateien für die Online-Hilfe haben eine Navigationsleiste (leftNav):
+    <div class="leftNav" id="leftNav">
+      <div id="tocNav">
+        <div class="toclevel0" data-toclevel="0">
+          <a class="tocCollapsed" onclick="Toggle(this);" href=
+          "#!"></a><a data-tochassubtree="true" href=
+          "../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title=
+          "Vishnu - der logische Prozess-Monitor" tocid=
+          "roottoc">Vishnu - der logische Prozess-Monitor</a>
+        </div>
+        ...
+      <div id="TocResize" class="tocResize"><img id=
+      "ResizeImageIncrease" src="../icons/TocOpen.gif" onclick=
+      "OnIncreaseToc()" alt="Click or drag to resize" title=
+      "Click or drag to resize"><img id="ResizeImageReset" src=
+      "../icons/TocClose.gif" style="display:none" onclick=
+      "OnResetToc()" alt="Click or drag to resize" title=
+      "Click or drag to resize"></div>
+    </div>
+html-Dateien für das *.chm haben keine Navigationsleiste (leftNav)
+
+...\VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\test\hhc_hhk_creator\hhc_translator.py
+		benötigt	Vishnu_doc.de.hhc und alle englischen *.htm im Unterverzeichnis html
+		erzeugt		Vishnu_doc.en.hhc und modifiziert alle *.htm dahingehend, dass
+				alle leftNav-Einträge entfernt werden und alle *.htm-Dateien einen pageHeader bekommen.
+
+in der Datei style\branding-Website.css die Margin für den topicContent auskommentieren:
+/*
+.topicContent {
+    margin-left: 280px;
+}
+*/
+
+hhc.exe VishnuHtml2Chm.hhp
+
+siehe auch: ...\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\Working\Output\HtmlHelp1\
+https://www-user.tu-chemnitz.de/~heha/hsn/chm/chmspec.chm/hhp.html
+
+----------------------------------------------------------------------------------------------------------------------------
+ChatGPT Konversation
+----------------------------------------------------------------------------------------------------------------------------
+Erik
+Hi Chappy, wie kann ich mit html help workshop aus einer index.html und mehreren .htm-Dateien in einem Unterverzeichnis eine chm-Datei erzeugen?
+
+ChatGPT
+Um mit dem HTML Help Workshop eine CHM-Datei (Compiled HTML Help) aus einer index.html und mehreren .htm-Dateien zu erstellen, kannst du die folgenden Schritte ausführen:
+1. Installiere den HTML Help Workshop
+Stelle sicher, dass du den Microsoft HTML Help Workshop installiert hast. Du kannst ihn hier herunterladen.
+2. Erstelle die HTML-Dateien
+Bereite deine index.html und die anderen .htm-Dateien vor. Organisiere sie in einem Verzeichnis, damit der HTML Help Workshop alle Dateien leicht findet.
+3. Starte den HTML Help Workshop
+Öffne den HTML Help Workshop und folge den Schritten, um ein neues Projekt zu erstellen:
+File -> New -> Project: Wähle, dass du ein neues Projekt erstellen möchtest.
+Gib einen Projektnamen und den Speicherort für deine CHM-Datei an.
+Include Files: Nachdem du das Projekt erstellt hast, füge deine HTML-Dateien (wie index.html und andere .htm-Dateien) hinzu. Gehe im Menü zu Add/Remove Topic Files..., um deine Dateien in das Projekt aufzunehmen.
+4. Erstelle die Inhaltsverzeichnis-Datei (HHC)
+Das Inhaltsverzeichnis für die CHM-Datei wird durch eine .hhc-Datei definiert:
+Erstelle eine neue .hhc-Datei im HTML Help Workshop über File -> New -> Table of Contents.
+Füge dort deine Hauptseite (index.html) und andere .htm-Dateien hinzu, um das Inhaltsverzeichnis zu definieren.
+5. Erstelle die Index-Datei (HHK)
+Eine Index-Datei hilft, Suchbegriffe in deiner CHM-Datei bereitzustellen:
+Erstelle eine .hhk-Datei über File -> New -> Index und füge relevante Schlüsselwörter hinzu, die auf die verschiedenen HTML-Seiten verweisen.
+6. Projektoptionen festlegen
+Gehe in die Projektoptionen (Project -> Options), um folgende Dinge zu konfigurieren:
+Title: Setze einen Titel für die CHM-Datei.
+Default File: Wähle index.html als Startdatei.
+7. Projekt kompilieren
+Wenn alles eingerichtet ist, kannst du das Projekt kompilieren:
+Compile: Klicke im HTML Help Workshop auf Compile HTML File und wähle den gewünschten Namen für die .chm-Datei.
+8. Überprüfe das CHM-File
+Nach der Kompilierung kannst du die CHM-Datei öffnen, um sicherzustellen, dass alle Inhalte wie gewünscht angezeigt werden und der Index sowie das Inhaltsverzeichnis korrekt funktionieren.
+Zusammenfassung:
+Installiere HTML Help Workshop.
+Erstelle ein Projekt und füge HTML-Dateien hinzu.
+Definiere Inhaltsverzeichnis und Index.
+Setze Projektoptionen und kompiliere die CHM-Datei.
+Damit solltest du eine CHM-Datei aus deinen index.html und .htm-Dateien erstellen können!
+
+Erik
+Wie kann ich denn alle htm-Dateien in einem Unterverzeichnis hinzufügen?
+
+ChatGPT
+Um alle .htm-Dateien in einem Unterverzeichnis zu deinem HTML Help Workshop-Projekt hinzuzufügen, kannst du folgende Schritte ausführen:
+1. Projekt erstellen oder öffnen
+Öffne den HTML Help Workshop und lade dein vorhandenes Projekt oder erstelle ein neues, wie vorher beschrieben.
+2. Dateien hinzufügen (automatisiert)
+Anstatt jede .htm-Datei manuell hinzuzufügen, kannst du alle Dateien in einem Unterverzeichnis auf einmal hinzufügen:
+Gehe zum Menü Project -> Add/Remove Topic Files....
+Klicke auf Add.
+Navigiere zu dem Unterverzeichnis, in dem sich alle deine .htm-Dateien befinden.
+Drücke Strg + A (oder wähle alle Dateien manuell), um alle HTML-Dateien im Ordner auszuwählen.
+Klicke auf Öffnen oder Add. Dadurch werden alle ausgewählten .htm-Dateien in dein Projekt importiert.
+3. Bestätige die Dateiliste
+Nachdem du die Dateien hinzugefügt hast, überprüfe die Liste der hinzugefügten Dateien in deinem Projekt, um sicherzustellen, dass alle HTML-Dateien korrekt integriert wurden.
+4. Kompilieren
+Nachdem du die Dateien hinzugefügt hast, kannst du den Kompilierungsprozess starten, um die .chm-Datei zu erstellen.
+Mit dieser Methode kannst du viele HTML-Dateien auf einmal aus einem Unterverzeichnis hinzufügen, ohne jede Datei manuell einzeln einfügen zu müssen.
+
+Erik
+Das sind zu viele Dateien. Wenn ich alle markiere, wird gar nichts übernommen
+
+ChatGPT
+Wenn das Hinzufügen von zu vielen Dateien auf einmal im HTML Help Workshop problematisch ist, kannst du versuchen, die Dateien schrittweise hinzuzufügen oder eine alternative Methode über die .hhp-Projektdatei nutzen:
+1. Dateien manuell zur .hhp-Datei hinzufügen
+Die .hhp-Datei des HTML Help Workshop Projekts ist im Wesentlichen eine Textdatei, die du mit einem Texteditor bearbeiten kannst. Du kannst die Pfade zu den .htm-Dateien direkt dort einfügen.
+Schritte:
+Öffne die .hhp-Datei mit einem Texteditor (z. B. Notepad).
+Suche nach der Sektion [FILES]. Diese Sektion enthält die Liste aller HTML-Dateien, die im Projekt enthalten sind.
+Füge die Pfade der HTML-Dateien hinzu, die in einem Unterverzeichnis liegen. Du kannst dies folgendermaßen tun:
+[FILES]
+yourdirectory\file1.htm
+yourdirectory\file2.htm
+yourdirectory\file3.htm
+...
+Speichere die Datei und öffne dann dein Projekt im HTML Help Workshop.
+Kompiliere das Projekt. Die hinzugefügten Dateien sollten jetzt in der .chm-Datei enthalten sein.
+2. Automatisches Hinzufügen der Dateien über einen Befehl
+Falls du viele Dateien hast, kannst du dir mit einem einfachen Batch-Skript oder einem PowerShell-Skript helfen, um die Dateipfade automatisch in die .hhp-Datei einzufügen.
+Beispiel für ein PowerShell-Skript:
+powershell
+Code kopieren
+Get-ChildItem -Path "C:\Pfad\zum\Verzeichnis\mit\htm\Dateien" -Filter *.htm | ForEach-Object {
+    Add-Content -Path "C:\Pfad\zur\Projektdatei\deinprojekt.hhp" -Value $_.FullName
+}
+Dieses Skript durchsucht das Verzeichnis und fügt alle .htm-Dateien in die .hhp-Datei ein.
+Mit diesen Methoden solltest du auch bei einer großen Anzahl von Dateien weiterkommen!
+
+Erik
+Danke.
+Wie kann ich die Erstellung der chm-Datei beeinflussen?
+
+ChatGPT
+Um die Erstellung einer .chm-Datei mit HTML Help Workshop zu beeinflussen, gibt es mehrere Möglichkeiten, sowohl über die Benutzeroberfläche als auch über direkte Anpassungen in der Projektdatei (.hhp). Hier sind einige zentrale Punkte, die du anpassen kannst:
+1. Inhaltsverzeichnis (TOC) anpassen
+Das Inhaltsverzeichnis ermöglicht es dem Benutzer, durch die verschiedenen Themen zu navigieren. Du kannst es anpassen, um eine bessere Struktur zu bieten:
+Erstelle eine benutzerdefinierte TOC-Datei:
+Gehe in der HTML Help Workshop-Oberfläche zu "Contents" und füge manuell Themen und Unterthemen hinzu.
+Du kannst dort Titel vergeben und diese mit den entsprechenden .htm-Dateien verknüpfen.
+TOC über eine .hhc-Datei bearbeiten:
+Öffne die .hhc-Datei in einem Texteditor und bearbeite die Struktur direkt. Du kannst Kapitel, Unterkapitel und die verlinkten Seiten manuell anpassen.
+Beispiel für eine .hhc-Datei:
+html
+<UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Einleitung">
+    <param name="Local" value="einleitung.htm">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Kapitel 1">
+      <param name="Local" value="kapitel1.htm">
+      </OBJECT>
+    </LI>
+  </UL>
+</UL>
+2. Index (Stichwortverzeichnis) anpassen
+Du kannst ein Indexverzeichnis erstellen, um die Suche innerhalb der .chm-Datei zu verbessern.
+Indexeinträge manuell hinzufügen:
+In der HTML Help Workshop-Oberfläche kannst du unter "Index" einzelne Begriffe und deren Verweise zu bestimmten .htm-Dateien hinzufügen.
+Automatische Erstellung des Index:
+Nutze spezielle Tools, die deine HTML-Dateien scannen und automatisch häufige Begriffe als Index hinzufügen.
+3. Projektdatei (.hhp) manuell anpassen
+Die .hhp-Datei enthält viele zentrale Einstellungen für die Kompilierung der .chm. Du kannst sie direkt bearbeiten, um zusätzliche Optionen zu setzen:
+Einstellungen für die Kompilierung beeinflussen:
+In der .hhp-Datei kannst du verschiedene Parameter wie das Layout, die Startseite und den Titel der .chm-Datei definieren.
+Beispiel:
+[OPTIONS]
+Compatibility=1.1
+Compiled file=output.chm
+Contents file=index.hhc
+Index file=index.hhk
+Default topic=startseite.htm
+Title=Mein Hilfesystem
+4. Startseite festlegen
+Du kannst eine Startseite definieren, die beim Öffnen der .chm-Datei angezeigt wird:
+In der Projektdatei (.hhp) kannst du über den Eintrag Default topic=startseite.htm eine bestimmte HTML-Datei als Startseite festlegen.
+Alternativ kannst du dies auch in der Benutzeroberfläche von HTML Help Workshop unter den Projekteinstellungen festlegen.
+5. Suchfunktion verbessern
+Die Suchfunktion in .chm-Dateien kann angepasst werden:
+Volltextsuche aktivieren:
+In der .hhp-Datei unter der Sektion [OPTIONS] kannst du die Volltextsuche aktivieren:
+Full-text search=Yes
+Exklusive Begriffe ausschließen:
+Du kannst in der Stopwords.txt Datei Begriffe hinzufügen, die von der Suche ausgeschlossen werden sollen.
+6. Aussehen der Fenster anpassen
+Das Layout und das Verhalten der Fenster in der .chm-Datei können auch gesteuert werden.
+In der Projektdatei (.hhp) kannst du unter [WINDOWS] den Stil und das Verhalten des Fensters definieren.
+Beispiel:
+[WINDOWS]
+Main="Hilfe-Fenster",0,"index.hhc","index.hhk","startseite.htm","startseite.htm",,,,,0x23520,,0x387e,,,,,,,,0
+Du kannst hier z. B. die Fenstergröße, die Symbolleisten und das Layout einstellen.
+7. Automatische Kompilierung mit Skripten
+Du kannst den gesamten Kompilierungsprozess automatisieren, indem du Skripte erstellst, die den HTML Help Compiler (hhc.exe) über die Kommandozeile starten:
+bash
+hhc.exe projektdatei.hhp
+Diese Automatisierung ist nützlich, wenn du häufige Updates an der .chm-Datei durchführen musst.
+Mit diesen Optionen hast du eine gute Kontrolle über die Erstellung und das Verhalten deiner .chm-Datei.
+
+Erik
+Meine htm-Dateien bilden untereinander eine Art Index über Links. Ich möchte deshalb keinen zusätzlichen Index erzeugen. Geht das?
+
+ChatGPT
+Ja, es ist möglich, keinen zusätzlichen Index zu erzeugen und stattdessen die vorhandenen Links in deinen .htm-Dateien als Navigationsstruktur zu nutzen.
+Hier sind die Schritte, um dies in HTML Help Workshop zu konfigurieren:
+1. Inhaltsverzeichnis und Index weglassen
+Inhaltsverzeichnis deaktivieren: Wenn du bereits eine Navigation in deinen HTML-Dateien hast, kannst du das Inhaltsverzeichnis (TOC) weglassen. In der Projektdatei (.hhp) kannst du den Eintrag für das Inhaltsverzeichnis (Contents file) entfernen oder leer lassen.
+Beispiel:
+[OPTIONS]
+Compiled file=output.chm
+Contents file=  ; Kein TOC
+Index file=     ; Kein Index
+Default topic=startseite.htm
+Damit wird kein zusätzliches Inhaltsverzeichnis in der .chm-Datei angezeigt.
+Index (Stichwortverzeichnis) deaktivieren: Wenn du keinen separaten Index benötigst, kannst du auch den Index-Eintrag entfernen. Lasse einfach die Index file-Zeile leer oder entferne sie.
+2. Startseite festlegen
+Stelle sicher, dass deine Startseite korrekt gesetzt ist, sodass der Benutzer direkt über deine vorhandenen Links navigieren kann.
+In der .hhp-Datei kannst du dies unter Default topic festlegen:
+txt
+Code kopieren
+Default topic=startseite.htm
+Hierbei handelt es sich um die Datei, die als Startseite beim Öffnen der .chm-Datei angezeigt wird.
+3. Kompilieren ohne Inhaltsverzeichnis und Index
+Wenn du die Kompilierung startest, wird eine .chm-Datei erzeugt, die nur deine bestehenden Links nutzt und kein zusätzliches Inhaltsverzeichnis oder Index anzeigt.
+4. Fensterlayout anpassen
+Wenn du möchtest, kannst du das Layout des Fensters ebenfalls so einstellen, dass kein Inhaltsverzeichnis oder Index im Fensterlayout angezeigt wird. Dies geschieht über die Fenstereinstellungen in der .hhp-Datei:
+[WINDOWS]
+Main="Hilfe-Fenster",0,,,,,0x60384,,,,,,,,,,0
+Das Flag 0x60384 blendet dabei das Inhaltsverzeichnis und den Index aus.
+Zusammenfassung:
+Kein zusätzliches Inhaltsverzeichnis und Index: Entferne oder lasse den Eintrag in der .hhp-Datei leer.
+Navigiere mit deinen bestehenden HTML-Links: Stelle sicher, dass deine HTML-Dateien miteinander verlinkt sind, da dies deine primäre Navigation sein wird.
+Startseite festlegen: Setze die Startseite, von der aus die Links zu den anderen Seiten erreichbar sind.
+Damit kannst du deine vorhandene Navigationsstruktur in den HTML-Dateien beibehalten und verhindern, dass HTML Help Workshop ein zusätzliches Inhaltsverzeichnis oder Index generiert.
+
+Erik
+Muss ich bei "Default topic" auch den Pfad angeben?
+
+ChatGPT
+Nein, bei "Default topic" in der .hhp-Datei musst du keinen vollständigen Pfad angeben, wenn sich die Datei im gleichen Verzeichnis wie das Projekt befindet.
+Falls die Datei jedoch in einem Unterverzeichnis liegt, musst du den relativen Pfad angeben.
+Beispiel ohne Pfad (gleicher Ordner):
+Default topic=startseite.htm
+Beispiel mit Pfad (falls die Datei in einem Unterordner liegt):
+Default topic=unterordner/startseite.htm
+In diesem Fall musst du nur den relativen Pfad von der Projektdatei (.hhp) zur HTML-Datei angeben. So wird die richtige Datei als Startseite deiner .chm-Datei gesetzt.
+
+Erik
+Wie kann ich css und Grafiken einbinden?
+
+ChatGPT
+Um CSS und Grafiken in einer .chm-Datei einzubinden, musst du sicherstellen, dass die Verweise auf die entsprechenden Dateien korrekt sind und dass alle benötigten Dateien (CSS, Bilder) im Projekt enthalten sind. Hier sind die Schritte:
+1. CSS einbinden
+Du kannst dein CSS wie bei einer normalen HTML-Datei einbinden, indem du den Pfad zur CSS-Datei im <head>-Bereich deiner HTML-Dokumente angibst.
+Beispiel:
+html
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+Falls sich deine CSS-Datei in einem Unterverzeichnis befindet, nutze den relativen Pfad. Beispiel: styles/style.css.
+2. Grafiken einbinden
+Binde Grafiken ebenfalls wie in jeder normalen HTML-Datei ein, indem du das <img>-Tag verwendest und den Pfad zur Grafik angibst.
+Beispiel:
+html
+<img src="images/logo.png" alt="Logo">
+Auch hier musst du sicherstellen, dass der Pfad zur Grafik korrekt ist, abhängig davon, wo die Datei gespeichert ist.
+3. Dateien in das Projekt einfügen
+Damit die CSS- und Bilddateien in die .chm-Datei aufgenommen werden, müssen sie im HTML Help Workshop korrekt referenziert und in das Projektverzeichnis aufgenommen werden.
+So fügst du CSS und Grafiken in dein Projekt hinzu:
+Öffne deine .hhp-Projektdatei im HTML Help Workshop.
+Gehe zu Project → Add Files....
+Füge deine CSS- und Bilddateien hinzu (entweder direkt oder durch das vorherige Verzeichnis hinzufügen).
+4. Wichtig: Relative Pfade
+Die Pfade zu deinen CSS- und Grafikdateien müssen relativ zur HTML-Datei sein, in der sie verwendet werden, da HTML Help Workshop relative Pfade verwendet. Wenn alles im gleichen Ordner ist, kannst du direkte Dateinamen verwenden. Ansonsten musst du die Verzeichnisstruktur berücksichtigen.
+Beispielstruktur:
+bash
+Code kopieren
+/project
+    /html
+        index.htm
+    /styles
+        style.css
+    /images
+        logo.png
+In der index.htm sollte der CSS-Pfad so aussehen:
+html
+<link rel="stylesheet" type="text/css" href="../styles/style.css">
+Und die Grafik so:
+html
+Code kopieren
+<img src="../images/logo.png" alt="Logo">
+5. CHM-Datei erstellen
+Nachdem du alle Dateien eingebunden hast, erstellst du die .chm-Datei wie gewohnt. Die eingebetteten CSS-Styles und Bilder werden automatisch eingebunden, solange die Pfade korrekt sind.
+
+Erik
+Ich bekommen den Fehler: "HHC5003: Error: Compilation failed while compiling 0".
+
+ChatGPT
+Der Fehler HHC5003: Error: Compilation failed while compiling 0 deutet darauf hin, dass es ein Problem beim Kompilieren einer oder mehrerer Dateien in deinem Projekt gibt. Dieser Fehler kann durch mehrere Dinge verursacht werden, wie z. B. fehlende Dateien, ungültige Pfade oder Syntaxfehler in den HTML-Dateien. Hier sind einige Schritte, die dir helfen könnten, das Problem zu beheben:
+1. Überprüfe Pfade
+Stelle sicher, dass alle Verweise auf Dateien (HTML, CSS, Bilder) korrekt sind und existieren. Wenn eine Datei nicht gefunden werden kann, kann das den Kompilierungsvorgang stoppen.
+Relativ zu den HTML-Dateien: Alle Dateien (z. B. CSS, Bilder) müssen sich an den richtigen relativen Pfaden befinden, wie sie in deinen HTML-Dateien angegeben sind.
+Überprüfe die .hhp-Projektdatei: Öffne die .hhp-Datei in einem Texteditor und überprüfe die Pfade der Dateien, die dort referenziert werden.
+2. Gültigkeit der HTML-Dateien überprüfen
+Manchmal kann der Fehler auftreten, wenn eine der HTML-Dateien einen Syntaxfehler hat oder ungültigen HTML-Code enthält. Gehe die folgenden Punkte durch:
+Stelle sicher, dass alle HTML-Tags korrekt geschlossen und verschachtelt sind.
+Validiere den HTML-Code (z. B. über Tools wie den W3C HTML Validator).
+3. Fehlende oder ungültige Dateien
+Wenn eine Datei im Projekt referenziert wird, aber physisch nicht existiert, kann das zu diesem Fehler führen. Stelle sicher, dass alle Dateien, die du hinzufügst (HTML, CSS, Bilder), auch wirklich vorhanden sind und im Projekt enthalten sind.
+Geh alle Links durch: Schaue dir speziell Verweise auf Dateien oder Links an, die möglicherweise fehlen oder falsch sind.
+4. Projektdateien auf Fehler überprüfen
+Öffne die .hhp-Datei mit einem Texteditor und stelle sicher, dass alle Pfade korrekt und vollständig sind.
+Stelle sicher, dass in der Sektion [FILES] in der .hhp-Datei alle relevanten HTML-Dateien aufgeführt sind.
+5. Kompilierungsausgabe
+Überprüfe die vollständige Ausgabe des HTML Help Workshop-Kompilierungsvorgangs. Manchmal gibt der Compiler genauere Hinweise auf die Datei oder den Abschnitt, der den Fehler verursacht.
+6. Test mit minimalem Projekt
+Erstelle ein minimal kleines Testprojekt mit nur einer einfachen HTML-Datei, um sicherzustellen, dass der Compiler grundsätzlich funktioniert. Wenn das kleine Projekt ohne Fehler kompiliert, kannst du schrittweise weitere Dateien hinzufügen, bis der Fehler erneut auftritt. So kannst du herausfinden, welche Datei den Fehler verursacht.
+7. Kompilierungslog aktivieren
+In den Einstellungen des HTML Help Workshop kannst du detaillierte Logs aktivieren. Gehe zu Tools → Options → General und aktiviere die Protokollierung (Log-Dateien), um mehr Informationen über den Fehler zu erhalten.
+8. Fehlerhafte Datei lokalisieren
+Der Fehler compiling 0 kann auftreten, wenn der Compiler versucht, eine leere Datei zu kompilieren. Suche nach:
+Dateien ohne Inhalt oder mit nur wenigen nicht-anzeigbaren Zeichen.
+Dateien, die einen ungültigen Dateinamen oder eine ungültige Erweiterung haben.
+9. Verzeichnisstruktur überprüfen
+Stelle sicher, dass alle Dateien im richtigen Verzeichnis sind und du keine Verzeichnisse ausgelassen hast, die im Projekt referenziert werden.
+Mit diesen Schritten solltest du den Fehler eingrenzen und beheben können.
+
+Erik
+Hi Chappy,
+kann ich in HtmlHelpWorkshop in einer .hhp-Datei Dateien mit absoluten Pfaden hinzufügen?
+
+ChatGPT
+Im HTML Help Workshop ist es grundsätzlich nicht möglich, Dateien mit absoluten Pfaden in der .hhp-Datei hinzuzufügen. Der HTML Help Compiler erwartet, dass alle Dateien relative Pfade haben, die auf den Projektpfad verweisen. Dies dient dazu, die Portabilität des Projekts zu gewährleisten, sodass die CHM-Datei auf anderen Systemen funktioniert, unabhängig von deren Dateistruktur.
+
+Mögliche Lösung:
+Verwende relative Pfade: Stelle sicher, dass sich alle Dateien, die in der .hhp-Datei aufgeführt werden, entweder im selben Verzeichnis wie die .hhp-Datei oder in einem Unterverzeichnis davon befinden. Du kannst dann relative Pfade in der .hhp-Datei angeben.
+Beispiel einer .hhp-Datei:
+ini
+[FILES]
+index.htm
+help\file1.htm
+images\image1.png
+Hier wird auf Dateien im selben Verzeichnis oder in einem Unterverzeichnis relativ zur Position der .hhp-Datei verwiesen. Wenn du absolute Pfade angibst, kann es zu Fehlern beim Kompilieren der CHM-Datei kommen.
+

@@ -1,0 +1,134 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckServers",
+    "LogicalExpression": "(Google AND Heise) & (Local OR Local_Backup)",
+    "SingleNodeUserControlPath": "Plugin\\SingleNodeUserControl_CheckServer.dll",
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Google",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "8.8.8.8|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|S:20"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          }
+        },
+        {
+          "LogicalName": "Heise",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "www.heise.de|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:3|S:20"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          }
+        },
+        {
+          "LogicalName": "Local",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "Localhost|1000|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:20|S:300"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          }
+        },
+        {
+          "LogicalName": "Local_Backup",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "9.8.7.6|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:2|S:20"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckServers:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Server Fehler\" -MessageNewLine=#"
+              },
+              {
+                "PhysicalPath": "MicroMailer.exe",
+                "Parameters": "Server Fehler|%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%|localMailserver|Vishnu@reallyhuman.net|e.nagel@neteti.de"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Google:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Server Google ist nicht erreichbar!\" -Caption=\"Server Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Nobody:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"Timestamp%: Der Server Nobody ist nicht erreichbar!\" -Caption=\"Server Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Heise:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Server Heise ist nicht erreichbar!\" -Caption=\"Server Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Local:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Server Local ist nicht erreichbar!\" -Caption=\"Server Fehler\""
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    }
+  }
+}

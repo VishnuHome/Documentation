@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="dada98e6-9770-45e2-978c-b2fa8f23fccc" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Version 4.7.2.1 Direct Response (Stand: 24.01.2020)
+      </para>
+    </introduction>
+
+    <section>
+      <title>Änderungen in dieser Version</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Es wurden deutlich bessere Antwortzeiten bei manuell gestarteten Checkern erreicht.</para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,116 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-US" /><meta name="Microsoft.Help.Locale" content="en-US" /><meta name="Microsoft.Help.TopicLocale" content="en-US" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Custom Parameter Reader</title><meta name="Microsoft.Help.Id" content="f724b721-c805-4dbe-8db4-1529c0c68f3d" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Description" content="This chapter is about custom ParameterReaders. You can transfer your business-specific parameters to Vishnu using your own ParameterReaders, so that they are then treated like all other Vishnu parameters and, for example" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title="Vishnu - the logical process monitor" tocid="roottoc">Vishnu - the logical process monitor</a></div><div class="toclevel1" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/1ccf9fe4-94f8-49ff-9234-506c5ad9daa7.htm" title="fortgeschrittene Themen" tocid="1ccf9fe4-94f8-49ff-9234-506c5ad9daa7">Advanced Topics</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/ac884694-516c-4c98-a2af-d79cc504d0f6.htm" title="benannte Trigger und Logger" tocid="ac884694-516c-4c98-a2af-d79cc504d0f6">Named Triggers and Loggers</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/628bbc96-dcd7-4563-a515-5a2edf9ebc10.htm" title="Snapshots" tocid="628bbc96-dcd7-4563-a515-5a2edf9ebc10">Snapshots</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/0af46309-8c47-467f-a231-36615b7488d4.htm" title="Anforderungen an Anwender-Module" tocid="0af46309-8c47-467f-a231-36615b7488d4">Requirements for user modules</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/a3f9771a-ac24-46c0-97df-d2bde6a990e8.htm" title="Custom Checkers" tocid="a3f9771a-ac24-46c0-97df-d2bde6a990e8">Custom Checkers</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/74204d60-cbb3-4f38-8266-aa7af541143f.htm" title="Custom Views" tocid="74204d60-cbb3-4f38-8266-aa7af541143f">Custom Views</a></div><div class="toclevel2 current" data-toclevel="2"><a data-tochassubtree="false" href="../html/f724b721-c805-4dbe-8db4-1529c0c68f3d.htm" title="Custom Parameter-Reader" tocid="f724b721-c805-4dbe-8db4-1529c0c68f3d">Custom Parameter Reader</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/b2bd8510-a131-4466-9fac-66f2033d92a0.htm" title="Custom ValueModifiers" tocid="b2bd8510-a131-4466-9fac-66f2033d92a0">Custom ValueModifiers</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/c2c472b6-b252-4bd6-bf6a-0b15bc404ea4.htm" title="Custom Triggers" tocid="c2c472b6-b252-4bd6-bf6a-0b15bc404ea4">Custom Triggers</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/3ccc247e-ea3a-47fc-9ed6-4713baf96986.htm" title="Custom Loggers" tocid="3ccc247e-ea3a-47fc-9ed6-4713baf96986">Custom Loggers</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/f14917bd-1d50-41f0-85ff-14462a770915.htm" title="Checker-Historie loggen" tocid="f14917bd-1d50-41f0-85ff-14462a770915">Log Checker History</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Custom Parameter Reader</h1></td></tr></table><div><p>
+
+        You can use your own <span class="keyword">ParameterReader</span> to pass your business-specific parameters to <strong>Vishnu</strong>,
+        so that they are subsequently treated like all other Vishnu parameters and can, for example, also be subject to
+        <strong>Vishnu Wildcard Replacement</strong>.
+        This chapter looks at the demo project <strong>DemoParameterProvider</strong> itself. You can find a description of an associated Vishnu test job on
+        <a href="15204f64-ecf7-44b6-822d-74e36b99927d.htm#erweiterteParameterersetzungDurchEigenenParameterReader">Vishnu parameter substitution</a>.
+      </p></div><div class="collapsibleAreaRegion" id="ParameterReaderDemoProjektRun"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The demo project</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+          Let's take a look at the output of the demo project first:
+        </p><div class="mediaNear"><img alt="Check Parameter Demo Run" src="../media/CheckParameterDemoRun.png" /></div><p>
+          As can be seen, the program returns the value <strong>Found it!</strong> to a
+          Parameter named <strong>Requested parameter</strong>.<br />
+          The whole process is repeated every 1 minute and 2 seconds.
+        </p></div><div class="collapsibleAreaRegion" id="ParameterReaderSource"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />The parameter reader</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+          Responsible for the parameter substitution shown in the demo project is the class <strong>DemoParameterProvider</strong>,
+          see the following code listing:
+        </p><div id="IDBBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDBBEAB_tab1" class="codeSnippetContainerTabSingle">DemoParameterProvider.cs Extract</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDBBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDBBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDBBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> DemoParameterProvider : IParameterReader
+{
+    <span class="highlight-preprocessor">#region</span> IParameterReader implementation
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Event that is triggered when the parameters have been reloaded.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">event</span> EventHandler ParametersReloaded;
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Returns a string value for a string parameter.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="parameterName"&gt;Parameter-Name.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;returns&gt;Parameter-Value.&lt;/returns&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">string</span> ReadParameter(<span class="highlight-keyword">string</span> parameterName)
+    {
+        <span class="highlight-keyword">if</span> (parameterName == <span class="highlight-literal">"Wanted parameter"</span>)
+        {
+            <span class="highlight-keyword">return</span> <span class="highlight-literal">"Found it!"</span>;
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">if</span> (parameterName == <span class="highlight-literal">"PassedParameter"</span>)
+            {
+                <span class="highlight-keyword">string</span> timeString = <span class="highlight-keyword">this</span>._lastTimerStart == DateTime.MinValue ? <span class="highlight-literal">" - "</span>
+                    : <span class="highlight-keyword">this</span>._lastTimerStart.ToString(<span class="highlight-literal">"hh:mm:ss.ms"</span>);
+                <span class="highlight-keyword">return</span> String.Format($<span class="highlight-literal">"{this._initParameter} - last refresh: {timeString}"</span>);
+            }
+            <span class="highlight-keyword">else</span>
+            {
+                <span class="highlight-keyword">return</span> <span class="highlight-keyword">zero</span>;
+            }
+        }
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Setup routine - accepts parameters, retrieves all information</span>
+    <span class="highlight-comment">/// and makes them available as properties.</span>
+    <span class="highlight-comment">/// Starts a timer for the parameter refresh if necessary.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="parameters"&gt;An object for parameter transfer; this ParameterProvider</span>
+    <span class="highlight-comment">/// expects a string with a passed test value plus optional</span>
+    <span class="highlight-comment">/// a timer parameter for regular reloads separated by pipe symbol '|'.&lt;/param&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> Init(<span class="highlight-keyword">object</span> parameters)
+    {
+        <span class="highlight-keyword">this</span>._publisher = InfoController.GetInfoController();
+        <span class="highlight-keyword">this</span>EvaluateParameters(parameters.ToString());
+
+        <span class="highlight-keyword">this</span>.ReloadApplicationParameters();
+
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">this</span>._eventTimer != <span class="highlight-keyword">zero</span>)
+        {
+            <span class="highlight-keyword">this</span>._lastTimerStart = DateTime.Now;
+            <span class="highlight-keyword">this</span>._nextTimerStart = <span class="highlight-keyword">this</span>._lastTimerStart.AddMilliseconds(<span class="highlight-keyword">this</span>._timerInterval);
+            <span class="highlight-keyword">this</span>._eventTimer.Start();
+        }
+    }
+
+    <span class="highlight-preprocessor">#endregion</span> IParameterReader implementation
+    ...
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> ReloadApplicationParameters()
+    {
+        <span class="highlight-keyword">try</span>
+        {
+            <span class="highlight-keyword">this</span>._publisher.Publish(<span class="highlight-literal">"Loading complex parameters..."</span>);
+            Thread.Sleep(<span class="highlight-number">2000</span>);
+        }
+        <span class="highlight-keyword">catch</span> (Exception ex)
+        {
+            <span class="highlight-keyword">this</span>._publisher.Publish(<span class="highlight-keyword">this</span>, ex.Message);
+            <span class="highlight-keyword">throw</span>;
+        }
+        <span class="highlight-keyword">this</span>.OnParametersReloaded();
+    }
+    ...
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> eventTimer_Elapsed(<span class="highlight-keyword">object</span> sender, ElapsedEventArgs e)
+    {
+        ...
+        <span class="highlight-keyword">this</span>.ReloadApplicationParameters();
+        ...
+    }
+    ...</pre></div></div></div><p>
+    	    The DemoParameterProvider class implements the <a href="T_Vishnu_Interchange_IParameterReader.htm">Vishnu.Interchange<span id="LST9C0395B4_0" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>IParameterReader</a>
+    	    interface provided by <strong>Vishnu</strong>.
+          In the <strong>Init</strong>-routine, the user settings are adopted and the business-specific
+          parameters are loaded (execution in the "ReloadApplicationParameters()" subroutine) and, if necessary
+          a timer is set up for the regular refreshing of the parameters.
+        </p><p>
+          The <strong>ReadParameter(string parameterName)</strong> method will later be called by <strong>Vishnu</strong>
+          whenever a <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm">Vishnu actor</a> queries a parameter.
+        </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Hint</th></tr><tr><td><p>
+        	Your own <span class="keyword">ParameterReader</span> will be ranked second in priority, just behind the ParameterReader
+        	for command line parameters.
+          </p></td></tr></table></div></div></div></div><div id="PageFooter" class="pageFooter">Naturally, many findings and developments are based on information freely available on the Internet. Any missing references to original authors are unintentional and will be updated as soon as they are reported.<p>Copyright © 2012-2024 Erik Nagel</p><div class="feedbackLink">Send comments about this feature to
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+        </script></div></body></html>

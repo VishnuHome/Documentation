@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="a3f9771a-ac24-46c0-97df-d2bde6a990e8" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>
+				Dieses Kapitel handelt von selbst erstellten <database>Checker-Dlls</database>.
+				Über eigene <languageKeyword>Checker</languageKeyword> können Sie die Überwachungen beliebiger Prozesse oder Zustände
+				erreichen, die nur Sie selbst kennen können. <token>V</token> stellt Ihnen zwar schon einige Standard-Checker zur
+				Verfügung, Sie werden aber früher oder später eigene <languageKeyword>Checker</languageKeyword> mit speziellen Funktionen
+				erstellen wollen. Für die Erstellung eigener DLLs sind jedoch Grundkenntnisse in einer
+				<languageKeyword>DotNet</languageKeyword>-Sprache, z.B. <languageKeyword>C#</languageKeyword> erforderlich.
+			</para>
+			<alert class="important">
+				<para>
+					Der Einstieg ist allerdings für <languageKeyword>C#</languageKeyword> durch eine
+					<token>V</token>-<database>Visual Studio</database>-Erweiterung auch ohne Programmierkenntnisse möglich.
+					Es wird auf Knopfdruck ein lauffähiges Testprojekt mit Ihrem eigenen neuen
+					<languageKeyword>Checker</languageKeyword> generiert.
+				</para>
+			</alert>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="UserCheckerDemoJob">
+			<title>der Demo Job</title>
+			<content>
+				<para>
+					So sieht der Demo-Job für eigene Checker aus:
+				</para>
+				<mediaLink>
+					<image xlink:href="UserCheckerDemo"/>
+				</mediaLink>
+				<para>
+					Dies ist die zugehörige <languageKeyword>JobDescription.xml</languageKeyword>:
+				</para>
+				<code source="..\Vishnu_doc\Examples\UserChecker.xml" language="xml"
+				   title="JobDescription.xml">
+				</code>
+				<alert class="note">
+					<para>
+						Nochmal kurz erinnert: der Start-Job kann über <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" /> eingestellt werden.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="UserCheckerDemoProjektErzeugung">
+			<title>das Demo Projekt - schnell erzeugen</title>
+			<content>
+				<para>
+					Über die Visual Studio Erweiterung <database>Vishnu_UserChecker_VSIX.vsix</database> 
+					(per Doppelklick installieren) können Sie Visual Studio eine C#-Projektvorlage für eigene Checker hinzufügen.
+				</para>
+				<alert class="note">
+					<para>
+						<markup>
+							<a href="https://neteti.de/extensions/free/64/Vishnu_UserChecker_VSIX.vsix"
+							   target="_blank"
+							   alt="Vishnu_UserChecker_VSIX.vsix">
+								Vishnu_UserChecker_VSIX.vsix download link
+							</a>
+						</markup>
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="Vishnu_UserChecker_VSIX"/>
+				</mediaLink>
+				<para>
+					Diese Projektvorlage kann dann später für ein neues Projekt verwendet werden:
+				</para>
+				<mediaLink>
+					<image xlink:href="Vishnu_UserChecker_VSIX_select"/>
+				</mediaLink>
+				<para>
+					Es wird eine Projektmappe mit einem Checker-Projekt und einem Testprojekt generiert.
+				</para>
+				<alert class="warning">
+					<para>
+						Es erfolgen während der Generierung der Projekte zwei Fehlermeldungen, dass
+						dem Projekt nicht alle erforderlichen Pakete hinzugefügt werden könnten.
+						Diese treffen aber nicht zu und können ignoriert werden.
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="UserCheckerSolution"/>
+				</mediaLink>
+				<alert class="note">
+					<para>
+						Der UserCecker und das Testprojekt sind sofort umwandlungsfähig und der UserChecker könnte mit der
+						implementierten Demo-Funktionalität als <token>V</token>-Checker eingesetzt werden.
+					</para>
+					<para>
+						Hier die Ausgabe des Testprojekts:
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="UserCheckerDemoRun"/>
+				</mediaLink>
+			</content>
+		</section>
+
+		<section address="UserCheckerDemoProjektDetails">
+			<title>das Demo Projekt - Details</title>
+			<content>
+				<para>
+					Die Klasse <database>UserChecker</database> im durch die Projektvorlage generierten Projekt (s.o.)
+					enthält als Haupt-Verarbeitungslogik die Methode <database>Work</database>.
+					Hier können Sie Ihre geschäftsspezifische Verarbeitungslogik einbauen:
+				</para>
+				<code source="..\Vishnu_doc\Examples\UserChecker.cs" language="c#"
+				   title="Methode 'Work' in der Klasse UserChecker">
+				</code>
+				<alert class="note">
+					<para>
+						Wie man im Beispiel sehen kann, ist auch der Zugriff auf das Vishnu-Environment möglich.
+						Dies ist aber in der Praxis selten notwendig.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Checker" />
+				</para>
+				<para>
+					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

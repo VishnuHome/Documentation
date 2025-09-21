@@ -1,0 +1,85 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check All (inline)",
+    "StartCollapsed": false,
+    "LogicalExpression": "CheckServers AND CheckDiskSpace",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckServers",
+          "LogicalExpression": "(Google AND Heise) AND (Local OR Local_Backup)",
+          "StartCollapsed": false,
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Google",
+                "PhysicalPath": "Plugin\\CheckServer.dll",
+                "Parameters": "8.8.8.8|200|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:1|S:20"
+                }
+              },
+              {
+                "LogicalName": "Heise",
+                "PhysicalPath": "Plugin\\CheckServer.dll",
+                "Parameters": "www.heise.de|200|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:3|S:20"
+                }
+              },
+              {
+                "LogicalName": "Local",
+                "PhysicalPath": "Plugin\\CheckServer.dll",
+                "Parameters": "Localhost|1000|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:20|S:300"
+                }
+              },
+              {
+                "LogicalName": "Local_Backup",
+                "PhysicalPath": "Plugin\\CheckServer.dll",
+                "Parameters": "9.9.9.9|200|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:2|S:20"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "CheckDiskSpace",
+          "LogicalExpression": "Check_C AND Check_D",
+          "StartCollapsed": false,
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Check_C",
+                "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+                "Parameters": "c:|20000|100|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:1|M:10"
+                },
+                "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+              },
+              {
+                "LogicalName": "Check_D",
+                "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+                "Parameters": "d:|10000|100|3",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:2|M:10"
+                },
+                "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

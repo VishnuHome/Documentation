@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Disk Space</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Check_C & Check_D]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked LockName="ConcurrentSQL">false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <JobSnapshotTrigger>
+    <Reference>LogicalResultChanged|Exception</Reference>
+    <Parameters>Check Disk Space</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Check_C</LogicalName>
+      <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+      <Parameters>c:|200000|100|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|M:10</Parameters>
+      </Trigger>
+      <Logger>
+        <Reference>FirstNamedLogger</Reference>
+      </Logger>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+    </Checker>
+    <Checker>
+      <LogicalName>Check_D</LogicalName>
+      <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+      <Parameters>d:|200000|100|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:2|M:10</Parameters>
+      </Trigger>
+      <Logger>
+        <Reference>FirstNamedLogger</Reference>
+      </Logger>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Check Disk Space:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check Disk Space %Event% von %Source% in %Sender%#%Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check_C:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_C %Event% von %Source% in %Sender%" -Caption="Fehler"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check_D:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_D %Event% von %Source% in %Sender%" -Caption="Fehler"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check_E:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_E %Event% von %Source% in %Sender%" -Caption="Fehler"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check_Localhost_C:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_Localhost_C %Event% von %Source% in %Sender%" -Caption="Fehler"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

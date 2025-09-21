@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="9b9475bc-f8a9-4e7a-a84a-373276329b00" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>
+        Die Datei <languageKeyword>Vishnu.exe.config.user</languageKeyword> ist die zentrale Stelle für Ihre
+        eigenen <token>V</token>-Einstellungen. Hier finden Sie einige voreingestellte Parameter. Sie können diese
+        ändern, aber auch eigene hinzufügen.
+        Sie finden die <languageKeyword>Vishnu.exe.config.user</languageKeyword> per Grundeinstellung im Pfad
+        <languageKeyword>%LOCALAPPDATA%\Vishnu\Vishnu.exe.config.user</languageKeyword>, wobei
+        <languageKeyword>LOCALAPPDATA</languageKeyword> eine Einstellung der Windows-Umgebung (Environment) ist
+        und üblicherweise auf <languageKeyword>C:\Users\&lt;Benutzer&gt;\AppData\Local</languageKeyword> verweist.
+      </para>
+      <para>
+        Beispiel für eine Einstellung: <languageKeyword>&lt;add key="Job" value="DemoJobs\Simple\CheckAll"&gt;</languageKeyword>
+      </para>
+      <alert class="note">
+        <para>
+          Auf der Seite <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" /> finden Sie weitere Möglichkeiten,
+          <token>V</token>-Parameter dauerhaft oder vorübergehend zu setzen.
+        </para>
+      </alert>
+    </introduction>
+
+    <section address="Auslieferungszustand">
+      <title>Vishnu.exe.config.user nach Installation</title>
+      <content>
+        <para>So sieht die Konfigurationsdatei direkt nach dem ersten Start von <token>V</token> aus:</para>
+        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.default" language="xml"
+               title="Vishnu.exe.config.user"></code>
+      </content>
+      <!-- If a section contains a sections element, its content creates
+           sub-sections.  These are not collapsible.
+      <sections>
+          <section address="SubSection1">
+              <title>Sub-section 1</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+          <section address="SubSection2">
+              <title>Sub-section 2</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+      </sections> -->
+    </section>
+
+    <section address="SieheAuch">
+      <title>Siehe auch</title>
+      <content>
+        <para>
+          <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />
+        </para>
+        <para>
+          <codeEntityReference qualifyHint="true">T:Vishnu.Interchange.AppSettings</codeEntityReference>
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,81 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Escalator",
+    "LogicalExpression": ":DialogChecker",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "DialogChecker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "DialogChecker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check Escalator:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "Escalator.exe",
+                "Parameters": {
+                  "@Transport": "File",
+                  "SubWorkers": {
+                    "SubWorker": [
+                      {
+                        "@RunCounter": "1",
+                        "PhysicalPath": "VishnuMessageBox.exe",
+                        "Parameters": "-Message=\"Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Info\" -MessageNewLine=#"
+                      },
+                      {
+                        "@RunCounter": "3",
+                        "PhysicalPath": "VishnuMessageBox.exe",
+                        "Parameters": "-Message=\"Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Warnung\" -MessageNewLine=#"
+                      }
+                    ]
+                  }
+                },
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:10"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check Escalator:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "Escalator.exe",
+                "Parameters": {
+                  "@Transport": "File",
+                  "SubWorkers": {
+                    "SubWorker": [
+                      {
+                        "@RunCounter": "1",
+                        "PhysicalPath": "VishnuMessageBox.exe",
+                        "Parameters": "-Message=\"Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Fehler\" -MessageNewLine=#"
+                      },
+                      {
+                        "@RunCounter": "2",
+                        "PhysicalPath": "VishnuMessageBox.exe",
+                        "Parameters": "-Message=\"Stufe 2 (Run 2) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Fehler\" -MessageNewLine=#"
+                      }
+                    ]
+                  }
+                },
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:15"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

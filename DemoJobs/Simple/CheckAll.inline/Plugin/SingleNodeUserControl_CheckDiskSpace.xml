@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckDiskSpace</name>
+    </assembly>
+    <members>
+        <member name="T:UserNodeControls.ResultViewModel">
+             <summary>
+             ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             26.02.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Server">
+            <summary>
+            Name des Servers, der angepingt werden soll.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DriveLetter">
+            <summary>
+            Laufwerksbuchstabe.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CriticalFreeMBytesAvailable">
+            <summary>
+            Noch verfügbarer Plattenplatz in MBytes, ab dem gewarnt wird.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.TotalNumberOfMBytes">
+            <summary>
+            Gesamter Plattenplatz in Bytes.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.FreeMBytesAvailable">
+            <summary>
+            Verfügbarer Plattenplatz in Bytes.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SQLServerAccess">
+            <summary>
+            True wenn der Plattenplatz mit Hilfe einer SQL-Server-Instanz ermittelt wurde.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Timeout">
+            <summary>
+            Timeout für einen einzelnen Ping.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Retries">
+            <summary>
+            Anzahl Ping-Versuche, bevor ein Fehler erzeugt wird.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.FreeMBytesPercentage">
+            <summary>
+            Verfügbarer Plattenplatz in Bytes als Prozentanteil von 0 bis größer gleich 700
+            (100 = CriticalFreeMBytesAvailable).
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.PieData">
+            <summary>
+            Aktuelle Werte für die Tortengrafik.
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Die speziell für die Darstellung von CheckDiskSpace-Results entwickelte IVishnuViewModel-Implementierung.
+            </summary>
+            <param name="parentViewModel">Von Vishnu übergebenes IVishnuViewModel.</param>
+        </member>
+        <member name="T:UserNodeControls.PieDataCollection`1">
+            <summary>
+            Observable Collection für die Werte eines Segments der Tortengrafik.
+            </summary>
+            <typeparam name="T">Ist immer vom Typ "PieSegment".</typeparam>
+        </member>
+        <member name="P:UserNodeControls.PieDataCollection`1.CollectionName">
+            <summary>
+            Klartextname für das Segment.
+            </summary>
+        </member>
+        <member name="T:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace">
+            <summary>
+            Interaktionslogik für SingleNodeUserControl.CheckDiskSpace.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckDiskSpace
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.#ctor">
+            <summary>
+            Konstruktor.
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

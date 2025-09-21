@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="5207d47e-1d8e-42c4-9e5c-7d9677b851fa" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 8.4.0 Argonaut (Stand: 10.06.2025)
+			</para>
+			<alert class="note">
+				<para>
+					Diese Version erweitert <token>V</token> um die Möglichkeit, in <database>Json</database>
+					definierte <languageKeyword>Jobs</languageKeyword> und <languageKeyword>Parameter</languageKeyword>
+					zu verarbeiten.
+				</para>
+			</alert>
+		</introduction>
+
+		<section>
+			<title>Änderungen in dieser Version</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							Vollständige Überarbeitung des <database>ProductionJobProviders</database>.
+						</para>
+						<list class="bullet">
+							<listItem>
+								<para>
+									Neustrukturierung und Bereinigung vorhandener Redundanzen und Unklarheiten.
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									Implementierung der <database>Json</database>-Unterstützung von <languageKeyword>JobDescriptions</languageKeyword>.
+								</para>
+							</listItem>
+						</list>
+					</listItem>
+					<listItem>
+						<para>
+							Erweiterung des <database>Escalators</database> für <database>Json</database>-Parameter.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Implementierung der Verarbeitung von User-Parametern in der neuen Library <database>UserSettingsAccess</database>.
+						</para>
+						<para>
+							Dabei Unterstützung von <database>Json</database>-Parametern implementiert.
+						</para>
+						<para>
+							Dafür Wegfall der Nutzung von <database>XmlAccess</database>.
+						</para>
+						<alert class="note">
+							<para>
+								<database>XmlAccess</database> wird in Zukunft nicht mehr unterstützt.
+							</para>
+						</alert>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

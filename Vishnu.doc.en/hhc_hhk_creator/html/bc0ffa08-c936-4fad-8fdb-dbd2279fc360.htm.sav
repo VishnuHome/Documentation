@@ -1,0 +1,342 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-US" /><meta name="Microsoft.Help.Locale" content="en-US" /><meta name="Microsoft.Help.TopicLocale" content="en-US" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Vishnu actors</title><meta name="Microsoft.Help.Id" content="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Microsoft.Help.Category" content="XML" /><meta name="Description" content="Here you will find details on various Vishnu elements. In addition to general function descriptions, parameterization and return values are also addressed and illustrated using XML examples." /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title="Vishnu - the logical process monitor" tocid="roottoc">Vishnu - the logical process monitor</a></div><div class="toclevel1" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/fdd9dbc7-ba68-49fb-b91f-17eb2decbaf2.htm" title="Details" tocid="fdd9dbc7-ba68-49fb-b91f-17eb2decbaf2">Details</a></div><div class="toclevel2 current" data-toclevel="2"><a data-tochassubtree="false" href="../html/bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm" title="Vishnu Akteure" tocid="bc0ffa08-c936-4fad-8fdb-dbd2279fc360">Vishnu actors</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/c8911ff4-4ce7-406b-8467-e8ddff1ec56c.htm" title="Inline SubJobs" tocid="c8911ff4-4ce7-406b-8467-e8ddff1ec56c">Inline SubJobs</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d.htm" title="Vishnu Logic" tocid="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d">Vishnu Logic</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm" title="TreeEvents" tocid="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85">TreeEvents</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/478a3c03-87d1-4aa1-9087-917abb7eccfe.htm" title="Context Menu" tocid="478a3c03-87d1-4aa1-9087-917abb7eccfe">Context Menu</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Vishnu actors</h1></td></tr></table><div><p>
+					Here you will find details on various <strong>Vishnu</strong>-elements. In addition to general function descriptions,
+					parameterisation and return values are also addressed and illustrated using XML examples.
+			</p></div><div class="collapsibleAreaRegion" id="Job"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Job</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+
+        <span class="keyword">Job</span> is the topmost <strong>Vishnu</strong>-element.
+        A job corresponds to a directory with at least one <span class="keyword">JobDescription.xml</span>-file
+        in which the <span class="keyword">Job</span> is described in detail.<br />
+        The job contains everything that <strong>Vishnu</strong> requires to be able to process orders.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Note</th></tr><tr><td><p>
+					How a <span class="keyword">JobDescription.xml</span> is structured is described in <a href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7.htm">A simple Example</a>.
+					You can find further <span class="keyword">Job</span>-Examples on <a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a>
+					and <a href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c.htm">Inline SubJobs</a>, among others.
+					</p></td></tr></table></div><p>
+					Jobs with modules that are not located the
+					<a href="E6ECB24A-CA5C-4785-9514-992F359D394A.htm#UserAssemblyDirectory">UserAssemblyDirectory</a>
+					search these as loadable <strong>DLLs</strong> in a subdirectory <strong>"Plugin"</strong>
+					(see the following excerpts from the Demo-SubJob <strong>CheckServers</strong>).
+				</p><div class="mediaNear"><img alt="Jobverzeichnis" src="../media/Jobverzeichnis.en.png" /></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p><strong>Vishnu</strong> can also process zipped jobs.
+					The path to the zip archive containing the job directory must then be specified without the ".zip" extension.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="Checker">
+						<span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0">
+						<img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Checker</span>
+						</div><div id="IDEABSection" class="collapsibleSection">
+				<p><span class="keyword">Checkers</span> are the essential <strong>Vishnu</strong>-players.
+						They are loaded dynamically by <strong>Vishnu</strong> and do the testing work.
+						They must return a test result:
+				</p><ul><li><p><strong>true</strong> = everything is ok
+						</p></li><li><p><strong>false</strong> = something is not ok
+						</p></li><li><p><strong>null</strong> = no decision can be made at the moment.
+						</p></li></ul><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+						In addition to the regular results mentioned above, <span class="keyword">Checkers</span> can also
+						encounter unexpected errors, e.g. if a server addressed is not available.
+						They then abruptly terminate the current run with an <strong>Exception</strong>.
+						<strong>Vishnu</strong> also processes these <span class="keyword">Exceptions</span> and displays
+						them using a wrench symbol
+						<span class="mediaInline"><img alt="support" src="../media/support.png" /></span>.
+					</p></td></tr></table></div><p>
+
+            In addition, each <span class="keyword">Checker</span> has a public <span class="keyword">Return object</span>,
+            which can be used if necessary. Any complex issues can be passed on to your
+            <a href="74204d60-cbb3-4f38-8266-aa7af541143f.htm">Custom Views</a> by <strong>Vishnu</strong>.
+				</p><p>
+					  You can specify call parameters for <span class="keyword">Checkers</span> in the
+					   <span class="keyword">JobDescription.xml</span> using the '&lt;Parameters&gt;' element,
+					   see the following example:
+				</p><div id="IDFBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDFBEAB_tab1" class="codeSnippetContainerTabSingle">Call parameters for checkers and triggers</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDFBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDFBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDFBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>Google<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>8.8.8.8|200|3<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>S:1|S:20<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Reference</span><span class="highlight-xml-bracket">&gt;</span>FirstNamedLogger<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Reference</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+   ...</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td>
+	      <p>
+          In addition to the parameters you pass, <span class="keyword">Checkers</span> receive a TreeEvent from <strong>Vishnu</strong>.
+          This can contain various other information, e.g. <span class="keyword">Return objects</span> from other <span class="keyword">Checkers</span>.
+				</p><p>
+          Further details about <span class="keyword">Checkers</span> can be found on
+          <a href="a3f9771a-ac24-46c0-97df-d2bde6a990e8.htm">Custom Checkers</a>.
+				</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="Trigger"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Trigger</span></div><div id="IDFABSection" class="collapsibleSection">
+			  <p><span class="keyword">Triggers</span> ensure that the <span class="keyword">Checkers</span>
+										do their work. They trigger the <span class="keyword">Checkers</span> or <span class="keyword">Workers</span>
+											at regular intervals or when certain events occur.
+				</p><p>
+					As with <span class="keyword">Checkers</span> (see above), call-parameters for <span class="keyword">Triggers</span>
+					can be specified in the <span class="keyword">JobDescription.xml</span> using the '&lt;Parameters&gt;' element.
+				</p><p>
+          <strong>Vishnu</strong> already provides three types of <span class="keyword">Triggers</span> that should
+          cover most use cases:
+				</p><ul><li><p><strong>TimerTrigger</strong></p><p>
+														TimerTriggers call <span class="keyword">Checkers</span> at regular intervals.
+						
+						</p></li><li><p><strong>FileWatcherTrigger</strong></p><p>
+														FileWatcherTriggers call <span class="keyword">Checkers</span> whenever observed files change.
+						
+						</p></li><li><p><strong>TreeEventTrigger</strong></p><p>
+														TreeEventTriggers are <strong>Vishnu</strong>-internal triggers that react to events
+														(<span class="keyword">TreeEvents</span>) within the <strong>Vishnu</strong>-Tree
+														and then can start <span class="keyword">Checkers</span>.
+						</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td>
+						<p>
+							Even though <span class="keyword">TreeEventTriggers</span> are <strong>Vishnu</strong> internal modules,
+							they can be configured in the <span class="keyword">JobDescription.xml</span>  like other triggers.
+								For more information see <a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a>.
+							</p></td></tr></table></div></li></ul><p>
+							  The following example shows various <span class="keyword">Triggers</span> and their call parameters.
+				</p><div class="mediaNear"><img alt="Various Triggers" src="../media/Various_Triggers.en.png" /></div></div><div class="collapsibleAreaRegion" id="Worker"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDGAB')" onkeypress="SectionExpandCollapse_CheckKey('IDGAB', event)" tabindex="0"><img id="IDGABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Worker</span></div><div id="IDGABSection" class="collapsibleSection">
+					<p><span class="keyword">Workers</span> are groups of one or more <span class="keyword">SubWorkers</span>
+						each with an EXE-program, which is started by <strong>Vishnu</strong> when certain
+						<span class="keyword">TreeEvents</span> defined for the Worker occur.
+					What the EXE-programs of the SubWorkers do and whether or how they react to
+					passed parameters, is entirely up to the programs. <strong>Vishnu</strong> is not interested in
+					their results (fire and forget).
+				</p><p>
+				  <span class="keyword">Workers</span> are always triggered depending on one or more <span class="keyword">TreeEvents</span>.
+		      This is determined via the attribute <span class="keyword">&lt;LogicalExpression&gt;</span> in the form<br />
+				  <span class="keyword">&lt;LogicalExpression&gt;triggering node:TreeEvent[|TreeEvent]&lt;&#47;LogicalExpression&gt;</span><br />
+				  (see also the example below).
+				</p><p>
+					As with <span class="keyword">Checkers</span> and <span class="keyword">Triggers</span>,
+					call-parameters for <span class="keyword">SubWorkers</span> are passed in the
+					<span class="keyword">JobDescription.xml</span> using the '&lt;Parameters&gt;' element.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td><p>
+					<strong>Vishnu</strong> prepends a severity level as an integer value to the call-parameters you define.
+					If this value is negative, it means that the <span class="keyword">TreeEvent(s)</span>
+					triggering the worker no longer exist.
+					</p><p>
+					  Since the parameters are passed to <span class="keyword">SubWorkers</span> via the command line,
+					  no additional <span class="keyword">TreeEvent</span> can be passed
+					  as it is possible with <span class="keyword">Checkers</span>.<br /> That's why the
+					  <a href="15204f64-ecf7-44b6-822d-74e36b99927d.htm#erweiterteParameterersetzungBeiSubWorkern">Vishnu parameter substitution</a>
+						is particularly important for SubWorkers.
+					</p></td></tr></table></div><div id="IDEBGAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDEBGAB_tab1" class="codeSnippetContainerTabSingle">Definition and parameters of workers</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDEBGAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDEBGAB');return false;" title="Copy">Copy</a></div></div><div id="IDEBGAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">  ...
+<span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Workers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Worker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>Heise:False|Exception<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorkers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>VishnuMessageBox.exe<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>-Message="%Timestamp%: CheckServers %Event% from %Source% in %Sender%#%Exception%" -Caption="Server Error" -MessageNewLine=#<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>MicroMailer.exe<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span><span class="highlight-xml-bracket">&lt;![CDATA[</span><span class="highlight-xml-cdata">-Message="%Timestamp%:  CheckServers %Event% from %Source% in %Sender%#%Exception%." -Caption="Server error!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Sender" -MailRecipients="Recipient1[,Recipient2,...]"</span><span class="highlight-xml-bracket">]]&gt;</span><span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-comment">&lt;!-- Trigger&gt;
+          &lt;LogicalName&gt;&lt;/LogicalName&gt;
+          &lt;PhysicalPath&gt;TimerTrigger.dll&lt;/PhysicalPath&gt;
+          &lt;Parameters&gt;M:20&lt;/Parameters&gt;
+        &lt;/Trigger --&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorkers</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Worker</span><span class="highlight-xml-bracket">&gt;</span>
+  ...
+<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Workers</span><span class="highlight-xml-bracket">&gt;</span>
+...</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Note</th></tr><tr><td><p>
+					  In the previous example, the call parameters for the <span class="keyword">SubWorker</span>
+					  <strong>"MicroMailer"</strong> are not formulated, but are transferred via the environment.
+						You should enter the parameters of your e-mail provider here, or rather elsewhere, eg. in the environment.
+					</p></td></tr></table></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td>
+					<p><span class="keyword">SubWorkers</span> can also have <span class="keyword">Triggers</span> assigned to them,
+					  as in the previous example with the "MicroMailer" (commented out).
+						These then fire repeatedly until the <span class="keyword">TreeEvent(s)</span>
+						triggering the <span class="keyword">Worker</span> no longer exist.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="Escalator"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDHAB')" onkeypress="SectionExpandCollapse_CheckKey('IDHAB', event)" tabindex="0"><img id="IDHABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Escalator</span></div><div id="IDHABSection" class="collapsibleSection"><p>
+					  An <span class="keyword">Escalator</span> can be used to assign different
+					  <span class="keyword">Workers</span> to different levels of severity.
+					  A typical application example is an undesirable result from a <span class="keyword">Checker</span> (usually false or exception),
+					  which is responded to by an error message on the screen in the first step.
+					  Only if there is no response after a certain period of time does a further step follow, for example an email (escalation).<br />
+					  See the following example:
+				</p><div class="mediaNear"><img alt="Escalator" src="../media/Escalator.en.png" /></div><p>
+						Below you can see the definition of the <span class="keyword">Escalator</span> from the
+						above example in the <span class="keyword">JobDescrition.xml</span>.
+				</p><div id="IDDBHAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDDBHAB_tab1" class="codeSnippetContainerTabSingle">Definition and parameters of the escalator</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDDBHAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDDBHAB');return false;" title="Copy">Copy</a></div></div><div id="IDDBHAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Worker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>Check Escalator:False<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorkers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Escalator.exe<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span> <span class="highlight-xml-attribute-name">Transport</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"File"</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorkers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorker</span> <span class="highlight-xml-attribute-name">RunCounter</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"1"</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>VishnuMessageBox.exe<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>-Message="Stage 1 (Run 1) %Timestamp%: %MachineName% %Event% from %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Info" -MessageNewLine=#<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SubWorker</span> <span class="highlight-xml-attribute-name">RunCounter</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"3"</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>VishnuMessageBox.exe<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>-Message="Stage 2 (Run 3) %Timestamp%: %MachineName% ATTENTION %Event% from %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Warning" -MessageNewLine=#<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorkers</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+          <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>S:10<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SubWorkers</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Worker</span><span class="highlight-xml-bracket">&gt;</span>
+...</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Note</th></tr><tr><td><p>
+					As you can see, the <span class="keyword">Escalator</span> acts like a <span class="keyword">Worker</span>.
+				</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="ValueModifier"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDIAB')" onkeypress="SectionExpandCollapse_CheckKey('IDIAB', event)" tabindex="0"><img id="IDIABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />ValueModifier</span></div><div id="IDIABSection" class="collapsibleSection">
+					<p><span class="keyword">ValueModifiers</span> take over <span class="keyword">Results</span> from
+					other <span class="keyword">Checkers</span> and present them in a modified form.
+				</p><p>
+				  In the following screenshot of the demo job <strong>CheckSingleValueModifier</strong> can be seen,
+					that the "Result" in the "Day" node only shows the day of the date (here 21).<br />
+					<span class="mediaInline"><img alt="Check Single Value Modifier" src="../media/CheckSingleValueModifier.png" /></span>.
+				</p><p><br />
+				  In the associated <span class="keyword">JobDefinition.xml</span> you can see that the
+					<span class="keyword">Checker</span><strong> date</strong> does not even belong to the LogicalExpression
+					<span class="keyword">&lt;IS Tag&gt;</span> of the <span class="keyword">Job</span>.
+					However, it is executed by the <span class="keyword">Job</span> as an <span class="keyword">anonymous node</span>
+					in the background and can then be accessed via the visible ValueModifier
+					<strong>Day</strong> by <span class="keyword">&lt;Reference&gt;Date&lt;&#47;Reference&gt;</span>.
+				</p><div id="IDDBIAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDDBIAB_tab1" class="codeSnippetContainerTabSingle">ValueModifier</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDDBIAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDDBIAB');return false;" title="Copy">Copy</a></div></div><div id="IDDBIAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-xml-bracket">&lt;?</span><span class="highlight-xml-tag">xml</span> <span class="highlight-xml-attribute-name">version</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"1.0"</span> <span class="highlight-xml-attribute-name">encoding</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"utf-8"</span><span class="highlight-xml-bracket">?&gt;</span>
+<span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">JobDescription</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>CheckSingleValueModifier<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+    IS Tag
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checkers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>date<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>CheckDate.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checkers</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">ValueModifiers</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">ValueModifier</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>Day<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Reference</span><span class="highlight-xml-bracket">&gt;</span>date<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Reference</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Type</span><span class="highlight-xml-bracket">&gt;</span>int<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Type</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Format</span><span class="highlight-xml-bracket">&gt;</span>{0:dd}<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Format</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">ValueModifier</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">ValueModifiers</span><span class="highlight-xml-bracket">&gt;</span>
+<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">JobDescription</span><span class="highlight-xml-bracket">&gt;</span></pre></div></div></div>
+				<p>
+				  Furthermore, it can be seen that the <span class="keyword">ValueModifier</span> needs two additional parameters:
+				</p><ul><li><p><strong>Type</strong>
+				  The desired result type of the <span class="keyword">ValueModifier</span>, here <strong>int</strong> (.Net-Int32)
+				</p></li><li><p><strong>Format</strong>
+				  The format for displaying the result of the <span class="keyword">ValueModifier</span>.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td><p>
+					For "Format" you can specify any suitable <strong>C# format string</strong>.
+				</p></td></tr></table></div></li></ul><p>
+					The <span class="keyword">ValueModifier</span> shown above is already provided by <strong>Vishnu</strong>.
+					It offers conversions for the following result types:
+				</p><ul><li><p><span class="keyword">Boolean</span></p></li><li><p><span class="keyword">Int16</span></p></li><li><p><span class="keyword">Int32</span></p></li><li><p><span class="keyword">Int64</span></p></li><li><p><span class="keyword">DateTime</span></p></li><li><p><span class="keyword">String</span></p></li></ul><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />Important</th></tr><tr><td>
+				<p>
+					You can also create your own <span class="keyword">ValueModifiers</span>. How to do this
+					is described on <a href="b2bd8510-a131-4466-9fac-66f2033d92a0.htm">Custom ValueModifiers</a>.
+				</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="Logger">
+					<span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDJAB')" onkeypress="SectionExpandCollapse_CheckKey('IDJAB', event)" tabindex="0"><img id="IDJABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Logger</span>
+				</div><div id="IDJABSection" class="collapsibleSection">
+
+				  <span class="keyword">Loggers</span> are assigned directly to checkers or jobs.
+				  They can be used to track and document certain state changes in the <strong>Vishnu</strong>-tree.
+				  As shown in the following <span class="keyword">JobDescription.xml</span> of the demo job
+				  <strong>CheckServersLogging</strong>, <span class="keyword">Loggers</span>, like <span class="keyword">Workers</span>,
+				  are triggered depending on one or more <span class="keyword">TreeEvents</span>.
+					This is determined using the <span class="keyword">&lt;Parameters&gt;</span> attribute in the form
+					<span class="keyword">&lt;Parameters&gt;TreeEvent[|TreeEvent][,other_parameters]&lt;/Parameters&gt;</span>.
+				</p><div id="IDCBJAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDCBJAB_tab1" class="codeSnippetContainerTabSingle">Definition of loggers</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDCBJAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDCBJAB');return false;" title="Copy">Copy</a></div></div><div id="IDCBJAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-xml-bracket">&lt;?</span><span class="highlight-xml-tag">xml</span> <span class="highlight-xml-attribute-name">version</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"1.0"</span> <span class="highlight-xml-attribute-name">encoding</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"utf-8"</span><span class="highlight-xml-bracket">?&gt;</span>
+<span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">JobDescription</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>CheckServersLogging<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;![CDATA[</span><span class="highlight-xml-cdata">(Google AND Heise) &amp; (Local OR NotPresent)</span><span class="highlight-xml-bracket">]]&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalExpression</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">SingleNodeUserControlPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\SingleNodeUserControl_CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">SingleNodeUserControlPath</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checkers</span> <span class="highlight-xml-attribute-name">type</span><span class="highlight-xml-attribute-equal">=</span><span class="highlight-xml-attribute-value">"array"</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>Google<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>8.8.8.8|200|3<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>S:1|S:20<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TextFileLogger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>Exception|LogicalResultChanged<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>Heise<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>www.heise.de|200|3<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>P:3|P:20<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>Local<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>Localhost|1000|3<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>P:20|P:300<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>NotPresent<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">LogicalName</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>Plugin\CheckServer.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>9.8.7.6|200|3<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TimerTrigger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>P:2|P:20<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Trigger</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>TextFileLogger.dll<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">PhysicalPath</span><span class="highlight-xml-bracket">&gt;</span>
+        <span class="highlight-xml-bracket">&lt;</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>Exception|LogicalResultChanged,%TempDirectory%\xyz.log<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Parameters</span><span class="highlight-xml-bracket">&gt;</span>
+      <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Logger</span><span class="highlight-xml-bracket">&gt;</span>
+    <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checker</span><span class="highlight-xml-bracket">&gt;</span>
+  <span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">Checkers</span><span class="highlight-xml-bracket">&gt;</span>
+<span class="highlight-xml-bracket">&lt;/</span><span class="highlight-xml-tag">JobDescription</span><span class="highlight-xml-bracket">&gt;</span></pre></div></div></div><p>
+
+				  The first of the two <span class="keyword">Loggers</span> defined in the demo job above writes
+				  to the <strong>Vishnu</strong>-log file by default, the second logger writes to its own
+				  log file <nobr><strong>%TempDirectory%\xyz.log</strong></nobr>.<br />
+				  As a reminder: the <strong>Vishnu</strong>-log file is <span class="keyword">%TempDirectory%\Vishnu.%MainJobName%\Vishnu.log</span>
+				  by default.
+				</p><p>
+				  The <span class="keyword">Logger</span> produces the following results:
+				</p><div id="IDFBJAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDFBJAB_tab1" class="codeSnippetContainerTabSingle">Output of the TextFileLogger.dll in the Vishnu log file</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDFBJAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDFBJAB');return false;" title="Copy">Copy</a></div></div><div id="IDFBJAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-number">2020.01</span>.<span class="highlight-number">24</span> <span class="highlight-number">09</span>:<span class="highlight-number">23</span>:<span class="highlight-number">03</span>,<span class="highlight-number">952339</span> Event: LogicalResultChanged
+        Node: Google|Google, Logical: True, Source: Google
+        AnyServer, Thread: <span class="highlight-number">0020</span>/<span class="highlight-number">08904</span>, Tree: Tree <span class="highlight-number">1</span>
+        AND(CheckServersLogging)/AND(Internal_1)/Google, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\Vishnu.CheckServersLogging\<span class="highlight-number">20544</span>
+...</pre></div></div></div><div id="IDGBJAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDGBJAB_tab1" class="codeSnippetContainerTabSingle">Output of the TextFileLogger.dll in the log file '%TempDirectory%\xyz.log'</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDGBJAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDGBJAB');return false;" title="Copy">Copy</a></div></div><div id="IDGBJAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-number">2020.01</span>.<span class="highlight-number">24</span> <span class="highlight-number">09</span>:<span class="highlight-number">23</span>:<span class="highlight-number">05</span>,<span class="highlight-number">963918</span> Event: LogicalResultChanged
+        Node: NotPresent|NotPresent, Logical: False, Source: NotPresent
+        AnyServer, Thread: <span class="highlight-number">0022</span>/<span class="highlight-number">19564</span>, Tree: Tree <span class="highlight-number">1</span>
+        AND(CheckServersLogging)/OR(Internal_2)/NotPresent, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\Vishnu.CheckServersLogging\<span class="highlight-number">20544</span></pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Important" />  Important</th></tr><tr><td>
+        <p>
+          The <strong>TextFileLogger.dll</strong> is a simple demo DLL that <strong>Vishnu</strong> already supplies.
+          The content and form of the logging output are hard-wired into the TextFileLogger.dll.
+          To determine the content and form of the logger output, you can also create your own <span class="keyword">Loggers</span>.
+          How to do this is described on <a href="3ccc247e-ea3a-47fc-9ed6-4713baf96986.htm">Custom Loggers</a>.
+				</p><p>
+				  Your own <span class="keyword">Loggers</span> can then also interpret additional transfer parameters
+				  that control the output format. It is up to you which parameters you pass to the logger after the comma.
+				  <strong>Vishnu</strong> simply passes these on to your logger.
+				</p></td></tr></table></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />Note</th></tr><tr><td>
+				<p>
+				  By the way: the <strong>TextFileLogger.dll</strong> is found by <strong>Vishnu</strong>,
+				  even though it is not in the <strong>Plugin</strong>-directory of the demo job.
+					The reason for this is that the <strong>DLL</strong> is in the
+					<a href="E6ECB24A-CA5C-4785-9514-992F359D394A.htm#UserAssemblyDirectory">UserAssemblyDirectory</a>.
+					</p></td></tr></table></div></div></div></div><div id="PageFooter" class="pageFooter">Naturally, many findings and developments are based on information freely available on the Internet. Any missing references to original authors are unintentional and will be updated as soon as they are reported.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Send comments about this feature to
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+        </script></div></body></html>

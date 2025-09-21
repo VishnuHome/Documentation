@@ -1,0 +1,118 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Disk Space",
+    "LogicalExpression": "Check_C & Check_D",
+    "BreakWithResult": false,
+    "ThreadLocked": {
+      "@LockName": "ConcurrentSQL",
+      "#text": false
+    },
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "JobSnapshotTrigger": {
+      "Reference": "LogicalResultChanged|Exception",
+      "Parameters": "Check Disk Space"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Check_C",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "Parameters": "c:|200000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|M:10"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        },
+        {
+          "LogicalName": "Check_D",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "Parameters": "d:|200000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:2|M:10"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check Disk Space:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check Disk Space %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_C:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_C %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_D:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_D %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_E:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_E %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_Localhost_C:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_Localhost_C %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

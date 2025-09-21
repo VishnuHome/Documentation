@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="478a3c03-87d1-4aa1-9087-917abb7eccfe" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	  <introduction>
+		  <para>
+			  Das <token>V</token>-Kontextmenü stellt verschiedene, teilweise zusätzliche Funktionen zur Verfügung (siehe unten).
+			  Der Aufruf erfolgt über die rechte Maustaste.
+		  </para>
+	  </introduction>
+
+	  <section address="VishnuContextMenu">
+		  <title>Vishnu Kontextmenü</title>
+		  <content>
+			  <mediaLink>
+				  <caption placement="after">Das Vishnu Kontextmenü (rechte Maustaste)</caption>
+				  <image xlink:href="Contextmenu2"/>
+			  </mediaLink>
+			  <para>
+				  Nachfolgend sind alle <languageKeyword>Menüpunkte</languageKeyword> und ihre Funktion aufgeführt.
+			  </para>
+			  <table>
+				  <title>Kontextmenü-Funktionen</title>
+				  <tableHeader>
+					  <row>
+						  <entry>
+							  <para>Menüpunkt</para>
+						  </entry>
+						  <entry>
+							  <para>Funktion</para>
+						  </entry>
+					  </row>
+				  </tableHeader>
+				  <row>
+					  <entry>
+						  <para>Vishnu Hilfe (F1)</para>
+					  </entry>
+					  <entry>
+						  <para>Ruft die Vishnu-Onlinehilfe auf, kann aber über den Parameter <languageKeyword>HelpPreference</languageKeyword>
+						  auch auf die lokale Hilfedatei (chm) eingestellt werden.</para>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Infos/Einstellungen</para>
+					  </entry>
+					  <entry>
+						  <para>Zeigt alle aktuellen Vishnu-Parameter im Notepad-Editor an.</para>
+						  <alert class="caution">
+							  <para>
+								  Notepad.exe muss sich im Windows-Pfad befinden, sonst tut sich gar nichts.
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Infos/Vishnu Logdatei</para>
+					  </entry>
+					  <entry>
+						  <para>Zeigt die aktuelle Vishnu-Logdatei, sofern vorhanden, im Notepad-Editor an.</para>
+						  <alert class="note">
+							  <para>
+								  Bei Nutzung von <languageKeyword>CheckerHistoryLoggern</languageKeyword>
+								  werden auch deren Logdateien angezeigt.
+							  </para>
+						  </alert>
+						  <alert class="caution">
+							  <para>
+								  Notepad.exe muss sich im Windows-Pfad befinden, sonst tut sich gar nichts.
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Infos/Zeige Infos</para>
+					  </entry>
+					  <entry>
+						  <para>Holt eventuell vorhandene Vishnu-Infos (Messages und Logs) in den Vordergrund.</para>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Infos/Lösche Infos</para>
+					  </entry>
+					  <entry>
+						  <para>Löscht eventuell vorhandene Vishnu-Infos (Messages und Logs).</para>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Tree-Ausrichtung (F4)</para>
+					  </entry>
+					  <entry>
+						  <para>Ändert die Ausrichtung des Vishnu-Trees.</para>
+						  <alert class="note">
+							  <para>
+								  Ist in der <languageKeyword>Jobs</languageKeyword>-Ansicht deaktiviert.
+								  Bei sehr einfachen Jobs macht sich die Änderung u.U. erst nach jedem zweiten Aufruf bemerkbar.
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Tree neu laden</para>
+					  </entry>
+					  <entry>
+						  <para>Lädt den Zweig des Vishnu-Trees neu, auf dem sich gerade die Maus befindet.</para>
+						  <alert class="caution">
+							  <para>
+								  Diese Funktion ist noch experimentell und nicht hinreichend getestet.<lineBreak/>
+								  Der oberste Knoten des Trees kann nicht neu geladen werden.
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Tree loggen</para>
+					  </entry>
+					  <entry>
+						  <para>Schreibt eine Strukturbeschreibung des Vishnu-Trees in die Logdatei.</para>
+						  <alert class="note">
+							  <para>
+								  Diese Funktion ist haupsächlich für Debug-Zwecke gedacht.<lineBreak/>
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+				  <row>
+					  <entry>
+						  <para>Tree anhalten</para>
+					  </entry>
+					  <entry>
+						  <para>Hält die gesamte Verarbeitung des Vishnu-Trees an.</para>
+						  <alert class="note">
+							  <para>
+								  Diese Funktion ist ein Wechselschalter. Wenn der Tree angehalten wurde,
+								  ändert sich der Text auf "Tree laufen lassen" und man kann den Tree wieder aktivieren.
+							  </para>
+						  </alert>
+					  </entry>
+				  </row>
+			  </table>
+		  </content>
+	  </section>
+
+	  <relatedTopics>
+		  <link xlink:href="6fe3bf85-d02b-41ff-84a7-dcc2a4819978" />
+	  </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

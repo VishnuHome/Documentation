@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Data.Services.Client</name>
+  </assembly>
+  <members>
+    <member name="T:System.Data.Services.Client.ChangeOperationResponse">
+      <summary>Ergebnisse, die bei der Enumeration der von der <see cref="T:System.Data.Services.Client.DataServiceResponse" />-Klasse zurückgegebenen Vorgangsantworten nach einem Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> zurückgegeben werden.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.ChangeOperationResponse.Descriptor">
+      <summary>Ruft den durch einen Änderungsvorgang geänderten <see cref="T:System.Data.Services.Client.EntityDescriptor" /> oder <see cref="T:System.Data.Services.Client.LinkDescriptor" /> ab.</summary>
+      <returns>Ein durch einen Änderungsvorgang geänderter <see cref="T:System.Data.Services.Client.EntityDescriptor" /> oder <see cref="T:System.Data.Services.Client.LinkDescriptor" />. </returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceClientException">
+      <summary>Stellt Fehler dar, die beim Ausführen von WCF Data Services-Clientanwendungen auftreten.</summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.#ctor">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse mit einer vom System generierten Meldung, die den Fehler beschreibt. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.#ctor(System.String)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse mit einer angegebenen Meldung, die den Fehler beschreibt. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.#ctor(System.String,System.Exception)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse mit einer angegebenen Fehlermeldung und einem Verweis auf die innere Ausnahme, die diese Ausnahme ausgelöst hat. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.</param>
+      <param name="innerException">Die Ausnahme, die die Ursache der aktuellen Ausnahme ist.Wenn der <paramref name="innerException" />-Parameter nicht null ist, wird die aktuelle Ausnahme in einem catch-Block ausgelöst, der die innere Ausnahme behandelt.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.#ctor(System.String,System.Exception,System.Int32)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse. </summary>
+      <param name="message">Der Zeichenfolgenwert, der die Fehlermeldung enthält.</param>
+      <param name="innerException">Das System.Exception-Objekt, das die innere Ausnahme enthält.</param>
+      <param name="statusCode">Der Ganzzahlwert, der den Statuscode enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.#ctor(System.String,System.Int32)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse. </summary>
+      <param name="message">Der Zeichenfolgenwert, der die Fehlermeldung enthält.</param>
+      <param name="statusCode">Der Ganzzahlwert, der den Statuscode enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceClientException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceClientException" />-Klasse mit serialisierten Daten.</summary>
+      <param name="info">Das Objekt, das die Daten des serialisierten Objekts enthält. </param>
+      <param name="context">Die Kontextinformationen zur Quelle bzw. zum Ziel. </param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceClientException.StatusCode">
+      <summary>Ruft den HTTP-Fehlerstatuscode ab, der nach <see cref="T:System.Data.Services.Client.DataServiceClientException" /> zurückgeben wird.</summary>
+      <returns>Ein Ganzzahlwert, der die Ausnahme darstellt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceCollection`1">
+      <summary>Stellt eine dynamische Entitätenauflistung dar, die Benachrichtigungen bereitstellt, wenn Elemente hinzugefügt oder entfernt werden oder die Liste aktualisiert wird.</summary>
+      <typeparam name="T">Ein Entitätstyp.</typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse.</summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+      <summary>Erstellt auf Grundlage der Abfrageausführung eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse.</summary>
+      <param name="items">Eine <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> oder eine LINQ-Abfrage, die eine <see cref="T:System.Collections.Generic.IEnumerable`1" />-Auflistung von Objekten zurückgibt, die zum Initialisieren der Auflistung verwendet werden.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Data.Services.Client.TrackingMode)">
+      <summary>Erstellt auf Grundlage der Abfrageausführung und mit dem angegebenen Nachverfolgungsmodus eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse.</summary>
+      <param name="items">Eine <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> oder eine LINQ-Abfrage, die eine <see cref="T:System.Collections.Generic.IEnumerable`1" />-Auflistung von Objekten zurückgibt, mit denen die Auflistung initialisiert wird.</param>
+      <param name="trackingMode">Ein <see cref="T:System.Data.Services.Client.TrackingMode" />-Wert, der angibt, ob Änderungen an Elementen in der Auflistung automatisch nachverfolgt werden.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Data.Services.Client.TrackingMode,System.String,System.Func{System.Data.Services.Client.EntityChangedParams,System.Boolean},System.Func{System.Data.Services.Client.EntityCollectionChangedParams,System.Boolean})">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse auf Grundlage der Abfrageausführung und mit den angegebenen Änderungsmethodendelegaten.</summary>
+      <param name="items">Eine <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> oder eine LINQ-Abfrage, die eine <see cref="T:System.Collections.Generic.IEnumerable`1" />-Auflistung von Objekten zurückgibt, mit denen die Auflistung initialisiert wird.</param>
+      <param name="trackingMode">Ein <see cref="T:System.Data.Services.Client.TrackingMode" />-Wert, der angibt, ob Änderungen an Elementen in der Auflistung automatisch nachverfolgt werden.</param>
+      <param name="entitySetName">Die Entitätenmenge der Objekte in der Auflistung.</param>
+      <param name="entityChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich eine Entität ändert.</param>
+      <param name="collectionChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich die Auflistung von Entitäten ändert.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Data.Services.Client.DataServiceContext)">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse, die den angegebenen <see cref="T:System.Data.Services.Client.DataServiceContext" /> verwendet.</summary>
+      <param name="context">Das zum Nachverfolgen von Änderungen der Objekte in der Auflistung verwendete <see cref="T:System.Data.Services.Client.DataServiceContext" />.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Data.Services.Client.DataServiceContext,System.Collections.Generic.IEnumerable{`0},System.Data.Services.Client.TrackingMode,System.String,System.Func{System.Data.Services.Client.EntityChangedParams,System.Boolean},System.Func{System.Data.Services.Client.EntityCollectionChangedParams,System.Boolean})">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse auf Grundlage der Abfrageausführung mit den angegebenen Änderungsmethodendelegaten, die den angegebenen <see cref="T:System.Data.Services.Client.DataServiceContext" /> verwendet.</summary>
+      <param name="context">Das zum Nachfolgen von Elementen in der Auflistung verwendete <see cref="T:System.Data.Services.Client.DataServiceContext" />.</param>
+      <param name="items">Eine <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> oder eine LINQ-Abfrage, die eine <see cref="T:System.Collections.Generic.IEnumerable`1" />-Auflistung von Objekten zurückgibt, mit denen die Auflistung initialisiert wird.</param>
+      <param name="trackingMode">Ein <see cref="T:System.Data.Services.Client.TrackingMode" />-Wert, der angibt, ob Änderungen an Elementen in der Auflistung automatisch nachverfolgt werden.</param>
+      <param name="entitySetName">Die Entitätenmenge der Objekte in der Auflistung.</param>
+      <param name="entityChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich eine Entität ändert.</param>
+      <param name="collectionChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich die Auflistung von Entitäten ändert.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.#ctor(System.Data.Services.Client.DataServiceContext,System.String,System.Func{System.Data.Services.Client.EntityChangedParams,System.Boolean},System.Func{System.Data.Services.Client.EntityCollectionChangedParams,System.Boolean})">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />-Klasse mit den angegebenen Änderungsmethodendelegaten, die den angegebenen <see cref="T:System.Data.Services.Client.DataServiceContext" /> verwendet.</summary>
+      <param name="context">Das zum Nachfolgen von Elementen in der Auflistung verwendete <see cref="T:System.Data.Services.Client.DataServiceContext" />.</param>
+      <param name="entitySetName">Die Entitätenmenge der Objekte in der Auflistung.</param>
+      <param name="entityChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich eine Entität ändert.</param>
+      <param name="collectionChangedCallback">Ein Delegat, der eine Methode kapselt, die aufgerufen wird, wenn sich die Auflistung von Entitäten ändert.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.Clear(System.Boolean)">
+      <summary>Entfernt alle Elemente aus der Auflistung und trennt optional alle Elemente von <see cref="T:System.Data.Services.Client.DataServiceContext" />.</summary>
+      <param name="stopTracking">Bei true werden alle Elemente von <see cref="T:System.Data.Services.Client.DataServiceContext" /> getrennt.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceCollection`1.Continuation">
+      <summary>Ruft ein Fortsetzungsobjekt ab, das verwendet wird, um den nächsten Satz ausgelagerter Ergebnisse zurückzugeben.</summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt mit dem URI zum Zurückgeben des nächsten Satzes ausgelagerter Ergebnisse.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.Detach">
+      <summary>Deaktiviert die <see cref="T:System.Data.Services.Client.DataServiceContext" />-Nachverfolgung aller Elemente in der Auflistung. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.InsertItem(System.Int32,`0)">
+      <summary>Fügt der Auflistung am angegebenen Index ein angegebenes Element hinzu. </summary>
+      <param name="index">Der Index, an dem das Element hinzugefügt werden soll.</param>
+      <param name="item">Das Element, das hinzugefügt werden soll.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.Load(System.Collections.Generic.IEnumerable{`0})">
+      <summary>Lädt eine Auflistung von Entitätsobjekten in die Auflistung.</summary>
+      <param name="items">Eine Auflistung von Entitätsobjekten, die <see cref="T:System.Data.Services.Client.DataServiceCollection`1" /> hinzugefügt werden sollen.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceCollection`1.Load(`0)">
+      <summary>Lädt ein Entitätsobjekt in die Auflistung.</summary>
+      <param name="item">Das hinzuzufügende Entitätsobjekt.</param>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceContext">
+      <summary>Das <see cref="T:System.Data.Services.Client.DataServiceContext" /> stellt den Runtimekontext des Datendiensts dar. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.#ctor(System.Uri)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceContext" />-Klasse mit der angegebenen <paramref name="serviceRoot" />.</summary>
+      <param name="serviceRoot">Ein absoluter URI, der den Stamm eines Datendiensts bezeichnet.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn die <paramref name="serviceRoot" /> NULL ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn die <paramref name="serviceRoot" /> kein absoluter URI ist - oder -Wenn der <paramref name="serviceRoot" /> ein wohlgeformter URI ohne eine Abfrage oder ein Abfragefragment ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AddLink(System.Object,System.String,System.Object)">
+      <summary>Fügt den angegebenen Link dem Satz von Objekten hinzu, den der <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht.</summary>
+      <param name="source">Das Quellobjekt für den neuen Link.</param>
+      <param name="sourceProperty">Der Name der Navigationseigenschaft im Quellobjekt, die das verbundene Objekt zurückgibt.</param>
+      <param name="target">Das über den neuen Link mit dem Quellobjekt verbundene Objekt. </param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="source" />, <paramref name="sourceProperty" /> oder <paramref name="target" /> NULL ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn ein Link bereits vorhanden ist.- oder -Wenn das <paramref name="source" />-Objekt oder <paramref name="target" />-Objekt im <see cref="F:System.Data.Services.Client.EntityStates.Detached" />- Status oder <see cref="F:System.Data.Services.Client.EntityStates.Deleted" />- Status ist.- oder -Wenn <paramref name="sourceProperty" /> keine Auflistung ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AddObject(System.String,System.Object)">
+      <summary>Fügt das angegebene Objekt dem Satz von Objekten hinzu, den der <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht.</summary>
+      <param name="entitySetName">Der Name des Entitätssatzes, dem die Ressource hinzugefügt wird.</param>
+      <param name="entity">Das von <see cref="T:System.Data.Services.Client.DataServiceContext" /> nachzuverfolgende Objekt.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entitySetName" /> oder <paramref name="entity" /> NULL ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="entitySetName" /> leer ist.- oder -Wenn <paramref name="entity" /> keine definierte Schlüsseleigenschaft hat.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn die Entität bereits vom Kontext verfolgt wird.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AddRelatedObject(System.Object,System.String,System.Object)">
+      <summary>Fügt dem Kontext ein verbundenes Objekt hinzu und erstellt den Link, der die Beziehung zwischen den zwei Objekten definiert (in einer Anforderung).</summary>
+      <param name="source">Das übergeordnete Objekt, das vom Kontext nachverfolgt wird.</param>
+      <param name="sourceProperty">Der Name der Navigationseigenschaft, die das verbundene Objekt basierend auf einer Zuordnung zwischen den beiden Entitäten zurückgibt.</param>
+      <param name="target">Das verbundene Objekt, das hinzugefügt wird.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.ApplyingChanges">
+      <summary>Ruft einen Wert ab, der angibt, ob der <see cref="T:System.Data.Services.Client.DataServiceContext" /> gegenwärtig Änderungen auf nachverfolgte Objekte anwendet.</summary>
+      <returns>Gibt true zurück, wenn gegenwärtig Änderungen angewendet werden, andernfalls false.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AttachLink(System.Object,System.String,System.Object)">
+      <summary>Benachrichtigt das <see cref="T:System.Data.Services.Client.DataServiceContext" />, dass es die Nachverfolgung des angegebenen Links, der eine Beziehung zwischen Entitätsobjekten definiert, starten soll.</summary>
+      <param name="source">Das Quellobjekt im neuen Link.</param>
+      <param name="sourceProperty">Der Name der Eigenschaft für das Quellobjekt, die den Link zwischen dem Quell- und dem Zielobjekt darstellt.</param>
+      <param name="target">Das Zielobjekt im Link, das an das Quellobjekt gebunden ist, das in diesem Aufruf angegeben wird.Das Zielobjekt muss den von der Quelleigenschaft angegebenen Typ oder einen Untertyp aufweisen.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="source" />, <paramref name="sourceProperty" /> oder <paramref name="target" /> NULL ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn der Link zwischen den zwei Entitäten bereits vorhanden ist.- oder -Wenn <paramref name="source" /> oder <paramref name="target" /> sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Added" /> oder <see cref="F:System.Data.Services.Client.EntityStates.Deleted" /> befindet.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AttachTo(System.String,System.Object)">
+      <summary>Benachrichtigt den <see cref="T:System.Data.Services.Client.DataServiceContext" />, dass mit dem Nachverfolgen der angegebenen Ressource begonnen werden soll, und stellt den Speicherort der Ressource im angegebenen Ressourcensatz bereit.</summary>
+      <param name="entitySetName">Der Name des Satzes, der die Ressource enthält.</param>
+      <param name="entity">Die Ressource, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht werden soll.Die Ressource wird im Zustand Unchanged angefügt.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entity" /> oder <paramref name="entitySetName" />null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="entitySetName" /> eine leere Zeichenfolge ist.- oder -Wenn für die <paramref name="entity" /> keine Schlüsseleigenschaft definiert ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn die <paramref name="entity" /> bereits vom Kontext verfolgt wird.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.AttachTo(System.String,System.Object,System.String)">
+      <summary>Benachrichtigt das <see cref="T:System.Data.Services.Client.DataServiceContext" />, dass es die Nachverfolgung der angegebenen Ressource starten soll, und stellt den Speicherort der Ressource im angegebenen Ressourcensatz bereit.</summary>
+      <param name="entitySetName">Der Zeichenfolgenwert, der den Namen des Entitätssatzes enthält, an den die Entität angefügt wird.</param>
+      <param name="entity">Die Entität, die hinzugefügt werden soll.</param>
+      <param name="etag">Ein eTag-Wert, der den Zustand der Entität beim letzten Abruf aus dem Datendienst darstellt.Dieser Wert wird als transparente Zeichenfolge behandelt und von der Clientbibliothek nicht validiert.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entitySetName" />null ist.- oder -Wenn <paramref name="entity" />null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="entitySetName" /> eine leere Zeichenfolge ist.- oder -Wenn das angegebene Objekt keine Schlüsseleigenschaft hat.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn das angegebene Objekt bereits vom Kontext nachverfolgt wird.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.BaseUri">
+      <summary>Ruft den absoluten URI ab, der den Stamm des Zieldatendiensts bezeichnet. </summary>
+      <returns>Ein absoluter URI, der den Stamm eines T-Datendiensts bezeichnet.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginExecute``1(System.Data.Services.Client.DataServiceQueryContinuation{``0},System.AsyncCallback,System.Object)">
+      <summary>Sendet asynchron eine Anforderung an den Datendienst, um die nächste Seite der Daten in einem ausgelagerten Abfrageergebnis abzurufen.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />, das den Status des Vorgangs darstellt.</returns>
+      <param name="continuation">Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt, das die nächste Seite der Daten darstellt, die vom Datendienst zurückgegeben werden soll.</param>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+      <typeparam name="T">Der von der Abfrage zurückgegebene Typ.</typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginExecute``1(System.Uri,System.AsyncCallback,System.Object)">
+      <summary>Sendet die Anforderung asynchron, sodass dieser Aufruf die Verarbeitung nicht blockiert, während auf die Ergebnisse des Diensts gewartet wird.</summary>
+      <returns>Ein Objekt, mit dem der Status des asynchronen Vorgangs nachverfolgt wird. </returns>
+      <param name="requestUri">Der URI, an den die Abfrageanforderung gesendet wird.Der URI kann jeder gültige Datendienst-URI sein und $-Abfrageparameter enthalten.</param>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+      <typeparam name="TElement">Der von der Abfrage zurückgegebene Typ.</typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginExecuteBatch(System.AsyncCallback,System.Object,System.Data.Services.Client.DataServiceRequest[])">
+      <summary>Sendet eine Gruppe von Abfragen asynchron als Batch an den Datendienst.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Objekt, mit dem der Status des asynchronen Vorgangs nachverfolgt wird. </returns>
+      <param name="callback">Der Delegat, der aufgerufen wird, wenn eine Antwort auf die Batchanforderung empfangen wird.</param>
+      <param name="state">Das benutzerdefinierte Zustandsobjekt, mit dem Kontextdaten an die Rückrufmethode übergeben werden.</param>
+      <param name="queries">Das Array der Abfrageanforderungen, die in die Batchanforderung eingeschlossen werden sollen.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginGetReadStream(System.Object,System.Data.Services.Client.DataServiceRequestArgs,System.AsyncCallback,System.Object)">
+      <summary>Ruft asynchron binäre Eigenschaftendaten für die angegebene Entität zusammen mit den angegebenen Nachrichtenheadern als Datenstrom ab.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Objekt, mit dem der Status des asynchronen Vorgangs nachverfolgt wird. </returns>
+      <param name="entity">Die Entität, die über die abzurufende binäre Eigenschaft verfügt. </param>
+      <param name="args">Eine Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestArgs" />-Klasse, die Einstellungen für die HTTP-Anforderungsnachricht enthält.</param>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+      <exception cref="T:System.ArgumentNullException">Einer der Parameter, die für die Methode angegeben wurden, ist null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von diesem <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt.- oder -Die <paramref name="entity" /> befindet sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Added" />.- oder -Die <paramref name="entity" /> ist kein Medienlinkeintrag und verfügt über keine binäre Eigenschaft.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginLoadProperty(System.Object,System.String,System.AsyncCallback,System.Object)">
+      <summary>Lädt asynchron den Wert der angegebenen Eigenschaft aus dem Datendienst.</summary>
+      <returns>Ein IAsyncResult, das den Status des asynchronen Vorgangs darstellt.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft für die angegebene Entität, die geladen werden soll.</param>
+      <param name="callback">Der beim Empfangen einer Antwort auf die Anforderung aufgerufene Delegat.</param>
+      <param name="state">Das benutzerdefinierte Zustandsobjekt, mit dem Kontextdaten an die Rückrufmethode übergeben werden.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginLoadProperty(System.Object,System.String,System.Data.Services.Client.DataServiceQueryContinuation,System.AsyncCallback,System.Object)">
+      <summary>Lädt asynchron anhand des angegebenen Abfragefortsetzungsobjekts die nächste Seite verknüpfter Entitäten aus dem Datendienst.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />, das den Status des Vorgangs darstellt.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+      <param name="continuation">Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt, das die nächste Seite der verknüpften Entitätsdaten darstellt, die vom Datendienst zurückgegeben werden soll.</param>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginLoadProperty(System.Object,System.String,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>Lädt asynchron anhand des angegebenen Weiter-Link-URI eine Seite verknüpfter Entitäten aus dem Datendienst.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Objekt, mit dem der Status des asynchronen Vorgangs nachverfolgt wird. </returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+      <param name="nextLinkUri">Der URI, der zum Laden der nächsten Ergebnisseite verwendet wird.</param>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginSaveChanges(System.AsyncCallback,System.Object)">
+      <summary>Sendet die ausstehenden Änderungen asynchron an den Datendienst, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> seit der letzten Speicherung von Änderungen erfasst wurden.</summary>
+      <returns>Ein IAsyncResult, das den Status des asynchronen Vorgangs darstellt.</returns>
+      <param name="callback">Der beim Abschluss der Vorgangs aufzurufende Delegat.</param>
+      <param name="state">Das benutzerdefinierte Zustandsobjekt, mit dem Kontextdaten an die Rückrufmethode übergeben werden.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.BeginSaveChanges(System.Data.Services.Client.SaveChangesOptions,System.AsyncCallback,System.Object)">
+      <summary>Sendet die ausstehenden Änderungen asynchron an den Datendienst, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> seit der letzten Speicherung von Änderungen erfasst wurden.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Element, das den Status des asynchronen Vorgangs darstellt.</returns>
+      <param name="options">Die Optionen für das Speichern des ausstehenden Satzes von Änderungen durch den Client.</param>
+      <param name="callback">Der beim Abschluss der Vorgangs aufzurufende Delegat.</param>
+      <param name="state">Das benutzerdefinierte Zustandsobjekt, mit dem Kontextdaten an die Rückrufmethode übergeben werden.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.CancelRequest(System.IAsyncResult)">
+      <summary>Versucht, den Vorgang abzubrechen, der dem angegebenen <see cref="T:System.IAsyncResult" />-Objekt zugeordnet ist.</summary>
+      <param name="asyncResult">Das <see cref="T:System.IAsyncResult" />-Objekt des abgebrochenen Vorgangs.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.CreateQuery``1(System.String)">
+      <summary>Erstellt eine Datendienstabfrage für Daten eines angegebenen generischen Typs.</summary>
+      <returns>Eine neue <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />-Instanz, die eine Datendienstabfrage darstellt.</returns>
+      <param name="entitySetName">Eine Zeichenfolge, die in einen URI aufgelöst wird.</param>
+      <typeparam name="T">Der von der Abfrage zurückgegebene Typ.</typeparam>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.Credentials">
+      <summary>Ruft die Authentifizierungsinformationen ab, die von jeder mit dem <see cref="T:System.Data.Services.Client.DataServiceContext" />-Objekt erstellten Abfrage verwendet werden, oder legt sie fest.</summary>
+      <returns>Die Basisauthentifizierungsschnittstelle zum Abrufen von Anmeldeinformationen für die Webclientauthentifizierung.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.DataNamespace">
+      <summary>Ruft den XML-Namespace für Datenelemente, nicht für Metadatenelemente, einer ATOM-Nutzlast ab oder legt diesen fest.</summary>
+      <returns>Eine Zeichenfolge, die den XML-Namespace für Datenelemente einer Nutzlast im ATOM-Format darstellt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.DeleteLink(System.Object,System.String,System.Object)">
+      <summary>Ändert den Zustand der Verknüpfung in der Liste der vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwachten Verknüpfungen in Deleted.</summary>
+      <param name="source">Das Quellobjekt im Link, das zum Löschen markiert werden soll.</param>
+      <param name="sourceProperty">Der Name der Navigationseigenschaft im Quellobjekt, mit der auf das Zielobjekt zugegriffen wird.</param>
+      <param name="target">Das Zielobjekt im Link, das an das Quellobjekt gebunden ist.Das Zielobjekt muss den von der Quelleigenschaft angegebenen Typ oder einen Untertyp aufweisen.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="source" />, <paramref name="sourceProperty" /> oder <paramref name="target" /> NULL ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn <paramref name="source" /> oder <paramref name="target" /> sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Detached" /> oder <see cref="F:System.Data.Services.Client.EntityStates.Added" /> befindet.- oder -Wenn <paramref name="sourceProperty" /> keine Auflistung ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.DeleteObject(System.Object)">
+      <summary>Ändert den Zustand des angegebenen Objekts, sodass es im <see cref="T:System.Data.Services.Client.DataServiceContext" /> gelöscht wird.</summary>
+      <param name="entity">Die überwachte Entität, deren Zustand in Deleted geändert werden soll.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entity" />null ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn das Objekt nicht vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt wird.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.Detach(System.Object)">
+      <summary>Entfernt die Entität aus der Liste von Entitäten, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht werden.</summary>
+      <returns>Gibt true zurück, wenn die angegebene Entität getrennt wurde, andernfalls false.</returns>
+      <param name="entity">Die überwachte Entität, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> getrennt werden soll.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entity" />null ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.DetachLink(System.Object,System.String,System.Object)">
+      <summary>Entfernt den angegebenen Link aus der Liste der Links, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht werden.</summary>
+      <returns>Gibt true zurück, wenn die angegebene Entität getrennt wurde, andernfalls false.</returns>
+      <param name="source">Das Quellobjekt im Link, das zum Löschen markiert werden soll.</param>
+      <param name="sourceProperty">Der Name der Eigenschaft für das Quellobjekt, das die Quelle im Link zwischen der Quelle und dem Ziel darstellt.</param>
+      <param name="target">Das Zielobjekt im Link, das an das Quellobjekt gebunden ist.Das Zielobjekt muss den von der Quelleigenschaft angegebenen Typ oder einen Untertyp aufweisen.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="source" /> oder <paramref name="sourceProperty" />null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="sourceProperty" /> eine leere Zeichenfolge ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.EndExecute``1(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um <see cref="M:System.Data.Services.Client.DataServiceContext.BeginExecute``1(System.Uri,System.AsyncCallback,System.Object)" /> abzuschließen.</summary>
+      <returns>Die vom Abfragevorgang zurückgegebenen Ergebnisse.</returns>
+      <param name="asyncResult">
+        <see cref="T:System.IAsyncResult" />-Objekt</param>
+      <typeparam name="TElement">Der von der Abfrage zurückgegebene Typ.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Wenn<paramref name=" asyncResult" /> gleich null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn<paramref name=" asyncResult" /> nicht aus dieser <see cref="T:System.Data.Services.Client.DataServiceContext" />-Instanz stammt. - oder - Wenn die <see cref="M:System.Data.Services.Client.DataServiceContext.EndExecute``1(System.IAsyncResult)" />-Methode bereits zuvor aufgerufen wurde.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn ein Fehler entweder während der Ausführung der Anforderung oder beim Konvertieren des Inhalts der Antwortnachricht in Objekte ausgelöst wird.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn ein Fehler entweder während der Ausführung der Anforderung oder beim Konvertieren des Inhalts der Antwortnachricht in Objekte ausgelöst wird.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.EndExecuteBatch(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um <see cref="M:System.Data.Services.Client.DataServiceContext.BeginExecuteBatch(System.AsyncCallback,System.Object,System.Data.Services.Client.DataServiceRequest[])" /> abzuschließen.</summary>
+      <returns>Das DataServiceResult-Objekt, das das Ergebnis des Batchvorgangs angibt.</returns>
+      <param name="asyncResult">Ein <see cref="T:System.IAsyncResult" />-Element, das den Status des asynchronen Vorgangs darstellt.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.EndGetReadStream(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um den asynchronen Vorgang des Abrufs einer binären Eigenschaft als Datenstrom abzuschließen.</summary>
+      <returns>Eine Instanz von <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" />, die den Antwortdatenstrom und die zugehörigen Metadaten enthält.</returns>
+      <param name="asyncResult">Das Ergebnis des <see cref="M:System.Data.Services.Client.DataServiceContext.BeginGetReadStream(System.Object,System.Data.Services.Client.DataServiceRequestArgs,System.AsyncCallback,System.Object)" />-Vorgangs, das den binären Datenstrom enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.EndLoadProperty(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um den <see cref="M:System.Data.Services.Client.DataServiceContext.BeginLoadProperty(System.Object,System.String,System.AsyncCallback,System.Object)" />-Vorgang abzuschließen.</summary>
+      <returns>Die Antwort auf den Ladevorgang.</returns>
+      <param name="asyncResult">Ein <see cref="T:System.IAsyncResult" />-Element, das den Status des asynchronen Vorgangs darstellt.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.EndSaveChanges(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um den <see cref="M:System.Data.Services.Client.DataServiceContext.BeginSaveChanges(System.AsyncCallback,System.Object)" />-Vorgang abzuschließen.</summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.DataServiceResponse" />-Objekt, das das Ergebnis des Batchvorgangs angibt.</returns>
+      <param name="asyncResult">Ein <see cref="T:System.IAsyncResult" />-Element, das den Status des asynchronen Vorgangs darstellt.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.Entities">
+      <summary>Ruft eine Liste aller Ressourcen ab, die derzeit vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht werden.</summary>
+      <returns>Eine Liste von <see cref="T:System.Data.Services.Client.EntityDescriptor" />-Objekten, die alle gegenwärtig von <see cref="T:System.Data.Services.Client.DataServiceContext" /> nachverfolgten Ressourcen darstellen. </returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.Execute``1(System.Data.Services.Client.DataServiceQueryContinuation{``0})">
+      <summary>Sendet eine Anforderung an den Datendienst, um die nächste Seite der Daten in einem ausgelagerten Abfrageergebnis abzurufen.</summary>
+      <returns>Die Antwort, die die nächste Seite der Daten im Abfrageergebnis enthält.</returns>
+      <param name="continuation">Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt, das die nächste Seite der Daten darstellt, die vom Datendienst zurückgegeben werden soll.</param>
+      <typeparam name="T">Der von der Abfrage zurückgegebene Typ.</typeparam>
+      <exception cref="T:System.InvalidOperationException">Wenn ein Fehler entweder während der Ausführung der Anforderung oder beim Konvertieren des Inhalts der Antwortnachricht in Objekte ausgelöst wird.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.Execute``1(System.Uri)">
+      <summary>Sendet eine Anforderung an den Datendienst, um einen spezifischen URI auszuführen.</summary>
+      <returns>Die Ergebnisse des Abfragevorgangs.</returns>
+      <param name="requestUri">Der URI, an den die Abfrageanforderung gesendet wird.Der URI kann jeder gültige Datendienst-URI sein.Es können $-Abfrageparameter enthalten sein.</param>
+      <typeparam name="TElement">Der Typ, den die Abfrage zurückgibt.</typeparam>
+      <exception cref="T:System.Net.WebException">Wenn eine Ressource nicht von einer Anforderung an den <paramref name="requestUri" /> empfangen wird.</exception>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="requestUri" />null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="requestUri" /> kein gültiger URI für den Datendienst ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn ein Fehler entweder während der Ausführung der Anforderung oder beim Konvertieren des Inhalts der Antwortnachricht in Objekte ausgelöst wird.</exception>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">Wenn der Datendienst den Fehler "HTTP 404: Ressource nicht gefunden" zurückgibt.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.ExecuteBatch(System.Data.Services.Client.DataServiceRequest[])">
+      <summary>Sendet eine Gruppe von Abfragen als Batch an den Datendienst.</summary>
+      <returns>Die Antwort auf den Batchvorgang.</returns>
+      <param name="queries">Ein Array von <see cref="T:System.Data.Services.Client.DataServiceRequest[]" />-Objekten, aus denen die Abfragen bestehen.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetEntityDescriptor(System.Object)">
+      <summary>Ruft die <see cref="T:System.Data.Services.Client.EntityDescriptor" /> für das angegebene Entitätsobjekt ab.</summary>
+      <returns>Die <see cref="T:System.Data.Services.Client.EntityDescriptor" />-Instanz für <paramref name="entity" /> oder null, wenn kein <see cref="T:System.Data.Services.Client.EntityDescriptor" /> für das Objekt vorhanden ist.</returns>
+      <param name="entity">Das Objekt, für das die Entitätsbeschreibung zurückgegeben werden soll.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetLinkDescriptor(System.Object,System.String,System.Object)">
+      <summary>Ruft das <see cref="T:System.Data.Services.Client.LinkDescriptor" /> für einen bestimmten Link ab, der die Beziehung zwischen zwei Entitäten definiert.</summary>
+      <returns>Die <see cref="T:System.Data.Services.Client.LinkDescriptor" />-Instanz für die angegebene Beziehung oder null, wenn keine <see cref="T:System.Data.Services.Client.LinkDescriptor" /> für die Beziehung vorhanden ist.</returns>
+      <param name="source">Das Quellobjekt im Link.</param>
+      <param name="sourceProperty">Der Name der Navigationseigenschaft im <paramref name="source" />-Objekt, die das verbundene Objekt zurückgibt.</param>
+      <param name="target">Die verknüpfte Entität.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetMetadataUri">
+      <summary>Ruft einen URI des Speicherorts der EDMX-Metadaten ab.</summary>
+      <returns>Ein URI, der den Speicherort der Metadatenbeschreibung im EDMX-Format für den Datendienst bezeichnet, der von dem an den Konstruktor übergebenen Basis-URI angegeben wird.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetReadStream(System.Object)">
+      <summary>Ruft binäre Eigenschaftendaten für die angegebene Entität als Datenstrom ab.</summary>
+      <returns>Eine Instanz von <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" />, die die Antwort darstellt.</returns>
+      <param name="entity">Die Entität, die über die abzurufende binäre Eigenschaft verfügt. </param>
+      <exception cref="T:System.ArgumentNullException">Die<paramref name=" entity" /> ist null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von diesem <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt.- oder -Die <paramref name="entity" /> befindet sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Added" />.- oder -Die <paramref name="entity" /> ist kein Medienlinkeintrag und verfügt über keine binäre Eigenschaft.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetReadStream(System.Object,System.Data.Services.Client.DataServiceRequestArgs)">
+      <summary>Ruft binäre Eigenschaftendaten für die angegebene Entität zusammen mit den angegebenen Nachrichtenheadern als Datenstrom ab.</summary>
+      <returns>Eine Instanz von <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" />, die die Antwort darstellt.</returns>
+      <param name="entity">Die Entität, die über die abzurufende binäre Eigenschaft verfügt. </param>
+      <param name="args">Eine Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestArgs" />-Klasse, die Einstellungen für die HTTP-Anforderungsnachricht enthält.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="entity" /> ist null.- oder - <paramref name="args" /> ist null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von diesem <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt.- oder -Die <paramref name="entity" /> befindet sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Added" />.- oder -Die <paramref name="entity" /> ist kein Medienlinkeintrag und verfügt über keine binäre Eigenschaft.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetReadStream(System.Object,System.String)">
+      <summary>Ruft binäre Eigenschaftendaten für die angegebene Entität zusammen mit dem angegebenen Accept-Nachrichtenheader als Datenstrom ab.</summary>
+      <returns>Eine Instanz von <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" />, die die Antwort darstellt.</returns>
+      <param name="entity">Die Entität, die über die abzurufende binäre Eigenschaft verfügt. </param>
+      <param name="acceptContentType">Der im Accept-Header angegebene Inhaltstyp der Daten, die vom Datendienst angefordert wurden.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="entity" /> ist null.- oder - <paramref name="acceptContentType" /> ist null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von diesem <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt.- oder -Die <paramref name="entity" /> befindet sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Added" />.- oder -Die <paramref name="entity" /> ist kein Medienlinkeintrag und verfügt über keine binäre Eigenschaft.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.GetReadStreamUri(System.Object)">
+      <summary>Ruft den URI ab, der verwendet wird, um binäre Eigenschaftendaten als Datenstrom zurückzugeben.</summary>
+      <returns>Der gelesene URI des binären Datenstroms.</returns>
+      <param name="entity">Die Entität, die über die abzurufende binäre Eigenschaft verfügt. </param>
+      <exception cref="T:System.ArgumentNullException">Wenn die angegebene Entität null ist.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von diesem <see cref="T:System.Data.Services.Client.DataServiceContext" /> verfolgt.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.IgnoreMissingProperties">
+      <summary>Ruft ab oder legt fest, ob die vom Typ gelesenen Eigenschaften Eigenschaften des clientseitigen Typs zugeordnet werden müssen.</summary>
+      <returns>Ein boolescher Wert, der angibt, ob die vom Typ gelesenen Eigenschaften Eigenschaften des clientseitigen Typs zugeordnet werden müssen.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.IgnoreResourceNotFoundException">
+      <summary>Ruft einen Wert ab, der angibt, ob eine Ausnahme ausgelöst wird, wenn ein Fehler mit dem Fehlercode 404 (Die Ressource wurde nicht gefunden) vom Datendienst zurückgegeben wird, oder legt diesen Wert fest. </summary>
+      <returns>Bei true gibt die Clientbibliothek einen leeren Satz zurück, anstatt eine <see cref="T:System.Data.Services.Client.DataServiceQueryException" /> auszulösen, wenn der Datendienst "HTTP 404: Die Ressource wurde nicht gefunden" zurückgibt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.Links">
+      <summary>Ruft die Auflistung aller Zuordnungen oder Links ab, die derzeit vom <see cref="T:System.Data.Services.Client.DataServiceContext" />-Objekt überwacht werden.</summary>
+      <returns>Eine Auflistung von <see cref="T:System.Data.Services.Client.LinkDescriptor" />-Objekten, die alle Zuordnungen oder Links darstellen, die gegenwärtig vom <see cref="T:System.Data.Services.Client.DataServiceContext" />-Objekt nachverfolgt werden.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.LoadProperty(System.Object,System.String)">
+      <summary>Lädt verzögerten Inhalt für eine angegebene Eigenschaft aus dem Datendienst.</summary>
+      <returns>Die Antwort auf den Ladevorgang.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.LoadProperty(System.Object,System.String,System.Data.Services.Client.DataServiceQueryContinuation)">
+      <summary>Lädt anhand des angegebenen Abfragefortsetzungsobjekts die nächste Seite verknüpfter Entitäten aus dem Datendienst.</summary>
+      <returns>Die Antwort, die die nächste Seite der verknüpften Entitätsdaten enthält.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+      <param name="continuation">Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt, das die nächste Seite der verknüpften Entitäten darstellt, die aus dem Datendienst geladen werden soll.</param>
+      <exception cref="T:System.InvalidOperationException">Wenn <paramref name="entity" /> sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Detached" /> oder <see cref="F:System.Data.Services.Client.EntityStates.Added" /> befindet.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.LoadProperty``1(System.Object,System.String,System.Data.Services.Client.DataServiceQueryContinuation{``0})">
+      <summary>Lädt anhand des angegebenen generischen Abfragefortsetzungsobjekts die nächste Seite verknüpfter Entitäten aus dem Datendienst.</summary>
+      <returns>Die Antwort, die die nächste Seite der verknüpften Entitätsdaten enthält.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+      <param name="continuation">Ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt, das die nächste Seite der verknüpften Entitäten darstellt, die aus dem Datendienst geladen werden soll.</param>
+      <typeparam name="T">Elementtyp der zu ladenden Auflistung.</typeparam>
+      <exception cref="T:System.InvalidOperationException">Wenn <paramref name="entity" /> sich im Zustand <see cref="F:System.Data.Services.Client.EntityStates.Detached" /> oder <see cref="F:System.Data.Services.Client.EntityStates.Added" /> befindet.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.LoadProperty(System.Object,System.String,System.Uri)">
+      <summary>Lädt eine Seite verknüpfter Entitäten anhand des angegebenen Weiter-Link-URI.</summary>
+      <returns>Eine Instanz von <see cref="T:System.Data.Services.Client.QueryOperationResponse`1" />, die die Ergebnisse der Anforderung enthält.</returns>
+      <param name="entity">Die Entität, die die zu ladende Eigenschaft enthält.</param>
+      <param name="propertyName">Der Name der Eigenschaft der angegebenen Entität, die geladen werden soll.</param>
+      <param name="nextLinkUri">Der URI, der zum Laden der nächsten Ergebnisseite verwendet wird.</param>
+      <exception cref="T:System.InvalidOperationException">Wenn <paramref name="entity" /> den Zustand <see cref="F:System.Data.Services.Client.EntityStates.Detached" /> oder <see cref="F:System.Data.Services.Client.EntityStates.Added" /> aufweist.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.MergeOption">
+      <summary>Ruft die Synchronisierungsoption zum Empfangen von Entitäten von einem Datendienst ab oder legt diese fest.</summary>
+      <returns>Einer der Member der <see cref="T:System.Data.Services.Client.MergeOption" />-Enumeration.</returns>
+    </member>
+    <member name="E:System.Data.Services.Client.DataServiceContext.ReadingEntity">
+      <summary>Tritt auf, nachdem Entitätsdaten vollständig in das Entitätsobjekt gelesen wurden.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.ResolveName">
+      <summary>Ruft eine Funktion zum Überschreiben der Standardstrategie für die Typauflösung ab, die von der Clientbibliothek verwendet wird, wenn Sie Entitäten an einen Datendienst senden, oder legt diese Funktion fest.</summary>
+      <returns>Gibt eine Zeichenfolge zurück, die den Namen des <see cref="T:System.Data.Services.Client.DataServiceContext" /> enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.ResolveType">
+      <summary>Ruft eine Funktion zum Überschreiben der Standardoption für die Typauflösung ab, die von der Clientbibliothek beim Empfangen von Entitäten von einem Datendienst verwendet wird, oder legt diese Funktion fest.</summary>
+      <returns>Ein Funktionsdelegat, der eine Überschreibungsfunktion bezeichnet, mit der die von der Clientbibliothek verwendete Standardoption für die Typauflösung überschrieben wird.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.SaveChanges">
+      <summary>Speichert die Änderungen, die der <see cref="T:System.Data.Services.Client.DataServiceContext" /> im Speicher überwacht.</summary>
+      <returns>Eine <see cref="T:System.Data.Services.Client.DataServiceResponse" /> mit dem Status, den Headern und den Fehlern, die aus dem Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges.Remarks" /> resultieren.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.SaveChanges(System.Data.Services.Client.SaveChangesOptions)">
+      <summary>Speichert die Änderungen, die der <see cref="T:System.Data.Services.Client.DataServiceContext" /> im Speicher überwacht.</summary>
+      <returns>Eine <see cref="T:System.Data.Services.Client.DataServiceResponse" /> mit dem Status, den Headern und den Fehlern, die aus dem Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> resultieren.</returns>
+      <param name="options">Ein Member der <see cref="T:System.Data.Services.Client.MergeOption" />-Enumeration, die die Materialisierungsoption angibt.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.SaveChangesDefaultOptions">
+      <summary>Ruft die von der <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" />-Methode verwendeten <see cref="T:System.Data.Services.Client.SaveChangesOptions" />-Werte ab oder legt sie fest.</summary>
+      <returns>Die aktuellen Optionen für den Vorgang zum Speichern der Änderungen.</returns>
+    </member>
+    <member name="E:System.Data.Services.Client.DataServiceContext.SendingRequest">
+      <summary>Tritt auf, wenn ein neuer <see cref="T:System.Net.HttpWebRequest" /> erstellt wurde.</summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.SetLink(System.Object,System.String,System.Object)">
+      <summary>Benachrichtigt den <see cref="T:System.Data.Services.Client.DataServiceContext" />, dass zwischen den angegebenen Objekten ein neuer Link vorhanden ist und dass der Link durch die vom <paramref name="sourceProperty" />-Parameter angegebene Eigenschaft dargestellt wird.</summary>
+      <param name="source">Das Quellobjekt für den neuen Link.</param>
+      <param name="sourceProperty">Die Eigenschaft des Quellobjekts, das das Zielobjekt des neuen Links identifiziert.</param>
+      <param name="target">Das untergeordnete Objekt im neuen Link, das durch Aufruf dieser Methode initialisiert werden soll.Das Zielobjekt muss einen Untertyp des vom <paramref name="sourceProperty" />-Parameter angegebenen Typs aufweisen.Wenn <paramref name="target" /> auf NULL festgelegt wird, stellt der Aufruf einen Löschvorgang für den Link dar.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="source" />, <paramref name="sourceProperty" /> oder <paramref name="target" /> NULL ist.</exception>
+      <exception cref="T:System.InvalidOperationException">Wenn der angegebene Link bereits vorhanden ist.- oder -Wenn die Objekte, die als <paramref name="source" /> oder <paramref name="target" /> bereitgestellt werden, im <see cref="F:System.Data.Services.Client.EntityStates.Detached" />- oder <see cref="F:System.Data.Services.Client.EntityStates.Deleted" />-Zustand sind.- oder -Wenn <paramref name="sourceProperty" /> keine Navigationseigenschaft ist, die einen Verweis auf ein einzelnes verknüpftes Objekt definiert.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.SetSaveStream(System.Object,System.IO.Stream,System.Boolean,System.Data.Services.Client.DataServiceRequestArgs)">
+      <summary>Legt einen neuen Datenstrom mit den angegebenen Einstellungen in der Anforderungsnachricht als die binäre Eigenschaft einer Entität fest.</summary>
+      <param name="entity">Die Entität mit der binären Eigenschaft, der der Datenstrom zugewiesen werden soll.</param>
+      <param name="stream">Das <see cref="T:System.IO.Stream" />, aus dem die binären Daten gelesen werden sollen. </param>
+      <param name="closeStream">Ein <see cref="T:System.Boolean" />-Wert, der bestimmt, ob der Datenstrom beim Abschluss der <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" />-Methode geschlossen wird. </param>
+      <param name="args">Eine Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestArgs" />-Klasse, die Einstellungen für die HTTP-Anforderungsnachricht enthält.</param>
+      <exception cref="T:System.ArgumentNullException">Einige der Parameter, die für die Methode angegeben wurden, sind null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von dieser <see cref="T:System.Data.Services.Client.DataServiceContext" />-Instanz verfolgt. - oder -Auf <paramref name="entity" /> wurde <see cref="T:System.Data.Services.Client.MediaEntryAttribute" /> angewendet. </exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.SetSaveStream(System.Object,System.IO.Stream,System.Boolean,System.String,System.String)">
+      <summary>Legt einen neuen Datenstrom als binäre Eigenschaft einer Entität fest.Die angegebenen Content-Type- und Slug-Header sind in der Anforderungsnachricht enthalten.</summary>
+      <param name="entity">Die Entität mit der binären Eigenschaft, der der Datenstrom zugewiesen werden soll.</param>
+      <param name="stream">Das <see cref="T:System.IO.Stream" />, aus dem die binären Daten gelesen werden sollen. </param>
+      <param name="closeStream">Ein <see cref="T:System.Boolean" />-Wert, der bestimmt, ob der Datenstrom beim Abschluss der <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" />-Methode geschlossen wird. </param>
+      <param name="contentType">Der Content-Type-Headerwert für die Anforderungsnachricht.</param>
+      <param name="slug">Der Slug-Headerwert für die Anforderungsnachricht.</param>
+      <exception cref="T:System.ArgumentNullException">Einige der Parameter, die für die Methode angegeben wurden, sind null.</exception>
+      <exception cref="T:System.ArgumentException">Die <paramref name="entity" /> wird nicht von dieser <see cref="T:System.Data.Services.Client.DataServiceContext" />-Instanz verfolgt. - oder -Auf entity wurde <see cref="T:System.Data.Services.Client.MediaEntryAttribute" /> angewendet. </exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.Timeout">
+      <summary>Übernimmt oder bestimmt die Timeoutoption für die zugrunde liegende HTTP-Anforderung an den Datendienst.</summary>
+      <returns>Eine Ganzzahl, die das Zeitintervall vor dem Timeout einer Dienstanforderung angibt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.TryGetEntity``1(System.Uri,``0@)">
+      <summary>Testabruf einer vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwachten Entität durch Verweis auf den URI der Entität.</summary>
+      <returns>Wenn unter dem <paramref name="resourceUri" /> eine Entität gefunden wird, wird die Entität im <paramref name="entity" />-Out-Parameter zurückgegeben, und es wird true zurückgegeben.Wenn keine Entität gefunden wurde, wird false zurückgegeben.</returns>
+      <param name="identity">Der URI der überwachten Entität, die abgerufen werden soll.</param>
+      <param name="entity">Die Entität, die abgerufen werden soll.</param>
+      <typeparam name="TEntity">Der Typ der Entität.</typeparam>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="identity" />null ist.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.TryGetUri(System.Object,System.Uri@)">
+      <summary>Ruft den kanonischen URI auf, der der angegebenen Entität zugeordnet ist, falls verfügbar.</summary>
+      <returns>Gibt true zurück, wenn der kanonische URI im Out-Parameter zurückgegeben wird.Wenn die angegebene Entität nicht vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht wird oder den Zustand Added aufweist, ist kein URI verfügbar, und es wird false zurückgegeben.</returns>
+      <param name="entity">Die von der <paramref name="identity" /> bezeichnete Entität.</param>
+      <param name="identity">Der URI der Entität.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entity" />null ist.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.TypeScheme">
+      <summary>Ruft den URI ab, mit dem angegeben wird, welches Typschema der Dienst verwendet, oder legt diesen fest.</summary>
+      <returns>Ein <see cref="T:System.Uri" />-Objekt, das das Typschema enthält.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceContext.UpdateObject(System.Object)">
+      <summary>Ändert den Zustand des angegebenen Objekts im <see cref="T:System.Data.Services.Client.DataServiceContext" /> in <see cref="F:System.Data.Services.Client.EntityStates.Modified" />.</summary>
+      <param name="entity">Die nachverfolgte Entität, die dem <see cref="F:System.Data.Services.Client.EntityStates.Modified" />-Zustand zugewiesen werden soll.</param>
+      <exception cref="T:System.ArgumentNullException">Wenn <paramref name="entity" />null ist.</exception>
+      <exception cref="T:System.ArgumentException">Wenn <paramref name="entity" /> den Zustand <see cref="F:System.Data.Services.Client.EntityStates.Detached" /> aufweist.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceContext.UsePostTunneling">
+      <summary>Ruft einen booleschen Wert ab, der angibt, ob Nachtunneling verwendet werden soll, oder legt diesen fest.</summary>
+      <returns>Ein boolescher Wert, der angibt, ob Nachtunneling verwendet werden soll.</returns>
+    </member>
+    <member name="E:System.Data.Services.Client.DataServiceContext.WritingEntity">
+      <summary>Tritt auf, nachdem eine Entität in einer Anforderungsnachricht vollständig in XML serialisiert wurde.</summary>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceQuery">
+      <summary>Eine abstrakte Klasse, die eine einzelne Abfrageanforderung an WCF Data Services darstellt. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery.BeginExecute(System.AsyncCallback,System.Object)">
+      <summary>Sendet asynchron eine Anforderung, um die Datendienstabfrage auszuführen.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Objekt, mit dem der Status des asynchronen Vorgangs nachverfolgt wird.</returns>
+      <param name="callback">Delegat, der aufgerufen werden soll, wenn Ergebnisse für die Verwendung durch den Client verfügbar sind.</param>
+      <param name="state">Benutzerdefiniertes Zustandsobjekt, das an den Rückruf übergeben wird.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery.EndExecute(System.IAsyncResult)">
+      <summary>Wird aufgerufen, um den asynchronen Vorgang der Ausführung einer Datendienstabfrage abzuschließen.</summary>
+      <returns>Ein <see cref="T:System.Collections.Generic.IEnumerable`1" />, das die Ergebnisse des Abfragevorgangs enthält.</returns>
+      <param name="asyncResult">Das Ergebnis des <see cref="M:System.Data.Services.Client.DataServiceQuery.BeginExecute(System.AsyncCallback,System.Object)" />-Vorgangs, das die Abfrageergebnisse enthält.</param>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">Wenn der Datendienst den Fehler "HTTP 404: Ressource nicht gefunden" zurückgibt.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery.Execute">
+      <summary>Führt die Abfrage für den Datendienst aus.</summary>
+      <returns>Ein <see cref="T:System.Collections.Generic.IEnumerable`1" />, das die Ergebnisse des Abfragevorgangs enthält.</returns>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">Wenn der Datendienst den Fehler "HTTP 404: Ressource nicht gefunden" zurückgibt.</exception>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery.Expression">
+      <summary>Stellt einen Ausdruck dar, der die Abfrage des Datendiensts enthält.</summary>
+      <returns>Ein <see cref="T:System.Linq.Expressions.Expression" />-Objekt, das die Abfrage darstellt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery.Provider">
+      <summary>Stellt die Abfrageanbieterinstanz dar.</summary>
+      <returns>Ein <see cref="T:System.Linq.IQueryProvider" />, das den Datenquellenanbieter darstellt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Ruft das <see cref="T:System.Collections.IEnumerator" />-Objekt ab, mit dem die von der Abfrage zurückgegebene Auflistung durchlaufen werden kann.</summary>
+      <returns>Ein Enumerator über die Abfrageergebnisse.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceQuery`1">
+      <summary>Stellt eine einzelne Abfrageanforderung an einen Datendienst dar.</summary>
+      <typeparam name="TElement">Typ der von der Abfrage zurückgegebenen Ergebnisse.</typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.AddQueryOption(System.String,System.Object)">
+      <summary>Erstellt eine neue <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />, wobei die Abfrageoption im von der zurückgegebenen Abfrage generierten URI festgelegt ist.</summary>
+      <returns>Eine neue Abfrage, die die an den URI der angegebenen Abfrage angefügte angeforderte Abfrageoption enthält.</returns>
+      <param name="name">Der Zeichenfolgenwert, der den Namen der hinzuzufügenden Abfragezeichenfolgenoption enthält.</param>
+      <param name="value">Das Objekt, das den Wert der Abfragezeichenfolgenoption enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.BeginExecute(System.AsyncCallback,System.Object)">
+      <summary>Startet einen asynchronen Netzwerkvorgang, der die durch diese Objektinstanz dargestellte Abfrage ausführt.</summary>
+      <returns>Ein <see cref="T:System.IAsyncResult" />-Element, das den Status des asynchronen Vorgangs darstellt.</returns>
+      <param name="callback">Der beim Abschluss der Vorgangs aufzurufende Delegat.</param>
+      <param name="state">Benutzerdefiniertes Objekt, mit dem der Zustand zwischen dem Start des Vorgangs und dem durch <paramref name="callback" /> definierten Rückruf übertragen wird.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery`1.ElementType">
+      <summary>Gibt den Typ des Objekts zurück, das in der Vorlage zum Erstellen der <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />-Instanz verwendet wird.</summary>
+      <returns>Gibt den <see cref="T:System.Type" /> zurück, der den Typ darstellt, der beim Erstellen der Abfrage in der Vorlage verwendet wird.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.EndExecute(System.IAsyncResult)">
+      <summary>Beendet eine asynchrone Abfrageanforderung an einen Datendienst.</summary>
+      <returns>Gibt ein <see cref="T:System.Collections.Generic.IEnumerable`1" /> mit den Ergebnissen des Abfragevorgangs zurück.</returns>
+      <param name="asyncResult">Die ausstehende asynchrone Abfrageanforderung.</param>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">Wenn der Datendienst den Fehler "HTTP 404: Ressource nicht gefunden" zurückgibt.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.Execute">
+      <summary>Führt die Abfrage aus und gibt die Ergebnisse als Auflistung zurück, die IEnumerable implementiert.</summary>
+      <returns>Ein <see cref="T:System.Collections.Generic.IEnumerable`1" />, wobei <paramref name="T" /> den Typ der Abfrageergebnisse darstellt.</returns>
+      <exception cref="T:System.Data.Services.Client.DataServiceQueryException">Wenn der Datendienst den Fehler "HTTP 404: Ressource nicht gefunden" zurückgibt.</exception>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.Expand(System.String)">
+      <summary>Erstellt eine neue <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />, wobei die Erweiterungsoption im von der zurückgegebenen Abfrage generierten URI festgelegt ist.</summary>
+      <returns>Eine neue Abfrage, die die an den URI der angegebenen Abfrage angefügte angeforderte $expand-Abfrageoption enthält.</returns>
+      <param name="path">Ein Zeichenfolgenwert, der den Anforderungs-URI enthält.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery`1.Expression">
+      <summary>Stellt einen Ausdruck dar, der die Abfrage des Datendiensts enthält.</summary>
+      <returns>Ein <see cref="T:System.Linq.Expressions.Expression" />-Objekt, das die Abfrage darstellt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.GetEnumerator">
+      <summary>Führt die Abfrage aus und gibt die Ergebnisse als Auflistung zurück.</summary>
+      <returns>Ein typisierter Enumerator über die Ergebnisse, wobei <paramref name="TEntity" /> den Typ der Abfrageergebnisse darstellt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.IncludeTotalCount">
+      <summary>Fordert an, dass die Anzahl aller Entitäten im Entitätssatz inline mit den Abfrageergebnissen zurückgegeben wird.</summary>
+      <returns>Ein neues <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />-Objekt, bei dem die Option für die Inlineanzahl festgelegt wurde.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery`1.Provider">
+      <summary>Stellt die Abfrageanbieterinstanz dar.</summary>
+      <returns>Ein <see cref="T:System.Linq.IQueryProvider" />, der den Datenquellenanbieter darstellt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQuery`1.RequestUri">
+      <summary>Ruft den URI für die Abfrage ab.</summary>
+      <returns>Die URI der Anforderung.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Führt die Abfrage aus und gibt die Ergebnisse als Auflistung zurück.</summary>
+      <returns>Ein Enumerator über die Abfrageergebnisse.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQuery`1.ToString">
+      <summary>Stellt den URI der Abfrage des Datendiensts dar.</summary>
+      <returns>Ein URI als Zeichenfolge, der die Abfrage des Datendiensts für diese <see cref="T:System.Data.Services.Client.DataServiceQuery`1" />-Instanz darstellt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceQueryContinuation">
+      <summary>Kapselt einen URI, der die nächste Seite eines ausgelagerten WCF Data Services-Abfrageergebnisses zurückgibt.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQueryContinuation.NextLinkUri">
+      <summary>Ruft den URI ab, mit dem die nächste Seite der Daten aus einem ausgelagerten Abfrageergebnis zurückgegeben wird.</summary>
+      <returns>Ein URI, der die nächste Seite mit Daten zurückgibt.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQueryContinuation.ToString">
+      <summary>Gibt den nächsten Link-URI als Zeichenfolge zurück.</summary>
+      <returns>Eine Zeichenfolgendarstellung des nächsten Link-URIs.  </returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceQueryContinuation`1">
+      <summary>Kapselt einen URI, der die nächste Seite eines ausgelagerten WCF Data Services-Abfrageergebnisses zurückgibt. </summary>
+      <typeparam name="T">Der Typ des Fortsetzungstokens.</typeparam>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceQueryException">
+      <summary>Ausnahme, die einen Fehler angibt, der beim Laden des Eigenschaftswerts aus dem Datendienst aufgetreten ist. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQueryException.#ctor">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceQueryException" />-Klasse mit einer vom System generierten Meldung, die den Fehler beschreibt. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQueryException.#ctor(System.String)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceQueryException" />-Klasse mit einer angegebenen Meldung, die den Fehler beschreibt. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.Der Zeichenfolgenwert, der die Fehlermeldung enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQueryException.#ctor(System.String,System.Exception)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceQueryException" />-Klasse mit einer angegebenen Fehlermeldung und einem Verweis auf die innere Ausnahme, die diese Ausnahme ausgelöst hat. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.Der Zeichenfolgenwert, der die Fehlermeldung enthält.</param>
+      <param name="innerException">Die Ausnahme, die die Ursache der aktuellen Ausnahme ist.Wenn der <paramref name="innerException" />-Parameter nicht null ist, wird die aktuelle Ausnahme in einem catch-Block ausgelöst, der die innere Ausnahme behandelt.Das Objekt mit der inneren Ausnahme.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceQueryException.#ctor(System.String,System.Exception,System.Data.Services.Client.QueryOperationResponse)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceQueryException" />-Klasse. </summary>
+      <param name="message">Der Zeichenfolgenwert, der die Fehlermeldung enthält.</param>
+      <param name="innerException">Das Objekt mit der inneren Ausnahme.</param>
+      <param name="response">Das <see cref="T:System.Data.Services.Client.QueryOperationResponse" />-Objekt.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceQueryException.Response">
+      <summary>Ruft die <see cref="T:System.Data.Services.Client.QueryOperationResponse" /> ab, die die Ausnahmeergebnisse angibt.</summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.QueryOperationResponse" />-Objekt, das die Ausnahmeergebnisse angibt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceRequest">
+      <summary>Stellt Anforderungsobjekte dar, die als Batch an WCF Data Services gesendet werden.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequest.ElementType">
+      <summary>Ruft den Typ des als Batch an den Datendienst gesendeten Objekts ab.</summary>
+      <returns>Type-Objekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequest.RequestUri">
+      <summary>Ruft den URI des an einen Datendienst gesendeten Anforderungsobjekts ab.</summary>
+      <returns>URI des Anforderungsobjekts.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequest.ToString">
+      <summary>Stellt den URI der Abfrage des Datendiensts dar. </summary>
+      <returns>Der angeforderte URI als <see cref="T:System.String" />-Wert.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceRequest`1">
+      <summary>Stellt Anforderungsobjekte dar, die als Batch an den Datendienst gesendet werden.</summary>
+      <typeparam name="TElement"></typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequest`1.#ctor(System.Uri)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequest`1" />-Klasse. </summary>
+      <param name="requestUri">Das URI-Objekt, das die Anforderungszeichenfolge enthält.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequest`1.ElementType">
+      <summary>Ruft den Typ des Objekts ab, das zum Erstellen der <see cref="T:System.Data.Services.Client.DataServiceRequest`1" />-Instanz verwendet wird.</summary>
+      <returns>Ein <see cref="System.Type" />-Wert, der den Typ der zurückgegebenen Daten angibt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequest`1.RequestUri">
+      <summary>Ruft das URI-Objekt ab, das die Anforderungszeichenfolge enthält. </summary>
+      <returns>Ein <see cref="System.Uri" />-Objekt, das die Anforderungszeichenfolge enthält.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceRequestArgs">
+      <summary>Stellt zusätzliche Metadaten dar, die in einer Anforderungsnachricht an WCF Data Services enthalten sind.</summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequestArgs.#ctor">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestArgs" />-Klasse.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequestArgs.AcceptContentType">
+      <summary>Ruft den Accept-Header der Anforderungsnachricht ab oder legt ihn fest.</summary>
+      <returns>Der Wert des Accept-Headers.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequestArgs.ContentType">
+      <summary>Ruft den Content-Type-Header der Anforderungsnachricht ab oder legt ihn fest.</summary>
+      <returns>Der Wert des Content-Type-Headers.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequestArgs.Headers">
+      <summary>Ruft die Header in der Anforderungsnachricht ab.</summary>
+      <returns>Die Header in der Anforderungsnachricht.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequestArgs.Slug">
+      <summary>Ruft den Wert des Slug-Headers der Anforderungsnachricht ab oder legt ihn fest.</summary>
+      <returns>Ein Wert, bei dem es sich um den Slug-Header der Anforderung handelt. </returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceRequestException">
+      <summary>Stellt den Fehler dar, der ausgelöst wird, wenn der Datendienst einen Antwortcode zurückgibt, der kleiner als 200 oder größer als 299 ist, oder wenn das Element der obersten Ebene in der Antwort &lt;error&gt; ist.Diese Klasse kann nicht vererbt werden.</summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequestException.#ctor">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestException" />-Klasse mit einer vom System generierten Meldung, die den Fehler beschreibt. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequestException.#ctor(System.String)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestException" />-Klasse mit einer angegebenen Meldung, die den Fehler beschreibt. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.Der Meldungstext des Fehlers.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequestException.#ctor(System.String,System.Exception)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestException" />-Klasse mit einer angegebenen Fehlermeldung und einem Verweis auf die innere Ausnahme, die diese Ausnahme ausgelöst hat. </summary>
+      <param name="message">Die Meldung, in der die Ausnahme beschrieben wirdDer Aufrufer dieses Konstruktors muss sicherstellen, dass diese Zeichenfolge für die aktuelle Systemkultur lokalisiert wurde.</param>
+      <param name="innerException">Die Ausnahme, die die Ursache der aktuellen Ausnahme ist.Wenn der <paramref name="innerException" />-Parameter nicht null ist, wird die aktuelle Ausnahme in einem catch-Block ausgelöst, der die innere Ausnahme behandelt.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceRequestException.#ctor(System.String,System.Exception,System.Data.Services.Client.DataServiceResponse)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Client.DataServiceRequestException" />-Klasse. </summary>
+      <param name="message">Text der Fehlermeldung.</param>
+      <param name="innerException">Ausnahmeobjekt, das die innere Ausnahme enthält.</param>
+      <param name="response">
+        <see cref="T:System.Data.Services.Client.DataServiceResponse" />-Objekt</param>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceRequestException.Response">
+      <summary>Ruft die Antwort als <see cref="T:System.Data.Services.Client.DataServiceResponse" />-Objekt ab. </summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.DataServiceResponse" />-Objekt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceResponse">
+      <summary>Stellt die Antwort auf Vorgänge dar, die als Folge des Aufrufs von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> an den Datendienst gesendet werden. </summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceResponse.BatchHeaders">
+      <summary>Die Header einer HTTP-Antwort, die einer Batchanforderung zugeordnet ist.</summary>
+      <returns>Ein <see cref="T:System.Collections.IDictionary" />-Objekt, das die Name-Wert-Paare einer HTTP-Antwort enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceResponse.BatchStatusCode">
+      <summary>Der Statuscode einer HTTP-Antwort, die einer Batchanforderung zugeordnet ist.</summary>
+      <returns>Eine ganze Zahl, die auf den in Hypertext Transfer Protocol definierten Statuscodes basiert.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceResponse.GetEnumerator">
+      <summary>Ruft einen Enumerator ab, der das Abrufen von Antworten auf Vorgänge ermöglicht, die von <see cref="T:System.Data.Services.Client.OperationResponse" />-Objekten in der <see cref="T:System.Data.Services.Client.DataServiceResponse" /> überwacht werden.</summary>
+      <returns>Ein Enumerator für die vom Dienst empfangene Antwort.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceResponse.IsBatchResponse">
+      <summary>Ruft einen booleschen Wert ab, der angibt, ob die Antwort mehrere Ergebnisse enthält.</summary>
+      <returns>Ein boolescher Wert, der angibt, ob die Antwort mehrere Ergebnisse enthält.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceResponse.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Ruft einen Enumerator ab, der das Abrufen von Antworten auf Vorgänge ermöglicht, die von <see cref="T:System.Data.Services.Client.OperationResponse" />-Objekten in der <see cref="T:System.Data.Services.Client.DataServiceResponse" /> überwacht werden.</summary>
+      <returns>Ein Enumerator für die vom Dienst empfangene Antwort.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.DataServiceStreamResponse">
+      <summary>Stellt eine Antwort von WCF Data Services dar, die binäre Daten als Stream enthält.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceStreamResponse.ContentDisposition">
+      <summary>Ruft das Content-Disposition-Headerfeld für den Antwortdatenstrom ab.</summary>
+      <returns>Der Inhalt des Content-Disposition-Headerfelds.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceStreamResponse.ContentType">
+      <summary>Ruft den Inhaltstyp des Antwortdatenstroms ab.</summary>
+      <returns>Der Inhaltstyp des Antwortstreams.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.DataServiceStreamResponse.Dispose">
+      <summary>Gibt alle von der aktuellen Instanz der <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" />-Klasse verwendeten Ressourcen frei.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceStreamResponse.Headers">
+      <summary>Ruft die Auflistung der Header von der Antwort ab.</summary>
+      <returns>Die Headerauflistung von der Antwortnachricht als <see cref="T:System.Collections.Generic.Dictionary`2" />-Objekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.DataServiceStreamResponse.Stream">
+      <summary>Ruft die binären Eigenschaftendaten aus dem Datendienst als binären Datenstrom ab. </summary>
+      <returns>Der Datenstrom, der die binären Eigenschaftendaten enthält.</returns>
+      <exception cref="T:System.ObjectDisposedException">Wenn <see cref="T:System.Data.Services.Client.DataServiceStreamResponse" /> bereits freigegeben ist.</exception>
+    </member>
+    <member name="T:System.Data.Services.Client.Descriptor">
+      <summary>Abstrakte Klasse, von der <see cref="T:System.Data.Services.Client.EntityDescriptor" /> abgeleitet wird.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.Descriptor.State">
+      <summary>Ruft beim Überschreiben in einer abgeleiteten Klasse den Status des Objekts zum Zeitpunkt der Erstellung dieser Instanz ab.</summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.EntityStates" /> des Objekts, das zum Zeitpunkt der Erstellung dieser Instanz zurückgegeben wurde.  </returns>
+    </member>
+    <member name="T:System.Data.Services.Client.EntityChangedParams">
+      <summary>Kapselt die Argumente eines <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged" />-Delegaten.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.Context">
+      <summary>Der Kontext, der dem geänderten Entitätsobjekt zugeordnet ist.</summary>
+      <returns>Der Kontext, von dem das geänderte Objekt nachverfolgt wird.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.Entity">
+      <summary>Das Entitätsobjekt, das geändert wurde.</summary>
+      <returns>Das geänderte Objekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.PropertyName">
+      <summary>Der Name der Eigenschaft im Entitätsobjekt, die auf das Zielobjekt verweist.</summary>
+      <returns>Der Name der geänderten Eigenschaft.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.PropertyValue">
+      <summary>Das Objekt, auf das gegenwärtig von der Changed-Eigenschaft im Entitätsobjekt verwiesen wird.</summary>
+      <returns>Der aktuelle Wert, der auf eine Zielentität verweist. </returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.SourceEntitySet">
+      <summary>Die Entitätenmenge des Quellobjekts.</summary>
+      <returns>Ein Entitätenmengenname.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityChangedParams.TargetEntitySet">
+      <summary>Die Entitätenmenge, der das Zielentitätsobjekt angehört.</summary>
+      <returns>Ein Entitätenmengenname.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.EntityCollectionChangedParams">
+      <summary>Kapselt die Argumente eines <see cref="E:System.Collections.Specialized.INotifyCollectionChanged.CollectionChanged" />-Delegaten.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.Action">
+      <summary>Ein <see cref="T:System.Collections.Specialized.NotifyCollectionChangedAction" />-Wert, der angibt, wie die Auflistung geändert wurde. </summary>
+      <returns>Ein Wert, der angibt, wie die Auflistung geändert wurde.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.Collection">
+      <summary>Das <see cref="T:System.Data.Services.Client.DataServiceCollection`1" />, das geändert wurde.</summary>
+      <returns>Ein Verweis auf die Auflistung, die geändert wurde.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.Context">
+      <summary>Das <see cref="T:System.Data.Services.Client.DataServiceContext" />, das dem geänderten <see cref="T:System.Data.Services.Client.DataServiceCollection`1" /> zugeordnet ist.</summary>
+      <returns>Der Kontext, der der geänderten Auflistung zugeordnet ist.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.PropertyName">
+      <summary>Die Navigationseigenschaft des Quellobjekts, das auf die geänderte Auflistung verweist.</summary>
+      <returns>Der Name der Navigationseigenschaft.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.SourceEntity">
+      <summary>Das Quellobjekt, das anhand einer Navigationseigenschaft auf das Zielobjekt in der Auflistung verweist. </summary>
+      <returns>Das Quellobjekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.SourceEntitySet">
+      <summary>Die Entitätenmenge des Quellobjekts.</summary>
+      <returns>Ein Entitätenmengenname.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.TargetEntity">
+      <summary>Das Entitätsobjekt in der Auflistung, das geändert wurde.</summary>
+      <returns>Das geänderte Entitätsobjekt in der Auflistung.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityCollectionChangedParams.TargetEntitySet">
+      <summary>Der Entitätenmengenname des Objekts in der Auflistung.</summary>
+      <returns>Ein Entitätenmengenname.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.EntityDescriptor">
+      <summary>Beschreibung der Änderungen an Entitäten, die von Vorgängen durchgeführt wurden, die in einer <see cref="T:System.Data.Services.Client.DataServiceResponse" /> zurückgegeben wurden.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.EditLink">
+      <summary>Ruft den URI ab, durch den die Entität geändert wird, oder legt ihn fest.</summary>
+      <returns>Der Bearbeitungslink-URI für die Entitätsressource.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.EditStreamUri">
+      <summary>Ruft den URI ab, durch den die binären Eigenschaftendaten der Entität geändert werden, oder legt ihn fest.</summary>
+      <returns>Die <see cref="P:System.Data.Services.Client.EntityDescriptor.EditStreamUri" />-Eigenschaft enthält den Medienbearbeitungslink-URI für die der Entität zugeordnete Medienressource (Medienlinkeintrag).</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.Entity">
+      <summary>Ruft die Entität ab, die die Updatedaten enthält.</summary>
+      <returns>Ein Objekt, das Updatedaten enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.ETag">
+      <summary>Ruft einen eTag-Wert ab, der den Zustand der Daten angibt, die seit dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> für ein Update vorgesehen sind.</summary>
+      <returns>Ein Zeichenfolgenwert, der den Zustand von Daten angibt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.Identity">
+      <summary>Ruft den URI ab, der den Identitätswert der Entität darstellt, oder legt ihn fest.</summary>
+      <returns>Die <see cref="P:System.Data.Services.Client.EntityDescriptor.Identity" />-Eigenschaft entspricht dem identity-Element des entry, der die Entität in der ATOM-Antwort darstellt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.ParentForInsert">
+      <summary>Ruft die mit der Entität verknüpfte übergeordnete Entität ab.</summary>
+      <returns>Ein Objekt, das die übergeordnete Entität im Beziehungslink darstellt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.ParentPropertyForInsert">
+      <summary>Ruft den Namen der Eigenschaft der Entität ab, die eine Navigationseigenschaft und mit der übergeordneten Entität verknüpft ist.</summary>
+      <returns>Der Name der übergeordneten Eigenschaft.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.ReadStreamUri">
+      <summary>Ruft den URI ab, durch den auf die binären Eigenschaftendaten der Entität zugegriffen wird, oder legt ihn fest.</summary>
+      <returns>Ein URI, der auf die binäre Eigenschaft als Datenstrom zugreift.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.SelfLink">
+      <summary>Ruft den zum Zurückgeben der Entitätsressource verwendeten URI ab oder legt ihn fest.</summary>
+      <returns>Ein URI, der die Entität zurückgibt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.ServerTypeName">
+      <summary>Ruft den Namen des Typs in der Datenquelle ab, der die Entität zugeordnet ist, oder legt ihn fest.</summary>
+      <returns>Eine Zeichenfolge, die den Namen des Datentyps darstellt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.EntityDescriptor.StreamETag">
+      <summary>Ruft das eTag für die einer Entität (ein Medienlinkeintrag) zugeordneten Medienressource ab.</summary>
+      <returns>Ein Zeichenfolgenwert, der den Zustand von Daten angibt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.EntityStates">
+      <summary>Stellt die Enumeration dar, die den Zustand einer Entität identifiziert, die vom <see cref="T:System.Data.Services.Client.DataServiceContext" /> überwacht wird.  </summary>
+    </member>
+    <member name="F:System.Data.Services.Client.EntityStates.Added">
+      <summary>Die Entität wurde nach dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> hinzugefügt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.EntityStates.Deleted">
+      <summary>Die Entität wurde nach dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> gelöscht.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.EntityStates.Detached">
+      <summary>Die Entität wurde nach dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> getrennt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.EntityStates.Modified">
+      <summary>Die Entität wurde nach dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> geändert.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.EntityStates.Unchanged">
+      <summary>Die Entität wurde seit dem letzten Aufruf von <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> nicht geändert.</summary>
+    </member>
+    <member name="T:System.Data.Services.Client.LinkDescriptor">
+      <summary>Stellt eine Beschreibung der Änderungen an Entitäten bereit, die von Vorgängen durchgeführt wurden, die in einer <see cref="T:System.Data.Services.Client.DataServiceResponse" /> zurückgegeben wurden. </summary>
+    </member>
+    <member name="P:System.Data.Services.Client.LinkDescriptor.Source">
+      <summary>Eine Quellentität in einem von einer <see cref="T:System.Data.Services.Client.DataServiceResponse" /> zurückgegebenen Link.</summary>
+      <returns>
+        <see cref="T:System.Object" />.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.LinkDescriptor.SourceProperty">
+      <summary>Die Bezeichnereigenschaft der Quellentität in einem von einer <see cref="T:System.Data.Services.Client.DataServiceResponse" /> zurückgegebenen Link.</summary>
+      <returns>Der Zeichenfolgenbezeichner einer Identitätseigenschaft in einer Quellentität. </returns>
+    </member>
+    <member name="P:System.Data.Services.Client.LinkDescriptor.Target">
+      <summary>Die Quellentität in einem von einer <see cref="T:System.Data.Services.Client.DataServiceResponse" /> zurückgegebenen Link. </summary>
+      <returns>
+        <see cref="T:System.Object" />.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.MediaEntryAttribute">
+      <summary>Gibt an, dass die angegebene Klasse als Medienlinkeintrag behandelt werden soll. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.MediaEntryAttribute.#ctor(System.String)">
+      <summary>Erstellt eine neue Instanz von <see cref="T:System.Data.Services.Client.MediaEntryAttribute" />.</summary>
+      <param name="mediaMemberName">Ein Zeichenfolgenwert, der die Eigenschaft angibt, die Mediendaten enthält.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.MediaEntryAttribute.MediaMemberName">
+      <summary>Der Name der Eigenschaft der Klasse, die die Medien enthält, normalerweise Binärdaten.</summary>
+      <returns>Ein Zeichenfolgenwert, der die Eigenschaft angibt, die Mediendaten enthält.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.MergeOption">
+      <summary>Bestimmt die Synchronisierungsoption zum Senden oder Empfangen von Entitäten an oder von einem WCF Data Services. </summary>
+    </member>
+    <member name="F:System.Data.Services.Client.MergeOption.AppendOnly">
+      <summary>Fügen Sie nur neue Entitäten an.Vorhandene Entitäten oder deren ursprüngliche Werte werden nicht geändert.Bei dieser Zusammenführung gehen keine clientseitigen Änderungen verloren.Dies ist das Standardverhalten.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.MergeOption.NoTracking">
+      <summary>Objekte werden stets aus dem dauerhaften Speicher geladen.Alle an Objekten im Objektkontext vorgenommenen Eigenschaftenänderungen werden von den Datenquellenwerten überschrieben.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.MergeOption.OverwriteChanges">
+      <summary>Alle aktuellen Werter auf dem Client werden mit den aktuellen Werten des Datendiensts überschrieben, unabhängig davon, ob sie auf dem Client geändert wurden. </summary>
+    </member>
+    <member name="F:System.Data.Services.Client.MergeOption.PreserveChanges">
+      <summary>Aktuelle Werte, die auf dem Client geändert wurden, werden nicht geändert. Nicht geänderte Werte werden jedoch mit den aktuellen Werten des Datendiensts aktualisiert.Bei dieser Zusammenführung gehen keine clientseitigen Änderungen verloren.</summary>
+    </member>
+    <member name="T:System.Data.Services.Client.MimeTypePropertyAttribute">
+      <summary>Fügt einer Eigenschaft für eine Klasse, die mit dem <see cref="T:System.Data.Services.Client.MediaEntryAttribute" /> versehen wurde, weitere Informationen hinzu. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.MimeTypePropertyAttribute.#ctor(System.String,System.String)">
+      <summary>Erstellt eine neue Instanz der MimeTypePropertyAttribute.</summary>
+      <param name="dataPropertyName">Eine Zeichenfolge, die den Namen des neuen Eigenschaftenattributs enthält.</param>
+      <param name="mimeTypePropertyName">Eine Zeichenfolge, die den MIME-Typ des neuen Eigenschaftenattributs enthält.</param>
+    </member>
+    <member name="P:System.Data.Services.Client.MimeTypePropertyAttribute.DataPropertyName">
+      <summary>Ruft den Namen der MimeTypePropertyAttribute ab.</summary>
+      <returns>Eine Zeichenfolge, die den Namen des Eigenschaftenattributs enthält. </returns>
+    </member>
+    <member name="P:System.Data.Services.Client.MimeTypePropertyAttribute.MimeTypePropertyName">
+      <summary>Ruft den MIME-Typ des MimeTypePropertyAttribute ab.</summary>
+      <returns>Eine Zeichenfolge, die den MIME-Typ des Eigenschaftenattributs enthält. </returns>
+    </member>
+    <member name="T:System.Data.Services.Client.OperationResponse">
+      <summary>Abstrakte Klasse, die die Antwort auf eine einzelne Abfrage oder einen Erstellungs-, Aktualisierungs- oder Löschvorgang darstellt.  </summary>
+    </member>
+    <member name="P:System.Data.Services.Client.OperationResponse.Error">
+      <summary>Ruft den vom Vorgang ausgelösten Fehler ab.</summary>
+      <returns>Ein <see cref="T:System.Exception" />-Objekt, das den Fehler enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.OperationResponse.Headers">
+      <summary>Enthält beim Überschreiben in einer abgeleiteten Klasse die HTTP-Antwortheader, die einem einzelnen Vorgang zugeordnet sind.</summary>
+      <returns>
+        <see cref="T:System.Collections.IDictionary" />-Objekt, das Name-Wert-Paare von Headern und Werten enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.OperationResponse.StatusCode">
+      <summary>Ruft beim Überschreiben in einer abgeleiteten Klasse den HTTP-Antwortcode ab, der einem einzelnen Vorgang zugeordnet ist, oder legt diesen fest.</summary>
+      <returns>Ganzzahlwert, der den Antwortcode enthält.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.QueryOperationResponse">
+      <summary>Stellt die Antworten auf eine <see cref="T:System.Data.Services.Client.DataServiceQuery" /> dar. </summary>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse.GetContinuation">
+      <summary>Ruft ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation" />-Objekt mit dem URI ab, der zum Abrufen der nächsten Ergebnisseite verwendet wird.</summary>
+      <returns>Ein Objekt, das den URI enthält, mit dem die nächste Ergebnisseite zurückgegeben wird.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse.GetContinuation``1(System.Collections.Generic.IEnumerable{``0})">
+      <summary>Ruft ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt mit dem URI ab, mit dem die nächste Seite von verknüpften Entitäten in der angegebenen Auflistung abgerufen wird.</summary>
+      <returns>Ein Fortsetzungsobjekt, das auf die nächste Seite für die Auflistung zeigt.</returns>
+      <param name="collection">Die Auflistung verbundener Objekte, die geladen wird.</param>
+      <typeparam name="T">Der Typ der Elemente in der Auflistung.</typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse.GetContinuation(System.Collections.IEnumerable)">
+      <summary>Ruft ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation" />-Objekt mit dem URI ab, mit dem die nächste Seite von verknüpften Entitäten in der angegebenen Auflistung abgerufen wird.</summary>
+      <returns>Ein Fortsetzungsobjekt, das auf die nächste Seite für die Auflistung zeigt.</returns>
+      <param name="collection">Die Auflistung verbundener Objekte, die geladen wird.</param>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse.GetEnumerator">
+      <summary>Führt <see cref="T:System.Data.Services.Client.DataServiceQuery" /> aus und gibt <see cref="T:System.Data.Services.Client.QueryOperationResponse" />-Elemente zurück. </summary>
+      <returns>Der Enumerator einer Auflistung von <see cref="T:System.Data.Services.Client.QueryOperationResponse" />-Elementen.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.QueryOperationResponse.Query">
+      <summary>Ruft die <see cref="T:System.Data.Services.Client.DataServiceQuery" /> ab, die die <see cref="T:System.Data.Services.Client.QueryOperationResponse" />-Elemente generiert. </summary>
+      <returns>Ein <see cref="T:System.Data.Services.Client.DataServiceQuery" />-Objekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.QueryOperationResponse.TotalCount">
+      <summary>Der Zahlwert des Resultsets auf dem Server für eine Abfrage, wenn der Wert von der Abfrage angefordert wurde.</summary>
+      <returns>Der Rückgabewert ist 0 (null) oder ein positiver Wert, der der Anzahl von Entitäten im Resultset auf dem Server entspricht.</returns>
+      <exception cref="T:System.InvalidOperationException">Wird ausgelöst, wenn das Anzahltag nicht im Antwortstream gefunden wird.</exception>
+    </member>
+    <member name="T:System.Data.Services.Client.QueryOperationResponse`1">
+      <summary>Stellt die Antworten auf eine <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> dar.  </summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse`1.GetContinuation">
+      <summary>Ruft ein <see cref="T:System.Data.Services.Client.DataServiceQueryContinuation`1" />-Objekt mit dem URI ab, der zum Abrufen der nächsten Ergebnisseite verwendet wird.</summary>
+      <returns>Ein Objekt, das den URI enthält, mit dem die nächste Ergebnisseite zurückgegeben wird.</returns>
+    </member>
+    <member name="M:System.Data.Services.Client.QueryOperationResponse`1.GetEnumerator">
+      <summary>Führt die <see cref="T:System.Data.Services.Client.DataServiceQuery`1" /> aus und ruft <see cref="T:System.Data.Services.Client.QueryOperationResponse`1" />-Elemente ab.</summary>
+      <returns>Ein Enumerator einer Auflistung von <see cref="T:System.Data.Services.Client.QueryOperationResponse`1" />-Elementen.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.QueryOperationResponse`1.TotalCount">
+      <summary>Der Zahlwert des Resultsets auf dem Server für eine Abfrage, wenn der Wert von der Abfrage angefordert wurde.</summary>
+      <returns>Der Rückgabewert ist 0 (null) oder ein positiver Wert, der der Anzahl von Entitäten im Resultset auf dem Server entspricht.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.ReadingWritingEntityEventArgs">
+      <summary>Ermöglicht den Zugriff auf die Entität und ein XLinq-Objekt, das einen ATOM-Eintrag darstellt.<see cref="T:System.Data.Services.Client.ReadingWritingEntityEventArgs" /> wird mit dem <see cref="E:System.Data.Services.Client.DataServiceContext.ReadingEntity" />-Ereignis und dem <see cref="E:System.Data.Services.Client.DataServiceContext.WritingEntity" />-Ereignis verwendet.</summary>
+    </member>
+    <member name="P:System.Data.Services.Client.ReadingWritingEntityEventArgs.Data">
+      <summary>Ruft einen XML-ATOM-Eintrag oder Feeddaten ab, die als <see cref="T:System.Xml.Linq.XElement" /> dargestellt sind.</summary>
+      <returns>
+        <see cref="T:System.Xml.Linq.XElement" />
+      </returns>
+    </member>
+    <member name="P:System.Data.Services.Client.ReadingWritingEntityEventArgs.Entity">
+      <summary>Ruft die Objektdarstellung der von der <see cref="P:System.Data.Services.Client.ReadingWritingEntityEventArgs.Data" />-Eigenschaft zurückgegebenen Daten ab. </summary>
+      <returns>Die <see cref="T:System.Object" />-Darstellung der <see cref="P:System.Data.Services.Client.ReadingWritingEntityEventArgs.Data" />-Eigenschaft.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.SaveChangesOptions">
+      <summary>Gibt Änderungsoptionen an, wenn <see cref="M:System.Data.Services.Client.DataServiceContext.SaveChanges" /> aufgerufen wird.  </summary>
+    </member>
+    <member name="F:System.Data.Services.Client.SaveChangesOptions.Batch">
+      <summary>Alle ausstehenden Änderungen werden in einer einzelnen Batchanforderung gespeichert.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.SaveChangesOptions.ContinueOnError">
+      <summary>Ausstehende Änderungen werden mit mehreren Anforderungen auf dem Server gespeichert, und der Vorgang wird nach dem Auftreten eines Fehlers fortgesetzt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.SaveChangesOptions.None">
+      <summary>Ausstehende Änderungen werden mit mehreren Anforderungen auf dem Server gespeichert, der Vorgang wird jedoch beim ersten Fehler angehalten (Standard).</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.SaveChangesOptions.ReplaceOnUpdate">
+      <summary>Ausstehende Updates werden vorgenommen, indem alle Werte der Entität in der Datenquelle mit Werten aus der aktualisierten Entität (HTTP PUT) ersetzt werden, statt dass nur geänderte Werte aktualisiert werden, was das Standardverhalten darstellt. </summary>
+    </member>
+    <member name="T:System.Data.Services.Client.SendingRequestEventArgs">
+      <summary>Wird mit dem <see cref="E:System.Data.Services.Client.DataServiceContext.SendingRequest" />-Ereignis verwendet, um den Zugriff auf die <see cref="T:System.Net.HttpWebRequest" />-Instanz zu ermöglichen, die der Client an den Zieldatendienst sendet. </summary>
+    </member>
+    <member name="P:System.Data.Services.Client.SendingRequestEventArgs.Request">
+      <summary>Ruft die <see cref="T:System.Net.HttpWebRequest" />-Instanz ab, die von der Clientbibliothek an den Datendienst gesendet werden soll, oder legt diese fest.</summary>
+      <returns>
+        <see cref="T:System.Net.HttpWebRequest" />.</returns>
+    </member>
+    <member name="P:System.Data.Services.Client.SendingRequestEventArgs.RequestHeaders">
+      <summary>Ruft die Auflistungsprotokollheader ab, die der Anforderung an den Datendienst zugeordnet sind.</summary>
+      <returns>Eine Auflistung der Protokollheader, die der Anforderung zugeordnet sind.</returns>
+    </member>
+    <member name="T:System.Data.Services.Client.TrackingMode">
+      <summary>Bestimmt, ob an einem <see cref="T:System.Data.Services.Client.DataServiceCollection`1" /> vorgenommene Änderungen verfolgt werden.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.TrackingMode.AutoChangeTracking">
+      <summary>Änderungen an Elementen in der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" /> werden vom Client automatisch verfolgt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Client.TrackingMode.None">
+      <summary>An Elementen in der <see cref="T:System.Data.Services.Client.DataServiceCollection`1" /> vorgenommene Änderungen werden vom Client nicht automatisch verfolgt. </summary>
+    </member>
+    <member name="T:System.Data.Services.Common.DataServiceEntityAttribute">
+      <summary>Markiert eine Klasse als Entitätstyp in WCF Data Services.</summary>
+    </member>
+    <member name="M:System.Data.Services.Common.DataServiceEntityAttribute.#ctor">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Common.DataServiceEntityAttribute" />-Klasse.</summary>
+    </member>
+    <member name="T:System.Data.Services.Common.DataServiceKeyAttribute">
+      <summary>Bezeichnet die Schlüsseleigenschaft oder -eigenschaften einer Entität. </summary>
+    </member>
+    <member name="M:System.Data.Services.Common.DataServiceKeyAttribute.#ctor(System.String)">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Common.DataServiceKeyAttribute" />-Klasse. </summary>
+      <param name="keyName">Die Zeichenfolge, die den Namen des Schlüsselattributs enthält.</param>
+    </member>
+    <member name="M:System.Data.Services.Common.DataServiceKeyAttribute.#ctor(System.String[])">
+      <summary>Initialisiert eine neue Instanz der <see cref="T:System.Data.Services.Common.DataServiceKeyAttribute" />-Klasse. </summary>
+      <param name="keyNames">Ein Array von Zeichenfolgenwerten, die Schlüsselattributnamen enthalten.</param>
+    </member>
+    <member name="P:System.Data.Services.Common.DataServiceKeyAttribute.KeyNames">
+      <summary>Ruft die Namen der Schlüsselattribute ab.</summary>
+      <returns>Ein Zeichenfolgenwert, der Namen von Schlüsselattributen enthält. </returns>
+    </member>
+    <member name="T:System.Data.Services.Common.DataServiceProtocolVersion">
+      <summary>Stellt die Versionen von Open Data Protocol (OData) dar, den der Datendienst möglicherweise unterstützt. </summary>
+    </member>
+    <member name="F:System.Data.Services.Common.DataServiceProtocolVersion.V1">
+      <summary>Version 1 des OData-Protokolls.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.DataServiceProtocolVersion.V2">
+      <summary>Version 2 des OData-Protokolls.</summary>
+    </member>
+    <member name="T:System.Data.Services.Common.EntityPropertyMappingAttribute">
+      <summary>Attribut, das eine benutzerdefinierte Zuordnung zwischen Eigenschaften eines Entitätstyps und Elementen eines Eintrags in einem Feed angibt, der von WCF Data Services zurückgegeben wird. </summary>
+    </member>
+    <member name="M:System.Data.Services.Common.EntityPropertyMappingAttribute.#ctor(System.String,System.Data.Services.Common.SyndicationItemProperty,System.Data.Services.Common.SyndicationTextContentKind,System.Boolean)">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Common.EntityPropertyMappingAttribute" />.</summary>
+      <param name="sourcePath">Der als Zeichenfolge dargestellte Name der Eigenschaft des Entitätstyps, die der angegebenen Eigenschaft des Feedelements zugeordnet wird.</param>
+      <param name="targetSyndicationItem">Ein <see cref="T:System.Data.Services.Common.SyndicationItemProperty" />-Wert, der das Element im Feed darstellt, dem die Eigenschaft zugeordnet werden soll.Dieser Wert muss auf None festgelegt werden, wenn <see cref="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath" /> nicht null ist.</param>
+      <param name="targetTextContentKind">Ein <see cref="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind" />-Wert, der das Format des Inhalts angibt, der im Feed angezeigt werden soll.</param>
+      <param name="keepInContent">Ein boolescher Wert, der true ist, wenn die zugeordnete Eigenschaft sowohl am zugeordneten Speicherort als auch im Inhaltsabschnitt des Feeds angezeigt werden soll. </param>
+    </member>
+    <member name="M:System.Data.Services.Common.EntityPropertyMappingAttribute.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+      <summary>Erstellt eine <see cref="T:System.Data.Services.Common.EntityPropertyMappingAttribute" />-Instanz, um eine Eigenschaft einem benutzerdefinierten Feedelement zuzuordnen.</summary>
+      <param name="sourcePath">Der als Zeichenfolge dargestellte Name der Eigenschaft des Entitätstyps, die der angegebenen Eigenschaft im Feedelement zugeordnet wird.</param>
+      <param name="targetPath">Der als Zeichenfolge dargestellte Name des Ziels im resultierenden Feed, dem die Eigenschaft zugeordnet wird.</param>
+      <param name="targetNamespacePrefix">Dieser Parameter gibt zusammen mit <paramref name="targetNamespaceUri" /> den Namespace an, in dem das <paramref name="targetPath " />-Element vorhanden ist.</param>
+      <param name="targetNamespaceUri">Gibt den Namespace-URI des von der <paramref name="targetName" />-Eigenschaft angegebenen Elements als Zeichenfolge an. </param>
+      <param name="keepInContent">Ein boolescher Wert, der true ist, wenn die zugeordnete Eigenschaft sowohl am zugeordneten Speicherort als auch im Inhaltsabschnitt des Feeds angezeigt werden soll. </param>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.KeepInContent">
+      <summary>Ruft einen boolescher Wert ab, der angibt, ob ein Eigenschaftswert sowohl im Inhaltsabschnitt des Feeds als auch im zugeordneten Speicherort wiederholt werden soll.</summary>
+      <returns>Ein <see cref="T:System.Boolean" />-Wert, der true ist, wenn die Eigenschaft an beiden Positionen im Feed zugeordnet wird, andernfalls false.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.SourcePath">
+      <summary>Ruft den Namen der Eigenschaft des Syndication-Elements ab, die dem angegebenen Element des Feeds zugeordnet wird.</summary>
+      <returns>Ein Zeichenfolgenwert, der den Eigenschaftennamen enthält.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix">
+      <summary>Ruft einen Zeichenfolgenwert ab, der zusammen mit <see cref="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri" /> den Namespace angibt, in dem das <see cref="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath" />-Element vorhanden ist.</summary>
+      <returns>Eine Zeichenfolgenwert mit dem Präfix des Zielnamespaces.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri">
+      <summary>Ruft einen Zeichenfolgenwert ab, der den Namespace-URI des von der <see cref="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath" />-Eigenschaft angegebenen Elements angibt.</summary>
+      <returns>Eine Zeichenfolge mit dem Namespace-URI.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath">
+      <summary>Ruft den Namen des benutzerdefinierten Ziels im Feed ab, dem die Eigenschaft zugeordnet wird.</summary>
+      <returns>Ein Zeichenfolgenwert mit dem Ziel-XML-Element oder Attribut.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetSyndicationItem">
+      <summary>Ruft eine Eigenschaft der <see cref="T:System.ServiceModel.Syndication.SyndicationItem" />-Klasse ab.</summary>
+      <returns>Ein <see cref="T:System.ServiceModel.Syndication.SyndicationItem" />-Objekt.</returns>
+    </member>
+    <member name="P:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind">
+      <summary>Ruft den Inhaltstyp der von <see cref="T:System.Data.Services.Common.EntityPropertyMappingAttribute" /> zugeordneten Eigenschaft ab.</summary>
+      <returns>Eine Zeichenfolge, die den Typ des Inhalts im Feedelement angibt.</returns>
+    </member>
+    <member name="T:System.Data.Services.Common.EntitySetAttribute">
+      <summary>Gibt an, welcher Entitätenmenge eine Clientdatendienstklasse angehört.</summary>
+    </member>
+    <member name="M:System.Data.Services.Common.EntitySetAttribute.#ctor(System.String)">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Common.EntitySetAttribute" />.</summary>
+      <param name="entitySet">Die Entitätenmenge, der die Klasse angehört.</param>
+    </member>
+    <member name="P:System.Data.Services.Common.EntitySetAttribute.EntitySet">
+      <summary>Ruft die Entitätenmenge ab, der die Klasse angehört.</summary>
+      <returns>Die Entitätenmenge als Zeichenfolgenwert. </returns>
+    </member>
+    <member name="T:System.Data.Services.Common.HasStreamAttribute">
+      <summary>Gibt an, dass eine Klasse, die ein Entitätstyp ist, über eine als Datenstrom gesendete binäre Standardeigenschaft verfügt. </summary>
+    </member>
+    <member name="M:System.Data.Services.Common.HasStreamAttribute.#ctor">
+      <summary>Erstellt eine neue Instanz der <see cref="T:System.Data.Services.Common.HasStreamAttribute" />-Klasse.</summary>
+    </member>
+    <member name="T:System.Data.Services.Common.SyndicationItemProperty">
+      <summary>Ein zum Identifizieren des Syndication-Elements verwendeter Enumerationstyp. </summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.AuthorEmail">
+      <summary>Ein Element mit der E-Mail-Adresse des Autors.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.AuthorName">
+      <summary>Ein Element mit dem Namen des Autors.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.AuthorUri">
+      <summary>Ein Element mit dem URI des Autors.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.ContributorEmail">
+      <summary>Ein Element mit E-Mail-Adressen von Mitwirkenden.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.ContributorName">
+      <summary>Ein Element mit Namen von Mitwirkenden.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.ContributorUri">
+      <summary>Ein Element mit dem URI von Mitwirkenden.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.CustomProperty">
+      <summary>Ein Element mit einer benutzerdefinierten Eigenschaft.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.Published">
+      <summary>Ein Element mit einer veröffentlichten Ressource.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.Rights">
+      <summary>Ein Element mit einer Ressource mit geschützten Rechten.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.Summary">
+      <summary>Ein Zusammenfassungselement.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.Title">
+      <summary>Ein Titelelement.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationItemProperty.Updated">
+      <summary>Ein aktualisiertes Element.</summary>
+    </member>
+    <member name="T:System.Data.Services.Common.SyndicationTextContentKind">
+      <summary>Eine Enumeration, die verwendet wird, um den Textinhalt des Syndication-Elements zu identifizieren. </summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationTextContentKind.Html">
+      <summary>HTML-Inhalt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationTextContentKind.Plaintext">
+      <summary>Nur-Text-Inhalt.</summary>
+    </member>
+    <member name="F:System.Data.Services.Common.SyndicationTextContentKind.Xhtml">
+      <summary>XHTML-Inhalt.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ed1dc3ac-90b6-4b69-a42c-82205b811a79" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 8.3.0 Babylon (Stand: 19.12.2024)
+			</para>
+			<alert class="note">
+				<para>
+					Diese Version ist der zusätzlichen englischen Internetpräsenz und Hilfe gewidmet.
+					<token>V</token> selbst ist noch nicht mehrsprachig.
+				</para>
+			</alert>
+		</introduction>
+
+		<section>
+			<title>Änderungen in dieser Version</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							Komplette Integration des neuen Kontextmenüs inklusive der Punkte
+						</para>
+						<list class="bullet">
+							<listItem>
+								<para>
+									Beenden aller Slave-Prozesse (Meldungen, Logfenster).
+								</para>
+							</listItem>
+							<listItem>
+								<para>
+									In den Vordergrund Holen aller Slave-Prozesse (Meldungen, Logfenster).
+								</para>
+							</listItem>
+						</list>
+					</listItem>
+					<listItem>
+						<para>
+							Weitergabe des neuen Parameters "Language" an den VishnuHelpBrowser.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="9023d1a6-ca92-460c-9f74-6edf78138638" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

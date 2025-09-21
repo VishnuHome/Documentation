@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="74204d60-cbb3-4f38-8266-aa7af541143f" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				Dieses Kapitel befasst sich mit besonderen, selbst erstellten <database>View-Dlls</database>.
+				Über eigene <languageKeyword>Views</languageKeyword> können Sie die Darstellung von Checkern und deren Prüfungsergebnissen
+				in <token>V</token> nahezu beliebig erweitern und verändern. <token>V</token> deckt mit seinen schon bereitgestellten
+				Standard-<languageKeyword>Views</languageKeyword> alle wesentlichen Funktionalitäten ab.
+				Wie Sie aber schon in <link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" /> beim <languageKeyword>Job</languageKeyword>
+				CheckDiskSpace sehen konnten, kann über eigene <languageKeyword>Views</languageKeyword> Information visuell noch viel
+				eingänglicher aufbereitet werden.
+				Für die Erstellung eigener DLLs sind jedoch Grundkenntnisse in einer
+				<languageKeyword>DotNet</languageKeyword>-Sprache, z.B. <languageKeyword>C#</languageKeyword> erforderlich.
+			</para>
+			<alert class="important">
+				<para>
+					Der Einstieg ist allerdings für <languageKeyword>C#</languageKeyword> durch eine
+					<token>V</token>-<database>Visual Studio</database>-Erweiterung auch ohne Programmierkenntnisse möglich.
+					Es wird auf Knopfdruck ein lauffähiges Testprojekt mit Ihrer eigenen neuen
+					<languageKeyword>View</languageKeyword> generiert.
+				</para>
+			</alert>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="UserViewDemoJob">
+			<title>der Demo Job</title>
+			<content>
+				<para>
+					Dies ist die <languageKeyword>JobDescription.xml</languageKeyword> für den Demo-Job für eigene <languageKeyword>Views</languageKeyword>:
+				</para>
+				<code source="..\Vishnu_doc\Examples\UserView.xml" language="xml"
+				   title="JobDescription.xml">
+				</code>
+				<para>
+					Den wesentlichen Unterschied zum Demo-Job für eigene Checker (siehe <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />)
+					macht die zusätzliche Anweisung
+					<languageKeyword>&lt;UserControlPath&gt;Plugin\UserView.dll&lt;&#47;UserControlPath&gt;</languageKeyword>.
+				</para>
+				<para>
+					Hierüber wird <token>V</token> mitgeteilt, dass sich im Verzeichnis <database>Plugin</database> eine eigene
+					<languageKeyword>DLL</languageKeyword> <database> UserView.dll</database> befindet, die <token>V</token> anstelle
+					der Standard-<languageKeyword>View</languageKeyword> verwenden soll.
+				</para>
+			</content>
+		</section>
+
+		<section address="UserViewDemoProjektErzeugung">
+			<title>das Demo Projekt - schnell erzeugen</title>
+			<content>
+				<para>
+					Über die Visual Studio Erweiterung <database>Vishnu_UserView_VSIX.vsix</database>
+					(per Doppelklick installieren) können Sie Visual Studio eine C#-Projektvorlage für eigene Views hinzufügen:
+				</para>
+				<alert class="note">
+					<para>
+						<markup>
+							<a href="https://neteti.de/extensions/free/64/Vishnu_UserView_VSIX.vsix"
+							   target="_blank"
+							   alt="Vishnu_UserView_VSIX.vsix">
+								Vishnu_UserView_VSIX.vsix download link
+							</a>
+						</markup>
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="Vishnu_UserView_VSIX"/>
+				</mediaLink>
+				<para>
+					Diese Projektvorlage kann dann später für ein neues Projekt verwendet werden:
+				</para>
+				<alert class="warning">
+					<para>
+						Es erfolgen während der Generierung der Projekte zwei Fehlermeldungen, dass
+						dem Projekt nicht alle erforderlichen Pakete hinzugefügt werden könnten.
+						Diese treffen aber nicht zu und können ignoriert werden.
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="Vishnu_UserView_VSIX_select"/>
+				</mediaLink>
+				<para>
+					Es wird eine Projektmappe mit einem View-Projekt und einem Testprojekt generiert.
+				</para>
+				<mediaLink>
+					<image xlink:href="UserViewSolution"/>
+				</mediaLink>
+				<alert class="note">
+					<para>
+						Die UserView und das Testprojekt sind sofort lauffähig und die UserView kann mit der
+						implementierten Demo-Funktionalität als <token>V</token>-View eingesetzt werden.
+					</para>
+					<para>
+						Hier die Ausgabe des Testprojekts im Debugger:
+					</para>
+				</alert>
+				<mediaLink>
+					<image xlink:href="UserViewDemoRun"/>
+				</mediaLink>
+			</content>
+		</section>
+
+		<section address="UserViewDemoProjektDetails">
+			<title>das Demo Projekt - Details</title>
+			<content>
+				<para>
+					Die Klasse <database>UserChecker_ReturnObject</database> im durch die Projektvorlage generierten Projekt (s.o.)
+					sollte normalerweise identisch zur ReturnObject-Klasse des entsprechenden Checkers aus dem passenden
+					<database>UserChecker</database>-Projekt sein.
+				</para>
+				<alert class="note">
+					<para>
+						Wenn Sie später in eigenen Projekten die doppelte Definition
+						des <languageKeyword>ReturnObject</languageKeyword>s vermeiden wollen, können Sie stattdessen auch mit einer Referenz
+						auf die passende <languageKeyword>Checker.dll</languageKeyword> arbeiten. Um das Demo-Projekt einfach zu halten,
+						wurde hier die <languageKeyword>UserChecker_ReturnObject.cs</languageKeyword> aus dem UserCheckerDemo-Projekt kopiert.
+					</para>
+				</alert>
+				<para>
+					In der Klasse <database>ResultViewModel</database> müssen an zwei Stellen die darzustellenden Eigenschaften
+					(<languageKeyword>Properties</languageKeyword>) des <languageKeyword>ReturnObject</languageKeyword>s
+					eingefügt werden:
+				</para>
+				<code source="..\Vishnu_doc\Examples\ResultViewModel.cs" language="c#"
+				   title="Auszug aus der Klasse ResultViewModel">
+				</code>
+				<alert class="note">
+					<para>
+						Der Code-Auszug zeigt nur die absolut notwendigen Änderungen. Erweiterungen zum Beispiel für eigene Buttons
+						sind in der Originalquelle angedeutet.
+					</para>
+				</alert>
+			</content>
+		</section>
+		<section address="Serialisierung">
+			<title>Serialisierung/De-Serialisierung</title>
+			<content>
+				<para>
+					Bisher wurde ein Thema noch nicht behandelt, das für die korrekte Darstellung von Ergebnissen
+					eigener <languageKeyword>Checker</languageKeyword> in eigenen <languageKeyword>Views</languageKeyword>
+					unerlässlich ist: die Serialisierung und De-Serialisierung des <languageKeyword>UserChecker_ReturnObject</languageKeyword>es.
+				</para>
+				<para>
+					<token>V</token> behandelt <languageKeyword>UserChecker_ReturnObject</languageKeyword>e bei der Anzeige in den
+					Standard-<languageKeyword>View</languageKeyword>s einfach als Zeichenketten. Dies ist aber für die Aufbereitung
+					strukturierter Inhalte (<languageKeyword>Properties</languageKeyword>) unzureichend. Hierfür muss auf die
+					<languageKeyword>Properties</languageKeyword> im Einzelnen zugegriffen werden können.
+					Die Klasse <database>UserChecker_ReturnObject</database> enthält für diesen Zweck folgende Routinen (Überblick):
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<database>Deserialisierungs-Konstruktor</database>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Serialisierungs-Hilfsroutine</database>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Überschriebene ToString()-Methode</database>
+						</para>
+					</listItem>
+					<listItem>
+						<para>Überschriebene Vergleichsmethode</para>
+					</listItem>
+					<listItem>
+						<para>Überschriebene Hashcode Erzeugungsroutine</para>
+					</listItem>
+				</list>
+				<para>
+					Alle fünf Routinen müssen vorhanden sein und in den oben fett gedruckten drei Routinen
+					müssen die Properties von <database>UserChecker_ReturnObjecten</database> behandelt werden.
+					Details sind im nachfolgenden Code-Auschnitt der <database>UserChecker_ReturnObject</database>-Klasse zu sehen:
+				</para>
+				<code source="..\Vishnu_doc\Examples\UserChecker_ReturnObject.cs" language="c#"
+				   title="Auszug aus der Klasse UserChecker_ReturnObject">
+				</code>
+				<alert class="note">
+					<para>
+						Die Routinen zur Serialisierung, bzw. De-Serialisierung spielen übrigens auch bei der Darstellung von
+						<link xlink:href="628bbc96-dcd7-4563-a515-5a2edf9ebc10" /> eine wichtige Rolle.
+					</para>
+				</alert>
+			</content>
+		</section>
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

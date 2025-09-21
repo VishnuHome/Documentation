@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="628bbc96-dcd7-4563-a515-5a2edf9ebc10" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+
+      <para>
+        <languageKeyword>Snapshots</languageKeyword> sind Momentaufnahmen der Verarbeitung in einem <token>V</token>-<languageKeyword>Job</languageKeyword>.
+        Diese <languageKeyword>Snapshots</languageKeyword> können in einem anderen <token>V</token>-Programm als Teil dessen <languageKeyword>Job</languageKeyword>s
+        angezeigt werden, als ob sie direkt dazugehören würden.
+      </para>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="ErzeugenVonSnapshots">
+      <title>Erzeugen von Snapshots</title>
+      <content>
+        <para>
+          Sie können <token>V</token> dazu veranlassen, <languageKeyword>Snapshots</languageKeyword> zu schreiben,
+          indem Sie dies wie in der folgenden <languageKeyword>JobDescription.xml</languageKeyword> konfigurieren:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Simple\CheckTreeEventTriggerSnapshot_JobDescription.xml" language="XML"
+           title="JobDescription.xml">
+        </code>
+        <para>
+          Im Abschnitt <languageKeyword>JobSnapshotTrigger</languageKeyword> wird bei diesem Beispiel festgelegt,
+          dass immer dann ein <languageKeyword>Snapshot</languageKeyword> geschrieben werden soll, wenn im Knoten
+          "Check TreeEventTrigger Snapshot" oder irgendwo bei seinen Unterknoten
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              sich der logische Zustand ändert (rot auf grün oder umgekehrt): "<languageKeyword>AnyLogicalResultChanged</languageKeyword>"
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              ein unvorhergesehes Ereignis (i.d.R. Fehler) auftritt: "<languageKeyword>Exception</languageKeyword>"
+            </para>
+          </listItem>
+        </list>
+        <para>
+          Der senkrechte Strich <languageKeyword>"|"</languageKeyword> trennt einzelne Argumente und bedeutet bei <token>V</token>-eigenen
+          Akteuren immer eine <languageKeyword>ODER</languageKeyword>-Verknüpfung.
+        </para>
+        <alert class="important">
+          <para>
+            <languageKeyword>Snapshots</languageKeyword> werden immer unter dem Namen "JobSnapshot.xml" in ein Unterverzeichnis
+            mit dem selben Namen wie das <languageKeyword>Job</languageKeyword>-Verzeichnis des erzeugenden <languageKeyword>Jobs</languageKeyword>
+            geschrieben und NICHT! mit dem <languageKeyword>LogicalName</languageKeyword> des Jobs.
+            In unserem Beispiel ist das "...\CheckTreeEventTriggerSnapshot\JobSnapshot.xml" und nicht etwa
+            "...\Check TreeEventTrigger Snapshot\JobSnapshot.xml".
+          </para>
+          <para>
+            Wo genau <token>V</token> <languageKeyword>Snapshots</languageKeyword> schreibt und sucht können Sie im
+            Kapitel <link xlink:href="#WoVishnuSnapshotsSucht">"Wo Vishnu Snapshots erzeugt und sucht"</link> nachlesen.
+          </para>
+        </alert>
+        <alert class="note">
+          <para>
+            <languageKeyword>JobSnapshotTrigger</languageKeyword> gehören zu den <languageKeyword>TreeEventTriggern</languageKeyword>.
+            Diese erlauben als letztes Argument hinter den Ereignissen noch zusätzlich eine Zeitangabe, z.B.
+            <languageKeyword>AnyLogicalResultChanged|Exception|S:30</languageKeyword>.
+            Bei unserem <languageKeyword>JobSnapshotTrigger</languageKeyword> würde dieser Zusatz dafür sorgen, dass unabhängig
+            von den sonstigen Ereignissen auf jeden Fall alle 30 Sekunden ein <languageKeyword>Snapshot</languageKeyword> geschrieben würde.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <section address="AnzeigenVonSnapshots">
+      <title>Anzeigen von Snapshots</title>
+      <content>
+        <para>
+          Im folgenden Beispiel wird ein Snapshot aus dem obigen Beispiel-Job
+          <link xlink:href="#ErzeugenVonSnapshots"> Check TreeEventTrigger Snapshot</link> in einem anderen Job angezeigt:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Simple\ShowRefCheckTreeEventTriggerSnapshot_JobDescription.xml" language="xml"
+           title="JobDescription.xml">
+        </code>
+        <para>
+          Zu ladende <languageKeyword>Snapshots</languageKeyword> anderer <languageKeyword>Jobs</languageKeyword> werden in der Sektion
+          <languageKeyword>Snapshots</languageKeyword> definiert.
+          In diesem Beispiel muss der <languageKeyword>LogicalName</languageKeyword> des referenzierten <languageKeyword>Snapshots</languageKeyword>
+          genau der Name des Verzeichnisses sein, in dem der <languageKeyword>Snapshot</languageKeyword>
+          vom erzeugenden <languageKeyword>Job</languageKeyword> abgelegt wurde.
+        </para>
+        <alert class="note">
+          <para>
+            Man kann auch Snapshots unter einem frei gewählten <languageKeyword>LogicalName</languageKeyword> laden.
+            Dann muss man allerdings zusätzlich den Parameter <languageKeyword>PhysicalPath</languageKeyword> mit dem Original-Namen
+            des <languageKeyword>Job</languageKeyword>-Verzeichnisses des schreibenden <languageKeyword>Jobs</languageKeyword> angeben.
+          </para>
+        </alert>
+        <para>
+          Bei der Definition eines zu ladenden <languageKeyword>Snapshots</languageKeyword> wird diesem üblicherweise ein
+          <languageKeyword>FileWatcherTrigger</languageKeyword> zugeordnet. Sie könnten aber auch andere Trigger einsetzen.
+          <languageKeyword>FileWatcherTrigger</languageKeyword> lösen nicht nach festen Zeitintervallen aus, sondern genau dann,
+          wenn sich die beobachtete Datei (hier ...\JobSnapshot.xml) ändert.
+        </para>
+        <alert class="note">
+          <para>
+            Der einem <languageKeyword>Snapshot</languageKeyword> zugeordnete <languageKeyword>FileWatcherTrigger</languageKeyword>
+            beobachtet per Voreinstellung die <languageKeyword>JobSnapshot.xml</languageKeyword> des besitzenden <languageKeyword>Snapshots</languageKeyword>.
+            Wenn man dies ändern will muss man den <languageKeyword>FileWatcherTrigger</languageKeyword> mit eigenen Parametern beschicken.
+            Wie dies funktioniert, wird im Kapitel <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" /> im Unterpunkt
+            <languageKeyword>Trigger</languageKeyword> beschrieben.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <section address="WoVishnuSnapshotsSucht">
+      <title>Wo Vishnu Snapshots erzeugt und sucht</title>
+      <content>
+        <para>
+          <token>V</token> schreibt und sucht <languageKeyword>Snapshots</languageKeyword> ausgehend von einem allen <languageKeyword>Snapshot</languageKeyword>-Verzeichnissen
+          gemeinsamen Unterverzeichnis, dem <languageKeyword>"SnapshotDirectory"</languageKeyword>.
+          Das <languageKeyword>SnapshotDirectory</languageKeyword> ist in der Regel relativ zum aktuellen <languageKeyword>Job</languageKeyword>-Verzeichnis
+          und per Default auf <languageKeyword>"..\Snapshots"</languageKeyword> eingestellt.
+          <languageKeyword>SnapshotDirectory</languageKeyword> ist ein <token>V</token>-Parameter und kann wie unter
+          <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" /> beschrieben gesetzt werden.
+        </para>
+        <alert class="note">
+          <para>
+            Wenn Sie ein bestimmtes <languageKeyword>SnapshotDirectory</languageKeyword> festlegen, ist dies, wie oben schon erwähnt,
+            immer relativ zum aktuellen <languageKeyword>Job</languageKeyword>-Verzeichnis.
+            Einzige Ausnahme: Sie legen das <languageKeyword>SnapshotDirectory</languageKeyword> mit einem absoluten Pfad fest.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <section address="SieheAuch">
+      <title>Siehe auch</title>
+      <content>
+        <para>
+          <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" />
+        </para>
+        <para>
+          <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />
+        </para>
+        <para>
+          <link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f#Serialisierung">Serialisierung/De-Serialisierung</link>
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,34 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check All",
+    "StartCollapsed": false,
+    "LogicalExpression": "CheckServers & CheckDiskSpace",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception|S:30",
+      "Parameters": "Check All"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged|Exception"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckServers",
+          "PhysicalPath": "..\\CheckServers",
+          "StartCollapsed": false
+        },
+        {
+          "LogicalName": "CheckDiskSpace",
+          "PhysicalPath": "..\\CheckDiskSpace",
+          "StartCollapsed": false
+        }
+      ]
+    }
+  }
+}

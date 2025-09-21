@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>
+				Hier finden Sie Details zu verschiedenen <token>V</token>-Elementen. Neben allgemeinen Funktionsbeschreibungen
+				werden auch Parametrisierung und Rückgabewerte angesprochen und an XML-Beispielen verdeutlicht.
+			</para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+
+		<section address="Job">
+			<title>Job</title>
+			<content>
+				<para>
+					Der <languageKeyword>Job</languageKeyword> ist das oberste <token>V</token>-Element.
+					Ein Job entspricht einem Verzeichnis mit mindestens einer Datei <languageKeyword>JobDescription.xml</languageKeyword>-Datei,
+					in der der Job genau beschrieben wird.<lineBreak/>
+					Der Job enthält alles, was <token>V</token> benötigt, um Aufträge verarbeiten zu können.
+				</para>
+				<alert class="note">
+					<para>
+						Wie eine <languageKeyword>JobDescription.xml</languageKeyword> aufgebaut ist, wird unter
+						<link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" /> beschrieben.
+						Weitere <languageKeyword>Job</languageKeyword>-Beispiele finden Sie u.a. unter
+						<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" /> und <link xlink:href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c" />.
+					</para>
+				</alert>
+				<para>
+					Jobs mit Modulen, die sich nicht im
+					<link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A#UserAssemblyDirectory">UserAssemblyDirectory</link>
+					befinden, enthalten diese als zuladbare
+					<database>DLLs</database> in einem Unterverzeichnis <database>Plugin</database>,
+					siehe die folgenden Auszüge aus dem Demo-<languageKeyword>SubJob </languageKeyword>
+					<database>CheckServers</database>.
+				</para>
+				<mediaLink>
+					<image xlink:href="Jobverzeichnis"/>
+				</mediaLink>
+				<alert class="note">
+					<para>
+						<token>V</token> kann Jobs auch gezippt verarbeiten.
+						Der Pfad zum Zip-Archiv, welches das Job-Verzeichnis enthält muss dann ohne ".zip"-Extension angegeben werden.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Checker">
+			<title>Checker</title>
+			<content>
+				<para>
+					<languageKeyword>Checker</languageKeyword> sind die wesentlichen <token>V</token>-Akteure.
+					Sie werden von <token>V</token> dynamisch geladen und machen die Prüf-Arbeit.
+					Sie müssen ein Prüfergebnis zurückliefern:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<database>true</database> = alles ok
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>false</database> = es ist etwas nicht ok
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>null</database> = es kann gerade keine Entscheidung getroffen werden.
+						</para>
+					</listItem>
+				</list>
+				<alert class="note">
+					<para>
+						Neben den o.g. regulären Ergebnissen können <languageKeyword>Checker</languageKeyword> auch auf
+						unerwartete Fehler stoßen, z.B. wenn ein angesprochener Server nicht erreichbar ist,
+						sie beenden den aktuellen Prüflauf dann abrupt mit einer <database>Exception</database>.
+						<token>V</token> verarbeitet auch diese <languageKeyword>Exceptions</languageKeyword> und stellt
+						sie üblicherweise über ein Schraubenschlüssel-Symbol dar
+						<mediaLinkInline>
+							<image xlink:href="support" />
+						</mediaLinkInline>.
+					</para>
+				</alert>
+				<para>
+					Zusätzlich hat jeder <languageKeyword>Checker</languageKeyword> ein öffentliches <languageKeyword>Return-Objekt</languageKeyword>, über welches
+					ggf. beliebig komplexe Sachverhalte durch <token>V</token> an <link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" />
+					weitergereicht werden können.
+				</para>
+				<para>
+					Aufrufparameter für <languageKeyword>Checker</languageKeyword> können Sie in der <languageKeyword>JobDescription.xml</languageKeyword>
+					über das Element '&lt;Parameters&gt;' mitgeben, siehe nachfolgendes Beispiel:
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckServerPart2.xml" language="xml"
+				   title="Aufrufparameter für Checker und Trigger"></code>
+				<alert class="important">
+					<para>
+						<languageKeyword>Checker</languageKeyword> bekommen von <token>V</token> neben den von Ihnen übergebenen
+						Parametern noch ein <languageKeyword>TreeEvent</languageKeyword> übergeben.
+						Dieses kann diverse weitere Informationen enthalten, z.B. auch <languageKeyword>Return-Objekte</languageKeyword>
+						anderer <languageKeyword>Checker</languageKeyword>.
+					</para>
+					<para>
+						Weitere Details zu <languageKeyword>Checkern</languageKeyword> sind unter
+						<link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" /> zu finden.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Trigger">
+			<title>Trigger</title>
+			<content>
+				<para>
+					<languageKeyword>Trigger</languageKeyword> sorgen dafür, dass die <languageKeyword>Checker</languageKeyword>
+					ihre Arbeit machen. Sie stoßen die <languageKeyword>Checker</languageKeyword> oder <languageKeyword>Worker</languageKeyword>
+					in regelmäßigen Abständen oder bei bestimmten Ereignissen an.
+				</para>
+				<para>
+					Aufrufparameter für <languageKeyword>Trigger</languageKeyword> können wie auch bei <languageKeyword>Checkern</languageKeyword>
+					(s.o.) in der <languageKeyword>JobDescription.xml</languageKeyword>
+					über das Element '&lt;Parameters&gt;' mitgegeben werden.
+				</para>
+				<para>
+					Drei <languageKeyword>Trigger</languageKeyword>, mit denen die meisten Anwendungsfälle abgedeckt sein dürften,
+					liefert <token>V</token> schon mit:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<database>TimerTrigger</database>
+						</para>
+						<para>
+							TimerTrigger rufen <languageKeyword>Checker</languageKeyword> in regelmäßigen Zeitabständen auf.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>FileWatcherTrigger</database>
+						</para>
+						<para>
+							FileWatcherTrigger starten <languageKeyword>Checker</languageKeyword> immer dann, wenn sich beobachtete Dateien ändern.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>TreeEventTrigger</database>
+						</para>
+						<para>
+							TreeEventTrigger sind <token>V</token>-interne Trigger, die auf Ereignisse (<languageKeyword>TreeEvents</languageKeyword>)
+							innerhalb des <token>V</token>-Trees reagieren und dann <languageKeyword>Checker</languageKeyword> starten können.
+						</para>
+						<alert class="note">
+							<para>
+								Auch wenn <languageKeyword>TreeEventTrigger </languageKeyword> <token>V</token>-interne Module sind,
+								können sie wie andere Trigger in der <languageKeyword>JobDescription.xml</languageKeyword>
+								konfiguriert werden.
+								Mehr Informationen zu <languageKeyword>TreeEvents</languageKeyword> finden Sie unter
+								<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />.
+							</para>
+						</alert>
+					</listItem>
+				</list>
+				<para>
+					Im nachfolgenden Beispiel sind verschiedene <languageKeyword>Trigger</languageKeyword> und ihre Aufrufparameter
+					zusammengestellt.
+				</para>
+				<mediaLink>
+					<image xlink:href="Various_Triggers"/>
+				</mediaLink>
+			</content>
+		</section>
+
+		<section address="Worker">
+			<title>Worker</title>
+			<content>
+				<para>
+					<languageKeyword>Worker</languageKeyword> sind Gruppen von einem oder mehreren <languageKeyword>SubWorkern</languageKeyword> mit
+					je einem EXE-Programm, das von <token>V</token> gestartet wird, wenn bestimmte, für den <languageKeyword>Worker</languageKeyword>
+					definierte <languageKeyword>TreeEvents</languageKeyword> eintreten.
+					Was die EXE-Programme der <languageKeyword>SubWorker</languageKeyword> tun und ob oder wie sie auf übergebene Parameter reagieren,
+					ist allein Sache der Programme.
+					<token>V</token> interessiert sich auch nicht für deren Ergebnisse (fire and forget).
+				</para>
+				<para>
+					<languageKeyword>Worker</languageKeyword> werden immer abhängig von einem oder mehreren <languageKeyword>TreeEvents</languageKeyword>
+					ausgelöst. Festgelegt wird das über das Attribut <languageKeyword>&lt;LogicalExpression&gt;</languageKeyword> in der Form<lineBreak/>
+					<languageKeyword>
+						&lt;LogicalExpression&gt;auslösender Knoten:TreeEvent[|TreeEvent]&lt;/LogicalExpression&gt;
+					</languageKeyword><lineBreak/><lineBreak/>
+					(siehe auch nachfolgendes Beispiel).
+				</para>
+				<para>
+					Aufrufparameter für <languageKeyword>SubWorker</languageKeyword> werden, wie auch bei <languageKeyword>Checkern</languageKeyword>
+					und Triggern, in der <languageKeyword>JobDescription.xml</languageKeyword> über das Element '&lt;Parameters&gt;' mitgegeben.
+				</para>
+				<alert class="important">
+					<para>
+						<token>V</token> stellt den von Ihnen definierten Aufrufparametern einen <database>Schweregrad</database> als
+						<languageKeyword>Integer</languageKeyword>-Wert voran. Wenn dieser Wert negativ ist, bedeutet dass, das das oder die
+						für den <languageKeyword>Worker</languageKeyword> auslösenden <languageKeyword>TreeEvents</languageKeyword> nicht mehr bestehen.
+					</para>
+					<para>
+						Da die Parameter an <languageKeyword>SubWorker</languageKeyword> als Kommandozeilenparameter übergeben werden,
+						kann hier nicht, wie bei <languageKeyword>Checkern</languageKeyword> von <token>V</token> neben den von Ihnen übergebenen
+						Parametern noch ein <languageKeyword>TreeEvent</languageKeyword> übergeben werden.
+						Deshalb kommt der <link xlink:href="15204f64-ecf7-44b6-822d-74e36b99927d#erweiterteParameterersetzungBeiSubWorkern" />
+						bei SubWorkern eine besondere Bedeutung zu.
+					</para>
+				</alert>
+				<code source="..\Vishnu_doc\Examples\CheckServerPart3.xml" language="xml"
+				   title="Definition und Parameter von Workern"></code>
+				<alert class="note">
+					<para>
+						Im vorangehenden Beispiel sind die Aufrufparameter für den <languageKeyword>SubWorker</languageKeyword>
+						<database> MicroMailer</database> nicht ausformuliert, sondern werden über das Environment übergeben.
+						Sie sollten hier, bzw. besser an anderer Stelle oder im Environment, die Parameter Ihres E-Mail Providers eintragen.
+					</para>
+				</alert>
+				<alert class="note">
+					<para>
+						<languageKeyword>SubWorker</languageKeyword> können wie im vorangehenden Beispiel beim MicroMailer (auskommentiert)
+						auch <languageKeyword>Trigger</languageKeyword> zugeordnet bekommen. Sie lösen dann solange wiederholt aus,
+						bis das oder die für den <languageKeyword>Worker</languageKeyword> auslösenden <languageKeyword>TreeEvents</languageKeyword>
+						nicht mehr bestehen.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Escalator">
+			<title>Escalator</title>
+			<content>
+				<para>
+					Über einen <languageKeyword>Escalator</languageKeyword> können verschiedene <languageKeyword>Worker</languageKeyword>
+					verschiedenen Schweregraden zugeordnet werden. Ein typisches Anwendungsbeispiel ist ein unerwünschtes Ergebnis eines
+					<languageKeyword>Checkers</languageKeyword> (i.d.R. <database>false</database> oder <database>Exception</database>),
+					auf das hin im ersten Schritt eine Fehlermeldung auf dem Bildschirm ausgegeben wird.
+					Erst wenn darauf nach einer gewissen Zeitspanne noch nicht reagiert wurde, folgt in einem weiteren Schritt
+					zum Beispiel eine Mail (Eskalation).<lineBreak />
+					Siehe nachfolgendes Beispiel:
+				</para>
+				<mediaLink>
+					<image xlink:href="Escalator"/>
+				</mediaLink>
+				<para>
+					Nachfolgend sehen Sie die Definition des <languageKeyword>Escalators</languageKeyword> aus dem
+					obigen Beispiel in der <languageKeyword>JobDescrition.xml</languageKeyword>.
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckEscalator.xml" language="xml"
+				   title="Definition und Parameter vom Escalator"></code>
+				<alert class="note">
+					<para>
+						Wie man sieht, ist ein <languageKeyword>Escalator</languageKeyword> genaugenommen auch nur ein
+						besonderer <languageKeyword>Worker</languageKeyword>.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="ValueModifier">
+			<title>ValueModifier</title>
+			<content>
+				<para>
+					<languageKeyword>ValueModifier</languageKeyword> übernehmen <languageKeyword>Results</languageKeyword> von
+					anderen <languageKeyword>Checkern</languageKeyword> und stellen diese in veränderter Form dar.
+				</para>
+				<para>
+					Im folgenden Screenshot des Demo-Jobs <database>CheckSingleValueModifier</database> ist zu sehen,
+					dass das "Ergebnis" im Knoten "Tag" nur den Tag des Datums anzeigt (hier 21).<lineBreak/>
+					<mediaLinkInline>
+						<image xlink:href="CheckSingleValueModifier" />
+					</mediaLinkInline>.
+				</para>
+				<para>
+					<lineBreak />
+					In der zugehörigen <languageKeyword>JobDefinition.xml</languageKeyword> kann man sehen, dass der
+					<languageKeyword>Checker</languageKeyword> <database> Datum</database> nicht mal zur LogicalExpression
+					"<languageKeyword>&lt;IS Tag&gt;</languageKeyword>" des <languageKeyword>Jobs</languageKeyword> gehört.
+					Er wird aber vom <languageKeyword>Job</languageKeyword> als <languageKeyword>anonymer Knoten</languageKeyword>
+					im Hintergrund ausgeführt und kann dann über den sichtbaren <languageKeyword>ValueModifier</languageKeyword>
+					<database> Tag</database> über <languageKeyword>&lt;Reference&gt;Datum&lt;&#47;Reference&gt;</languageKeyword>
+					angesprochen werden.
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckSingleValueModifier.xml" language="xml"
+				   title="ValueModifier"></code>
+				<para>
+					Weiterhin ist zu sehen, dass der <languageKeyword>ValueModifier</languageKeyword> noch zwei zusätzliche
+					Parameter benötigt:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<database>Type</database>
+							Der gewünschte Typ des Ergebnisses des <languageKeyword>ValueModifiers</languageKeyword>, hier
+							<database>int</database> (.Net-Int32)
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Format</database>
+							Das Format für die Darstellung des Ergebnisses des <languageKeyword>ValueModifiers</languageKeyword>.
+						</para>
+						<alert class="note">
+							<para>
+								Bei "Format" können beliebige, passende <database>C#-Format-Strings</database> angegeben werden.
+							</para>
+						</alert>
+					</listItem>
+				</list>
+				<para>
+					Der im obigen Beispiel verwendete <languageKeyword>ValueModifier</languageKeyword> ist schon in <token>V</token>
+					integriert. Er bietet Konvertierungen für folgende Ergebnistypen an:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<languageKeyword>Boolean</languageKeyword>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<languageKeyword>Int16</languageKeyword>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<languageKeyword>Int32</languageKeyword>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<languageKeyword>Int64</languageKeyword>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<languageKeyword>DateTime</languageKeyword>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<languageKeyword>String</languageKeyword>
+						</para>
+					</listItem>
+				</list>
+				<alert class="important">
+					<para>
+						Sie können auch eigene <languageKeyword>ValueModifier</languageKeyword> erstellen. Wie das geht, wird
+						unter <link xlink:href="b2bd8510-a131-4466-9fac-66f2033d92a0" /> beschrieben.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Logger">
+			<title>Logger</title>
+			<content>
+				<para>
+					<languageKeyword>Logger</languageKeyword> werden <languageKeyword>Checkern</languageKeyword> oder
+					<languageKeyword>Jobs</languageKeyword> direkt zugeordnet. Sie können zur Nachverfolgung und Dokumentation
+					bestimmter Zustandsänderungen im <token>V</token>-Tree eingesetzt werden.
+				</para>
+				<para>
+					Wie in der nachfolgenden <languageKeyword>JobDescription.xml</languageKeyword> des Demo-Jobs
+					<database>CheckServersLogging</database> zu sehen ist, werden <languageKeyword>Logger</languageKeyword>,
+					wie auch schon <languageKeyword>Worker</languageKeyword>, abhängig von einem oder mehreren
+					<languageKeyword>TreeEvents</languageKeyword> ausgelöst.<lineBreak />
+					Festgelegt wird das über das Attribut
+					<languageKeyword>&lt;Parameters&gt;</languageKeyword> in der Form
+					<languageKeyword>&lt;Parameters&gt;TreeEvent[|TreeEvent][,sonstige_Parameter]&lt;&#47;Parameters&gt;</languageKeyword>.
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckServersLogging.xml" language="xml"
+					  title="Definition von Loggern"></code>
+				<para>
+					Der erste der beiden im obigen Demo-Job definierten <languageKeyword>Logger</languageKeyword> schreibt per Default
+					in das <token>V</token>-Logfile, der zweite <languageKeyword>Logger</languageKeyword> schreibt in ein eigenes Logfile
+					<database>%TempDirectory%\xyz.log</database>.<lineBreak />
+					Zur Erinnerung: das <token>V</token>-Logfile ist per Voreinstellung
+					<languageKeyword>%TempDirectory%\Vishnu.%MainJobName%\Vishnu.log</languageKeyword>.
+				</para>
+				<para>
+					Die <languageKeyword>Logger</languageKeyword> erzeugen folgende Ergebnisse:
+				</para>
+				<code source="..\Vishnu_doc\Examples\CheckServersLogging.txt"
+					  title="Ausgaben der TextFileLogger.dll im Vishnu-Logfile">
+				</code>
+				<code source="..\Vishnu_doc\Examples\CheckServersLogging_xyz.txt"
+					  title="Ausgaben der TextFileLogger.dll im Logfile '%TempDirectory%\xyz.log'">
+				</code>
+				<alert class="important">
+					<para>
+						Bei der <database>TextFileLogger.dll</database> handelt es sich um eine einfache Demo-DLL, die <token>V</token>
+						schon mitliefert. Inhalt und Form der Logging-Ausgabe sind hierbei in der TextFileLogger.dll fest verdrahtet.
+						Um Inhalt und Form der <languageKeyword>Logger</languageKeyword>-Ausgabe zu bestimmen, können Sie auch eigene
+						<languageKeyword>Logger</languageKeyword> erstellen. Wie das geht, wird
+						unter <link xlink:href="3ccc247e-ea3a-47fc-9ed6-4713baf96986" /> beschrieben.
+					</para>
+					<para>
+						Eigene <languageKeyword>Logger</languageKeyword> könnten dann auch weitere Übergabeparameter interpretieren,
+						welche das Ausgabeformat steuern. Welche Parameter Sie dem Logger zusätzlich hinter dem Komma übergeben,
+						ist Ihnen überlassen. <token>V</token> reicht	diese einfach an Ihren Logger weiter.
+					</para>
+				</alert>
+				<alert class="note">
+					<para>
+						Übrigens: die <database>TextFileLogger.dll</database> wird von <token>V</token> gefunden, obwohl sie sich nicht im
+						<database>Plugin</database>-Verzeichnis des Demo-Jobs befindet. Grund dafür ist, dass die <database>DLL</database>
+						sich im <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A#UserAssemblyDirectory">UserAssemblyDirectory</link> befindet.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="Connectoren">
+			<title>Connector</title>
+			<content>
+			</content>
+		</section>
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="4bf9a24d-ba9e-4aa0-8074-8bd775767f73" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>
+        <token>V</token> heißt "Vishnu", warum eigentlich?
+      </para>
+      <table>
+        <tableHeader>
+          <row>
+            <entry>
+            </entry>
+            <entry>
+            </entry>
+          </row>
+        </tableHeader>
+        <row>
+          <entry>
+            <para>
+              <mediaLink>
+                <caption placement="after" lead="Vishnu">Abbildung aus der englischen Wikipedia</caption>
+                <image xlink:href="Vishnu"/>
+              </mediaLink>
+            </para>
+          </entry>
+          <entry>
+            <para>
+              <lineBreak />
+              Die Software <token>V</token> überwacht, steuert, schützt und "bewahrt" Ihre Geschäftsprozesse.
+              Nicht zuletzt auch wegen der "vielarmigen" Darstellung weckte Vishnu die
+              Assoziation zum <database>Hindu-Gott Vishnu</database>, der als Beschützer und Erhalter gesehen wird
+              und meist als vierarmiges Wesen dargestellt wird, wie beispielsweise auf nachfolgender
+              Webseite beschrieben:
+            </para>
+            <para>
+              <externalLink>
+                <linkText>Vishnu - behütet Menschen und Götter</linkText>
+                <linkAlternateText>Vishnu auf religionen-entdecken.de</linkAlternateText>
+                <linkUri>https://www.religionen-entdecken.de/lexikon/v/vishnu</linkUri>
+              </externalLink>
+              oder auch hier:
+              <externalLink>
+                <linkText>Vishnu im Hinduismus</linkText>
+                <linkAlternateText>Vishnu auf Wikipedia</linkAlternateText>
+                <linkUri>https://de.wikipedia.org/wiki/Vishnu</linkUri>
+              </externalLink>
+            </para>
+          </entry>
+        </row>
+      </table>
+    </introduction>
+
+  </developerConceptualDocument>
+</topic>

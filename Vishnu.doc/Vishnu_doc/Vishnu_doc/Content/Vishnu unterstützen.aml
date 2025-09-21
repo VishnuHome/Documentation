@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="efd19010-40b1-470a-934e-e347b3344f11" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				Auch wenn Vishnu open source und frei ist, kostet die Entwicklung doch
+				viel Zeit und Arbeit und nicht zuletzt das Hosting u.a. der Dokumentation auch Geld.
+			</para>
+			<para>
+				Wenn Sie dieses Projekt und meine Arbeit unterstützen möchten,
+				können Sie dies über den PayPal Button weiter unten gerne tun.
+				Sie werden dann noch nach einem Betrag Ihrer Wahl gefragt, bevor
+				Sie den Vorgang abschließen können und Ihre Spende wirksam wird.
+			</para>
+			<para>
+				Auf jeden Fall freue ich mich über Ihren Einsatz.
+			</para>
+			<para>
+				<markup>
+					<!--<a href="https://www.paypal.com/donate?business=neteti@neteti.de" target="_blank">
+						<img src="paypal-button.gif" alt="Spenden via PayPal" />
+					</a>-->
+				    <!--p>
+        	          <a href="https://www.paypal.com/donate/?hosted_button_id=G8VDT54WPYWFL" target="_blank">
+        		        <img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" alt="zur sicheren PayPal Seite">
+        	          </a>
+                    </p-->
+					<div style="display: flex; gap: 10px;">
+					  <!-- Deutscher Button -->
+					  <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                        <input type="hidden" name="business" value="neteti@neteti.de" />
+                        <input type="hidden" name="currency_code" value="EUR" />
+                        <input type="hidden" name="lc" value="de_DE" />
+                        <input type="hidden" name="item_name"
+						       value="Vishnu ist open source und komplett frei. Aber ich freue mich ueber eine Anerkennung meiner Arbeit, vielen Dank." />
+                        <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" 
+						        border="0" name="submit" title="Jetzt spenden" alt="Spenden mit PayPal" />
+                      </form>
+					  <!-- Englischer Button -->
+					  <!--form action="https://www.paypal.com/donate" method="post" target="_blank">
+					    <input type="hidden" name="business" value="neteti@neteti.de" />
+					    <input type="hidden" name="currency_code" value="EUR" />
+					    <input type="hidden" name="lc" value="en_US" />
+					    <input type="hidden" name="item_name"
+							   value="Vishnu is open source and completely free. But I would be happy if my work was appreciated, thank you very much." />
+				        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+					           border="0" name="submit" title="Donate now" alt="Donate with PayPal" />
+					  </form-->
+					</div>
+				</markup>
+			</para>
+			<para>
+				Herzlich willkommen im engeren Kreis der Vishnu-Freunde<lineBreak />
+				Ihr Erik Nagel
+			</para>
+		</introduction>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="eaef89f3-95f7-441f-9153-f9d6b397a684#Inhaltlich_Verantwortlicher_gemäß_Pf10_Absatz3_MDStV" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics />
+	</developerConceptualDocument>
+</topic>

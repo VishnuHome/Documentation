@@ -1,0 +1,4 @@
+2021.07.03 09:41:14,226374 Event: Ereignis auf speziellem LogPath
+        Knoten: ein Knoten|0815, Logical: False, Quelle: 4711
+        AnyServer, Thread: 0001/08292, Tree: Test-Tree, Status: Done
+        WorkingDirectory: C:\Users\<user>\AppData\Local\Temp\TextFileLoggerDemo\1844

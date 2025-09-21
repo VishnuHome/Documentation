@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2e84f44c-6249-45dc-bdc2-c656de87c907" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<para>
+				Hier finden Sie bisherige Überlegungen oder Pläne zur Weiterentwicklung von <token>V</token>.
+				Eine durchgängige Priorisierung findet nicht statt.
+			</para>
+			<list class="bullet">
+				<listItem>
+					<para>
+						Mehrsprachigkeit
+					</para>
+					<list class="bullet">
+						<listItem>
+							<para>
+								Die Englischsprachige Dokumentation und Web-Präsenz ist noch nicht vollständig.
+								Insbesondere müssen bestimmte Grafiken noch angepasst werden.
+							</para>
+						</listItem>
+						<listItem>
+							<para>
+								<token>V</token> selbst ist noch nicht mehrsprachig.
+							</para>
+						</listItem>
+						<listItem>
+							<para>
+								Ggf. weitere Sprachen hinzufügen.
+							</para>
+						</listItem>
+					</list>
+				</listItem>
+				<listItem>
+					<para>
+						Eigenständige Installationssoftware erstellen
+					</para>
+					<list class="bullet">
+						<listItem>
+							<para>
+								Wie auch schon unter <link xlink:href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9" /> erwähnt,
+								musste der <token>V</token>-Installer (ClickOnce) nach Migration auf .Net 7 deaktiviert werden.
+								Hier soll eine aktuelle Online-Installationsroutine gefunden und eingerichtet werden.
+							</para>
+						</listItem>
+					</list>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token> als Signal/Interrupt-gesteuertes System intensivieren
+					</para>
+					<para>
+						Die klassische <languageKeyword>Checker</languageKeyword>-Ansteuerung erfolgt
+						über Polling durch <languageKeyword>TimerTrigger</languageKeyword>.<lineBreak/>
+						Dies ist in einer Vielzahl von Aufgabenstellung ein praktikables Vorgehen.
+						Allerdings verursacht es eine vergleichsweise hohe Systemlast und ist in letzter Konsequenz auch ungenau.<lineBreak/>
+					</para>
+					<para>
+						Besser sind oft Trigger, die auf bestimmte Signale hin feuern,
+						wie schon in <languageKeyword>FileWatcherTrigger</languageKeyword> 
+						und auch <languageKeyword>TreeEventTrigger</languageKeyword> implementiert.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token>-Snapshots interaktiv machen.
+					</para>
+					<para>
+						<languageKeyword>Snapshots</languageKeyword> sind bisher readonly, das heißt:
+						Jobs oder Checker können innerhalb von <languageKeyword>Snapshots</languageKeyword>
+						nicht manuell neu gestartet werden.
+					</para>
+					<para>
+						Spätestens hier müssen auch Sicherheitsaspekte berücksichtigung finden.
+						Wer darf welche <languageKeyword>Checker</languageKeyword> von welchem Arbeitsplatz ausführen?
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token>-<languageKeyword>Uptime</languageKeyword> anzeigen.
+					</para>
+					<para>
+						Aktuelle Vishnu-Version und Uptime zusätzlich in Tooltip auf Window-Header anzeigen (auch bei Dialog-Checkern).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Die dynamischen Grids mit quadratischem Zuschnitt aus der <languageKeyword>Jobs</languageKeyword>-Ansicht
+						auch in der <languageKeyword>Tree</languageKeyword>-Ansicht für mehrere mit <database>AND</database>
+						verknüpfte Knoten unterhalb einer Joblist oder NodeList nutzen. Dadurch würde auch für die
+						<languageKeyword>Tree</languageKeyword>-Ansicht bei Gruppen mit vielen
+						<database>AND</database>-Verknüpfungen eine deutlich bessere Bildschirmaufteilung erreicht.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Zusätzliche Ansicht, die nur die relevanten Fehlerfälle anzeigt.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token>-Dark Mode und weitere Designs.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token>-Meldungen per Messenger (Telegram, WhatsAp, Signal).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Kooperatives Cancelling komplett implementieren (auch Checker).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Speichern der Bildschirmdarstellung (Strg-s) mit in das Kontextmenü aufnehmen.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Aktuelle Zoom-Stufe wird noch nicht in Messages und UserControls übernommen.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Das <token>V</token>-Framework auf <languageKeyword>NuGet</languageKeyword> veröffentlichen.
+					</para>
+					<para>
+						Danach könnten die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+						<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+						erneut überarbeitet werden, so dass die unschönen Fehlermeldungen bei der Generierung neuer User-Module wegfallen.
+					</para>
+					<para>
+						siehe auch <link xlink:href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9" />
+					</para>
+					<para>
+						und
+						<markup>
+							<a href="https://github.com/WorkFrame"
+							   target="_blank"
+							   alt="das Basis-Framework">
+								Das Basis-Framework auf github.
+							</a>
+						</markup>
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token>-App, <token>V</token> as a service
+					</para>
+					<para>
+						Einfacher Ansatz: über <languageKeyword>Snapshots</languageKeyword>;<lineBreak />
+						vollstängige Lösung: über Ersetzung der UI-Schichten.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<token>V</token> als Mobile-App
+					</para>
+					<para>
+						Der sich hier natürlich anbietende Weg geht über <languageKeyword>Xamarin (Maui)</languageKeyword>.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Den <token>V</token>-Quellcode mit Unit-Tests ausstatten
+					</para>
+					<para>
+						Vishnu enthält keine Unit-Tests und ich beabsichtige auch in absehbarer Zeit nicht, welche zu erstellen.
+						Allerdings existieren für alle verwendeten Komponenten eigenständige Demonstrations-Projekte, die
+						die Komponenten testen und deren Gebrauch demonstrieren.<lineBreak/>
+						Es gibt darüber hinaus eine Reihe aussagekräftiger und gut dokumentierter Integrationstest
+						(siehe ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls).<lineBreak />
+					</para>
+					<alert class="note">
+						<para>
+							Auch wenn ich selbst finde, dass Unit-Testing insgesamt zu stark gehyped wird, sehe ich doch,
+							dass Unit Tests	eine zusätzliche Unterstützung der (Weiter-)Entwicklung sein können.
+							Ich habe nur bisher zusätzlichen Aufwand lieber in Integrationstest investiert, weil sich mir
+							der Nutzen dort	unmittelbar erschließt (übrigens auch im Sinne zusätzlicher Dokumentation).
+							Insbesondere auch die implementierte Software-Architektur, MsBuild-Scripts, Git-Scripting und
+							diverse lokale Dokumentatiosfiles tragen zu einer guten Wartbarkeit des Software-Paketes bei.
+							Wer allerdings unterstützend Unit-Tests erstellen möchte, ist herzlich eingeladen.
+						</para>
+					</alert>
+				</listItem>
+			</list>
+		</introduction>
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<markup>
+						<a href="https://tyrrrz.me/blog/unit-testing-is-overrated"
+						   target="_blank"
+						   alt="Special thanks to Oleksii Holub">
+							Unit Testing is Overrated
+						</a>
+					</markup>
+				</para>
+				<para>
+					<markup>
+						<a href="https://www.youtube.com/watch?v=kdOeyaLWaK0"
+						   target="_blank"
+						   alt="Special thanks to Dino Esposito">
+							Unpopular Opinions in Software Architecture (Dino Esposito) | Keynote at BASTA! Spring 2023
+						</a>
+					</markup>
+				</para>
+				<para>
+					<link xlink:href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9" />
+				</para>
+			</content>
+		</section>
+		<relatedTopics />
+	</developerConceptualDocument>
+</topic>

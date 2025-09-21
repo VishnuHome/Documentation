@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <meta name="Microsoft.Help.SelfBranded" content="true">
+  <meta name="Language" content="en-US">
+  <meta name="Microsoft.Help.Locale" content="en-US">
+  <meta name="Microsoft.Help.TopicLocale" content="en-US">
+  <link rel="shortcut icon" href="../icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href=
+  "../styles/branding.css">
+  <link rel="stylesheet" type="text/css" href=
+  "../styles/branding-en-US.css">
+  <script type="text/javascript" src=
+  "../scripts/branding.js"></script>
+  <title>Vishnu Control</title>
+  <meta name="Microsoft.Help.Id" content=
+  "6fe3bf85-d02b-41ff-84a7-dcc2a4819978">
+  <meta name="Microsoft.Help.ContentType" content="Concepts">
+  <meta name="Description" content=
+  "This chapter provides an overview of the commands that can be used to control Vishnu via mouse and keyboard.">
+  <link rel="stylesheet" type="text/css" href=
+  "../styles/branding-Website.css">
+  <script type="text/javascript" src=
+  "../scripts/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src=
+  "../scripts/branding-Website.js"></script>
+  <script type="text/javascript" src=
+  "../scripts/clipboard.min.js"></script>
+</head>
+<body onload="SetDefaultLanguage('cs');">
+  <input type="hidden" id="userDataCache" class="userDataStyle">
+  <div class="pageBody">
+    <div class="leftNav" id="leftNav">
+      <div id="tocNav">
+        <div class="toclevel0" data-toclevel="0">
+          <a class="tocCollapsed" onclick="Toggle(this);" href=
+          "#!"></a><a data-tochassubtree="true" href=
+          "../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title=
+          "Vishnu - the logical process monitor" tocid=
+          "roottoc">Vishnu - the logical process monitor</a>
+        </div>
+        <div class="toclevel1" data-toclevel="1"
+        data-childrenloaded="true">
+          <a class="tocExpanded" onclick="Toggle(this);" href=
+          "#!"></a><a data-tochassubtree="true" href=
+          "../html/97ecd117-8937-4aca-bb5d-dfab02559f5e.htm" title=
+          "Quick Start" tocid=
+          "97ecd117-8937-4aca-bb5d-dfab02559f5e"Quick Start/a>
+        </div>
+        <div class="toclevel2" data-toclevel="2">
+          <a data-tochassubtree="false" href=
+          "../html/62ca75a8-ba50-4115-93df-b1e76bf6e5f7.htm" title=
+          "A simple Example" tocid=
+          "62ca75a8-ba50-4115-93df-b1e76bf6e5f7">a simple
+          example</a>
+        </div>
+        <div class="toclevel2 current" data-toclevel="2">
+          <a data-tochassubtree="false" href=
+          "../html/6fe3bf85-d02b-41ff-84a7-dcc2a4819978.htm" title=
+          "Vishnu Steuerung" tocid=
+          "6fe3bf85-d02b-41ff-84a7-dcc2a4819978">Vishnu Control</a>
+        </div>
+        <div class="toclevel2" data-toclevel="2">
+          <a data-tochassubtree="false" href=
+          "../html/4bf9a24d-ba9e-4aa0-8074-8bd775767f73.htm" title=
+          "Where does the name come from" tocid=
+          "4bf9a24d-ba9e-4aa0-8074-8bd775767f73">where does the
+          name come from</a>
+        </div>
+      </div>
+      <div id="tocResizableEW" onmousedown="OnMouseDown(event);">
+      </div>
+      <div id="TocResize" class="tocResize"><img id=
+      "ResizeImageIncrease" src="../icons/TocOpen.gif" onclick=
+      "OnIncreaseToc()" alt="Click or drag to resize" title=
+      "Click or drag to resize"><img id="ResizeImageReset" src=
+      "../icons/TocClose.gif" style="display:none" onclick=
+      "OnResetToc()" alt="Click or drag to resize" title=
+      "Click or drag to resize"></div>
+    </div>
+    <div id="TopicContent" class="topicContent">
+      <table class="titleTable">
+        <tr>
+          <td class="logoColumn"><img src=
+          "../icons/Vishnu_64.png"></td>
+          <td class="titleColumn">
+            <h1>Vishnu Control</h1>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <p>This chapter provides an overview of the commands that
+        can be used to control <strong>Vishnu</strong> using the
+        mouse and keyboard.</p>
+        <div class="alert">
+          <table>
+            <tr>
+              <th><img src="../icons/AlertCaution.png" alt=
+              "Important">Important</th>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Vishnu</strong> itself does not use
+                <strong>Alt-</strong>combinations, so that these
+                remain free for the mouse and button control of
+                <strong>User controls</strong>.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="collapsibleAreaRegion" id="Overview">
+        <span class="collapsibleRegionTitle" onclick=
+        "SectionExpandCollapse('IDBAB')" onkeypress=
+        "SectionExpandCollapse_CheckKey('IDBAB', event)" tabindex=
+        "0"><img id="IDBABToggle" class="collapseToggle" src=
+        "../icons/SectionExpanded.png">Overview</span>
+      </div>
+      <div id="IDBABSection" class="collapsibleSection">
+        <ul class="noBullet">
+          <li>
+            <p><strong>Mouse click-left</strong> on <span class=
+            "mediaInline"><img alt="closed down" src=
+            "../media/closed_down.png"></span> or <span class=
+            "mediaInline"><img alt="closed right" src=
+            "../media/closed_right.png"></span> opens (shows) the
+            next node covered below/to the right.</p>
+          </li>
+          <li>
+            <p><strong>Ctrl+mouse click-left</strong> on
+            <span class="mediaInline"><img alt="closed down" src=
+            "../media/closed_down.png"></span> or <span class=
+            "mediaInline"><img alt="closed right" src=
+            "../media/closed_right.png"></span> opens (shows) and
+            expands all nodes hidden below/to the right.</p>
+          </li>
+          <li>
+            <p><strong>Shift+mouse click-left</strong> on
+            <span class="mediaInline"><img alt="closed down" src=
+            "../media/closed_down.png"></span> or <span class=
+            "mediaInline"><img alt="closed right" src=
+            "../media/closed_right.png"></span> opens (shows) and
+            expands all nodes.</p>
+          </li>
+          <li>
+            <p><strong>Mouse click-left</strong> on <span class=
+            "mediaInline"><img alt="opened up" src=
+            "../media/opened_up.png"></span> or <span class=
+            "mediaInline"><img alt="opened left" src=
+            "../media/opened_left.png"></span> closes (hides) and
+            contracts the next nodes displayed below/to the
+            right.</p>
+          </li>
+          <li>
+            <p><strong>Ctrl+mouse click-left</strong> on
+            <span class="mediaInline"><img alt="opened up" src=
+            "../media/opened_up.png"></span> or <span class=
+            "mediaInline"><img alt="opened left" src=
+            "../media/opened_left.png"></span> closes (hides) and
+            contracts all nodes displayed below/to the right.</p>
+          </li>
+          <li>
+            <p><strong>Shift+mouse click-left</strong> on
+            <span class="mediaInline"><img alt="opened up" src=
+            "../media/opened_up.png"></span> or <span class=
+            "mediaInline"><img alt="opened left" src=
+            "../media/opened_left.png"></span> closes and contracts
+            all nodes.</p>
+          </li>
+          <li>
+            <p><strong>Mouse click-left</strong> on <span class=
+            "mediaInline"><img alt="run node" src=
+            "../media/run_node.png"></span> starts a node or job
+            immediately (not available for snapshot nodes).</p>
+          </li>
+          <li>
+            <p><strong>Mouse click-left</strong> on <span class=
+            "mediaInline"><img alt="break node" src=
+            "../media/break_node.png"></span> interrupts the
+            processing of a node or job (not available for snapshot
+            nodes).</p>
+          </li>
+          <li>
+            <p><strong>Mouse click-left</strong> on <span class=
+            "mediaInline"><img alt="Yin Yang" src=
+            "../media/YinYang.PNG"></span> or <strong>F4</strong>
+            changes the overall direction of the
+            <strong>Vishnu</strong>-Trees.</p>
+          </li>
+          <li>
+            <p><strong>Mouse wheel</strong> scrolls the window
+            content up or down for larger jobs.</p>
+          </li>
+          <li>
+            <p><strong>Shift+mouse wheel</strong> scrolls the window
+            content to the left or right for larger jobs.</p>
+          </li>
+          <li>
+            <p><strong>Ctrl+mouse wheel</strong> enlarges or
+            reduces the current view.</p>
+          </li>
+          <li>
+            <p><strong>Shift+mouse click-right</strong> somewhere
+            in the window resets the size to the default.</p>
+          </li>
+          <li>
+            <p><strong>Ctrl+mouse click-right</strong> somewhere in
+            the window reduces the view as far as necessary, that
+            the entire <strong>Vishnu</strong>-tree is visible.</p>
+          </li>
+          <li>
+            <p><strong>F3</strong> Resets the window size to the content size, if possible.</p>
+          </li>
+          <li>
+            <p><strong>Ctrl+s</strong> Saves the current screen size and position
+            locally for the current workstation</p>
+            <div class="mediaNear"><img alt="Darstellung Speichern"
+            src="../media/Darstellung_Speichern.png"></div>
+          </li>
+          <li>
+            <p><strong>Mouse click-right</strong> opens the
+            <a href="478a3c03-87d1-4aa1-9087-917abb7eccfe.htm">Context
+            Menu</a>.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="collapsibleAreaRegion" id="SieheAuch">
+        <span class="collapsibleRegionTitle" onclick=
+        "SectionExpandCollapse('IDCAB')" onkeypress=
+        "SectionExpandCollapse_CheckKey('IDCAB', event)" tabindex=
+        "0"><img id="IDCABToggle" class="collapseToggle" src=
+        "../icons/SectionExpanded.png">See also</span>
+      </div>
+      <div id="IDCABSection" class="collapsibleSection">
+        <p><a href=
+        "478a3c03-87d1-4aa1-9087-917abb7eccfe.htm">Context
+        Menu</a></p>
+      </div>
+    </div>
+  </div>
+  <div id="PageFooter" class="pageFooter">
+    Naturally, many findings and developments are based on
+    information freely available on the Internet. Any missing
+    references to original authors are unintentional and will be
+    updated as soon as they are reported.
+    <p>Copyright © 2012-2025 Erik Nagel</p>
+    <div class="feedbackLink">
+      Send comments about this feature to <a id="HT_MailLink" href=
+      "mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">
+      Vishnu@reallyhuman.net</a>
+    </div>
+    <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+    </script>
+  </div>
+</body>
+</html>

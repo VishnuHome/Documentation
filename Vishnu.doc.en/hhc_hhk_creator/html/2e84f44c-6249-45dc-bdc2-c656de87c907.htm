@@ -1,0 +1,94 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="en-US" /><meta name="Microsoft.Help.Locale" content="en-US" /><meta name="Microsoft.Help.TopicLocale" content="en-US" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Collection of Ideas</title><meta name="Microsoft.Help.Id" content="2e84f44c-6249-45dc-bdc2-c656de87c907" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Description" content="Here you will find previous considerations or plans for the further development of Vishnu. There is no consistent prioritization." /><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div id="PageHeader" class="pageHeader">Vishnu - logical monitoring job controller</div><div class="pageBody"><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Collection of Ideas</h1></td></tr></table><div><p>
+						Here you will find previous considerations or plans for the further development of <strong>Vishnu</strong>.
+      			A consistent prioritisation does not take place.
+			</p><ul><li><p>
+						Create multilingual documentation
+					</p><ul><li><p>
+            English-language non-technical documentation and web presence (does not require source code adjustments).
+							</p></li><li><p>
+            English-language technical documentation and program texts (requires source code extensions).
+							</p></li><li><p>
+						If necessary, add further languages.							
+							</p></li></ul></li><li><p>
+            Create independent installation software
+					</p><ul><li><p>
+						As already mentioned under <a href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9.htm">Known Errors and Problems</a>,
+					  the <strong>Vishnu</strong>-installer (ClickOnce) had to be deactivated after migration to .Net 7.
+						A new online installation routine is to be found and set up here.
+					</p></li></ul></li><li><p>Intensify  <strong>Vishnu</strong> as a signal/interrupt-controlled system
+					</p><p>
+            The classic <span class="keyword">Checker</span>-Control polls for changes and is triggered by a <span class="keyword">TimerTrigger</span>.
+            This is a practical approach for a wide range of tasks.
+            However, it causes a comparatively high system load and is ultimately also inaccurate.
+            Triggers that fire on certain signals are often better, as already implemented in
+            <span class="keyword">FileWatcherTrigger</span> and <span class="keyword">TreeEventTrigger</span>.
+					</p></li><li><p>Make <strong>Vishnu</strong>-Snapshots interactive.
+            Snapshots are currently read-only, which means that jobs or checkers cannot be restarted manually within snapshots.
+            At this point, security aspects must also be taken into account. Who is allowed to run which checkers from which workstation?
+					
+					</p><p><span class="keyword">Snapshots</span> are read-only so far, i.e:
+						Jobs or checkers can not be restarted manually within <span class="keyword">Snapshots</span>.
+					</p><p>
+							Safety aspects must also be taken into account here at the latest.
+							Who is allowed to run which <span class="keyword">Checker</span> from which workstation?
+					</p></li><li><p>
+						Display <span class="keyword">Vishnu-Uptime<span class="keyword">.
+					</p><p>
+						Show current Vishnu version and uptime additionally in tooltip on window header (also for dialog checkers).
+					</p></li><li><p>
+            Use the dynamic grids with a square cut from the <span class="keyword">Jobs</span>-View in the <span class="keyword">Tree</span>-View
+            for several <strong>AND</strong>-linked nodes below a job list or node list. This would also result in a much better screen layout
+            for the <span class="keyword">Tree</span>-View for groups with many	<strong>AND</strong> connections.
+					</p></li><li><p>
+						Additional view that only shows the relevant error cases.
+					</p></li><li><p><strong>Vishnu</strong>-Dark Mode and other designs.
+					</p></li><li><p><strong>Vishnu</strong>-Messages via Messenger (Telegram, WhatsAp, Signal).
+					</p></li><li><p>
+						Implement cooperative cancelling completely (also with checkers).
+					</p></li><li><p>
+						Include saving the screen display (Ctrl-s) in Context Menu.
+					</p></li><li><p>
+						Current zoom level is not yet transferred to Messages and UserControls.
+					</p></li><li><p>
+						Publish the <strong>Vishnu</strong>-framework on <span class="keyword">NuGet</span>.
+					</p><p>
+						After that, the <strong>VSIX-</strong>Templates will create custom
+						<strong>Vishnu</strong>-<span class="keyword">Checkers</span> and <span class="keyword">UserControls</span>
+						without raising error messages.
+					</p><p>
+						see also <a href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9.htm">Known Errors and Problems</a></p><p>and
+						<a href="https://github.com/WorkFrame" target="_blank" alt="das Basis-Framework">
+																The basic framework on github.
+							</a></p></li><li><p><strong>Vishnu</strong>-App, <strong>Vishnu</strong> as a service
+					</p><p>
+						Simple approach: via <span class="keyword">Snapshots</span>;<br />
+						Complete solution: by replacing the UI layers.
+					</p></li><li><p><strong>Vishnu</strong> as a mobile app
+					</p><p>
+						The natural way to go here is via <span class="keyword">Xamarin (Maui)</span>.
+					</p></li><li><p>
+						Equip the <strong>Vishnu</strong> source code with unit tests
+					</p><p>
+						Vishnu does not contain any unit tests and I do not intend to create any in the foreseeable future.
+						However, there are independent demonstration projects for all components used, which
+						test the components and demonstrate their use.<br />
+							There are also a number of meaningful and well-documented integration tests
+						(see ...\VishnuHome\Tests\TestJobs\Testprotokoll.xls).<br /></p>
+						<div class="alert">
+							<table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" /> Note</th></tr><tr><td><p>
+              Even though I personally think that unit testing is hyped too much, I do see that unit tests can be an additional
+              support for (further) development. I have just preferred to invest additional effort in integration tests because
+              I can see the benefits there immediately (also in terms of additional documentation).
+              In particular, the implemented software architecture, MsBuild scripts, Git scripting and various local documentation files
+              contribute to the good maintainability of the software package.
+              However, anyone who would like to create unit tests to support this is very welcome.
+						</p></td></tr></table></div></li></ul></div><div class="collapsibleAreaRegion" id="SieheAuch"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDCAB')" onkeypress="SectionExpandCollapse_CheckKey('IDCAB', event)" tabindex="0"><img id="IDCABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />See also</span></div><div id="IDCABSection" class="collapsibleSection"><p><a href="https://tyrrrz.me/blog/unit-testing-is-overrated" target="_blank" alt="Special thanks to Oleksii Holub">
+							Unit Testing is Overrated
+						</a></p><p><a href="https://www.youtube.com/watch?v=kdOeyaLWaK0" target="_blank" alt="Special thanks to Dino Esposito">
+							Unpopular Opinions in Software Architecture (Dino Esposito) | Keynote at BASTA! Spring 2023
+						</a></p><p><a href="68cd3f39-4a2c-49f3-8a90-b2442b5880a9.htm">Known Errors and Problems</a></p></div></div></div><div id="PageFooter" class="pageFooter">Naturally, many findings and developments are based on information freely available on the Internet. Any missing references to original authors are unintentional and will be updated as soon as they are reported.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Send comments about this feature to
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Your feedback will be used to improve the documentation and the product. Your email address will not be used for any other purpose and will be deleted after the reported issue has been resolved. While working on the problem, you may be contacted by email for further details or clarification of your feedback. After the problem has been isolated, you may receive an email to resolve the issue.");
+        </script></div></body></html>

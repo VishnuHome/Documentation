@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+
+      <para>
+        <token>V</token> startet direkt nach der Erstinstallation mit einem Demo-Job. Diesen werden wir uns jetzt (in einer vereinfachten Fassung) etwas
+        genauer betrachten.
+      </para>
+      <alert class="note">
+        <para>
+          Der Start-Job kann über <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" /> eingestellt werden.
+        </para>
+      </alert>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="VishnuDemoJob">
+      <title>Vishnu Demo-Job (einfache Version)</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <mediaLink>
+          <image xlink:href="DemoJob_01"/>
+        </mediaLink>
+        <alert class="note">
+          <para>
+            Bevor wir auf die Details des Demo-Jobs genauer eingehen ein kurzer Hinweis:
+            Wenn Sie sich gewundert haben, wieso dieser sich von dem eingangs dargestellten Demo-Job unterscheidet,
+            so liegt das an zwei Dingen:
+          </para>
+          <list class="ordered">
+            <listItem>
+              <para>
+                Die Checker des Sub-Jobs <languageKeyword>CheckServers</languageKeyword> wurden durch die
+                <token>V</token>-Standard Darstellung ausgegeben. Im Eingangsbeispiel wurden, wie auch bei
+                CheckDiskSpace <link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f" /> konfiguriert.
+              </para>
+            </listItem>
+            <listItem>
+              <para>
+                Die Ausrichtung der Jobdarstellung wurde über Mausklick auf das YinYang-Symbol
+                <mediaLinkInline>
+                  <image xlink:href="YinYang" />
+                </mediaLinkInline> zur Laufzeit verändert
+              </para>
+            </listItem>
+          </list>
+        </alert>
+        <para>
+          Der <token>V</token>-Demo-Job wird wie jedes Element in einer XML-Konfiguration beschrieben:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Simple\CheckAll_JobDescription.xml" language="xml"
+           title="JobDescription.xml">
+        </code>
+        <para>
+          Wie man leicht sehen kann, enthält diese <languageKeyword>JobDescription</languageKeyword> zwar die Beschreibung
+          für den Haupt-Job <languageKeyword>Check All</languageKeyword> aber keine Details über die beiden Sub-Jobs
+          <languageKeyword>CheckServers</languageKeyword> und <languageKeyword>CheckDiskSpace</languageKeyword>.
+          Die beiden Sub-Jobs werden in jeweils eigenen <languageKeyword>JobDescription.xml</languageKeyword> beschrieben.
+          Insbesondere bei größeren Jobs erhöht das deutlich die Übersichtlichkeit.
+        </para>
+        <alert class="note">
+          <para>
+            Mehrere Jobs können auch in einer einzigen <languageKeyword>JobDescription.xml</languageKeyword> zusammengefasst werden.
+            Wie das für unser Beispiel aussehen würde, sehen Sie auf der Seite <link xlink:href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c" />.
+          </para>
+        </alert>
+        <para>
+          Das Schlüsselwort <languageKeyword>&lt;JobDescription&gt;</languageKeyword>,
+		  bzw. /<languageKeyword>&lt;JobDescription&gt;</languageKeyword>
+          ist immer das äußerste Element (ganz oben und ganz unten) einer <token>V</token>-JobDescription.xml.
+          Ok, es beginnt genau genommen nicht ganz oben, aber die erste Zeile kennzeichnet die ganze Datei als XML-Datei und
+          ist in jeder <languageKeyword>JobDescription.xml</languageKeyword> gleich. Wir werden sie in der weiteren
+          Beschreibung einfach ignorieren. Auch die abschließenden Wiederholungen eines Element-Namens mit dem vorangestellten
+		  "&#47;" (&lt;&#47;Irgendwas&gt;)
+		  werden wir in Zukunft nicht mehr gesondert erwähnen (sie müssen einfach immer vorhanden sein).
+		</para>
+
+        <mediaLink>
+          <image xlink:href="DemoJobXML_01"/>
+        </mediaLink>
+
+        <para>
+          Die wichtigsten inneren Elemente einer <languageKeyword>&lt;JobDescription&gt;</languageKeyword> sind:
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              <languageKeyword>&lt;LogicalName&gt;</languageKeyword> - das ist der Job-Name der auch später von
+              <token>V</token> angezeigt wird.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <languageKeyword>&lt;LogicalExpression&gt;</languageKeyword> - das ist die Beschreibung der Elemente
+              des Job-Inhalts und der logischen Verknüpfung ihrer Einzelergebnisse (siehe auch <link xlink:href="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d" />).
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Die ausführenden Akteure des Jobs <languageKeyword>Checker</languageKeyword> und <languageKeyword>SubJob</languageKeyword>s.
+              Die Namen dieser Akteure werden in der <languageKeyword>LogicalExpression</languageKeyword> über
+              logische (und weitere) <languageKeyword>Operatoren</languageKeyword> miteinander verknüpft.
+            </para>
+          </listItem>
+        </list>
+        <alert class="caution">
+          <para>
+            Normalerweise muss jedes in der <languageKeyword>LogicalExpression</languageKeyword> eingeführte Element
+            mit demselben Namen im Job-Inhalt als <languageKeyword>Checker</languageKeyword>
+            oder <languageKeyword>SubJob</languageKeyword> beschrieben werden
+            (in unserem Beispiel <languageKeyword>CheckServers</languageKeyword> und
+            <languageKeyword>CheckDiskSpace</languageKeyword>), sonst kann <token>V</token>
+            den Job später nicht verarbeiten und meldet dies als Fehler.
+          </para>
+        </alert>
+
+        <para>
+          Wenn ein Job wie oben korrekt beschrieben wurde, reicht das, um ihn in <token>V</token>
+          ausführen und darstellen zu können.
+          Allerdings hat man im richtigen Leben nicht viel von einem Job, der einmal gestartet wurde und dann nur noch
+          hübsch auf dem Bildschirm rumsteht.
+        </para>
+        <para>
+          Um praktischen Nutzen aus <token>V</token>-<languageKeyword>Job</languageKeyword>s
+          ziehen zu können, benötigt es weitere Akteure, von denen die zwei wichtigsten hier kurz vorgestellt
+          werden sollen:
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              <languageKeyword>Worker</languageKeyword> - das sind eigenständige kleine Programme, die
+              bei definierten Veränderungen in der Verarbeitung der <languageKeyword>LogicalExpression</languageKeyword>
+              ausgeführt werden und verschiedene Aktionen auslösen können (z.B. Meldungen, Mails, etc.).
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <languageKeyword>Trigger</languageKeyword> - sie sorgen dafür, dass <languageKeyword>Checker</languageKeyword>
+              oder <languageKeyword>SubJob</languageKeyword>s zum Beispiel nach Ablauf einer vorgegebenen Zeit
+              erneut ausgeführt werden.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <section address="SubJobCheckServers">
+      <title>SubJob CheckServers</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+          <languageKeyword>JobDescription</languageKeyword> für den Sub-Job <languageKeyword>CheckServers</languageKeyword>:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Simple\CheckServers_JobDescription.xml" language="xml"
+           title="JobDescription.xml">
+        </code>
+        <para>
+          Sehen wir uns nun einen Auszug aus der <languageKeyword>JobDescription</languageKeyword> für den Sub-Job
+          <languageKeyword>CheckServers</languageKeyword> genauer an:
+        </para>
+        <mediaLink>
+          <image xlink:href="DemoJobXML_02"/>
+        </mediaLink>
+        <para>
+          Hier sind die wichtigsten Elemente (von oben nach unten):
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              <languageKeyword>&lt;LogicalName&gt;</languageKeyword> - das ist der (Sub-)Job-Name der auch später von
+              <token>V</token> angezeigt wird.
+            </para>
+            <alert class="caution">
+              <para>
+                Der <languageKeyword>LogicalName</languageKeyword> des SubJobs (hier <languageKeyword>CheckServers</languageKeyword>)
+                muss genau der sein, der auch in der <languageKeyword>LogicalExpression</languageKeyword> des Haup-Jobs
+                <languageKeyword>Check All</languageKeyword> auftritt. Nur dann kann <token>V</token> erkennen, dass es sich im logischen
+                Ausdruck des Haupt-Jobs um diesen SubJob handelt.
+              </para>
+            </alert>
+          </listItem>
+          <listItem>
+            <para>
+              <languageKeyword>&lt;LogicalExpression&gt;</languageKeyword> - das ist (wie beim Haupt-Job) die Beschreibung der Elemente
+              des Job-Inhalts und der logischen Verknüpfung ihrer Einzelergebnisse.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Der dann folgende <languageKeyword>Checker</languageKeyword> hat auch wieder einen <languageKeyword>LogicalName</languageKeyword>.
+              Dieser muss entsprechend wieder derselbe sein, wie im logischen Ausdruck des SubJobs.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Jeder Checker besitzt eine DLL, die die eigentliche Prüfung dessen, was Sie überwachen wollen, durchführt.
+              Das Element <languageKeyword>PhysicalPath</languageKeyword> gibt den Pfad relativ zum (Sub-)Job-Verzeichnis
+              plus Dateiname dieser DLL an.
+              <token>V</token> sucht die DLL dann später an dieser Stelle und lädt sie dynamisch.
+            </para>
+            <alert class="note">
+              <para>
+                Eine <languageKeyword>DLL</languageKeyword> ist, vereinfacht gesagt, ein kleiner Programmteil, der eine bestimmte
+                Aufgabe erledigen kann.
+                Was eine <languageKeyword>DLL</languageKeyword> genau ist, müssen Sie zum jetzigen Zeitpunkt
+                noch nicht genau wissen. Sie können vorerst mit den mitgelieferten Checker-DLLs experimentieren.
+                Spätestens aber, wenn Sie speziellere Aufgaben mit eigenen DLLs lösen wollen, empfehlen wir Ihnen
+                das Kapitel <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />.
+              </para>
+            </alert>
+          </listItem>
+          <listItem>
+            <para>
+              In <languageKeyword>Parameters</languageKeyword> werden die Aufrufparameter für die <languageKeyword>Checker-DLL</languageKeyword>
+              mitgegeben. In unserem Beispiel sind das:
+            </para>
+              <list class="bullet">
+                <listItem>
+                  <para>
+                    <languageKeyword>8.8.8.8</languageKeyword> - die IP-Adresse des Google-Servers,
+                  </para>
+                </listItem>
+                <listItem>
+                  <para>
+                    <languageKeyword>200</languageKeyword> - die Anzahl Millisekunden, die bei einem Versuch, den Server
+                    zu erreichen maximal gewartet werden soll,
+                  </para>
+                </listItem>
+                <listItem>
+                  <para>
+                    <languageKeyword>3</languageKeyword> - die maximale Anzahl Versuche, bevor ein Fehler gemeldet wird.
+                  </para>
+                </listItem>
+              </list>
+            <alert class="note">
+              <para>
+                Die Parameter werden in unseren Beispielen in einer verkürzten Notation hintereinander, durch 
+                <quoteInline>|</quoteInline> getrennt, übergeben. Sie können das Format Ihrer eigenen Parameter
+                aber prinzipiell beliebig festlegen, solange diese als Text (string) übergeben werden können
+                und Ihre Abnehmer (Checker, Worker, etc.) das Format verarbeiten können.
+              </para>
+            </alert>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <section address="SubJobCheckDiskSpace">
+      <title>SubJob CheckDiskSpace</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+          <languageKeyword>JobDescription</languageKeyword> für den Sub-Job <languageKeyword>CheckDiskSpace</languageKeyword>:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Simple\CheckDiskSpace_JobDescription.xml" language="xml"
+           title="JobDescription.xml"></code>
+      </content>
+    </section>
+
+    <section address="SieheAuch">
+      <title>Siehe auch</title>
+      <content>
+        <para>
+          <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />
+        </para>
+        <para>
+          <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" />
+        </para>
+        <para>
+          <link xlink:href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c" />
+        </para>
+        <para>
+          <link xlink:href="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d" />
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

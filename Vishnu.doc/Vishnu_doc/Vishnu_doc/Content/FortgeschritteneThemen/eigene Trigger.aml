@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c2c472b6-b252-4bd6-bf6a-0b15bc404ea4" revisionNumber="1">
+	<developerConceptualDocument
+	  xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+	  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+		<introduction>
+			<!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+			<!-- <autoOutline /> -->
+
+			<para>
+				Dieses Kapitel handelt von selbst erstellten <languageKeyword>Triggern</languageKeyword>.
+				Über eigene <languageKeyword>Trigger</languageKeyword> können Sie <languageKeyword>Checker</languageKeyword> im
+				<token>V</token>-Tree abhängig von Ereignissen in Ihren Geschäftsprozessen neu starten.
+			</para>
+		</introduction>
+
+		<!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+		<section address="Vorbemerkungen">
+			<title>Vorbemerkungen</title>
+			<content>
+				<para>
+					<languageKeyword>Trigger</languageKeyword> sollten vor allem dazu dienen, andere
+					<token>V</token>-Akteure, wie z.B. <languageKeyword>Checker</languageKeyword> sofort
+					nach äußeren oder Vishnu-internen Ereignissen zu starten.
+					<token>V</token> liefert hierfür schon folgende drei <languageKeyword>Trigger</languageKeyword> mit,
+					die auch schon unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Trigger" /> vorgestellt
+					wurden:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<database>TimerTrigger</database>
+						</para>
+						<para>
+							TimerTrigger rufen <languageKeyword>Checker</languageKeyword>
+							oder <languageKeyword>Worker</languageKeyword> in regelmäßigen Zeitabständen auf.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>FileWatcherTrigger</database>
+						</para>
+						<para>
+							FileWatcherTrigger starten <languageKeyword>Checker</languageKeyword> immer dann, wenn sich beobachtete
+							Dateien ändern.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>TreeEventTrigger</database>
+						</para>
+						<para>
+							TreeEventTrigger sind <token>V</token>-interne Trigger, die auf Ereignisse (<languageKeyword>TreeEvents</languageKeyword>)
+							innerhalb des <token>V</token>-Trees reagieren und dann <languageKeyword>Checker</languageKeyword> starten können.
+						</para>
+					</listItem>
+				</list>
+				<para>
+					Insbesondere <languageKeyword>TreeEventTrigger</languageKeyword> sind in Kombination mit <languageKeyword>Checkern</languageKeyword>
+					quasi das Schweizer Taschenmesser für die Behandlung eher nicht periodischer Ereignisse oder komplizierterer
+					Sachzusammenhänge.
+				</para>
+				<para>
+					Kurz gesagt: bevor man einen neuen <languageKeyword>Trigger</languageKeyword> erfindet, sollte man zuerst
+					prüfen, ob wirklich eine sofortige Reaktion auf ein Ereignis erforderlich ist oder die Aufgabe eventuell nicht
+					besser zu einem Checker passt, welcher seinerseits von einem der schon vorhandenen
+					<languageKeyword>Trigger</languageKeyword> angestoßen wird.
+				</para>
+				<alert class="note">
+					<para>
+						Auch wenn <languageKeyword>TreeEventTrigger </languageKeyword> <token>V</token>-interne Module sind,
+						können sie wie andere Trigger in der <languageKeyword>JobDescription.xml</languageKeyword>
+						konfiguriert werden.
+						Mehr Informationen zu <languageKeyword>TreeEvents</languageKeyword> finden Sie unter
+						<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="EigeneTrigger">
+			<title>eigene Trigger</title>
+			<content>
+				<para>
+					Wie schon in der kurzen Übersicht im Kapitel <link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" /> erwähnt,
+					müssen eigene <languageKeyword>Trigger</languageKeyword> die Schnittstelle
+					<codeEntityReference qualifyHint="true">T:Vishnu.Interchange.INodeTrigger</codeEntityReference> implementieren.
+					Darum müssen Sie sich aber nicht kümmern, wenn Sie Ihren Trigger von der Klasse <database>TriggerBase</database>
+					ableiten.
+				</para>
+				<para>
+					Sehen wir uns exemplarisch Ausgaben des Demo-Projekts <database>TimerTriggerDemo</database>
+					aus der Projektmappe <database>...\InPlug\TimerTrigger</database>
+					und danach Auszüge aus der Implementierung von <database>TimerTrigger</database> an.
+				</para>
+				<alert class="note">
+					<para>
+						Allgemeine Informationen über Trigger und wie diese in der <languageKeyword>JobDescription.xml</languageKeyword>
+						definiert werden können Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Trigger" /> nachschlagen.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="TimerTriggerDemoProjektRun">
+			<title>Das Demo-Projekt</title>
+			<content>
+				<para>
+					Hier zuerst die Ausgabe des Demo-Projekts:
+				</para>
+				<mediaLink>
+					<image xlink:href="TimerTriggerDemo"/>
+				</mediaLink>
+				<para>
+					Wie zu sehen ist, feuert der Trigger nach einer Wartezeit von 5 Sekunden
+					im Abstand von 3 Sekunden bis man ihn stoppt.
+				</para>
+				<para>
+					Einbindung und Aufruf der Klasse <database>TimerTrigger.cs</database> im Demo-Projekt,
+					siehe folgendes Code-Listing:
+				</para>
+				<code source="..\Vishnu_doc\Examples\TimerTriggerDemoProgram.cs" language="C#"
+				   title="Program.cs im Demo-Programm"></code>
+				<alert class="important">
+					<para>
+						Der oben gezeigte Aufruf von <languageKeyword>TimerTrigger</languageKeyword> im
+						Demo-Projekt dient nur zur Veranschaulichung. Sie selbst müssen den TimerTrigger nicht
+						aufrufen, sondern nur in einer <languageKeyword>JobDescription.xml</languageKeyword> konfigurieren.
+						<token>V</token> kümmert sich dann später selbst um den Aufruf.
+					</para>
+				</alert>
+			</content>
+		</section>
+
+		<section address="TimerTriggerSource">
+			<title>Der TimerTrigger</title>
+			<content>
+				<para>
+					Der eigentliche Trigger ist in unserem Beispiel die Klasse <database>TimerTrigger.cs</database>,
+					siehe folgendes Code-Listing:
+				</para>
+				<code source="..\Vishnu_doc\Examples\TimerTriggerClass.cs" language="C#"
+				   title="TimerTrigger.cs Auszug"></code>
+				<para>
+					Die Klasse TimerTrigger ist von der Basisklasse <database>TriggerBase</database> abgeleitet, welche ihrerseits
+					die von <token>V</token> bereitgestellte Schnittstelle
+					<codeEntityReference qualifyHint="true">T:Vishnu.Interchange.INodeTrigger</codeEntityReference> implementiert.
+					In der <database>EvaluateParametersOrFail</database>-Routine werden Anwender-Einstellungen übernommen.
+				</para>
+				<alert class="note">
+					<para>
+						Die Form und Syntax der übergebenen Parameter ist nicht festgelegt. Sie können hierüber völlig frei bestimmen.
+						Entscheidend ist nur, dass Ihr eigener Trigger das Format versteht, welches Sie auch in der
+						<languageKeyword>JobDescription.xml</languageKeyword> vorgeben.
+					</para>
+				</alert>
+				<para>
+					Die Methode <database>Start</database> übernimmt die Parameter und auch die aufzurufende Routine, wenn der
+					Trigger feuert und startet den <languageKeyword>Trigger</languageKeyword>.
+					<token>V</token> ruft später diese Methode auf.
+				</para>
+				<para>
+					Entsprechend wird von <token>V</token> die Methode <database>Stop</database> aufgerufen,
+					wenn der <languageKeyword>Trigger</languageKeyword> angehalten werden soll.
+				</para>
+				<para>
+					Die Methode <database>OnTriggerFired</database> wird im Beispiel überschrieben, um noch Informationen
+					über den letzten und nächsten Durchlauf zur Anzeige mitzugeben.
+				</para>
+			</content>
+		</section>
+
+		<section address="SieheAuch">
+			<title>Siehe auch</title>
+			<content>
+				<para>
+					<link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Trigger" />
+				</para>
+				<para>
+					<link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" />
+				</para>
+				<para>
+					<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />
+				</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

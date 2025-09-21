@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check ParameterReader</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS ParameterReaderChecker]]>
+  </LogicalExpression>
+  <StartCollapsed>false</StartCollapsed>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>ParameterReaderChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True||Parameter-Wert ist %GesuchterParameter%</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>

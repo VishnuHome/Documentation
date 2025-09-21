@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="15204f64-ecf7-44b6-822d-74e36b99927d" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+      <para>
+        <token>V</token> bietet eine globale Parameterersetzung an.
+        Das bedeutet, dass alle in Übergabeparametern befindlichen Parameternamen, wenn möglich,
+        durch ihre Laufzeitwerte ersetzt werden. Wie das im Detail aussieht, beschreibt dieses Kapitel.
+      </para>
+    </introduction>
+
+    <!-- Add one or more top-level section elements.  These are collapsible.
+         If using <autoOutline />, add an address attribute to identify it
+         and specify a title so that it can be jumped to with a hyperlink. -->
+    <section address="globaleParameterersetzung">
+      <title>globale Parameterersetzung</title>
+      <content>
+        <para>
+          Generell versucht Vishnu, alle in <database>%</database>-Zeichen eingeschlossenen Parameternamen
+          durch ihre Laufzeitwerte zu ersetzen.<lineBreak/>
+		  Parameter sind alle Zeichenketten, die in einer <languageKeyword>JobDescription.xml</languageKeyword>
+		  in den XML-Begrenzern <languageKeyword>&lt;Parameters&gt;</languageKeyword> eingeschlossen sind.
+        </para>
+        <para>
+          In dem nachfolgenden Code-Beispiel aus dem Demo-<languageKeyword>Job </languageKeyword> <database>CheckWildcardParameters</database>
+          ist so eine Wildcard-Variable zu sehen: <database>%ApplicationName%</database>.
+        </para>
+        <code source="..\Vishnu_doc\Examples\CheckWildcardParameters.xml" language="XML"
+           title="Definition und Parameter von Workern"></code>
+        <para>
+          In dem nachfolgenden Screenshot des <languageKeyword>Jobs</languageKeyword> CheckWildcardParameters
+          sieht man dann, dass die Variable <database>%ApplicationName%</database> durch ihren Wert
+		  <database>Vishnu</database> ersetzt wurde.
+        </para>
+        <mediaLink>
+          <image xlink:href="CheckWildcardParameters"/>
+        </mediaLink>
+        <alert class="note">
+          <para>
+            Die Parameterersetzung funktioniert für alle <token>V</token>-Parameter.
+            Eine vollständige Liste aller <token>V</token>-Parameter finden Sie unter
+            <codeEntityReference qualifyHint="true">T:Vishnu.Interchange.AppSettings</codeEntityReference>.
+            Weiterführende Erklärungen zu <token>V</token>-Parametern bietet die Seite
+            <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <section address="erweiterteParameterersetzungBeiSubWorkern">
+      <title>erweiterte Parameterersetzung bei SubWorkern</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+          Wie schon im Kapitel <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Worker" /> erwähnt,
+          können <languageKeyword>SubWorker</languageKeyword> von <token>V</token> nur Kommandozeilenparameter (einfachen Text)
+          übergeben bekommen.
+          <token>V</token> erweitert hier allerdings die global ersetzten Parameter um einige wesentliche aktuelle
+          Laufzeitwerte:
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>
+              <database>"%Event%"</database> = Name des Ereignisses, das zum Aufruf des Workers geführt hat
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%Source%"</database> = Quelle des Ereignisses (Knoten, in dem das Ereignis zuerst aufgetreten ist)
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%Sender%"</database> = Knoten, der aufgrund des Ereignisses aktuell den Worker aufruft
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%TreePath%"</database> = kompletter Pfad im Tree zur Ereignis-Quelle
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%Timestamp%"</database> = aktuelles Datum mit aktueller Uhrzeit im Format "dd.MM.yyyy HH.mm.ss"
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%Logical%"</database> = aktueller logischer Wert des Senders
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <database>"%Exception%"</database> = Exception.Message, falls %Event% gleich "Exception" ist, ansonsten ""
+            </para>
+          </listItem>
+        </list>
+        <para>
+          Der nachfolgende XML-Ausschnitt bietet ein Beispiel für die Verwendung der erweiterten Laufzeitwerte bei
+          <languageKeyword>SubWorkern</languageKeyword>.
+        </para>
+        <code source="..\Vishnu_doc\Examples\CheckServerPart3.xml" language="XML"
+           title="Definition und Parameter von Workern"></code>
+      </content>
+    </section>
+
+    <section address="erweiterteParameterersetzungDurchEigenenParameterReader">
+      <title>erweiterte Parameterersetzung durch eigenen ParameterReader</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>
+          Eigene <languageKeyword>ParameterReader</languageKeyword> bieten die Möglichkeit, <token>V</token> beim Start
+          zusätzliche eigene, geschäftsspezifische Parameter mitzugeben. Diese Parameter werden dann in Folge wie
+          normale <token>V</token>-Parameter behandelt, das heißt, dass sie z.B. auch Gegenstand der 
+          <token>V</token>-Parameterersetzung sein können.
+        </para>
+        <para>
+          Hierfür sind drei Komponenten nötig,
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              Eine eigene <database>&lt;UserParameter-Name&gt;.dll</database>.
+              Diese <languageKeyword>DLL</languageKeyword> muss die
+              <codeEntityReference qualifyHint="true">T:Vishnu.Interchange.IParameterReader</codeEntityReference> Schnittstelle implementieren.
+            </para>
+            <alert class="note">
+              <para>
+                <token>V</token> liefert schon einen <languageKeyword>DemoParameterReader</languageKeyword> und einen
+                <languageKeyword>Demo-Job</languageKeyword> <database> CheckParameterReader</database> mit.
+                Darauf wird weiter unten noch eingegangen.
+              </para>
+            </alert>
+          </listItem>
+          <listItem>
+            <para>
+              Über den Parameter <languageKeyword>UserAssemblyDirectory</languageKeyword> kann ein Verzeichnis gesetzt
+              werden, in dem <token>V</token> zusätzlich zu den jeweweiligen <languageKeyword>Job</languageKeyword>-Verzeichnissen
+              nach Ihren
+              <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8">eigenen Checker-DLLs</link>,
+              <link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f">eigenen UserControls</link> oder auch
+              <link xlink:href="f724b721-c805-4dbe-8db4-1529c0c68f3d">Ihrem eigenen Parameter-Reader</link> sucht.
+              Die Default-Einstellung ist <languageKeyword>UserAssemblies</languageKeyword>.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Angabe des Pfades zu Ihrem eigenen <languageKeyword>ParameterReader</languageKeyword>.
+              Wie schon weiter oben erwähnt, liefert <token>V</token> schon einen <languageKeyword>DemoParameterReader</languageKeyword>
+              und einen <languageKeyword>Demo-Job</languageKeyword> <database> CheckParameterReader</database> mit.
+              Der Pfad ist in der mitgelieferten <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" /> auf
+              <languageKeyword>"%UserAssemblyDirectory%\DemoParameterProvider.dll"</languageKeyword> eingestellt.
+            </para>
+          </listItem>
+        </list>
+        <para>
+          Unten sehen Sie Ausüge und Screenshots zur Verdeutlichung des Konzepts anhand des <languageKeyword>Demo-Jobs</languageKeyword>
+          <database> CheckParameterReader</database>:
+        </para>
+        <code source="..\Vishnu_doc\Examples\Vishnu.exe.config.user.Part.xml" language="xml"
+           title="Vishnu.exe.config.user Auszug"></code>
+        <code source="..\Vishnu_doc\Examples\CheckParameterReader.xml" language="xml"
+           title="CheckParameterReader"></code>
+        <mediaLink>
+          <image xlink:href="CheckParameterReader"/>
+        </mediaLink>
+        <alert class="note">
+          <para>
+            Weiterführende Informationen zu eigenen ParameterReadern finden Sie unter
+            <link xlink:href="f724b721-c805-4dbe-8db4-1529c0c68f3d" />.
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
