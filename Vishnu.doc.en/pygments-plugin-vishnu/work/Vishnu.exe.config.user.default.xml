@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configuration>
+	<appSettings>
+		<!--   Benutzeranwendung und konfigurierte Eigenschafteneinstellungen hier einfuegen.-->
+		<!--   Beispiel: <add key="settingName" value="settingValue"/> -->
+		<add key="UserParameterReaderPath" value="%UserAssemblyDirectory%\DemoParameterProvider.dll|PARA-1|PARA-2|M:1" />
+		<add key="DumpAppSettings" value="true"/>
+		<add key="Autostart" value="true"/>
+	</appSettings>
+</configuration>

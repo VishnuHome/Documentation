@@ -149,8 +149,15 @@
 		  </content>
 	  </section>
 
+	  <section address="SieheAuch">
+		  <title>Siehe auch</title>
+		  <content>
+			  <para>
+				  <link xlink:href="6fe3bf85-d02b-41ff-84a7-dcc2a4819978" />
+			  </para>
+		  </content>
+	  </section>
 	  <relatedTopics>
-		  <link xlink:href="6fe3bf85-d02b-41ff-84a7-dcc2a4819978" />
 	  </relatedTopics>
 
   </developerConceptualDocument>

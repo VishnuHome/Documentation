@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygments-plugin-vishnu" # change this to a package name for your plugin
+version = "0.0.1"
+dependencies = ["pygments"]
+readme = "README.md"
+authors = [
+  {name = "Erik Nagel", email = "vishnu@reallyhuman.net"}
+]
+maintainers = [
+  {name = "Erik Nagel", email = "vishnu@reallyhuman.net"}
+]
+description = "Lexer, Formatter, Style and Filter for use with the Vishnu-Help examples"
+
+[project.urls]
+Homepage = "https://github.com/VishnuHome"
+Documentation = "https://vishnuhome.github.io/Vishnu/de/"
+
+# Declare plugin lexers in this table. The key (like `vishnu_lexer` below) are
+# not significant. The value has the form `module_name:ClassName`. The lexer
+# class will be imported using `from module_name import ClassName`.
+
+# See the attributes declared in vishnu_lexer.py for how to configure the
+# language names and file patterns.
+
+[project.entry-points."pygments.lexers"]
+vishnu_lexer = "vishnu.vishnu_lexer:VishnuLexer"
+
+
+# Declare plugin formatters in this table. The key is not significant and the
+# value has the same format as for lexers. See vishnu_formatter.py for
+# configuration options.
+
+[project.entry-points."pygments.formatters"]
+vishnu_formatter = "vishnu.vishnu_formatter:VishnuFormatter"
+
+
+# Declare plugin styles in this table. The key *is* significant: it is the name
+# the style will be recognized as. In this vishnu, we can use
+#
+#   pygmentize -Ostyle=vishnu-style"
+#
+# on the command line. Also,
+#
+#   pygments.styles.get_style_by_name("vishnu-style")
+#
+# will return the style class.
+
+[project.entry-points."pygments.styles"]
+vishnu_style = "vishnu.vishnu_style:VishnuStyle"
+
+
+# Declare plugin filters in this table. The key *is* significant: it is the name
+# the filter will be recognized as. In this vishnu, we can use
+#
+#  pygmentize -F vishnu_filter
+#
+# on the command line. Also,
+#
+#   pygments.filters.find_filter_class("vishnu_filter")
+#
+# will return the filter class.
+
+[project.entry-points."pygments.filters"]
+vishnu_filter = "vishnu.vishnu_filter:VishnuFilter"
+
+[tool.setuptools.packages]
+find = { where = ["src"] }
+
+# This is a test command. Running it should print:
+#
+# [ff0000]foo
+# [black]<tab><tab>bar # tabs here
+#
+# - Our custom lexer highlights "foo" as keyword,
+# - Our custom style uses red (ff0000) for keywords,
+# - Our custom formatter prints colors in brackets,
+# - Our custom filter replaces tabs with "<tab>".
+#
+# Run with
+#
+#   hatch run test
+
+# [tool.hatch.envs.default.scripts]
+# test = "pygmentize -l vishnu_lang -f vishnu_format -F vishnu_filter -O style=vishnu_style test.xml"

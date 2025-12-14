@@ -1,0 +1,47 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckServers",
+    "LogicalExpression": "(Google AND Heise) AND (Local OR Local_Backup)",
+    "SingleNodeUserControlPath": "Plugin\\SingleNodeUserControl_CheckServer.dll",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Google",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "8.8.8.8|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|S:20"
+          }
+        },
+        {
+          "LogicalName": "Heise",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "www.heise.de|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:2|S:20"
+          }
+        },
+        {
+          "LogicalName": "Local",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "Localhost|1000|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:3|S:20"
+          }
+        },
+        {
+          "LogicalName": "Local_Backup",
+          "PhysicalPath": "Plugin\\CheckServer.dll",
+          "Parameters": "9.8.7.6|200|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:4|S:20"
+          }
+        }
+      ]
+    }
+  }
+}

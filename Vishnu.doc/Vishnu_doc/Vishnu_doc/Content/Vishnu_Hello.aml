@@ -63,13 +63,13 @@
 							<image xlink:href="noDrive_D"/>
 						</mediaLinkInline>
 						Sollte <database>Check_D</database> nach der Installation bei Ihnen etwa so aussehen,
-						dann hat Ihr System aktuell kein Laufwerk D:. Das ist aber für die weitere Betrachtung unwesentlich.
+						dann hat Ihr System aktuell kein Laufwerk D:.<lineBreak/>Das ist aber für die weitere Betrachtung unwesentlich.
 					</para>
 				</alert>
 				<para>
 					Wie schon oben skizziert, ist <token>V</token> eine Software-Lösung zur Überwachung und Steuerung von
 					beliebigen Anwender-Prozessen. Ihre Prozesse können simultan oder in Abhängigkeit voneinander (oder beides)
-					verarbeitet werden. Sie definieren die Zusammenhänge einfach in Json- oder Xml-Textdateien.
+					verarbeitet werden. Sie definieren die Zusammenhänge einfach in <languageKeyword>Json</languageKeyword>- oder <languageKeyword>XML</languageKeyword>-Textdateien.
 					Die einzelnen Prozesse werden hierbei nach logischen Gesichtspunkten zu Jobs zusammengefasst.
 					<token>V</token> stellt die Jobs mit ihren Akteuren übersichtlich, wahlweise in einer Baumdarstellung
 					oder als Listen, dar.<lineBreak/>
@@ -79,24 +79,27 @@
 				</para>
 				<list class="bullet">
 					<listItem>
-						<para>Jobs - umfassen mehrere logisch zusammengehörende Akteure, die ihrerseits auch wieder Jobs sein können</para>
-					</listItem>
-					<listItem>
-						<para>Checker, Worker - beliebige Anwenderprozesse (dll, exe)</para>
-					</listItem>
-					<listItem>
-						<para>Trigger - starten Checker, Worker oder Jobs neu, z.B. nach einer bestimmten Zeit</para>
+						<para>
+							<database>Jobs</database> - umfassen mehrere logisch zusammengehörende Akteure, die ihrerseits auch wieder Jobs sein können</para>
 					</listItem>
 					<listItem>
 						<para>
-							Logger, ValueModifier, Connectoren - weitere Typen von Akteuren, die später noch beschrieben werden.
+							<database>Checker, Worker</database> - beliebige Anwenderprozesse (dll, exe)</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Trigger</database> - starten <languageKeyword>Checker, Worker</languageKeyword> oder <languageKeyword>Jobs</languageKeyword> neu, z.B. nach einer bestimmten Zeit</para>
+					</listItem>
+					<listItem>
+						<para>
+							<database>Logger, ValueModifier, Connectoren</database> - weitere Typen von Akteuren, die später noch beschrieben werden.
 							Details finden Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360" />
 							und <link xlink:href="0af46309-8c47-467f-a231-36615b7488d4" />.
 						</para>
 					</listItem>
 				</list>
 				<para>
-					<token>V</token> liefert schon eine Reihe vordefinierter Demo-Jobs, Checker, Trigger und  Worker mit, so dass sofort losgelegt werden kann.
+					<token>V</token> liefert schon eine Reihe vordefinierter <languageKeyword>Demo-Jobs, Checker, Trigger</languageKeyword> und  <languageKeyword>Worker</languageKeyword> mit, so dass sofort losgelegt werden kann.
 					<markup>
 						<br/>
 					</markup>

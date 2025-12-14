@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Disk Space</LogicalName>
+  <LogicalExpression>Check_C AND Check_D</LogicalExpression>
+  <StartCollapsed>false</StartCollapsed>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Check_C</LogicalName>
+      <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+      <Parameters>c:|200000|100|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>M:10</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>Check_D</LogicalName>
+      <PhysicalPath>Plugin\CheckDiskSpace.dll</PhysicalPath>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckDiskSpace.dll</UserControlPath>
+      <Parameters>d:|200000|100|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|M:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

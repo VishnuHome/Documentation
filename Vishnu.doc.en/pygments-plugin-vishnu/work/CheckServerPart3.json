@@ -1,0 +1,22 @@
+  ...
+  "Workers": {
+    "Worker": [
+      {
+        "LogicalExpression": "Heise:False|Exception",
+        "SubWorkers": {
+          "SubWorker": [
+            {
+              "PhysicalPath": "VishnuMessageBox.exe",
+              "Parameters": "-Message=\"%Timestamp%: CheckServers %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Server Fehler\" -MessageNewLine=#"
+            },
+            {
+              "PhysicalPath": "MicroMailer.exe",
+              "Parameters": "-Message=\"%Timestamp%:  CheckServers %Event% von %Source% in %Sender%#%Exception%.\" -Caption=\"Server Fehler!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Absender\" -MailRecipients=\"Empfänger1[,Empfänger2,...]\""
+            }
+          ]
+        }
+      }
+    ...
+    ]
+  }
+  ...

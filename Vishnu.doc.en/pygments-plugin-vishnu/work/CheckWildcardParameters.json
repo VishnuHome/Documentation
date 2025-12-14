@@ -1,0 +1,19 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check WildcardParameters",
+    "LogicalExpression": "IS WildcardParameterChecker",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "WildcardParameterChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True||Diese Anwendung heißt %ApplicationName%."
+        }
+      ]
+    }
+  }
+}

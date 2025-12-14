@@ -1,7 +1,5 @@
 import os
 import re
-import time
-import json
 from tqdm import tqdm
 
 # Fügt wird einen englischer pageHeader ein.
@@ -12,7 +10,7 @@ from tqdm import tqdm
 directory = r"html"
 
 # Funktion zum Verarbeiten einer HTM-Datei
-def work_on_file(filepath):
+def work_on_file(filepath: str) -> None:
     with open(filepath, "r", encoding="utf-8") as file:
         file_content = file.read()
 

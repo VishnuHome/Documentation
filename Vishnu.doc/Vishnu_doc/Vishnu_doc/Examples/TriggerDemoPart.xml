@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Job1</LogicalName>
+  ...
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Job1</Parameters>
+  </JobSnapshotTrigger>
+  ...
+  <JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>Exception|LogicalResultChanged</Parameters>
+  </JobLogger>
+  ...
+    <Checker>
+      <LogicalName>Checker1</LogicalName>
+      ...
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>Checker2</LogicalName>
+      ...
+      <Trigger>
+        <Reference>AnyLogicalResultChanged|Exception</Reference>
+        <Parameters>Checker1</Parameters>
+      </Trigger>
+    </Checker>
+  ...
+    <Worker>
+      <LogicalExpression>Job1:Exception</LogicalExpression>
+        ...
+        <SubWorker>
+          <PhysicalPath>MyWorker.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[-Message="%Timestamp%: %Event% ...]]>
+          </Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>M:30</Parameters>
+          </Trigger>
+        </SubWorker>
+        ...
+    </Worker>
+  ...
+</JobDescription>

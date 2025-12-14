@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Weather History",
+    "LogicalExpression": "IS WeatherHistory",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "WeatherHistory",
+          "UserControlPath": "Plugin\\WeatherCheckerControl.dll",
+          "PhysicalPath": "CheckerHistoryLogger.dll",
+          "Parameters": "quiet|WeatherChecker.dll|erstellt Wettervorhersagen",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "M:60"
+          }
+        }
+      ]
+    }
+  }
+}

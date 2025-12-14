@@ -23,9 +23,9 @@ from tqdm import tqdm
 
 directory = r"html"
 output_file = os.path.join(directory, "../Vishnu_doc.en.hhk")
-filepath_title = {}
-german_filepath = {}
-german_english = {
+filepath_title: dict[str, str] = {}
+german_filepath: dict[str, str] = {}
+german_english: dict[str, str] = {
     "Methode": "method",
     "Methoden": "methods",
     "Klasse": "class",
@@ -40,16 +40,16 @@ german_english = {
     "Schnittstelle": "interface",
     "Enumerationsmember": "enumeration member"
 }
-out_lines = []
+out_lines: list[str] = []
 
-def last_word(text):
+def last_word(text: str) -> str | None:
     # Den String in Wörter aufteilen
     words = text.split()
     # Das letzte Wort zurückgeben
     return words[-1] if words else None
 
 # Funktion zum Extrahieren des <title>-Tags aus einer HTML-Datei
-def extract_filepath_title_from_htmls(filepath):
+def extract_filepath_title_from_htmls(filepath: str) -> tuple[str, str]:
     with open(filepath, "r", encoding="utf-8") as file:
         content = file.read()
 
@@ -66,7 +66,7 @@ def extract_filepath_title_from_htmls(filepath):
 # und Füllen des Hashes "german_filepath".
 def extract_german_filepath_from_hhc():
     path_in = "Vishnu_doc.de.hhc"
-    key = None
+    key: str = ''
     path = None
     with open(path_in, "r", encoding="utf-8") as f_in:
         for line in f_in:
@@ -87,7 +87,7 @@ def translate_hhk():
     path_out = "Vishnu_doc.en.hhk"
     name = None
     name_line = None
-    path = None
+    path: str = ''
     path_line = None
     with open(path_in, "r", encoding="utf-8") as f_in, open(path_out, 'w') as f_out:
         for line in f_in:

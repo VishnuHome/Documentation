@@ -19,7 +19,7 @@
 				Wie Sie aber schon in <link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" /> beim <languageKeyword>Job</languageKeyword>
 				CheckDiskSpace sehen konnten, kann über eigene <languageKeyword>Views</languageKeyword> Information visuell noch viel
 				eingänglicher aufbereitet werden.
-				Für die Erstellung eigener DLLs sind jedoch Grundkenntnisse in einer
+				Für die Erstellung eigener <languageKeyword>View-DLLs</languageKeyword> sind jedoch Grundkenntnisse in einer
 				<languageKeyword>DotNet</languageKeyword>-Sprache, z.B. <languageKeyword>C#</languageKeyword> erforderlich.
 			</para>
 			<alert class="important">
@@ -39,19 +39,103 @@
 			<title>der Demo Job</title>
 			<content>
 				<para>
-					Dies ist die <languageKeyword>JobDescription.xml</languageKeyword> für den Demo-Job für eigene <languageKeyword>Views</languageKeyword>:
+					Dies ist die <languageKeyword>JobDescription</languageKeyword> des <languageKeyword>Demo-Job</languageKeyword>s für eigene <languageKeyword>Views</languageKeyword>:
 				</para>
-				<code source="..\Vishnu_doc\Examples\UserView.xml" language="xml"
+				<!--<code source="..\Vishnu_doc\Examples\UserView.xml" language="xml"
 				   title="JobDescription.xml">
-				</code>
+				</code>-->
+				<para>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #1F5C10">&lt;?xml</span> <span style="color: #1F5C10">version=&quot;1.0&quot;</span> <span style="color: #1F5C10">encoding=&quot;utf-8&quot;?&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">UserViewDemo</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span> <span style="color: #000">AND</span> <span style="color: #000">UserChecker</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TrueFalseExceptionChecker.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">False</span><span style="color: #000">:</span><span style="color: #BE5D1D">True</span><span style="color: #000">:Exception|</span><span style="color: #1C01CE">10</span><span style="color: #000">|</span><span style="color: #BE5D1D">Predecessor</span><span style="color: #000">:</span> <span style="color: #000">Hello</span> <span style="color: #000">World</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">15</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">UserChecker</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\UserChecker.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\UserView.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">True</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #5C3CFF">{</span>
+  <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;UserViewDemo&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor</span> <span style="color: #000">AND</span> <span style="color: #000">UserChecker&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TrueFalseExceptionChecker.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">False</span><span style="color: #000">:</span><span style="color: #BE5D1D">True</span><span style="color: #000">:Exception|</span><span style="color: #1C01CE">10</span><span style="color: #000">|</span><span style="color: #BE5D1D">Predecessor</span><span style="color: #000">:</span> <span style="color: #000">Hello</span> <span style="color: #000">World&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">15</span><span style="color: #000">&quot;</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;UserChecker&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\UserChecker.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\UserView.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Reference</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;True&quot;,</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor&quot;</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span>
+      <span style="color: #000">]</span>
+    <span style="color: #5C3CFF">}</span>
+  <span style="color: #5C3CFF">}</span>
+<span style="color: #5C3CFF">}</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+				</para>
 				<para>
 					Den wesentlichen Unterschied zum Demo-Job für eigene Checker (siehe <link xlink:href="a3f9771a-ac24-46c0-97df-d2bde6a990e8" />)
-					macht die zusätzliche Anweisung
-					<languageKeyword>&lt;UserControlPath&gt;Plugin\UserView.dll&lt;&#47;UserControlPath&gt;</languageKeyword>.
+					macht die zusätzliche Anweisung<lineBreak/>
+					<languageKeyword>XML: </languageKeyword>&lt;<languageKeyword>UserControlPath</languageKeyword>&gt;<languageKeyword>Plugin\UserView.dll</languageKeyword>&lt;<languageKeyword>&#47;UserControlPath</languageKeyword>&gt;<lineBreak/>
+					<languageKeyword>Json: </languageKeyword><languageKeyword>"UserControlPath": </languageKeyword><languageKeyword>Plugin\\UserView.dll</languageKeyword>.<lineBreak/>
 				</para>
 				<para>
 					Hierüber wird <token>V</token> mitgeteilt, dass sich im Verzeichnis <database>Plugin</database> eine eigene
-					<languageKeyword>DLL</languageKeyword> <database> UserView.dll</database> befindet, die <token>V</token> anstelle
+					<languageKeyword>DLL </languageKeyword> <database>"UserView.dll"</database> befindet, die <token>V</token> anstelle
 					der Standard-<languageKeyword>View</languageKeyword> verwenden soll.
 				</para>
 			</content>
@@ -99,8 +183,8 @@
 				</mediaLink>
 				<alert class="note">
 					<para>
-						Die UserView und das Testprojekt sind sofort lauffähig und die UserView kann mit der
-						implementierten Demo-Funktionalität als <token>V</token>-View eingesetzt werden.
+						Die <languageKeyword>UserView</languageKeyword> und das Testprojekt sind sofort lauffähig und die <languageKeyword>UserView</languageKeyword>
+						kann mit der implementierten Demo-Funktionalität als <token>V</token>-View eingesetzt werden.
 					</para>
 					<para>
 						Hier die Ausgabe des Testprojekts im Debugger:
@@ -134,7 +218,7 @@
 					eingefügt werden:
 				</para>
 				<code source="..\Vishnu_doc\Examples\ResultViewModel.cs" language="c#"
-				   title="Auszug aus der Klasse ResultViewModel">
+				   title="ResultViewModel">
 				</code>
 				<alert class="note">
 					<para>
@@ -153,7 +237,7 @@
 					unerlässlich ist: die Serialisierung und De-Serialisierung des <languageKeyword>UserChecker_ReturnObject</languageKeyword>es.
 				</para>
 				<para>
-					<token>V</token> behandelt <languageKeyword>UserChecker_ReturnObject</languageKeyword>e bei der Anzeige in den
+					<token>V</token> behandelt <languageKeyword>UserChecker_ReturnObject</languageKeyword>s bei der Anzeige in den
 					Standard-<languageKeyword>View</languageKeyword>s einfach als Zeichenketten. Dies ist aber für die Aufbereitung
 					strukturierter Inhalte (<languageKeyword>Properties</languageKeyword>) unzureichend. Hierfür muss auf die
 					<languageKeyword>Properties</languageKeyword> im Einzelnen zugegriffen werden können.
@@ -185,10 +269,10 @@
 				<para>
 					Alle fünf Routinen müssen vorhanden sein und in den oben fett gedruckten drei Routinen
 					müssen die Properties von <database>UserChecker_ReturnObjecten</database> behandelt werden.
-					Details sind im nachfolgenden Code-Auschnitt der <database>UserChecker_ReturnObject</database>-Klasse zu sehen:
+					Details sind im nachfolgenden Code-Auschnitt der <languageKeyword>UserChecker_ReturnObject</languageKeyword>-Klasse zu sehen:
 				</para>
 				<code source="..\Vishnu_doc\Examples\UserChecker_ReturnObject.cs" language="c#"
-				   title="Auszug aus der Klasse UserChecker_ReturnObject">
+				   title="UserChecker_ReturnObject">
 				</code>
 				<alert class="note">
 					<para>

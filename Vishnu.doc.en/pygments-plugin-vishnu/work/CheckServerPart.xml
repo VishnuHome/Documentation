@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckServers</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Google AND Heise) & (Local OR Local_Backup)]]>
+  </LogicalExpression>
+  <SingleNodeUserControlPath>Plugin\SingleNodeUserControl_CheckServer.dll</SingleNodeUserControlPath>
+  ...
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Google</LogicalName>
+      <PhysicalPath>Plugin\CheckServer.dll</PhysicalPath>
+      <Parameters>8.8.8.8|200|3</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|S:20</Parameters>
+      </Trigger>
+      ...
+    </Checker>
+    ...
+  </Checkers>
+  ...
+</JobDescription>

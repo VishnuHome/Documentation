@@ -22,12 +22,12 @@
         Diese Parameter können beim Aufruf von <token>V</token> über die Kommandozeile mitgegeben werden,
         sie können aber auch über die <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" />,
         das Environment, oder die Registry eingestellt werden. <token>V</token> leitet dabei auch ihm unbekannte
-        "anonyme" Parameter an <languageKeyword>Jobs</languageKeyword> und <languageKeyword>Checker</languageKeyword> weiter,
+        "anonyme" Parameter an <languageKeyword>Jobs</languageKeyword>, <languageKeyword>Checker</languageKeyword> und <languageKeyword>Worker</languageKeyword> weiter,
         sofern sie an den <token>V</token> bekannten Stellen abgelegt wurden.
       </para>
       <para>
         <token>V</token>-<languageKeyword>Jobs</languageKeyword> und deren Elemente wie zum Beispiel <languageKeyword>Checker</languageKeyword>
-        können über verschiedene Parameter in der <languageKeyword>JobDescription.json</languageKeyword> bzw. <languageKeyword>JobDescription.xml</languageKeyword>
+        können über verschiedene Parameter in der <languageKeyword>JobDescription.json</languageKeyword> oder auch <languageKeyword>JobDescription.xml</languageKeyword>
 		gesteuert werden.
         Eine Liste von Parametereinstellungen für Jobs und deren Elemente finden Sie weiter unten in diesem Kapitel bei <link xlink:href="#JobParameter">Job Parameter</link>.
       </para>
@@ -55,7 +55,7 @@
               d.h. nicht vorkommen müssen.
             </para>
             <para>
-              Beispiel: <languageKeyword>Vishnu "irgendwas" -job="DemoJobs\CheckAll"</languageKeyword>
+              Beispiel: <languageKeyword>Vishnu "irgendwas" </languageKeyword><languageKeyword>-job="DemoJobs\CheckAll"</languageKeyword>
             </para>
             <alert class="note">
               <para>
@@ -78,14 +78,18 @@
 			  im Pfad <languageKeyword>%LOCALAPPDATA%\Vishnu\Vishnu.exe.config.user</languageKeyword>, wobei
               <languageKeyword>LOCALAPPDATA</languageKeyword> eine Einstellung der Windows-Umgebung (Environment) ist
               und üblicherweise auf <languageKeyword>C:\Users\&lt;Benutzer&gt;\AppData\Local</languageKeyword> verweist.
-            </para>
-            <para>
-              Beispiel: <languageKeyword>&lt;add key="Job" value="DemoJobs\CheckAll"&gt;</languageKeyword>
-            </para>
-            <alert class="note">
-				<para>
-					Die Vishnu.exe.config.user kann in <languageKeyword>Json</languageKeyword> oder <languageKeyword>Xml</languageKeyword> vorliegen.
 			</para>
+			<para>
+			  Die Vishnu.exe.config.user kann in <languageKeyword>Json</languageKeyword> oder <languageKeyword>XML</languageKeyword> vorliegen.
+			  Je nach Format der Konfigurationsdatei (Json oder XML) sieht die Angabe eines Parameters dort wie folgt aus:
+			</para>
+			  <para>
+				  Json-Beispiel: <languageKeyword>"Job": "DemoJobs\\CheckAll",</languageKeyword>
+			  </para>
+			  <para>
+				  XML-Beispiel: <languageKeyword>&lt;add key="Job" value="DemoJobs\CheckAll"&gt;</languageKeyword>
+			  </para>
+			  <alert class="note">
 				<para>
 					Die Reihenfolge der Parameterangaben ist in der <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" />
 					unerheblich.
@@ -146,9 +150,9 @@
               <languageKeyword>Job</languageKeyword>
             </para>
             <para>
-              Über diesen Parameter kann der Pfad zum Job oder zu einem Zip-Archiv, welches das Job-Verzeichnis enthält (dann ohne ".zip"-Extension),
-              festgelegt werden. Der Pfad kann absolut oder relativ zum übergeordneten Job bzw. zum <token>V</token>-Installationsverzeichnis
-              angegeben werden.
+              Über diesen Parameter kann der Pfad zum Job-Verzeichnis oder zu einem Zip-Archiv, welches das Job-Verzeichnis enthält
+			  (dann ohne ".zip"-Extension), festgelegt werden. Der Pfad kann absolut oder relativ zum übergeordneten Job
+			  bzw. zum <token>V</token>-Installationsverzeichnis angegeben werden.
               Gültige Pfadangaben sind z.B. <languageKeyword>DemoJobs\CheckAll</languageKeyword> oder auch
               <languageKeyword>c:\Users\%UserName%\AppData\Local\Apps\Vishnu\CheckAll</languageKeyword>.
             </para>
@@ -159,9 +163,8 @@
             </para>
             <para>
               <token>V</token> wird bei Erstinstallation im Demo-Modus mit einem Demo-Job gestartet.
-              Dies ist in der <link xlink:href="9b9475bc-f8a9-4e7a-a84a-373276329b00" /> so voreingestellt.
-              Um die Anzeige "-DEMO-" im Vishnu-Fenster loszuwerden, können Sie <languageKeyword>DemoModus</languageKeyword>
-              auf "false" setzen oder den Parameter ganz herausnehmen.
+			  Um die Anzeige "-DEMO-" im Vishnu-Fenster loszuwerden, können Sie einen <languageKeyword>Job</languageKeyword>
+			  als Parameter übergeben oder den Parameter <languageKeyword>DemoModus</languageKeyword> mit dem Wert <database>false</database> übergeben.
             </para>
           </listItem>
           <listItem>
@@ -195,9 +198,8 @@
             </para>
             <para>
               Das <languageKeyword>WorkingDirectory</languageKeyword> ist das <token>V</token>-Arbeitsverzeichnis.
-              Hier legt <token>V</token> Logfiles und Momentaufnahmen seines Zustandes
-              (<languageKeyword>Snapshots</languageKeyword>) ab, wenn für diese keine anderen Ablageverzeichnisse definiert wurden.
-              Die Default-Einstellung ist <languageKeyword>%TempDirectory%\Vishnu.%MainJobName%</languageKeyword>.
+			  Die Default-Einstellung ist <languageKeyword>%TempDirectory%\Vishnu.%MainJobName%</languageKeyword>.
+			  Hier legt <token>V</token> Logfiles ab.
             </para>
             <para>
               Per Default lässt <token>V</token> das <languageKeyword>WorkingDirectory</languageKeyword> am Ende der
@@ -221,7 +223,7 @@
               mit Quellen und plus eine Liste aller geladenen <languageKeyword>Assemblies</languageKeyword>.
             </para>
             <para>
-              Auch alle Ausgaben der eventuell von Ihnen in der <languageKeyword>JobDescription.xml</languageKeyword>
+              Auch alle Ausgaben der eventuell von Ihnen in der <languageKeyword>JobDescription</languageKeyword>
               definierten <languageKeyword>Logger</languageKeyword> landen im <languageKeyword>DebugFile</languageKeyword>.
             </para>
             <para>
@@ -330,28 +332,28 @@
         <para>
           Das oberste Element einer <token>V</token>-Verarbeitung ist immer der <languageKeyword>Job</languageKeyword>.
           Wie der Job auszusehen hat und was er tun soll, wird in einer Datei <languageKeyword>JobDescription.xml</languageKeyword>
-          festgelegt.
+			oder <languageKeyword>JobDescription.json</languageKeyword> festgelegt.
         </para>
         <para>
           Jobs können beliebig geschachtelt werden. Wir werden dann zukünftig von (Haupt-)<languageKeyword>Job</languageKeyword>
-          und <languageKeyword>SubJobs</languageKeyword> sprechen, obwohl <token>V</token> alle Jobs gleich behandelt, zumal
-          ein <languageKeyword>SubJob</languageKeyword> ja wiederum "Haupt"-<languageKeyword>Job</languageKeyword> für
+          und <languageKeyword>SubJobs</languageKeyword> sprechen, obwohl <token>V</token> alle Jobs im Wesentlichen gleich behandelt,
+		  zumal ein <languageKeyword>SubJob</languageKeyword> ja wiederum "Haupt"-<languageKeyword>Job</languageKeyword> für
           weitere <languageKeyword>SubJobs</languageKeyword> sein kann.
         </para>
         <para>
-          Ein Beispiel für eine funktionierende <languageKeyword>JobDescription.xml</languageKeyword> finden Sie unter
+          Ein Beispiel für eine funktionierende <languageKeyword>JobDescription</languageKeyword> finden Sie unter
           <link xlink:href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c" />.
         </para>
         <alert class="note">
           <para>
-            In der <languageKeyword>JobDescription.xml</languageKeyword>
+            In der <languageKeyword>JobDescription</languageKeyword>
             können auch für <token>V</token> unbekannte ("anonyme") Anwender-Parameter für die Übergabe an Ihre <languageKeyword>Checker</languageKeyword>
             oder <languageKeyword>Worker</languageKeyword> wieder aufgelöst werden. Wozu das gut ist und wie das genau funktioniert,
             können Sie im Kapitel <link xlink:href="15204f64-ecf7-44b6-822d-74e36b99927d" /> nachlesen.
           </para>
         </alert>
         <para>
-          Die nachfolgende Liste enthält alle wesentlichen Parameter, die innerhalb einer <languageKeyword>JobDescription.xml</languageKeyword>
+          Die nachfolgende Liste enthält alle wesentlichen Parameter, die innerhalb einer <languageKeyword>JobDescription</languageKeyword>
           gesetzt werden können. Dies betrifft nicht nur <languageKeyword>Jobs</languageKeyword> sondern auch alle
           <languageKeyword>Job</languageKeyword>-Elemente wie <languageKeyword>Checker</languageKeyword>, <languageKeyword>Trigger</languageKeyword>,
           <languageKeyword>Worker</languageKeyword>, etc.
@@ -382,9 +384,12 @@
                     <languageKeyword>Snapshots</languageKeyword> und <languageKeyword>Checkern</languageKeyword> von <token>V</token>
                     auf dem Bildschirm angezeigt.
                   </para>
-                  <para>
-                    Beispiel: &lt;LogicalName&gt;Check All&lt;/LogicalName&gt;
-                  </para>
+					<para>
+						Json-Beispiel: <languageKeyword>"LogicalName": "Check All",</languageKeyword>
+					</para>
+					<para>
+						XML-Beispiel: &lt;<languageKeyword>LogicalName</languageKeyword>&gt;<languageKeyword>Check All</languageKeyword>&lt;<languageKeyword>/LogicalName</languageKeyword>&gt;
+					</para>
                   <alert class="caution">
                     <para>
                       Dieser <languageKeyword>LogicalName</languageKeyword> muss gleich dem Namen sein, unter dem der Knoten
@@ -414,28 +419,35 @@
                   </para>
                   <alert class="note">
                     <para>
-                      <languageKeyword>LogicalExpressions</languageKeyword> können auf zwei leicht unterschiedliche Arten formuliert werden,
-                      siehe folgendes Beispiel:
-                    </para>
+                      <languageKeyword>LogicalExpressions</languageKeyword> werden in der <languageKeyword>JobDescription.json</languageKeyword>
+					  oder <languageKeyword>JobDescription.xml</languageKeyword> festgelegt.
+					  In der <languageKeyword>JobDescription.xml</languageKeyword> können diese allerdings auf zwei leicht unterschiedliche
+					  Arten formuliert werden, siehe folgendes Beispiel:
+					</para>
                     <list class="ordered">
                       <listItem>
                         <para>
-                          &lt;LogicalExpression&gt;(Google AND Heise) AND (Local OR Local_Backup)&lt;/LogicalExpression&gt;
+                          &lt;<languageKeyword>LogicalExpression</languageKeyword>&gt;<languageKeyword>(Google AND Heise) AND (Local OR Local_Backup)</languageKeyword>&lt;<languageKeyword>/LogicalExpression</languageKeyword>&gt;
                         </para>
                       </listItem>
                       <listItem>
                         <para>
-                          &lt;LogicalExpression&gt;&lt;![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]&gt;&lt;/LogicalExpression&gt;
+                          &lt;<languageKeyword>LogicalExpression</languageKeyword>&gt;&lt;<languageKeyword>![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]</languageKeyword>&gt;&lt;<languageKeyword>/LogicalExpression</languageKeyword>&gt;
                         </para>
                       </listItem>
                     </list>
-                    <para>
-                      Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;![CDATA[" und "]]&gt;" eingeschlossen ist,
-                      hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
-                      <languageKeyword>Operatoren</languageKeyword> in ihrer Kurzform verwenden zu können.
-                      Details dazu werden im Kapitel <link xlink:href="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d" /> erklärt.
-                    </para>
-                  </alert>
+					  <para>
+						  Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;<languageKeyword>![CDATA[" und "]]</languageKeyword>&gt;"
+						  eingeschlossen ist, hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
+						  <languageKeyword>Operatoren</languageKeyword> in ihrer Kurzform verwenden zu können.
+						  Details dazu werden im Kapitel <link xlink:href="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d" /> erklärt.
+					  </para>
+					  <para>
+						  In der <languageKeyword>JobDescription.json</languageKeyword> müssen Sonderzeichen ggf. durch einen führenden Backslash '<languageKeyword>\</languageKeyword>' maskiert werden
+						  oder durch eine Escape-Sequenz <languageKeyword>\uXXXX</languageKeyword> kodiert werden, wobei <languageKeyword>XXXX</languageKeyword> die vierstellige hexadezimale Unicode-Codepunktnummer ist.
+						  Bitte schlagen Sie Details dazu bei Bedarf im Internet nach.
+					  </para>
+				  </alert>
                 </listItem>
                 <listItem>
                   <para>
@@ -444,9 +456,9 @@
                   <para>
                     Jeder <languageKeyword>Job</languageKeyword> wird über seinen <languageKeyword>PhysicalPath</languageKeyword> gefunden.
                     Der <languageKeyword>PhysicalPath</languageKeyword> gehört nicht zur Job-Definition selbst, sondern muss außerhalb der
-                    <languageKeyword>JobDescription.xml</languageKeyword> im Moment des Ladens festgelegt sein. Dies wird bei einem Haupt-Job
+                    <languageKeyword>JobDescription</languageKeyword> im Moment des Ladens festgelegt sein. Dies wird bei einem Haupt-Job
                     über den Vishnu-Parameter <languageKeyword>Job</languageKeyword> gesteuert, für <languageKeyword>SubJobs</languageKeyword>
-                    muss der <languageKeyword>PhysicalPath</languageKeyword> in der <languageKeyword>JobDescription.xml</languageKeyword> des
+                    muss der <languageKeyword>PhysicalPath</languageKeyword> in der <languageKeyword>JobDescription</languageKeyword> des
                     ladenden, übergeordneten Jobs gesetzt werden.
                   </para>
                   <para>
@@ -456,9 +468,9 @@
                     <languageKeyword>TreeEvents</languageKeyword> referenzieren (siehe hierzu
                     auch <link xlink:href="ac884694-516c-4c98-a2af-d79cc504d0f6" /> und <link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />).
                   </para>
-                  <para>
-                    Beispiel: &lt;PhysicalPath&gt;..\SubJob&lt;/PhysicalPath&gt;
-                    <lineBreak />
+					<para>
+                    Beispiel: &lt;<languageKeyword>PhysicalPath</languageKeyword>&gt;<languageKeyword>..\SubJob</languageKeyword>&lt;<languageKeyword>/PhysicalPath</languageKeyword>&gt;
+					oder <languageKeyword>"PhysicalPath": "..\SubJob",</languageKeyword> <lineBreak />
                   </para>
 				  <para></para>
                 </listItem>
@@ -469,20 +481,25 @@
                   <para>
                     Der Abschnitt <database>Parameters</database> dient dazu, Übergabeparameter für Ihre eigenen
                     <languageKeyword>Checker, Trigger, Worker oder Logger</languageKeyword> in der 
-                    <languageKeyword>JobDescription.xml</languageKeyword> zu hinterlegen.
+                    <languageKeyword>JobDescription</languageKeyword> zu hinterlegen.
                     <token>V</token> reicht diese von Ihnen formulierten Parameter dann später beim Aufruf Ihrer
                     eigenen <languageKeyword>Checker, Trigger, Worker oder Logger</languageKeyword> an diese weiter.
                   </para>
                   <para>
                     Die Form und Syntax der übergebenen Parameter ist nicht festgelegt. Sie können hierüber völlig frei bestimmen.
                     Entscheidend ist nur, dass Ihr eigenes Element (DLL) das Format versteht, welches Sie in der
-                    <languageKeyword>JobDescription.xml</languageKeyword> hinterlegt haben.
+                    <languageKeyword>JobDescription</languageKeyword> hinterlegt haben.
                   </para>
+				  <para>
+					  ein Beispiel:<lineBreak/>
+					  &lt;<languageKeyword>Parameters</languageKeyword>&gt;<languageKeyword>-Message="%Timestamp%: MyChecker %Event% von %Source% in %Sender%" -Caption="Fehler"</languageKeyword>&lt;<languageKeyword>/Parameters</languageKeyword>&gt;
+					  <lineBreak/>oder<lineBreak/>
+					  <languageKeyword>"Parameters": "-Message=\"%Timestamp%: MyChecker %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""</languageKeyword>
+				  </para>
                   <alert class="note">
                     <para>
-                      Wie auch bei <languageKeyword>LogicalExpression</languageKeyword> können Parameter im erweiterten Format
-                      übergeben werden, wie zum Beispiel Folgende bei einem Worker:
-                      &lt;Parameters&gt;&lt;![CDATA[Fehler|%Timestamp%: %MachineName% MyChecker %Event% von %Source% in %Sender%]]&gt;&lt;/Parameters&gt;
+                      Wie auch bei <languageKeyword>LogicalExpression</languageKeyword> können Parameter in XML im erweiterten Format
+                      übergeben werden.
                     </para>
                   </alert>
                 </listItem>
@@ -496,8 +513,9 @@
                   </para>
                   <para>
                     Der sicherlich häufigste Anwendungsfall findet sich bei <languageKeyword>ValueModifiern</languageKeyword>.
-                    Hier wird mithilfe von &lt;Reference&gt;Checkername&lt;/Reference&gt; der Checker angegeben, dessen
-                    <languageKeyword>Result</languageKeyword> über den <languageKeyword>ValueModifier</languageKeyword>
+                    Hier wird mithilfe von &lt;<languageKeyword>Reference</languageKeyword>&gt;<languageKeyword>Checkername</languageKeyword>&lt;<languageKeyword>/Reference</languageKeyword>&gt;
+					oder <languageKeyword>"Reference": "Checkername",</languageKeyword>
+					der Checker angegeben, dessen <languageKeyword>Result</languageKeyword> über den <languageKeyword>ValueModifier</languageKeyword>
                     verändert werden soll. Beispiele hierzu finden Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#ValueModifier" />
                     und <link xlink:href="b2bd8510-a131-4466-9fac-66f2033d92a0" />.
                   </para>
@@ -552,9 +570,18 @@
                       nicht gleichzeitig ausgeführt werden.
                       <lineBreak />
                       Um verschiedene <languageKeyword>Checker</languageKeyword>-Typen dabei noch differenziert behandeln
-                      zu können, nutzen Sie das optionale Zusatzattribut <database>Lockname</database>.<lineBreak />
-                      Hier ein Beispiel: <database>&lt;ThreadLocked LockName="ConcurrentSQL"&gt;true&lt;/ThreadLocked&gt;</database>
-                    </para>
+                      zu können, nutzen Sie das optionale Zusatzattribut <database>Lockname</database>.
+					</para>
+					<para>
+						XML-Beispiel: &lt;<languageKeyword>ThreadLocked LockName="ConcurrentSQL"</languageKeyword>&gt;<languageKeyword>true</languageKeyword>&lt;<languageKeyword>/ThreadLocked</languageKeyword>&gt;
+					</para>
+					<para>
+						Json-Beispiel:<lineBreak/>
+						    <languageKeyword>"ThreadLocked": {</languageKeyword><lineBreak />
+						        <languageKeyword>"@LockName": "ConcurrentSQL",</languageKeyword><lineBreak />
+						        <languageKeyword>"#text": false</languageKeyword><lineBreak />
+						    <languageKeyword>},</languageKeyword>
+					</para>
                   </alert>
                 </listItem>
                 <listItem>
@@ -582,15 +609,15 @@
                   <para>
                     Die hier zusammengefassten Einstellungen dienen alle zur Festlegung alternativer Darstellungen
                     (<languageKeyword>Views</languageKeyword>) von <token>V</token>-Elementen.
-                    Mit ihrer Hilfe können Sie in der <languageKeyword>JobDescription.xml</languageKeyword>
+                    Mit ihrer Hilfe können Sie in der <languageKeyword>JobDescription</languageKeyword>
                     optional relative Pfade zu eigenen <languageKeyword>Views</languageKeyword> (DLLs) vorgeben.
                   </para>
                   <para>
                     Der Parameter <database>UserControlPath</database> bezieht sich dabei nur auf das Element,
-                    bei dem er in der <languageKeyword>JobDescription.xml</languageKeyword> gesetzt wird.
+                    bei dem er in der <languageKeyword>JobDescription</languageKeyword> gesetzt wird.
                     Die anderen Parameter können auf <languageKeyword>Job</languageKeyword>-Ebene gesetzt werden
                     und gelten dann für alle untergeordneten Elemente des im Namen des Parameters enthaltenen Typs
-                    (JobList, NodeList, SingleNode, ConstantNode, JobConnector, Snapshot).<lineBreak />
+                    (<languageKeyword>JobList, NodeList, SingleNode, ConstantNode, JobConnector, Snapshot</languageKeyword>).<lineBreak />
                     Der Parameter <database>SingleNodeUserControlPath</database> bestmmt dabei auch das Aussehen
                     von <languageKeyword>ValueModifiern</languageKeyword> und <languageKeyword>NodeConnectoren</languageKeyword>.
                   </para>

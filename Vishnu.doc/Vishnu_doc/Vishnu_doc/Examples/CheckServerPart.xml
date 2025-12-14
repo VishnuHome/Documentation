@@ -15,7 +15,6 @@
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
         <Parameters>S:1|S:20</Parameters>
       </Trigger>
-      ...
     </Checker>
     ...
   </Checkers>

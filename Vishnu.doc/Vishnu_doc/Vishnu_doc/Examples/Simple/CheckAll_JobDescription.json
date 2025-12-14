@@ -1,0 +1,21 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check All",
+    "StartCollapsed": false,
+    "LogicalExpression": "CheckServers AND CheckDiskSpace",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckServers",
+          "PhysicalPath": "..\\CheckServers",
+          "StartCollapsed": false
+        },
+        {
+          "LogicalName": "CheckDiskSpace",
+          "PhysicalPath": "..\\CheckDiskSpace",
+          "StartCollapsed": false
+        }
+      ]
+    }
+  }
+}

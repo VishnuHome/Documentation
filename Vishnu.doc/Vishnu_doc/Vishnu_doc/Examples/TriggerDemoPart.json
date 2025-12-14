@@ -1,0 +1,47 @@
+{
+  "JobDescription": {
+    "LogicalName": "Job1",
+    ...
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Job1"
+    },
+    ...
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "Exception|LogicalResultChanged"
+    },
+    ...
+      "Checker": [
+        {
+          "LogicalName": "Checker1",
+          ...
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        },
+        {
+          "LogicalName": "Checker2",
+          ...
+          "Trigger": {
+            "Reference": "AnyLogicalResultChanged|Exception",
+            "Parameters": "Checker1"
+          }
+        }
+      ]
+    ...
+      "Worker": {
+        "LogicalExpression": "Job1:Exception",
+        "SubWorker": {
+          "PhysicalPath": "MyWorker.exe",
+          "Parameters": "-Message=\"%Timestamp%: %Event% ...",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "M:30"
+          }
+        }
+      }
+    }
+  }
+}

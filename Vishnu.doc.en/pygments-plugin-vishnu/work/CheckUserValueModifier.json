@@ -1,0 +1,23 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckUserValueModifier",
+    "LogicalExpression": "DatumInput AND Mondphase",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "DatumInput",
+          "PhysicalPath": "WPFDateDialog.dll"
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": {
+        "LogicalName": "Mondphase",
+        "UserControlPath": "Plugin\\SingleNodeUserControl_CheckMoonPhase.dll",
+        "Reference": "DatumInput",
+        "PhysicalPath": "Plugin\\DateToMoonage.dll",
+        "Type": "Object"
+      }
+    }
+  }
+}

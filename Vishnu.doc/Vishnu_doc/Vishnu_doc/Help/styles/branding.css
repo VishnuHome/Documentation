@@ -590,6 +590,9 @@ span.identifier {
 
 span.keyword {
     font-weight: bold;
+    font-family: 'Calibri Light', Arial, sans-serif;
+    font-size: 1.02em;
+    color: #222222;
 }
 
 span.parameter {

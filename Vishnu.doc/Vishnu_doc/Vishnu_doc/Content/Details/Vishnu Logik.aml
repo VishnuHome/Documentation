@@ -21,7 +21,7 @@
 				<token>V</token> setzt Ihren logischen Ausdruck (<languageKeyword>LogicalExpression</languageKeyword>,
 				siehe auch <link xlink:href="E6ECB24A-CA5C-4785-9514-992F359D394A" />) intern in eine entsprechende Baumstruktur (Tree) um,
 				die logisch verarbeitet wird und welche Sie dann letzten Endes in der Normaldarstellung ("Logical Task Tree") auch so wiederfinden.
-				Wie das im Detail aussieht und welche logischen Ausdrücke <token>V</token> versteht, lesen Sie in diesem Kapikel.
+				Wie das im Detail aussieht und welche logischen Ausdrücke <token>V</token> versteht, lesen Sie in diesem Kapitel.
 			</para>
 		</introduction>
 
@@ -38,23 +38,67 @@
 					Schauen wir uns zur Verdeutlichung noch mal den Demo-Job aus <link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" /> an.
 				</para>
 				<mediaLink>
-					<image xlink:href="DemoJob_01"/>
+					<image xlink:href="Demo_Job_labeled"/>
 				</mediaLink>
 				<para>
-					Der Knoten "CheckDiskSpace" wird rot dargestellt, weil der <languageKeyword>Checker</languageKeyword> des Unterknotens
-					"Check_D" "false" zurückgemeldet hat ("Frei" war mit 143636 MB kleiner als "Minimum" mit 200000 MB).
-					Da "CheckDiskSpace" seine Unterknoten mit einem logischen UND ("AND") verbindet, geht infolgedessen "Check_DiskSpace"
-					auch auf "false" (rot). Dies pflanzt sich dann im Tree nach oben fort und "Check All" geht auch auf "false" (rot).
+					Der Knoten <languageKeyword>"CheckDiskSpace"</languageKeyword>
+					wird rot dargestellt, weil der <languageKeyword>Checker</languageKeyword> des Unterknotens <languageKeyword>"Check_C"</languageKeyword>
+					<languageKeyword>"false"</languageKeyword> zurückgemeldet hat ("Frei" war kleiner als "Minimum").
+					Da <languageKeyword>"CheckDiskSpace"</languageKeyword> seine Unterknoten mit einem logischen
+					<languageKeyword>UND ("AND")</languageKeyword> verbindet, geht infolgedessen
+					<languageKeyword>"Check_DiskSpace"</languageKeyword> auch auf <languageKeyword>"false" (rot)</languageKeyword>.
+					Dies pflanzt sich dann im Tree nach oben fort und <languageKeyword>"Check All"</languageKeyword> geht auch auf
+					<languageKeyword>"false" (rot)</languageKeyword>.
 				</para>
 				<para>
-					Bei dem Knoten "CheckServers" müssen wir schon etwas genauer hinschauen. Dieser Knoten ist grün (true), obwohl einer
-					seiner "Enkel"-Knoten "Local_Backup" rot ist, also "false" zurückgemeldet hat.
-					Wie man an folgendem Ausschnitt aus der <languageKeyword>JobDescription.xml</languageKeyword> sehen kann, ist der
-					problematische Knoten "Local_Backup" über ein ODER ("OR") mit dem Knoten "Local" verbunden und diese Verbindung als
-					Ganzes geklammert.
+					Bei dem Knoten <languageKeyword>"CheckServers"</languageKeyword>
+					müssen wir schon etwas genauer hinschauen. Dieser Knoten ist grün (true), obwohl einer seiner "Enkel"-Knoten
+					<languageKeyword>"Local_Backup"</languageKeyword> rot ist, also <languageKeyword>"false"</languageKeyword>
+					zurückgemeldet hat.	Wie man an folgendem Ausschnitt aus der <languageKeyword>JobDescription</languageKeyword>
+					sehen kann, ist der problematische Knoten <languageKeyword>"Local_Backup"</languageKeyword>
+					über ein <languageKeyword>ODER ("OR")</languageKeyword> mit dem Knoten <languageKeyword>"Local"</languageKeyword>
+					verbunden und diese Verbindung als Ganzes geklammert.
 				</para>
-				<code source="..\Vishnu_doc\Examples\LogicalOrInBrackets.xml" language="xml"
-				   title="JobDescription.xml"></code>
+				<!--<code source="..\Vishnu_doc\Examples\LogicalOrInBrackets.xml" language="xml"
+				   title="JobDescription.xml"></code>-->
+				<para>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #000">...</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckServers</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">(Google</span> <span style="color: #000">AND</span> <span style="color: #000">Heise)</span> <span style="color: #000">AND</span> <span style="color: #000">(Local</span> <span style="color: #000">OR</span> <span style="color: #000">Local_Backup)</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #000">...</span> 
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span>  <span style="color: #000">...</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckServers&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;(Google</span> <span style="color: #000">AND</span> <span style="color: #000">Heise)</span> <span style="color: #000">AND</span> <span style="color: #000">(Local</span> <span style="color: #000">OR</span> <span style="color: #000">Local_Backup)&quot;,</span>
+  <span style="color: #000">...</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+				</para>
 				<para>
 					Da es bei einem logischen ODER ausreicht, wenn einer der beiden Partner "true" (grün) ist, wird der von <token>V</token>
 					anstelle der Klammern eingezogene anonyme Zwischenknoten "true" (grün). Der andere anonyme Zwischenknoten, der "Google"
@@ -70,30 +114,36 @@
 				</alert>
 			</content>
 		</section>
-
 		<section address="Syntax">
 			<title>Logik-Elemente und Syntax</title>
 			<content>
 				<para>
-					<languageKeyword>LogicalExpressions</languageKeyword> können auf zwei leicht unterschiedliche Arten formuliert werden
-					(dargestellt an unserem obigen Beispiel):
+					<languageKeyword>LogicalExpressions</languageKeyword> werden in der <languageKeyword>JobDescription.json</languageKeyword>
+					oder <languageKeyword>JobDescription.xml</languageKeyword> festgelegt.
+					In der <languageKeyword>JobDescription.xml</languageKeyword> können diese allerdings auf zwei leicht unterschiedliche
+					Arten formuliert werden, siehe folgendes Beispiel:
 				</para>
 				<list class="ordered">
 					<listItem>
 						<para>
-							&lt;LogicalExpression&gt;(Google AND Heise) AND (Local OR Local_Backup)&lt;/LogicalExpression&gt;
+							&lt;<languageKeyword>LogicalExpression</languageKeyword>&gt;<languageKeyword>(Google AND Heise) AND (Local OR Local_Backup)</languageKeyword>&lt;<languageKeyword>/LogicalExpression</languageKeyword>&gt;
 						</para>
 					</listItem>
 					<listItem>
 						<para>
-							&lt;LogicalExpression&gt;&lt;![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]&gt;&lt;/LogicalExpression&gt;
+							&lt;<languageKeyword>LogicalExpression</languageKeyword>&gt;&lt;<languageKeyword>![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]</languageKeyword>&gt;&lt;<languageKeyword>/LogicalExpression</languageKeyword>&gt;
 						</para>
 					</listItem>
 				</list>
 				<para>
-					Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;![CDATA[" und "]]&gt;" eingeschlossen ist,
-					hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
-					<languageKeyword>Operatoren</languageKeyword> in ihrer Kurzform verwenden zu können (siehe nachfolgende Operatoren-Tabelle).
+					Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;<languageKeyword>![CDATA[" und "]]</languageKeyword>&gt;"
+					eingeschlossen ist, hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
+					<languageKeyword>Operatoren</languageKeyword> in ihrer Kurzform verwenden zu können.
+				</para>
+				<para>
+					In der <languageKeyword>JobDescription.json</languageKeyword> müssen Sonderzeichen ggf. durch einen führenden Backslash '<languageKeyword>\</languageKeyword>' maskiert werden
+					oder durch eine Escape-Sequenz <languageKeyword>\uXXXX</languageKeyword> kodiert werden, wobei <languageKeyword>XXXX</languageKeyword> die vierstellige hexadezimale Unicode-Codepunktnummer ist.
+					Bitte schlagen Sie Details dazu bei Bedarf im Internet nach.
 				</para>
 				<table>
 					<title>gültige Vishnu-Operatoren</title>
@@ -343,8 +393,8 @@
 				</table>
 				<alert class="important">
 					<para>
-						Eine Variable in einer <languageKeyword>LogicalExpression</languageKeyword> wie zum Beispiel "Google"
-						oder "Heise" kann in einem komplexeren logischen Konstrukt durchaus mehrfach auftreten.
+						Eine Variable in einer <languageKeyword>LogicalExpression</languageKeyword> wie zum Beispiel <languageKeyword>"Google"</languageKeyword>
+						oder <languageKeyword>"Heise"</languageKeyword> kann in einem komplexeren logischen Konstrukt durchaus mehrfach auftreten.
 						<token>V</token> stellt sie dann im Tree auch mehrfach dar, sorgt aber intern dafür, dass ein zugehöriger
 						<languageKeyword>Checker</languageKeyword> nur einmal ausgeführt wird.
 					</para>
@@ -353,7 +403,7 @@
 					<database>weitere Hinweise</database>
 				</para>
 				<para>
-					Die Schwellenwert-Logik (treshold) prüft, ob ein bestimmter Prozentsatz der dem Job untergeordneter Knoten
+					Die <database>Schwellenwert-Logik</database> (treshold) prüft, ob ein bestimmter Prozentsatz der dem Job untergeordneter Knoten
 					das Ergebnis <languageKeyword>true</languageKeyword> geliefert hat. Wird der durch den gewählten <languageKeyword>Operator</languageKeyword>
 					festgelegte Prozentsatz (Schwellenwert) erreicht oder überschritten, geht der gesamte Job auf <languageKeyword>true</languageKeyword>
 					(grüne Anzeige).<lineBreak/>

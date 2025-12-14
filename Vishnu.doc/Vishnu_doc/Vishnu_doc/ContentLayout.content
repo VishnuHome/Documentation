@@ -6,7 +6,7 @@
     <Topic id="6fe3bf85-d02b-41ff-84a7-dcc2a4819978" visible="True" />
     <Topic id="4bf9a24d-ba9e-4aa0-8074-8bd775767f73" visible="True" />
   </Topic>
-  <Topic id="E6ECB24A-CA5C-4785-9514-992F359D394A" visible="True" isExpanded="true" isSelected="true">
+  <Topic id="E6ECB24A-CA5C-4785-9514-992F359D394A" visible="True" isExpanded="true">
     <Topic id="15204f64-ecf7-44b6-822d-74e36b99927d" visible="True" />
     <Topic id="9b9475bc-f8a9-4e7a-a84a-373276329b00" visible="True" />
   </Topic>
@@ -29,11 +29,11 @@
     <Topic id="3ccc247e-ea3a-47fc-9ed6-4713baf96986" visible="True" />
     <Topic id="f14917bd-1d50-41f0-85ff-14462a770915" visible="True" />
   </Topic>
-  <Topic id="9023d1a6-ca92-460c-9f74-6edf78138638" visible="True" isExpanded="true" title="Versionshistorie">
+  <Topic id="9023d1a6-ca92-460c-9f74-6edf78138638" visible="True" isExpanded="true" isSelected="true" title="Versionshistorie">
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
-    <Topic id="5207d47e-1d8e-42c4-9e5c-7d9677b851fa" visible="True" title="Version 8.4.0" />
+    <Topic id="5207d47e-1d8e-42c4-9e5c-7d9677b851fa" visible="True" title="Version 8.4.5" />
     <Topic id="ed1dc3ac-90b6-4b69-a42c-82205b811a79" visible="True" title="Version 8.3.0" />
     <Topic id="ace7a681-363c-41d2-a1fa-07c21f77eff0" visible="True" title="Version 8.2.1" />
     <Topic id="299e895d-8b62-46ee-9b9b-bd98c0cd8287" visible="True" title="Version 8.2.0" />

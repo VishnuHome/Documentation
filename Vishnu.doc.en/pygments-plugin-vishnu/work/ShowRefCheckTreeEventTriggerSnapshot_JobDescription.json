@@ -1,0 +1,16 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowRefCheckTreeEventTriggerSnapshot",
+    "LogicalExpression": "IS CheckTreeEventTriggerSnapshot",
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "CheckTreeEventTriggerSnapshot",
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        }
+      ]
+    }
+  }
+}

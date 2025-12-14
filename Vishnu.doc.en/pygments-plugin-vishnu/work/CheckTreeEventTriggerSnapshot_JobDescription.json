@@ -1,0 +1,23 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check TreeEventTrigger Snapshot",
+    "LogicalExpression": "IS flipflop",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Check TreeEventTrigger Snapshot"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "flipflop",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    }
+  }
+}

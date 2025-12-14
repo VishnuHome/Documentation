@@ -1,0 +1,33 @@
+  ...
+  "Worker": {
+    "LogicalExpression": "Check Escalator:False",
+    "SubWorkers": {
+      "SubWorker": [
+        {
+          "PhysicalPath": "Escalator.exe",
+          "Parameters": {
+            "@Transport": "File",
+            "SubWorkers": {
+              "SubWorker": [
+                {
+                  "@RunCounter": "1",
+                  "PhysicalPath": "VishnuMessageBox.exe",
+                  "Parameters": "-Message=\"Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Info\" -MessageNewLine=#"
+                },
+                {
+                  "@RunCounter": "3",
+                  "PhysicalPath": "VishnuMessageBox.exe",
+                  "Parameters": "-Message=\"Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Warnung\" -MessageNewLine=#"
+                }
+              ]
+            }
+          },
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    }
+  }
+  ...  

@@ -81,7 +81,7 @@
 				<alert class="note">
 					<para>
 						Auch wenn <languageKeyword>TreeEventTrigger </languageKeyword> <token>V</token>-interne Module sind,
-						können sie wie andere Trigger in der <languageKeyword>JobDescription.xml</languageKeyword>
+						können sie wie andere Trigger in der <languageKeyword>JobDescription</languageKeyword>
 						konfiguriert werden.
 						Mehr Informationen zu <languageKeyword>TreeEvents</languageKeyword> finden Sie unter
 						<link xlink:href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85" />.
@@ -107,7 +107,7 @@
 				</para>
 				<alert class="note">
 					<para>
-						Allgemeine Informationen über Trigger und wie diese in der <languageKeyword>JobDescription.xml</languageKeyword>
+						Allgemeine Informationen über Trigger und wie diese in der <languageKeyword>JobDescription</languageKeyword>
 						definiert werden können Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Trigger" /> nachschlagen.
 					</para>
 				</alert>
@@ -124,7 +124,7 @@
 					<image xlink:href="TimerTriggerDemo"/>
 				</mediaLink>
 				<para>
-					Wie zu sehen ist, feuert der Trigger nach einer Wartezeit von 5 Sekunden
+					Wie zu sehen ist, feuert der Trigger (nach einer Wartezeit von 5 Sekunden)
 					im Abstand von 3 Sekunden bis man ihn stoppt.
 				</para>
 				<para>
@@ -137,7 +137,7 @@
 					<para>
 						Der oben gezeigte Aufruf von <languageKeyword>TimerTrigger</languageKeyword> im
 						Demo-Projekt dient nur zur Veranschaulichung. Sie selbst müssen den TimerTrigger nicht
-						aufrufen, sondern nur in einer <languageKeyword>JobDescription.xml</languageKeyword> konfigurieren.
+						aufrufen, sondern nur in einer <languageKeyword>JobDescription</languageKeyword> konfigurieren.
 						<token>V</token> kümmert sich dann später selbst um den Aufruf.
 					</para>
 				</alert>
@@ -162,13 +162,14 @@
 				<alert class="note">
 					<para>
 						Die Form und Syntax der übergebenen Parameter ist nicht festgelegt. Sie können hierüber völlig frei bestimmen.
-						Entscheidend ist nur, dass Ihr eigener Trigger das Format versteht, welches Sie auch in der
-						<languageKeyword>JobDescription.xml</languageKeyword> vorgeben.
+						Entscheidend ist nur, dass Ihr eigener <languageKeyword>Trigger</languageKeyword>
+						das Format versteht, welches Sie auch in der
+						<languageKeyword>JobDescription</languageKeyword> vorgeben.
 					</para>
 				</alert>
 				<para>
 					Die Methode <database>Start</database> übernimmt die Parameter und auch die aufzurufende Routine, wenn der
-					Trigger feuert und startet den <languageKeyword>Trigger</languageKeyword>.
+					<languageKeyword>Trigger</languageKeyword> feuert und startet den <languageKeyword>Trigger</languageKeyword>.
 					<token>V</token> ruft später diese Methode auf.
 				</para>
 				<para>

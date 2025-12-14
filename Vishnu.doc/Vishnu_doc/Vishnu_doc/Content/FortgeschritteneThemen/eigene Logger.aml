@@ -42,7 +42,7 @@
 						wieder schließen können (also hier nicht weiter interessant).
 					</para>
 					<para>
-						Allgemeine Informationen über Logger und wie diese in der <languageKeyword>JobDecription.xml</languageKeyword>
+						Allgemeine Informationen über Logger und wie diese in der <languageKeyword>JobDecription</languageKeyword>
 						definiert werden können Sie unter <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360#Logger" /> nachschlagen.
 					</para>
 				</alert>
@@ -67,7 +67,7 @@
 				<alert class="important">
 					<para>
 						Der <languageKeyword>Standard-LogPath</languageKeyword> wird über die Einbindung der
-						<languageKeyword>Vishnu.Interchange.dll</languageKeyword> gesetzt und ist per Voreinstellung <lineBreak></lineBreak>
+						<languageKeyword>Vishnu.Interchange.dll</languageKeyword> gesetzt und ist per Voreinstellung <lineBreak />
 						<database>%TempDirectory%\TextFileLoggerDemo\&lt;ProcessId&gt;\TextFileLoggerDemo.log</database>.
 					</para>
 					<para>
@@ -79,13 +79,13 @@
 					Einbindung und Aufruf der Klasse <database>Logger.cs</database> im Demo-Projekt,
 					siehe folgendes Code-Listing:
 				</para>
-				<code source="..\Vishnu_doc\Examples\TextFileLoggerDemoProgram.cs" language="C#"
-				   title="Program.cs im Demo-Programm"></code>
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerDemoProgram.cs" language="c#"
+				   title="Program.cs"></code>
 				<alert class="important">
 					<para>
 						Der oben gezeigte Aufruf von <languageKeyword>Logger</languageKeyword> im
 						Demo-Projekt dient nur zur Veranschaulichung. Sie selbst müssen den Logger nicht
-						aufrufen, sondern nur in einer <languageKeyword>JobDescription.xml</languageKeyword> konfigurieren.
+						aufrufen, sondern nur in einer <languageKeyword>JobDescription</languageKeyword> konfigurieren.
 						<token>V</token> kümmert sich dann später selbst um den Aufruf.
 					</para>
 				</alert>
@@ -99,7 +99,7 @@
 					Der eigentliche Logger ist in unserem Beispiel die Klasse <database>TextFileLogger.cs</database>,
 					siehe folgendes Code-Listing:
 				</para>
-				<code source="..\Vishnu_doc\Examples\TextFileLoggerClass.cs" language="C#"
+				<code source="..\Vishnu_doc\Examples\TextFileLoggerClass.cs" language="c#"
 				   title="TextFileLogger.cs Auszug"></code>
 				<para>
 					Die Klasse TextFileLogger implementiert die von <token>V</token> bereitgestellte Schnittstelle

@@ -18,7 +18,7 @@
       <!-- <autoOutline /> -->
 
       <para>
-        Mehrere Jobs können in einer einzigen <languageKeyword>JobDescription.xml</languageKeyword> zusammengefasst werden.
+        Mehrere Jobs können in einer einzigen <languageKeyword>JobDescription</languageKeyword> zusammengefasst werden.
         Unten sehen Sie den vereinfachten Demo-Job aus dem Kapitel <link xlink:href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7" />
         in der Inline-Version.
       </para>
@@ -32,8 +32,202 @@
       <content>
         <!-- Uncomment this to create a sub-section outline
         <autoOutline /> -->
-        <code source="..\Vishnu_doc\Examples\Simple\CheckAll_Inline_JobDescription.xml" language="XML"
-           title="JobDescription.xml"></code>
+        <!--<code source="..\Vishnu_doc\Examples\Simple\CheckAll_Inline_JobDescription.xml" language="XML"
+           title="JobDescription.xml"></code>-->
+		  <para>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #1F5C10">&lt;?xml</span> <span style="color: #1F5C10">version=&quot;1.0&quot;</span> <span style="color: #1F5C10">encoding=&quot;utf-8&quot;?&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Check</span> <span style="color: #000">All</span> <span style="color: #000">(inline)</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span><span style="color: #2744B8">false</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckServers</span> <span style="color: #000">AND</span> <span style="color: #000">CheckDiskSpace</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">SubJobs</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">SubJob</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckServers</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">(Google</span> <span style="color: #000">AND</span> <span style="color: #000">Heise)</span> <span style="color: #000">AND</span> <span style="color: #000">(Local</span> <span style="color: #000">OR</span> <span style="color: #000">Local_Backup)</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span><span style="color: #2744B8">false</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Google</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckServer.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">1</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Heise</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckServer.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">www.heise.de|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">2</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Local</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckServer.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Localhost|</span><span style="color: #1C01CE">1000</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Local_Backup</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckServer.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #1C01CE">9</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">7</span><span style="color: #000">.</span><span style="color: #1C01CE">6</span><span style="color: #000">|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">4</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">SubJob</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">SubJob</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckDiskSpace</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Check_C</span> <span style="color: #000">AND</span> <span style="color: #000">Check_D</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span><span style="color: #2744B8">false</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Check_C</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckDiskSpace.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">c</span><span style="color: #000">:|</span><span style="color: #1C01CE">20000</span><span style="color: #000">|</span><span style="color: #1C01CE">100</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">10</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\SingleNodeUserControl_CheckDiskSpace.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Check_D</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\CheckDiskSpace.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">d</span><span style="color: #000">:|</span><span style="color: #1C01CE">10000</span><span style="color: #000">|</span><span style="color: #1C01CE">100</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+            <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">1</span><span style="color: #000">|</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">10</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+          <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\SingleNodeUserControl_CheckDiskSpace.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">SubJob</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">SubJobs</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #5C3CFF">{</span>
+  <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Check</span> <span style="color: #000">All</span> <span style="color: #000">(inline)&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #000">&quot;:</span> <span style="color: #2744B8">false</span><span style="color: #000">,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckServers</span> <span style="color: #000">AND</span> <span style="color: #000">CheckDiskSpace&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">SubJobs</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">SubJob</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckServers&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;(Google</span> <span style="color: #000">AND</span> <span style="color: #000">Heise)</span> <span style="color: #000">AND</span> <span style="color: #000">(Local</span> <span style="color: #000">OR</span> <span style="color: #000">Local_Backup)&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #000">&quot;:</span> <span style="color: #2744B8">false</span><span style="color: #000">,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Google&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckServer.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">1</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span>
+              <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Heise&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckServer.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;www.heise.de|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">2</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span>
+              <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Local&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckServer.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Localhost|</span><span style="color: #1C01CE">1000</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span>
+              <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Local_Backup&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckServer.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #1C01CE">9</span><span style="color: #000">.</span><span style="color: #1C01CE">8</span><span style="color: #000">.</span><span style="color: #1C01CE">7</span><span style="color: #000">.</span><span style="color: #1C01CE">6</span><span style="color: #000">|</span><span style="color: #1C01CE">200</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">4</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">20</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span>
+              <span style="color: #5C3CFF">}</span>
+            <span style="color: #000">]</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckDiskSpace&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Check_C</span> <span style="color: #000">AND</span> <span style="color: #000">Check_D&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">StartCollapsed</span><span style="color: #000">&quot;:</span> <span style="color: #2744B8">false</span><span style="color: #000">,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Check_C&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckDiskSpace.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">c</span><span style="color: #000">:|</span><span style="color: #1C01CE">20000</span><span style="color: #000">|</span><span style="color: #1C01CE">100</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">10</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\SingleNodeUserControl_CheckDiskSpace.dll&quot;</span>
+              <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+              <span style="color: #5C3CFF">{</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Check_D&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\CheckDiskSpace.dll&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">d</span><span style="color: #000">:|</span><span style="color: #1C01CE">10000</span><span style="color: #000">|</span><span style="color: #1C01CE">100</span><span style="color: #000">|</span><span style="color: #1C01CE">3</span><span style="color: #000">&quot;,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+                  <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">1</span><span style="color: #000">|</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">10</span><span style="color: #000">&quot;</span>
+                <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+                <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\SingleNodeUserControl_CheckDiskSpace.dll&quot;</span>
+              <span style="color: #5C3CFF">}</span>
+            <span style="color: #000">]</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span>
+      <span style="color: #000">]</span>
+    <span style="color: #5C3CFF">}</span>
+  <span style="color: #5C3CFF">}</span>
+<span style="color: #5C3CFF">}</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+			  
+		  </para>
       </content>
       <!-- If a section contains a sections element, its content creates
            sub-sections.  These are not collapsible.

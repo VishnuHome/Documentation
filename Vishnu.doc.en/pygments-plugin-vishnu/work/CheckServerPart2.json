@@ -1,0 +1,14 @@
+  ...
+  "Checker": {
+    "LogicalName": "Google",
+    "PhysicalPath": "Plugin\\CheckServer.dll",
+    "Parameters": "8.8.8.8|200|3",
+    "Trigger": {
+      "PhysicalPath": "TimerTrigger.dll",
+      "Parameters": "S:1|S:20"
+    },
+    "Logger": {
+      "Reference": "FirstNamedLogger"
+    }
+  }
+  ...

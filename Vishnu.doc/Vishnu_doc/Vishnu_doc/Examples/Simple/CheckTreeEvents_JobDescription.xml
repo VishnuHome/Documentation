@@ -16,8 +16,6 @@
       	<Parameters>S:10</Parameters>
     	</Trigger>
     </Checker>
-  </Checkers>
-  <Checkers type="array">
     <Checker>
       <LogicalName>flipflop2</LogicalName>
       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
@@ -33,8 +31,8 @@
       <LogicalExpression>flipflop1:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

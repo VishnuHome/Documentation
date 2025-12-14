@@ -58,26 +58,104 @@
 		</section>
 
 		<section address="ValueModifierDemoJobDescription">
-			<title>die zugehörige JobDescription.xml</title>
+			<title>die zugehörige JobDescription</title>
 			<content>
 				<para>
-					Dies ist die <languageKeyword>JobDescription.xml</languageKeyword> für den Demo-Job für eigene <languageKeyword>ValueModifier</languageKeyword>:
+					Dies ist die <languageKeyword>JobDescription</languageKeyword> für den Demo-Job für eigene <languageKeyword>ValueModifier</languageKeyword>:
 				</para>
-				<code source="..\Vishnu_doc\Examples\CheckUserValueModifier.xml" language="xml"
+				<!--<code source="..\Vishnu_doc\Examples\CheckUserValueModifier.xml" language="xml"
 				   title="JobDescription.xml">
-				</code>
+				</code>-->
 				<para>
-					Wie man sieht, wird über die Anweisung
-					<languageKeyword>&lt;PhysicalPath&gt;Plugin\DateToMoonage.dll&lt;/PhysicalPath&gt;</languageKeyword> auf den eigenen
-					<languageKeyword>UserValueModifier</languageKeyword> verwiesen.<lineBreak/>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #1F5C10">&lt;?xml</span> <span style="color: #1F5C10">version=&quot;1.0&quot;</span> <span style="color: #1F5C10">encoding=&quot;utf-8&quot;?&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckUserValueModifier</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #000">DatumInput</span> <span style="color: #000">AND</span> <span style="color: #000">Mondphase</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">DatumInput</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">WPFDateDialog.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">ValueModifiers</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">ValueModifier</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Mondphase</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\SingleNodeUserControl_CheckMoonPhase.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">DatumInput</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\DateToMoonage.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Type</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Object</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Type</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">ValueModifier</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">ValueModifiers</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #5C3CFF">{</span>
+  <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckUserValueModifier&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;DatumInput</span> <span style="color: #000">AND</span> <span style="color: #000">Mondphase&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;DatumInput&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;WPFDateDialog.dll&quot;</span>
+        <span style="color: #5C3CFF">}</span>
+      <span style="color: #000">]</span>
+    <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">ValueModifiers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">ValueModifier</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+        <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Mondphase&quot;,</span>
+        <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\SingleNodeUserControl_CheckMoonPhase.dll&quot;,</span>
+        <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Reference</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;DatumInput&quot;,</span>
+        <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\DateToMoonage.dll&quot;,</span>
+        <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Type</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Object&quot;</span>
+      <span style="color: #5C3CFF">}</span>
+    <span style="color: #5C3CFF">}</span>
+  <span style="color: #5C3CFF">}</span>
+<span style="color: #5C3CFF">}</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+				</para>
+				<para>
+					Wie man sieht, wird über die Anweisung<lineBreak/>
+					<languageKeyword>XML: </languageKeyword>&lt;<languageKeyword>PhysicalPath</languageKeyword>&gt;<languageKeyword>Plugin\DateToMoonage.dll</languageKeyword>&lt;<languageKeyword>/PhysicalPath</languageKeyword>&gt;<lineBreak/>
+					<languageKeyword>Json: </languageKeyword><languageKeyword>"PhysicalPath": </languageKeyword><languageKeyword>"Plugin\\DateToMoonage.dll",</languageKeyword><lineBreak/>
+					auf den eigenen <languageKeyword>UserValueModifier</languageKeyword> verwiesen.<lineBreak/>
 					Der Typ wird für <token>V</token> allgemein auf <languageKeyword>Object</languageKeyword> festgelegt. Für die korrekte Behandlung
 					des tatsächlichen Ergebnistyps sind dann der <languageKeyword>UserValueModifier</languageKeyword> und die
 					<languageKeyword>UserView</languageKeyword><database> SingleNodeUserControl_CheckMoonPhase.dll</database> verantwortlich.
 				</para>
 				<para>
 					Der <languageKeyword>UserValueModifier</languageKeyword> <database> DateToMoonage.dll</database> ist wiederum für die korrekte
-					Behandlung des Ergebnisses des Knotens <database>DatumInput</database> verantwortlich, auf den mit der Anweisung
-					<languageKeyword>&lt;Reference&gt;DatumInput&lt;/Reference&gt;</languageKeyword> verwiesen wird.
+					Behandlung des Ergebnisses des Knotens <database>DatumInput</database> verantwortlich, auf den mit der Anweisung<lineBreak/>
+					<languageKeyword>XML: </languageKeyword>&lt;<languageKeyword>Reference</languageKeyword>&gt;<languageKeyword>DatumInput</languageKeyword>&lt;<languageKeyword>/PhysicalPath</languageKeyword>&gt;<lineBreak/>
+					<languageKeyword>Json: </languageKeyword><languageKeyword>"Reference": </languageKeyword><languageKeyword>"DatumInput",</languageKeyword><lineBreak/>
+					verwiesen wird.
 				</para>
 			</content>
 		</section>
@@ -105,20 +183,21 @@
 					Der folgenden Code-Ausschnitt zeigt Auszüge aus der zugehörigen Klasse.
 				</para>
 				<code source="..\Vishnu_doc\Examples\DateToMoonAge_ReturnObject.cs" language="c#"
-				   title="Auszug aus der Klasse DateToMoonAge_ReturnObject">
+				   title="DateToMoonAge_ReturnObject">
 				</code>
 				<para>
 					Diese Klasse dient dazu, das Ergebnis von <database>DateToMoonAge.cs</database> durch die <token>V</token>-Verarbeitung
 					(als anonymes Objekt) zu transportieren. <database>SingleNodeUserControl_CheckMoonPhase.dll</database> löst das für
 					<token>V</token> anonyme Objekt dann wieder als <database>DateToMoonAge_ReturnObject</database> auf.
-					Damit das funktioniert, müssen in <database>DateToMoonAge_ReturnObject</database> Routinen für die Serialisierung und
-					De-Serialisierung der zu transportierenden Daten (hier die Property <database>DateToMoonAge_ReturnObject</database>)
+					Damit das funktioniert, müssen in <languageKeyword>DateToMoonAge_ReturnObject</languageKeyword> Routinen für die
+					<languageKeyword>Serialisierung</languageKeyword> und <languageKeyword>De-Serialisierung</languageKeyword>
+					der zu transportierenden Daten (hier die Property <languageKeyword>DateToMoonAge_ReturnObject</languageKeyword>)
 					implementiert werden.
 				</para>
 				<para>
-					Die Serialisierung und De-Serialisierung ist im Prinzip immer gleichartig und wurde schon ausführlich im Kapitel
+					Die Serialisierung und De-Serialisierung ist im Prinzip immer gleichartig und wird ausführlich im Kapitel
 					<link xlink:href="74204d60-cbb3-4f38-8266-aa7af541143f#Serialisierung" /> im Unterpunkt <languageKeyword>Serialisierung</languageKeyword>
-					beschrieben. Bitte lesen Sie gegebenenfalls dort nach.
+					beschrieben.
 				</para>
 				<alert class="note">
 					<para>

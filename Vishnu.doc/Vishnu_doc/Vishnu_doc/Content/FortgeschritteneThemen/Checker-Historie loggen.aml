@@ -6,8 +6,9 @@
 
 		<introduction>
 			<para>
-				Dieses Kapitel behandelt <languageKeyword>CheckerHistoryLogger</languageKeyword>.
-				CheckerHistoryLogger loggen die Ergebnisse beliebiger anderer <languageKeyword>Checker</languageKeyword>.
+				Dieses Kapitel behandelt <database>CheckerHistoryLogger</database>.
+				<languageKeyword>CheckerHistoryLogger</languageKeyword>
+				loggen die Ergebnisse beliebiger anderer <languageKeyword>Checker</languageKeyword>.
 			</para>
 		</introduction>
 
@@ -16,21 +17,24 @@
 			<content>
 				<para>
 					Ein <languageKeyword>CheckerHistoryLogger</languageKeyword> erzeugt Logfiles für die Ergebnisse beliebiger Checker.
-					Der CheckerHistoryLogger wird selbst als Checker im Job definiert und ruft seinerseits den tatsächlichen Checker,
+					<languageKeyword>Der CheckerHistoryLogger</languageKeyword> wird selbst als <languageKeyword>Checker</languageKeyword>
+					im Job definiert und ruft seinerseits den tatsächlichen <languageKeyword>Checker</languageKeyword>,
 					dessen Name in den Parametern übergeben wurde, als <languageKeyword>Sub-Checker</languageKeyword> auf.
 				</para>
 				<para>
-					Danach erstellt der CheckerHistoryLogger eine Logdatei mit historische Werten des Sub-Checkers oder ergänzt eine schon vorhandene
-					Logdatei mit den aktuell ermittelten Werten.
+					Danach erstellt der <languageKeyword>CheckerHistoryLogger</languageKeyword> eine Logdatei mit historische Werten des
+					Sub-Checkers oder ergänzt eine schon vorhandene Logdatei mit den aktuell ermittelten Werten.
 				</para>
 				<alert class="important">
 					<para>
-						Die Dll des Sub-Checkers muss sich (inkl. dort referenzierter Assemblies) im Plugin-Verzeichnis des aktuellen Jobs befinden.
+						Die Dll des Sub-Checkers muss sich (inkl. dort referenzierter Assemblies) im <languageKeyword>Plugin</languageKeyword>-Verzeichnis
+						des aktuellen Jobs befinden.
 					</para>
 				</alert>
 				<alert class="note">
 					<para>
-						Die Logdateien der CheckerHistoryLogger finden Sie im <languageKeyword>SnapshotDirectory</languageKeyword> des aktuellen <languageKeyword>Jobs</languageKeyword>.
+						Die Logdateien der <languageKeyword>CheckerHistoryLogger</languageKeyword> finden Sie im <languageKeyword>SnapshotDirectory</languageKeyword>
+						des aktuellen <languageKeyword>Jobs</languageKeyword>.
 					</para>
 				</alert>
 			</content>
@@ -40,17 +44,86 @@
 			<title>der Demo Job</title>
 			<content>
 				<para>
-					So sieht der Demo-Job <database>CheckWeatherHistory</database> für den <database>CheckerHistoryLogger</database> im Betrieb aus:
+					So sieht der Demo-Job <database>CheckWeatherHistory</database> für den <languageKeyword>CheckerHistoryLogger</languageKeyword> im Betrieb aus:
 				</para>
 				<mediaLink>
 					<image xlink:href="WeatherChecker"/>
 				</mediaLink>
 				<para>
-					Und so sieht die zugehörige <database>JobDescription.xml</database> aus:
+					Und so sieht die zugehörige <database>JobDescription</database> aus:
 				</para>
-				<code source="..\Vishnu_doc\Examples\CheckWeatherHistory.xml" language="xml"
+				<!--<code source="..\Vishnu_doc\Examples\CheckWeatherHistory.xml" language="xml"
 				   title="JobDescription.xml">
-				</code>
+				</code>-->
+				<para>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #1F5C10">&lt;?xml</span> <span style="color: #1F5C10">version=&quot;1.0&quot;</span> <span style="color: #1F5C10">encoding=&quot;utf-8&quot;?&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Check</span> <span style="color: #000">Weather</span> <span style="color: #000">History</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">IS</span> <span style="color: #000">WeatherHistory</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">WeatherHistory</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\WeatherCheckerControl.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">CheckerHistoryLogger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #000">![CDATA[quiet|WeatherChecker.dll|erstellt</span> <span style="color: #000">Wettervorhersagen]]</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">60</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #5C3CFF">{</span>
+  <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Check</span> <span style="color: #000">Weather</span> <span style="color: #000">History&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;IS</span> <span style="color: #000">WeatherHistory&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;WeatherHistory&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\WeatherCheckerControl.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;CheckerHistoryLogger.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;quiet|WeatherChecker.dll|erstellt</span> <span style="color: #000">Wettervorhersagen&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">M</span><span style="color: #000">:</span><span style="color: #1C01CE">60</span><span style="color: #000">&quot;</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span>
+      <span style="color: #000">]</span>
+    <span style="color: #5C3CFF">}</span>
+  <span style="color: #5C3CFF">}</span>
+<span style="color: #5C3CFF">}</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+				</para>
 				<para>
 					Über die vom <languageKeyword>CheckerHistoryLogger</languageKeyword> aufgerufene <database>WeatherChecker.dll</database>
 					werden für den aktuellen Tag und die darauf folgendenden Tage Wettervorhersagen im Abstand von jeweils
@@ -65,8 +138,8 @@
 						https://open-meteo.com und https://www.7timer.info.
 					</para>
 					<para>
-						Vielen Dank auch an die Entwickler und Sponsoren der freien Seite für Geolocation:
-						https://www.geojs.io.
+						Vielen Dank auch an die Entwickler und Sponsoren der Seiten für Geolocation:
+						https://www.geojs.io und http://ip-api.com/.
 					</para>
 				</alert>
 			</content>

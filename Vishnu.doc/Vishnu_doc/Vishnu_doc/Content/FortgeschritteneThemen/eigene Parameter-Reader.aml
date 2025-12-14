@@ -17,7 +17,7 @@
            zero (0) to limit it to top-level sections only.  -->
       <!-- <autoOutline /> -->
       <para>
-        Dieses Kapitel handelt von selbst erstellten <languageKeyword>ParameterReadern</languageKeyword>.
+        Dieses Kapitel handelt von selbst erstellten <languageKeyword>ParameterReader</languageKeyword>n.
         Über eigene <languageKeyword>ParameterReader</languageKeyword> können Sie Ihre business-spezifischen Parameter
         an <token>V</token> übergeben, so dass diese in Folge wie alle sonstigen <token>V</token>-Parameter behandelt
         werden und z.B. auch Gegenstand der <token>V</token>-Wildcard-Ersetzung sein können.
@@ -54,18 +54,18 @@
           Verantwortlich für die im Demo-Projekt gezeigte Parameterersetzung ist die Klasse <database>DemoParameterProvider</database>,
           siehe folgendes Code-Listing:
         </para>
-        <code source="..\Vishnu_doc\Examples\DemoParameterProvider.cs" language="C#"
-           title="DemoParameterProvider.cs Auszug"></code>
+        <code source="..\Vishnu_doc\Examples\DemoParameterProvider.cs" language="c#"
+           title="DemoParameterProvider.cs"></code>
         <para>
-          Die Klasse DemoParameterProvider implementiert die von <token>V</token> bereitgestellte Schnittstelle
+          Die Klasse <database>DemoParameterProvider</database> implementiert die von <token>V</token> bereitgestellte Schnittstelle
           <codeEntityReference qualifyHint="true">T:Vishnu.Interchange.IParameterReader</codeEntityReference>.
           In der <database>Init</database>-Routine werden Anwender-Einstellungen übernommen, die business-spezifischen
-          Parameter geladen (Ausführung in der Unterroutine "ReloadApplicationParameters()") und ggf.
+          Parameter geladen (Ausführung in der Unterroutine <languageKeyword>"ReloadApplicationParameters()"</languageKeyword>) und ggf.
           ein Timer für den regelmäßigen Refresh der Parameter eingerichtet.
         </para>
         <para>
           Die Methode <database>ReadParameter(string parameterName)</database> wird später von <token>V</token>
-          immer dann aufgerufen, wenn ein <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360"><token>V</token>-Akteur</link>
+          immer dann aufgerufen, wenn ein <link xlink:href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360">Vishnu-Akteur</link>
           einen Parameter abfragt.
         </para>
         <alert class="note">

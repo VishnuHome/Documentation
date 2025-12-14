@@ -4,7 +4,7 @@
 		<!--   Benutzeranwendung und konfigurierte Eigenschafteneinstellungen hier einfuegen.-->
 		<!--   Beispiel: <add key="settingName" value="settingValue"/> -->
 		<add key="DemoModus" value="true"/>
-		<add key="UserParameterReaderPath" value="%UserAssemblyDirectory%\DemoParameterProvider.dll" />
+		<add key="UserParameterReaderPath" value="%UserAssemblyDirectory%\\DemoParameterProvider.dll|PRIX-001|PRIX-002|M:1" />
 		<add key="DumpAppSettings" value="true"/>
 		<!-- add key="KillWorkingDirectoryAtShutdown" value="true"/ -->
 		<add key="Autostart" value="true"/>

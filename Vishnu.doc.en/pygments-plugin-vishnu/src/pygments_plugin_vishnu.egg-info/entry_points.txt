@@ -1,0 +1,11 @@
+[pygments.filters]
+vishnu_filter = vishnu.vishnu_filter:VishnuFilter
+
+[pygments.formatters]
+vishnu_formatter = vishnu.vishnu_formatter:VishnuFormatter
+
+[pygments.lexers]
+vishnu_lexer = vishnu.vishnu_lexer:VishnuLexer
+
+[pygments.styles]
+vishnu_style = vishnu.vishnu_style:VishnuStyle

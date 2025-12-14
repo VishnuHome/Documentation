@@ -1,0 +1,16 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check ParameterReader",
+    "LogicalExpression": "IS ParameterReaderChecker",
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "ParameterReaderChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True||Parameter-Wert ist %GesuchterParameter%"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>irgend ein Job</LogicalName>
+  ...
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>MS:500</Parameters>
+    </Trigger>
+  </Triggers>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  ...
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Checker_1</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker_1-Result</Parameters>
+      <Logger>
+        <Reference>FirstNamedLogger</Reference>
+      </Logger>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  ...
+</JobDescription>

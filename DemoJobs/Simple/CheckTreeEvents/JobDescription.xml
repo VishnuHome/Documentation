@@ -16,8 +16,6 @@
       	<Parameters>S:10</Parameters>
     	</Trigger>
     </Checker>
-  </Checkers>
-  <Checkers type="array">
     <Checker>
       <LogicalName>flipflop2</LogicalName>
       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>

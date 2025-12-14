@@ -1,0 +1,81 @@
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+          <div class="codeSnippetToolBarText">
+            <a id="IDAB_copyCode" href="#" class="copyCodeSnippet"
+               onclick="CopyToClipboard('IDAB');return false;" title="Copy">Copy</a>
+          </div>
+        </div>
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #1F5C10">&lt;?xml</span> <span style="color: #1F5C10">version=&quot;1.0&quot;</span> <span style="color: #1F5C10">encoding=&quot;utf-8&quot;?&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">UserViewDemo</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span> <span style="color: #000">AND</span> <span style="color: #000">UserChecker</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Checkers</span> <span style="color: #000">type</span><span style="color: #5C3CFF">=</span><span style="color: #000">&quot;array&quot;</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TrueFalseExceptionChecker.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">False</span><span style="color: #000">:</span><span style="color: #BE5D1D">True</span><span style="color: #000">:Exception|</span><span style="color: #1C01CE">10</span><span style="color: #000">|</span><span style="color: #BE5D1D">Predecessor</span><span style="color: #000">:</span> <span style="color: #000">Hello</span> <span style="color: #000">World</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">TimerTrigger.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">15</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">UserChecker</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\UserChecker.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Plugin\UserView.dll</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">True</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Reference</span><span style="color: #5C3CFF">&gt;</span>
+        <span style="color: #5C3CFF">&lt;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span><span style="color: #000">Predecessor</span><span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Parameters</span><span style="color: #5C3CFF">&gt;</span>
+      <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #5C3CFF">&gt;</span>
+    <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #5C3CFF">&gt;</span>
+  <span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D">Checkers</span><span style="color: #5C3CFF">&gt;</span>
+<span style="color: #5C3CFF">&lt;</span><span style="color: #000">/</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #5C3CFF">&gt;</span>
+</pre></div></pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve"><div class="highlight" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><span style="color: #5C3CFF">{</span>
+  <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">JobDescription</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;UserViewDemo&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalExpression</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor</span> <span style="color: #000">AND</span> <span style="color: #000">UserChecker&quot;,</span>
+    <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Checkers</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+      <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Checker</span><span style="color: #000">&quot;:</span> <span style="color: #000">[</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TrueFalseExceptionChecker.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">False</span><span style="color: #000">:</span><span style="color: #BE5D1D">True</span><span style="color: #000">:Exception|</span><span style="color: #1C01CE">10</span><span style="color: #000">|</span><span style="color: #BE5D1D">Predecessor</span><span style="color: #000">:</span> <span style="color: #000">Hello</span> <span style="color: #000">World&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;TimerTrigger.dll&quot;,</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">3</span><span style="color: #000">|</span><span style="color: #BE5D1D">S</span><span style="color: #000">:</span><span style="color: #1C01CE">15</span><span style="color: #000">&quot;</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span><span style="color: #000">,</span>
+        <span style="color: #5C3CFF">{</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">LogicalName</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;UserChecker&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">PhysicalPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\UserChecker.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D">UserControlPath</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Plugin\\UserView.dll&quot;,</span>
+          <span style="color: #000">&quot;</span><span style="color: #BE5D1D; font-weight: bold">Trigger</span><span style="color: #000">&quot;:</span> <span style="color: #5C3CFF">{</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Reference</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;True&quot;,</span>
+            <span style="color: #000">&quot;</span><span style="color: #BE5D1D">Parameters</span><span style="color: #000">&quot;:</span> <span style="color: #000">&quot;Predecessor&quot;</span>
+          <span style="color: #5C3CFF">}</span>
+        <span style="color: #5C3CFF">}</span>
+      <span style="color: #000">]</span>
+    <span style="color: #5C3CFF">}</span>
+  <span style="color: #5C3CFF">}</span>
+<span style="color: #5C3CFF">}</span>
+</pre></div></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>

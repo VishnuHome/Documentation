@@ -9,13 +9,13 @@ from tqdm import tqdm
 # Dictionaries, kein DeepL mehr.                                      #
 #######################################################################
 
-directory = r"html.en.online.stripped"
+directory: str = r"html.en.online.stripped"
 
-german_english_regex = [
+german_english_regex: list[str] = [
     r'\(Stand: (\d\d\.\d\d\.\d\d\d\d)\)'
 ]
 
-german_english_fix = {
+german_english_fix: dict[str, str] = {
     ">Access<": "Quick Start",
     ">Vishnu control<": ">Vishnu Control<",
     ">Vishnu logic<": ">Vishnu Logic<",
@@ -85,7 +85,7 @@ german_english_fix = {
 }
 german_english_all = german_english_fix.copy()
 
-english_english_fix = {
+english_english_fix: dict[str, str] = {
     ">Access<": "Quick Start",
     ">Vishnu control<": ">Vishnu Control<",
     ">Vishnu logic<": ">Vishnu Logic<",
@@ -118,7 +118,7 @@ english_english_fix = {
     "the context menu": "Context Menu",
 }
 
-month_dict = {
+month_dict: dict[int, str] = {
     1: "January",
     2: "February",
     3: "March",
@@ -133,31 +133,32 @@ month_dict = {
     12: "December"
 }
 
-filepath_title = {}
+filepath_title: dict[str, str] = {}
 
-def translate_date(pattern, date):
+def translate_date(pattern: str, date: str) -> str:
     day, month, year = date.split(".")
     return f"as of {month_dict[int(month)]} {day}, {year}"
 
-def search_and_translate_items(pattern, file_content):
-    hit = None
-    full_match = None
-    inner_match = None
-    translated_hit = None
+def search_and_translate_items(pattern: str, file_content: str) -> tuple[str, str|None, str|None]:
+    hit: str|None = None
+    full_match: str|None = None
+    inner_match: str|None = None
+    translated_hit: str|None = None
     # Description content
     match = re.search(pattern, file_content, re.IGNORECASE | re.DOTALL)
     if match:
         full_match = match.group(0)
         inner_match = match.group(1)
         hit = match.group(1).strip()  # Gib den Inhalt des Treffers zurück
-    if hit is not None:
+    if hit:
         if pattern == r'\(Stand: (\d\d\.\d\d\.\d\d\d\d)\)':
             translated_hit = translate_date(pattern, hit)
-            full_match = "(" + inner_match + ")"
+            if inner_match:
+                full_match = "(" + inner_match + ")"
         else:
             translated_hit = hit
 
-    if translated_hit is not None:
+    if translated_hit and full_match and inner_match:
         # file_content = re.sub(pattern, re.escape(match.group(0).replace(match.group(1), translated_content)), file_content)
         # file_content = re.sub(pattern, match.group(0).replace(match.group(1), translated_content), file_content)
         translated_full_match = full_match.replace(inner_match, translated_hit).replace("\\", "#__#")
@@ -166,14 +167,14 @@ def search_and_translate_items(pattern, file_content):
     return file_content, hit, translated_hit
 
 # Funktion zum Verarbeiten einer HTM-Datei
-def work_on_file(filepath):
+def work_on_file(filepath: str):
     file_content = ""
     with open(filepath, "r", encoding="utf-8") as file:
         file_content = file.read()
 
     for pattern in german_english_regex:
         file_content, german, english = search_and_translate_items(pattern, file_content)
-        if german:
+        if german and english:
             german_english_all[german] = english
 
     for original in german_english_fix:

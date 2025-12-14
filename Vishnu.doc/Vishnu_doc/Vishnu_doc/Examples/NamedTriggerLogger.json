@@ -1,0 +1,41 @@
+{
+  "JobDescription": {
+    "LogicalName": "irgend ein Job",
+    ...
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "MS:500"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged"
+        }
+      ]
+    },
+    ...
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker_1",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception|10|Checker_1-Result",
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    }
+    ...
+  }
+}
