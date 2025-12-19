@@ -63,7 +63,18 @@
 							<para>
 								<database>XmlAccess</database> wird in Zukunft nicht mehr unterstützt.
 							</para>
+							<para>
+								<languageKeyword>XML-JobDescriptions</languageKeyword> und <languageKeyword>XML-Parameter</languageKeyword>
+								werden selbstverständlich weiterhin unterstützt.
+							</para>
 						</alert>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix: Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
+							<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
+							funktionieren jetzt ohne Fehlermeldungen, auch bei der Generierung neuer Projekte (VS 2026, VS 2022).
+						</para>
 					</listItem>
 					<listItem>
 						<para>
@@ -94,6 +105,18 @@
 							Bugfix: Ein Re-Run auf einen SubJob, der einen JobConnector auf einen außerhalb des SubJobs liegenden Job enthält
 							führte zum Beenden des referenzierten Jobs. Wurde durch Implementierung eines neuen Interfaces
 							<database>IUntraversableElement</database> und Zuweisung zu <languageKeyword>NodeConnector</languageKeyword> behoben.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix:  Result - letzter Status (true|false) wurde bei wiederholtem Aufruf nach Übergabe eines Startparameters
+							nicht aktualisiert (siehe Job "Check_Treshold_50_10").
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Bugfix:  Der "NodeName" wurde im weitergereichten Event bei getriggerten Knoten nicht gesetzt.
+							Das führte zur fehenden Anzeige des Knotennamens z.B. im Job "CheckCanRun".
 						</para>
 					</listItem>
 				</list>

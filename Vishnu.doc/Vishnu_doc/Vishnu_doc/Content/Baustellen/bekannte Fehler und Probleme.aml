@@ -32,14 +32,6 @@
 				</listItem>
 				<listItem>
 					<para>
-						Die <database>VSIX-</database>Templates zur Unterstützung der Erstellung eigener
-						<token>V</token>-<languageKeyword>Checker</languageKeyword> und <languageKeyword>User-Controls</languageKeyword>
-						wurden zwar nach Migration auf .Net 7 wieder funktionstüchtig gemacht, erzeugen aber bei der Generierung
-						neuer Projekte noch Fehlermeldungen. Ansonsten funktioniert aber alles.
-					</para>
-				</listItem>
-				<listItem>
-					<para>
 						Wenn das Log-Verzeichnis auf einem Netzwerklaufwerk liegt und das Netzwerk kurzzeitig nicht
 						erreichbar ist, beendet sich Vishnu.
 					</para>
