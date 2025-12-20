@@ -172,13 +172,6 @@
 				<para>
 					Es wird eine Projektmappe mit einem Checker-Projekt und einem Testprojekt generiert.
 				</para>
-				<alert class="warning">
-					<para>
-						Es erfolgen während der Generierung der Projekte zwei Fehlermeldungen, dass
-						dem Projekt nicht alle erforderlichen Pakete hinzugefügt werden könnten.
-						Diese treffen aber nicht zu und können ignoriert werden.
-					</para>
-				</alert>
 				<mediaLink>
 					<image xlink:href="UserCheckerSolution"/>
 				</mediaLink>
