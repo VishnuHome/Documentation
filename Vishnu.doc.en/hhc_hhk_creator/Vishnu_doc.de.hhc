@@ -160,6 +160,12 @@
     </OBJECT></LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Version 8.4.5">
+        <param name="Local" value="html\5207d47e-1d8e-42c4-9e5c-7d9677b851fa.htm">
+      </OBJECT></LI>
+    </UL>
+    <UL>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Version 8.3.0">
         <param name="Local" value="html\ed1dc3ac-90b6-4b69-a42c-82205b811a79.htm">
       </OBJECT></LI>
@@ -691,6 +697,12 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Format Eigenschaft">
+              <param name="Local" value="html\P_LogicalTaskTree_Job_Format.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="InitNodes Eigenschaft">
               <param name="Local" value="html\P_LogicalTaskTree_Job_InitNodes.htm">
             </OBJECT></LI>
@@ -997,13 +1009,13 @@
           </OBJECT></LI>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="JobList(TreeParameters, IJobProvider) Konstruktor">
+              <param name="Name" value="JobList(TreeParameters, IJobProvider, String) Konstruktor">
               <param name="Local" value="html\M_LogicalTaskTree_JobList__ctor_1.htm">
             </OBJECT></LI>
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="JobList(LogicalNode, JobList, TreeParameters) Konstruktor">
+              <param name="Name" value="JobList(LogicalNode, JobList, TreeParameters, String) Konstruktor">
               <param name="Local" value="html\M_LogicalTaskTree_JobList__ctor.htm">
             </OBJECT></LI>
           </UL>
@@ -1023,6 +1035,12 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="ConstantNodeUserControlPath Eigenschaft">
               <param name="Local" value="html\P_LogicalTaskTree_JobList_ConstantNodeUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Format Eigenschaft">
+              <param name="Local" value="html\P_LogicalTaskTree_JobList_Format.htm">
             </OBJECT></LI>
           </UL>
           <UL>
@@ -1389,6 +1407,42 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="_appSettings Feld">
               <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase__appSettings.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTCONSTANTNODEUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTCONSTANTNODEUSERCONTROLPATH.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTJOBCONNECTORUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTJOBCONNECTORUSERCONTROLPATH.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTJOBLISTUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTJOBLISTUSERCONTROLPATH.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTNODELISTUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTNODELISTUSERCONTROLPATH.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTSINGLENODEUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTSINGLENODEUSERCONTROLPATH.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DEFAULTSNAPSHOTUSERCONTROLPATH Feld">
+              <param name="Local" value="html\F_LogicalTaskTree_JobProviderBase_DEFAULTSNAPSHOTUSERCONTROLPATH.htm">
             </OBJECT></LI>
           </UL>
           <UL>
@@ -4159,13 +4213,13 @@
           </OBJECT></LI>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="WorkerShell(String, XElement) Konstruktor">
+              <param name="Name" value="WorkerShell(String, String) Konstruktor">
               <param name="Local" value="html\M_LogicalTaskTree_WorkerShell__ctor.htm">
             </OBJECT></LI>
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="WorkerShell(String, XElement, Boolean, INodeTrigger) Konstruktor">
+              <param name="Name" value="WorkerShell(String, String, Boolean, INodeTrigger) Konstruktor">
               <param name="Local" value="html\M_LogicalTaskTree_WorkerShell__ctor_1.htm">
             </OBJECT></LI>
           </UL>
@@ -4263,6 +4317,12 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="GetPhysicalJobPath Methode">
               <param name="Local" value="html\M_LogicalTaskTree_Provider_EmptyJobProvider_GetPhysicalJobPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ReplaceWildcardsAndPathes Methode">
+              <param name="Local" value="html\M_LogicalTaskTree_Provider_EmptyJobProvider_ReplaceWildcardsAndPathes.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -6687,6 +6747,96 @@
       </UL>
       <UL>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfigAppSettingEntry Klasse">
+          <param name="Local" value="html\T_NetEti_ApplicationEnvironment_FrameworkConfigAppSettingEntry.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettingEntry Konstruktor">
+            <param name="Local" value="html\M_NetEti_ApplicationEnvironment_FrameworkConfigAppSettingEntry__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettingEntry Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_ApplicationEnvironment_FrameworkConfigAppSettingEntry.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Key Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfigAppSettingEntry_Key.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Value Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfigAppSettingEntry_Value.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfigAppSettings Klasse">
+          <param name="Local" value="html\T_NetEti_ApplicationEnvironment_FrameworkConfigAppSettings.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettings Konstruktor">
+            <param name="Local" value="html\M_NetEti_ApplicationEnvironment_FrameworkConfigAppSettings__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettings Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_ApplicationEnvironment_FrameworkConfigAppSettings.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Add Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfigAppSettings_Add.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfiguration Klasse">
+          <param name="Local" value="html\T_NetEti_ApplicationEnvironment_FrameworkConfiguration.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfiguration Konstruktor">
+            <param name="Local" value="html\M_NetEti_ApplicationEnvironment_FrameworkConfiguration__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfiguration Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_ApplicationEnvironment_FrameworkConfiguration.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="AppSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfiguration_AppSettings.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ConfigAppSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfiguration_ConfigAppSettings.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="UserSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_FrameworkConfiguration_UserSettings.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="PropertyAccess Klasse">
           <param name="Local" value="html\T_NetEti_ApplicationEnvironment_PropertyAccess.htm">
         </OBJECT></LI>
@@ -6867,6 +7017,54 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="GetStringValues Methode">
               <param name="Local" value="html\M_NetEti_ApplicationEnvironment_SettingsAccess_GetStringValues.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="UserSettingsAccess Klasse">
+          <param name="Local" value="html\T_NetEti_ApplicationEnvironment_UserSettingsAccess.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="UserSettingsAccess Konstruktor">
+            <param name="Local" value="html\M_NetEti_ApplicationEnvironment_UserSettingsAccess__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="UserSettingsAccess Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_ApplicationEnvironment_UserSettingsAccess.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Description Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_UserSettingsAccess_Description.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Settings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_ApplicationEnvironment_UserSettingsAccess_Settings.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="UserSettingsAccess Methoden">
+            <param name="Local" value="html\Methods_T_NetEti_ApplicationEnvironment_UserSettingsAccess.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="GetStringValue Methode">
+              <param name="Local" value="html\M_NetEti_ApplicationEnvironment_UserSettingsAccess_GetStringValue.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="GetStringValues Methode">
+              <param name="Local" value="html\M_NetEti_ApplicationEnvironment_UserSettingsAccess_GetStringValues.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -7479,6 +7677,96 @@
       </UL>
       <UL>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfigAppSettingEntry Klasse">
+          <param name="Local" value="html\T_NetEti_FileTools_FrameworkConfigAppSettingEntry.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettingEntry Konstruktor">
+            <param name="Local" value="html\M_NetEti_FileTools_FrameworkConfigAppSettingEntry__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettingEntry Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_FileTools_FrameworkConfigAppSettingEntry.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Key Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfigAppSettingEntry_Key.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Value Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfigAppSettingEntry_Value.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfigAppSettings Klasse">
+          <param name="Local" value="html\T_NetEti_FileTools_FrameworkConfigAppSettings.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettings Konstruktor">
+            <param name="Local" value="html\M_NetEti_FileTools_FrameworkConfigAppSettings__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfigAppSettings Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_FileTools_FrameworkConfigAppSettings.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Add Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfigAppSettings_Add.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="FrameworkConfiguration Klasse">
+          <param name="Local" value="html\T_NetEti_FileTools_FrameworkConfiguration.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfiguration Konstruktor">
+            <param name="Local" value="html\M_NetEti_FileTools_FrameworkConfiguration__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="FrameworkConfiguration Eigenschaften">
+            <param name="Local" value="html\Properties_T_NetEti_FileTools_FrameworkConfiguration.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="AppSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfiguration_AppSettings.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ConfigAppSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfiguration_ConfigAppSettings.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="UserSettings Eigenschaft">
+              <param name="Local" value="html\P_NetEti_FileTools_FrameworkConfiguration_UserSettings.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="IniAccess Klasse">
           <param name="Local" value="html\T_NetEti_FileTools_IniAccess.htm">
         </OBJECT></LI>
@@ -7521,54 +7809,6 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="ReadSetting Methode">
               <param name="Local" value="html\M_NetEti_FileTools_IniAccess_ReadSetting.htm">
-            </OBJECT></LI>
-          </UL>
-        </UL>
-      </UL>
-      <UL>
-        <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="XmlAccess Klasse">
-          <param name="Local" value="html\T_NetEti_FileTools_XmlAccess.htm">
-        </OBJECT></LI>
-        <UL>
-          <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="XmlAccess Konstruktor">
-            <param name="Local" value="html\M_NetEti_FileTools_XmlAccess__ctor.htm">
-          </OBJECT></LI>
-        </UL>
-        <UL>
-          <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="XmlAccess Eigenschaften">
-            <param name="Local" value="html\Properties_T_NetEti_FileTools_XmlAccess.htm">
-          </OBJECT></LI>
-          <UL>
-            <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Description Eigenschaft">
-              <param name="Local" value="html\P_NetEti_FileTools_XmlAccess_Description.htm">
-            </OBJECT></LI>
-          </UL>
-          <UL>
-            <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Settings Eigenschaft">
-              <param name="Local" value="html\P_NetEti_FileTools_XmlAccess_Settings.htm">
-            </OBJECT></LI>
-          </UL>
-        </UL>
-        <UL>
-          <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="XmlAccess Methoden">
-            <param name="Local" value="html\Methods_T_NetEti_FileTools_XmlAccess.htm">
-          </OBJECT></LI>
-          <UL>
-            <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="GetStringValue Methode">
-              <param name="Local" value="html\M_NetEti_FileTools_XmlAccess_GetStringValue.htm">
-            </OBJECT></LI>
-          </UL>
-          <UL>
-            <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="GetStringValues Methode">
-              <param name="Local" value="html\M_NetEti_FileTools_XmlAccess_GetStringValues.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -7810,6 +8050,12 @@
                 <param name="Local" value="html\M_NetEti_FileTools_Zip_SevenZipWorker_IsZip_1.htm">
               </OBJECT></LI>
             </UL>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsZipByExtractor Methode">
+              <param name="Local" value="html\M_NetEti_FileTools_Zip_SevenZipWorker_IsZipByExtractor.htm">
+            </OBJECT></LI>
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
@@ -8432,6 +8678,12 @@
       </UL>
       <UL>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="IUntraversableElement Schnittstelle">
+          <param name="Local" value="html\T_NetEti_Globals_IUntraversableElement.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="ThreadInfos Klasse">
           <param name="Local" value="html\T_NetEti_Globals_ThreadInfos.htm">
         </OBJECT></LI>
@@ -8863,15 +9115,27 @@
         </OBJECT></LI>
         <UL>
           <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="SerializationUtility Konstruktor">
-            <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility__ctor.htm">
-          </OBJECT></LI>
-        </UL>
-        <UL>
-          <LI><OBJECT type="text/sitemap">
             <param name="Name" value="SerializationUtility Methoden">
             <param name="Local" value="html\Methods_T_NetEti_ObjectSerializer_SerializationUtility.htm">
           </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DeserializeFromJson&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromJson__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DeserializeFromJsonOrXml&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromJsonOrXml__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DeserializeFromXml&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_DeserializeFromXml__1.htm">
+            </OBJECT></LI>
+          </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="DeserializeObjectFromBase64String Methode">
@@ -8892,6 +9156,30 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LoadFromJsonFile&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_LoadFromJsonFile__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LoadFromXmlFile&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_LoadFromXmlFile__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SaveToJsonFile&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SaveToJsonFile__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SaveToXmlFile&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SaveToXmlFile__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="SerializeObjectToBase64String Methode">
               <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SerializeObjectToBase64String.htm">
             </OBJECT></LI>
@@ -8906,6 +9194,18 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="SerializeObjectToCodedString Methode">
               <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SerializeObjectToCodedString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SerializeToJson&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SerializeToJson__1.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SerializeToXml&lt;T&gt; Methode">
+              <param name="Local" value="html\M_NetEti_ObjectSerializer_SerializationUtility_SerializeToXml__1.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -8964,6 +9264,12 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DumpLoadedJobs Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_DumpLoadedJobs.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="FatalInitializationException Eigenschaft">
               <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_FatalInitializationException.htm">
             </OBJECT></LI>
@@ -9000,8 +9306,14 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="RootJobXmlName Eigenschaft">
-              <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_RootJobXmlName.htm">
+              <param name="Name" value="PreferredJobDescriptionFormat Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_PreferredJobDescriptionFormat.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SelfCreatedDummyDirectories Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_SelfCreatedDummyDirectories.htm">
             </OBJECT></LI>
           </UL>
           <UL>
@@ -9066,6 +9378,12 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ValidJobDescriptionExtensions Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_ValidJobDescriptionExtensions.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="VishnuProvider Eigenschaft">
               <param name="Local" value="html\P_Vishnu_Interchange_AppSettings_VishnuProvider.htm">
             </OBJECT></LI>
@@ -9114,6 +9432,12 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PrepareAndLocatePath Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_AppSettings_PrepareAndLocatePath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="RegisterUserStringValueGetter Methode">
               <param name="Local" value="html\M_Vishnu_Interchange_AppSettings_RegisterUserStringValueGetter.htm">
             </OBJECT></LI>
@@ -9122,6 +9446,18 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="ReplaceWildcards Methode">
               <param name="Local" value="html\M_Vishnu_Interchange_AppSettings_ReplaceWildcards.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ReplaceWildcardsAndPathes Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_AppSettings_ReplaceWildcardsAndPathes.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SaveJobPathes Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_AppSettings_SaveJobPathes.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -9134,6 +9470,60 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="UserParametersReloaded Ereignis">
               <param name="Local" value="html\E_Vishnu_Interchange_AppSettings_UserParametersReloaded.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="CheckersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_CheckersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CheckersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_CheckersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CheckersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_CheckersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="CheckersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_CheckersContainer_CheckersList.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="CustomJsonConverter Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_CustomJsonConverter.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CustomJsonConverter Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_CustomJsonConverter__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CustomJsonConverter Methoden">
+            <param name="Local" value="html\Methods_T_Vishnu_Interchange_CustomJsonConverter.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Read Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_CustomJsonConverter_Read.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Write Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_CustomJsonConverter_Write.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -9468,8 +9858,8 @@
           </OBJECT></LI>
           <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="GetVishnuJobXml Methode">
-              <param name="Local" value="html\M_Vishnu_Interchange_IVishnuJobProvider_GetVishnuJobXml.htm">
+              <param name="Name" value="GetVishnuJobDescription Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_IVishnuJobProvider_GetVishnuJobDescription.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -9560,6 +9950,666 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="PropertyChanged Ereignis">
               <param name="Local" value="html\E_Vishnu_Interchange_IVishnuViewModel_PropertyChanged.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="BreakWithResult Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_BreakWithResult.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="BreakWithResultString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_BreakWithResultString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Checkers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Checkers.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ConstantNodeUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_ConstantNodeUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Format Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Format.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="InitNodes Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_InitNodes.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="InitNodesString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_InitNodesString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsVolatile Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_IsVolatile.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsVolatileString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_IsVolatileString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobConnectorUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_JobConnectorUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobListUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_JobListUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobLogger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_JobLogger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobSnapshotTrigger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_JobSnapshotTrigger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobTrigger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_JobTrigger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Loggers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Loggers.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalExpression Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_LogicalExpression.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_LogicalName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="NodeListUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_NodeListUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Path Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Path.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SingleNodeUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_SingleNodeUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Snapshots Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Snapshots.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SnapshotUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_SnapshotUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="StartCollapsed Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_StartCollapsed.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="StartCollapsedString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_StartCollapsedString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="StructuredThreadLock Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_StructuredThreadLock.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SubJobs Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_SubJobs.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ThreadLockedString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_ThreadLockedString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ThreadLockedXml Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_ThreadLockedXml.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TimeStamp Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_TimeStamp.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Trigger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Trigger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TriggeredRunDelay Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_TriggeredRunDelay.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TriggeredRunDelayString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_TriggeredRunDelayString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Triggers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Triggers.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="UserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_UserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ValueModifiers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_ValueModifiers.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Workers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainer_Workers.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerChecker Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerChecker.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerChecker Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerChecker__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerChecker Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerChecker.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="CanRunDllPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_CanRunDllPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="InitNodes Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_InitNodes.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="InitNodesString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_InitNodesString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsGlobal Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_IsGlobal.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsGlobalString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_IsGlobalString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsMirror Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_IsMirror.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsMirrorString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_IsMirrorString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Logger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_Logger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_LogicalName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_Parameters.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SingleNodeUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_SingleNodeUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="StructuredThreadLock Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_StructuredThreadLock.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ThreadLockedString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_ThreadLockedString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ThreadLockedXml Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_ThreadLockedXml.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Trigger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_Trigger.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TriggeredRunDelay Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_TriggeredRunDelay.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="UserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerChecker_UserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerLogger Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerLogger.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerLogger Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerLogger__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerLogger Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerLogger.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerLogger_LogicalName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerLogger_Parameters.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerLogger_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Reference Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerLogger_Reference.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerSubWorker Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerSubWorker.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerSubWorker Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerSubWorker__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerSubWorker Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerSubWorker.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerSubWorker_Parameters.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ParametersXml Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerSubWorker_ParametersXml.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerSubWorker_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="StructuredParameters Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerSubWorker_StructuredParameters.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Trigger Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerSubWorker_Trigger.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerThreadLock Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerThreadLock.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerThreadLock Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerThreadLock__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerThreadLock Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerThreadLock.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LockName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerThreadLock_LockName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ThreadLocked Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerThreadLock_ThreadLocked.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerTrigger Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerTrigger.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerTrigger Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerTrigger__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerTrigger Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerTrigger.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerTrigger_LogicalName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Parameters Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerTrigger_Parameters.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerTrigger_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Reference Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerTrigger_Reference.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerValueModifier Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerValueModifier.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerValueModifier Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerValueModifier__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerValueModifier Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerValueModifier.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Format Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_Format.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsGlobal Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_IsGlobal.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="IsGlobalString Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_IsGlobalString.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalName Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_LogicalName.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PhysicalPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_PhysicalPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Reference Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_Reference.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SingleNodeUserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_SingleNodeUserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Type Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_Type.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="UserControlPath Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerValueModifier_UserControlPath.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobContainerWorker Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobContainerWorker.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerWorker Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_JobContainerWorker__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JobContainerWorker Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_JobContainerWorker.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LogicalExpression Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerWorker_LogicalExpression.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SubWorkers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_JobContainerWorker_SubWorkers.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="JobDescriptionFormat Enumeration">
+          <param name="Local" value="html\T_Vishnu_Interchange_JobDescriptionFormat.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="LoggersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_LoggersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="LoggersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_LoggersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="LoggersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_LoggersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="LoggersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_LoggersContainer_LoggersList.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -9710,6 +10760,144 @@
       </UL>
       <UL>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SnapshotJobContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_SnapshotJobContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SnapshotJobContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_SnapshotJobContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SnapshotJobContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_SnapshotJobContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="JobDescription Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SnapshotJobContainer_JobDescription.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Path Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SnapshotJobContainer_Path.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TimeStamp Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SnapshotJobContainer_TimeStamp.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SnapshotsContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_SnapshotsContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SnapshotsContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_SnapshotsContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SnapshotsContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_SnapshotsContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SnapshotsList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SnapshotsContainer_SnapshotsList.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="StructuredParameters Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_StructuredParameters.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="StructuredParameters Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_StructuredParameters__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="StructuredParameters Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_StructuredParameters.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SubWorkers Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_StructuredParameters_SubWorkers.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Transport Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_StructuredParameters_Transport.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SubJobsContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_SubJobsContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SubJobsContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_SubJobsContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SubJobsContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_SubJobsContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SubJobsList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SubJobsContainer_SubJobsList.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="SubWorkersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_SubWorkersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SubWorkersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_SubWorkersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="SubWorkersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_SubWorkersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="SubWorkersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_SubWorkersContainer_SubWorkersList.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="TreeEvent Klasse">
           <param name="Local" value="html\T_Vishnu_Interchange_TreeEvent.htm">
         </OBJECT></LI>
@@ -9836,6 +11024,12 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="GetUserEventNamesForInternalEventNames Methode">
               <param name="Local" value="html\M_Vishnu_Interchange_TreeEvent_GetUserEventNamesForInternalEventNames.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="PrepareAndLocatePath Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_TreeEvent_PrepareAndLocatePath.htm">
             </OBJECT></LI>
           </UL>
           <UL>
@@ -10112,6 +11306,30 @@
       </UL>
       <UL>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="TriggersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_TriggersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="TriggersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_TriggersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="TriggersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_TriggersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="TriggersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_TriggersContainer_TriggersList.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="UndefinedTreeEventClass Klasse">
           <param name="Local" value="html\T_Vishnu_Interchange_UndefinedTreeEventClass.htm">
         </OBJECT></LI>
@@ -10132,6 +11350,30 @@
             <param name="Name" value="UndefinedTreeEventClass Methoden">
             <param name="Local" value="html\Methods_T_Vishnu_Interchange_UndefinedTreeEventClass.htm">
           </OBJECT></LI>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ValueModifiersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_ValueModifiersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="ValueModifiersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_ValueModifiersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="ValueModifiersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_ValueModifiersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="ValueModifiersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_ValueModifiersContainer_ValueModifiersList.htm">
+            </OBJECT></LI>
+          </UL>
         </UL>
       </UL>
       <UL>
@@ -10176,8 +11418,50 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="GetJobPathesLogPath Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_VishnuAssemblyLoader_GetJobPathesLogPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="GetResolvedAssemblyPath Methode">
+              <param name="Local" value="html\M_Vishnu_Interchange_VishnuAssemblyLoader_GetResolvedAssemblyPath.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="RegisterAssemblyPathForForcedNextReloading Methode">
               <param name="Local" value="html\M_Vishnu_Interchange_VishnuAssemblyLoader_RegisterAssemblyPathForForcedNextReloading.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="VishnuAssemblyLoader.JsonPathData Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_VishnuAssemblyLoader_JsonPathData.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="VishnuAssemblyLoader.JsonPathData Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_VishnuAssemblyLoader_JsonPathData__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="JsonPathData Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_VishnuAssemblyLoader_JsonPathData.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Id Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_VishnuAssemblyLoader_JsonPathData_Id.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Values Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_VishnuAssemblyLoader_JsonPathData_Values.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -10274,6 +11558,30 @@
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="GetMainWindowMeasures Methode">
               <param name="Local" value="html\M_Vishnu_Interchange_WindowAspects_GetMainWindowMeasures.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="WorkersContainer Klasse">
+          <param name="Local" value="html\T_Vishnu_Interchange_WorkersContainer.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="WorkersContainer Konstruktor">
+            <param name="Local" value="html\M_Vishnu_Interchange_WorkersContainer__ctor.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="WorkersContainer Eigenschaften">
+            <param name="Local" value="html\Properties_T_Vishnu_Interchange_WorkersContainer.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="WorkersList Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_Interchange_WorkersContainer_WorkersList.htm">
             </OBJECT></LI>
           </UL>
         </UL>
@@ -11070,8 +12378,26 @@
           </UL>
           <UL>
             <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="DebugNodeInfos Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_ViewModel_JobListViewModel_DebugNodeInfos.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Format Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_ViewModel_JobListViewModel_Format.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
               <param name="Name" value="IsActive Eigenschaft">
               <param name="Local" value="html\P_Vishnu_ViewModel_JobListViewModel_IsActive.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="RefreshCanExecuteCommand Eigenschaft">
+              <param name="Local" value="html\P_Vishnu_ViewModel_JobListViewModel_RefreshCanExecuteCommand.htm">
             </OBJECT></LI>
           </UL>
           <UL>

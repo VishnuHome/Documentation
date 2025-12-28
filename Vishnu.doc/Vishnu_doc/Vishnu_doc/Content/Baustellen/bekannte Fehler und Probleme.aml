@@ -60,6 +60,26 @@
 				</listItem>
 				<listItem>
 					<para>
+						In Felermeldungen des <languageKeyword>MicroMailers</languageKeyword> werden Zugangsparameter im Klartext ausgegeben.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Manchmal bleiben weiße Fenster im Hintergrund stehen und verschwinden erst, wenn die Anwendung beendet wird.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Früh auftretende Fehler werden u.U. nicht gelogt (GenericSingletonProvider?).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						Im <languageKeyword>VishnuHelpBrowser</languageKeyword> funktioniert die Suche nach Stichworten nicht (Javascript-Problem?).
+					</para>
+				</listItem>
+				<listItem>
+					<para>
 						<database>Bildschirmdarstellung</database>
 					</para>
 					<para>
@@ -69,7 +89,7 @@
 					<para>
 						Wenn der Schalter <database>SizeOnVirtualScreen</database> auf <database>true</database> steht,
 						<token>V</token> sich aktuell über mehrere Bildschirme erstreckt und man dann die Bildschirmdarstellung
-						abspeichert, wird <token>V</token> trotzdem beim nächsten Start nur im zuletzt aktiven Bisldschirm
+						abspeichert, wird <token>V</token> trotzdem beim nächsten Start nur im zuletzt aktiven Bildschirm
 						angezeigt.
 					</para>
 				</listItem>

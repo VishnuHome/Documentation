@@ -8,12 +8,10 @@
 			<para>
 				Version 8.3.0 Babylon (Stand: 19.12.2024)
 			</para>
-			<alert class="note">
-				<para>
-					Diese Version ist der zusätzlichen englischen Internetpräsenz und Hilfe gewidmet.
-					<token>V</token> selbst ist noch nicht mehrsprachig.
-				</para>
-			</alert>
+			<para>
+				Diese Version ist der zusätzlichen englischen Internetpräsenz und Hilfe gewidmet.
+				<token>V</token> selbst ist noch nicht mehrsprachig.
+			</para>
 		</introduction>
 
 		<section>

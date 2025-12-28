@@ -8,13 +8,11 @@
 			<para>
 				Version 8.4.5 Argonaut (Stand: 13.12.2025)
 			</para>
-			<alert class="note">
-				<para>
-					Diese Version erweitert <token>V</token> um die Möglichkeit, in <database>Json</database>
-					definierte <languageKeyword>Jobs</languageKeyword> und <languageKeyword>Parameter</languageKeyword>
-					zu verarbeiten.
-				</para>
-			</alert>
+			<para>
+				Diese Version erweitert <token>V</token> um die Möglichkeit, in <database>Json</database>
+				definierte <languageKeyword>Jobs</languageKeyword> und <languageKeyword>Parameter</languageKeyword>
+				zu verarbeiten.
+			</para>
 			<alert class="note">
 				<para>
 					Diese Version ist getestet und stabil.

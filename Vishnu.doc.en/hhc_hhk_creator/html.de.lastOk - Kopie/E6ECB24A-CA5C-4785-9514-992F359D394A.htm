@@ -1,0 +1,365 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="de-de" /><meta name="Microsoft.Help.Locale" content="de-de" /><meta name="Microsoft.Help.TopicLocale" content="de-de" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-de-DE.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>Konfiguration und Parameter</title><meta name="Microsoft.Help.Id" content="E6ECB24A-CA5C-4785-9514-992F359D394A" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Description" content="Das Verhalten von Vishnu kann über diverse Parameter eingestellt werden. Diese Parameter können beim Aufruf von Vishnu über die Kommandozeile mitgegeben werden, sie können aber auch über die , das Environment, oder die Registry eingestellt werden." /><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title="Vishnu - der logische Prozess-Monitor" tocid="roottoc">Vishnu - der logische Prozess-Monitor</a></div><div class="toclevel1 current" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/E6ECB24A-CA5C-4785-9514-992F359D394A.htm" title="Konfiguration und Parameter" tocid="E6ECB24A-CA5C-4785-9514-992F359D394A">Konfiguration und Parameter</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/15204f64-ecf7-44b6-822d-74e36b99927d.htm" title="Vishnu Parameter-Ersetzung" tocid="15204f64-ecf7-44b6-822d-74e36b99927d">Vishnu Parameter-Ersetzung</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/9b9475bc-f8a9-4e7a-a84a-373276329b00.htm" title="Vishnu.exe.config.user" tocid="9b9475bc-f8a9-4e7a-a84a-373276329b00">Vishnu.exe.config.user</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>Konfiguration und Parameter</h1></td></tr></table><div id="Intro"><p>
+        Das Verhalten von <strong>Vishnu</strong> kann über diverse Parameter eingestellt werden.
+        Diese Parameter können beim Aufruf von <strong>Vishnu</strong> über die Kommandozeile mitgegeben werden,
+        sie können aber auch über die <a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a>,
+        das Environment, oder die Registry eingestellt werden. <strong>Vishnu</strong> leitet dabei auch ihm unbekannte
+        "anonyme" Parameter an <span class="keyword">Jobs</span> und <span class="keyword">Checker</span> weiter,
+        sofern sie an den <strong>Vishnu</strong> bekannten Stellen abgelegt wurden.
+      </p><p><strong>Vishnu</strong>-<span class="keyword">Jobs</span> und deren Elemente wie zum Beispiel <span class="keyword">Checker</span>
+        können über verschiedene Parameter in der <span class="keyword">JobDescription.xml</span> gesteuert werden.
+        Eine Liste von Parametereinstellungen für Jobs und deren Elemente finden Sie weiter unten in diesem Kapitel bei <a href="#JobParameter">Job Parameter</a>.
+      </p></div><div class="collapsibleAreaRegion" id="VishnuParameter"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Vishnu Parameter</span></div><div id="IDDABSection" class="collapsibleSection"><p><strong>Vishnu</strong>-Parameter können, wie eingangs schon erwähnt, auf verschiedenen Wegen eingestellt werden.
+          In welcher Form das zu erfolgen hat, sehen Sie beispielhaft in der nachfolgenden Auflistung.
+        </p><ul><li><p><span class="keyword">Kommandozeile</span></p><p>
+              Parameterübergaben an <strong>Vishnu</strong> über die Kommandozeile folgen immer dem Schema
+              <span class="keyword">Vishnu [anonyme Parameter] [Vishnu-Parameter]</span>.
+              Die eckigen Klammern werden nicht mit eingegeben. Sie symbolisieren, dass die jeweiligen Parameter optonal sind,
+              d.h. nicht vorkommen müssen.
+            </p><p>
+              Beispiel: <span class="keyword">Vishnu "irgendwas" -job="DemoJobs\CheckAll"</span></p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                Es gibt zusätzlich noch einen fortgeschrittenen Weg zur Übergabe von anonymen Parametern.
+                Sie können Ihre Parameter über <a href="f724b721-c805-4dbe-8db4-1529c0c68f3d.htm">eigene Parameter-Reader</a> einsteuern.
+                <strong>Vishnu</strong> berücksichtigt bei der Parametersuche vorrangig einen User-eigenen Parameter-Reader,
+                dessen Pfad über den Parameter <span class="keyword">UserParameterReaderPath</span> konfiguriert wurde.
+              </p></td></tr></table></div></li><li><p><span class="keyword">Vishnu.exe.config.user</span></p><p><a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a> ist die zentrale Konfigurationsdatei für Ihre
+              eigenen <strong>Vishnu</strong>-Einstellungen. Hier finden Sie einige voreingestellte Parameter. Sie können diese
+              ändern, aber auch eigene hinzufügen.
+              Sie finden die <span class="keyword">Vishnu.exe.config.user</span> nach dem ersten Start von <strong>Vishnu</strong> 
+			  im Pfad <span class="keyword">%LOCALAPPDATA%\Vishnu\Vishnu.exe.config.user</span>, wobei
+              <span class="keyword">LOCALAPPDATA</span> eine Einstellung der Windows-Umgebung (Environment) ist
+              und üblicherweise auf <span class="keyword">C:\Users\&lt;Benutzer&gt;\AppData\Local</span> verweist.
+            </p><p>
+              Beispiel: <span class="keyword">&lt;add key="Job" value="DemoJobs\CheckAll"&gt;</span></p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+					Die Reihenfolge der Parameterangaben ist in der <a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a>
+					unerheblich. Sie müssen sich nur innerhalb von &lt;appSettings&gt; und &lt;/appSettings&gt; befinden.
+				</p></td></tr></table></div></li><li><p><span class="keyword">Environment (Windows Umgebung)</span></p><p>
+              Beispiel: <span class="keyword">SET Job="DemoJobs\CheckAll"</span></p></li><li><p><span class="keyword">Registry</span>:
+              <strong>Vishnu</strong> selbst nutzt die Registry nicht, unterstützt aber die Ablage von Parametereinstellungen
+              im Pfad <span class="keyword">RegistryBasePath</span>. <span class="keyword">RegistryBasePath</span>
+              ist ein konfigurierbarer Parameter und per Default auf den Registry-Key
+              <span class="keyword">HKEY_LOCAL_MACHINE\SOFTWARE\Vishnu</span> voreingestellt. <strong>Vishnu</strong> sucht unterhalb von
+              RegistryBasePath nach String-Werten.
+            </p><p>
+              Beispiel: Key <span class="keyword">HKEY_LOCAL_MACHINE\SOFTWARE\Vishnu\Job</span> mit Wert "DemoJobs\CheckAll"
+            </p></li></ul><p>
+          In der folgenden Liste haben wir für Sie eine Auswahl wesentlicher <strong>Vishnu</strong>-Parameter zusammengestellt.
+        </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+            Eine vollständige Liste aller <strong>Vishnu</strong>-Parameter finden Sie unter
+            <a href="T_Vishnu_Interchange_AppSettings.htm">Vishnu.Interchange<span id="LST727DEF5D_0" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>AppSettings</a>.
+          </p></td></tr></table></div><ul><li><p><span class="keyword">AppConfigUser</span></p><p>
+              Über den Parameter <span class="keyword">AppConfigUser</span> wird der Pfad zur Datei
+              <a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a> festgelegt.
+              Diese Einstellung sollte normalerweise nicht geändert werden müssen.
+            </p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Achtung" />  Achtung</th></tr><tr><td><p>
+                Falls Sie doch einmal die Notwendigkeit für eine Änderung von <span class="keyword">AppConfigUser</span>
+                sehen, denken Sie daran, dass dieser Parameter nicht in der
+                <a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a> selbst definiert werden kann.
+              </p></td></tr></table></div></li><li><p><span class="keyword">Job</span></p><p>
+              Über diesen Parameter kann der Pfad zum Job oder zu einem Zip-Archiv, welches das Job-Verzeichnis enthält (dann ohne ".zip"-Extension),
+              festgelegt werden. Der Pfad kann absolut oder relativ zum übergeordneten Job bzw. zum <strong>Vishnu</strong>-Installationsverzeichnis
+              angegeben werden.
+              Gültige Pfadangaben sind z.B. <span class="keyword">DemoJobs\CheckAll</span> oder auch
+              <span class="keyword">c:\Users\%UserName%\AppData\Local\Apps\Vishnu\CheckAll</span>.
+            </p></li><li><p><span class="keyword">DemoModus</span></p><p><strong>Vishnu</strong> wird bei Erstinstallation im Demo-Modus mit einem Demo-Job gestartet.
+              Dies ist in der <a href="9b9475bc-f8a9-4e7a-a84a-373276329b00.htm">Vishnu.exe.config.user</a> so voreingestellt.
+              Um die Anzeige "-DEMO-" im Vishnu-Fenster loszuwerden, können Sie <span class="keyword">DemoModus</span>
+              auf "false" setzen oder den Parameter ganz herausnehmen.
+            </p></li><li><p><span class="keyword">Autostart</span></p><p>
+              Wird <span class="keyword">Autostart</span> auf "true" eingestellt, beginnt <strong>Vishnu</strong> nach dem Programmstart
+              direkt mit der Verarbeitung der <span class="keyword">Jobs</span>.
+              Dies ist auch die Voreinstellung.
+            </p></li><li><p><span class="keyword">SingleInstance</span></p><p>
+              Dieser Parameter steht in der Grundeinstellung auf "False". Das bedeutet, dass <strong>Vishnu</strong>
+              mehrmals gleichzeitig auf einem Rechner gestartet werden kann.
+			  Wenn Sie wollen, dass <strong>Vishnu</strong> nur einmal auf einem Rechner starten kann, setzen Sie
+			  diesen Parameter auf "True". Ein weiterer Startversuch holt dann nur
+              noch das schon laufende <strong>Vishnu</strong>-Programm (Instanz) in den Vordergrund.
+            </p></li><li><p><span class="keyword">WorkingDirectory</span></p><p><span class="keyword">KillWorkingDirectoryAtShutdown</span></p><p>
+              Das <span class="keyword">WorkingDirectory</span> ist das <strong>Vishnu</strong>-Arbeitsverzeichnis.
+              Hier legt <strong>Vishnu</strong> Logfiles und Momentaufnahmen seines Zustandes
+              (<span class="keyword">Snapshots</span>) ab, wenn für diese keine anderen Ablageverzeichnisse definiert wurden.
+              Die Default-Einstellung ist <span class="keyword">%TempDirectory%\Vishnu.%MainJobName%</span>.
+            </p><p>
+              Per Default lässt <strong>Vishnu</strong> das <span class="keyword">WorkingDirectory</span> am Ende der
+              Verarbeitung stehen. Wenn Sie wollen, dass <strong>Vishnu</strong> am Ende der Verarbeitung wieder aufräumt, d.h. das
+              Arbeitsverzeichnis wieder löscht, können Sie den Parameter <span class="keyword">KillWorkingDirectoryAtShutdown</span>
+              auf "true" stellen.
+            </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                Selbstverständlich löscht <strong>Vishnu</strong> nur Verzeichnisse, die von <strong>Vishnu</strong> vorher auch angelegt wurden.
+              </p></td></tr></table></div></li><li><p><span class="keyword">DebugFile</span></p><p>
+              Das <span class="keyword">DebugFile</span> ist die <strong>Vishnu</strong>-Log-Datei.
+              Hier hinein schreibt <strong>Vishnu</strong> alle Verarbeitungsfehler und ggf. auch alle seine Konfigurationsparameter
+              mit Quellen und plus eine Liste aller geladenen <span class="keyword">Assemblies</span>.
+            </p><p>
+              Auch alle Ausgaben der eventuell von Ihnen in der <span class="keyword">JobDescription.xml</span>
+              definierten <span class="keyword">Logger</span> landen im <span class="keyword">DebugFile</span>.
+            </p><p>
+               Die <strong>Vishnu</strong>-Log-Datei ist per Default <span class="keyword">%TempDirectory%\Vishnu.%MainJobName%\Vishnu.log</span>.
+            </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                Nähere Informationen zu <span class="keyword">Loggern</span> finden Sie unter
+                <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Logger">Vishnu Akteure</a>.
+              </p></td></tr></table></div></li><li><p><span class="keyword">DumpAppSettings</span></p><p><span class="keyword">DumpLoadedAssemblies</span></p><p>
+              Diese beiden Parameter können, wie schon oben angesprochen, zur Fehlersuche genutzt werden.
+              <span class="keyword"><span id="LST727DEF5D_1" data-languageSpecificText="vb=True|nu=true"></span></span> bedeutet jeweils in die Log-Datei schreiben,
+              bei <span class="keyword"><span id="LST727DEF5D_2" data-languageSpecificText="vb=False|nu=false"></span></span> wird nichts geloggt.
+              Der Default ist für beide Parameter <span class="keyword"><span id="LST727DEF5D_3" data-languageSpecificText="vb=False|nu=false"></span></span>.
+            </p></li><li><p><span class="keyword">RegistryBasePath</span></p><p><strong>Vishnu</strong> sucht in der Windows-Registry unterhalb von <span class="keyword">RegistryBasePath</span>
+              nach Parametern (Key) und ihren Werten (Value).
+              Default-Einstellung ist <span class="keyword">HKEY_LOCAL_MACHINE\SOFTWARE\Vishnu</span>.
+            </p></li><li><p><span class="keyword">UserAssemblyDirectory</span></p><p><span class="keyword">UserParameterReaderPath</span></p><p>
+              Über den Parameter <span class="keyword">UserAssemblyDirectory</span> kann ein Verzeichnis gesetzt
+              werden, in dem <strong>Vishnu</strong> zusätzlich zu den jeweweiligen <span class="keyword">Job</span>-Verzeichnissen nach Ihren
+              <a href="a3f9771a-ac24-46c0-97df-d2bde6a990e8.htm">eingenen Checker-DLLs</a>,
+              <a href="74204d60-cbb3-4f38-8266-aa7af541143f.htm">eigenen UserControls</a> oder auch
+              <a href="f724b721-c805-4dbe-8db4-1529c0c68f3d.htm">Ihrem eigenen Parameter-Reader</a> sucht.
+              Der Default-Name für dieses Verzeichnis ist <span class="keyword">UserAssemblies</span> und der 
+			  zugehörige Pfad wird von <strong>Vishnu</strong> in der Regel schon so belegt, dass man den Parameter
+			  <span class="keyword">UserAssemblyDirectory</span> nicht selbst setzen muss.
+              Ein eventueller eigener Parameter-Reader muss allerdings zusätzlich über den Parameter
+              <span class="keyword">UserParameterReaderPath</span> entsprechend eingestellt worden sein,
+              zum Beispiel auf "<span class="keyword">%UserAssemblyDirectory%\DemoParameterProvider.dll</span>".
+            </p></li><li><p><span class="keyword">SnapshotDirectory</span></p><p>
+              Über den Parameter <span class="keyword">SnapshotDirectory</span> kann ein Verzeichnis gesetzt
+              werden, in dem <strong>Vishnu</strong> nach abgespeicherten Momentaufnahmen von <strong>Vishnu</strong>-<span class="keyword">Jobs</span> sucht.
+              Das <span class="keyword">SnapshotDirectory</span> ist immer relativ zum aktuellen <span class="keyword">Job</span>-Verzeichnis
+              und per Default auf <span class="keyword">"..\Snapshots"</span> eingestellt.
+            </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                Wofür <span class="keyword">Snapshots</span> genau gut sind und wie sie konfiguriert werden, wird in einem eigenen Kapitel
+                <a href="628bbc96-dcd7-4563-a515-5a2edf9ebc10.htm">Snapshots</a> beschrieben.
+              </p></td></tr></table></div></li></ul><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+            Die Parameterübergabe erfolgt für alle Parametereinstellungen gleich.
+            Eine entsprechende Beschreibung finden Sie am <a href="#VishnuParameter">Anfang</a> dieses Abschnitts.
+          </p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="JobParameter"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Job Parameter</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+          Das oberste Element einer <strong>Vishnu</strong>-Verarbeitung ist immer der <span class="keyword">Job</span>.
+          Wie der Job auszusehen hat und was er tun soll, wird in einer Datei <span class="keyword">JobDescription.xml</span>
+          festgelegt.
+        </p><p>
+          Jobs können beliebig geschachtelt werden. Wir werden dann zukünftig von (Haupt-)<span class="keyword">Job</span>
+          und <span class="keyword">SubJobs</span> sprechen, obwohl <strong>Vishnu</strong> alle Jobs gleich behandelt, zumal
+          ein <span class="keyword">SubJob</span> ja wiederum "Haupt"-<span class="keyword">Job</span> für
+          weitere <span class="keyword">SubJobs</span> sein kann.
+        </p><p>
+          Ein Beispiel für eine funktionierende <span class="keyword">JobDescription.xml</span> finden Sie unter
+          <a href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c.htm">Inline SubJobs</a>.
+        </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+            In der <span class="keyword">JobDescription.xml</span>
+            können auch für <strong>Vishnu</strong> unbekannte ("anonyme") Anwender-Parameter für die Übergabe an Ihre <span class="keyword">Checker</span>
+            oder <span class="keyword">Worker</span> wieder aufgelöst werden. Wozu das gut ist und wie das genau funktioniert,
+            können Sie im Kapitel <a href="15204f64-ecf7-44b6-822d-74e36b99927d.htm">Vishnu Parameter-Ersetzung</a> nachlesen.
+          </p></td></tr></table></div><p>
+          Die nachfolgende Liste enthält alle wesentlichen Parameter, die innerhalb einer <span class="keyword">JobDescription.xml</span>
+          gesetzt werden können. Dies betrifft nicht nur <span class="keyword">Jobs</span> sondern auch alle
+          <span class="keyword">Job</span>-Elemente wie <span class="keyword">Checker</span>, <span class="keyword">Trigger</span>,
+          <span class="keyword">Worker</span>, etc.
+        </p><table><tr><th><p>Job-Parameter</p></th><th><p>Strukturansicht</p></th></tr><tr><td><ul><li><p><span class="keyword">LogicalName</span></p><p>
+                    Alle <span class="keyword">Jobs</span>, <span class="keyword">Checker</span>, <span class="keyword">SubJobs</span>,
+                    <span class="keyword">Snapshots</span> und <a href="ac884694-516c-4c98-a2af-d79cc504d0f6.htm">benannte Trigger und Logger</a> haben einen
+                    <span class="keyword">LogicalName</span>, über den sie von <strong>Vishnu</strong> verarbeitet werden können.
+                    Außerdem wird dieser <span class="keyword">LogicalName</span> bei <span class="keyword">Jobs</span>,
+                    <span class="keyword">Snapshots</span> und <span class="keyword">Checkern</span> von <strong>Vishnu</strong>
+                    auf dem Bildschirm angezeigt.
+                  </p><p>
+                    Beispiel: &lt;LogicalName&gt;Check All&lt;/LogicalName&gt;
+                  </p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Achtung" />  Achtung</th></tr><tr><td><p>
+                      Dieser <span class="keyword">LogicalName</span> muss gleich dem Namen sein, unter dem der Knoten
+                      in der <span class="keyword">LogicalExpression</span> (siehe unten) angesprochen wird, sonst kann
+                      <strong>Vishnu</strong> die Zuordnung zur Laufzeit nicht auflösen.
+                      Denken Sie daran, wenn Sie einen <span class="keyword">LogicalName</span> mal ändern wollen.
+                    </p></td></tr></table></div><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                      Wenn ein <span class="keyword">Job</span> einen anderen als <span class="keyword">SubJob</span> lädt,
+                      erhält der <span class="keyword">SubJob</span> den <span class="keyword">LogicalName</span> mit dem
+                      er im Haupt-Job benannt wird. <strong>Vishnu</strong> sorgt ggf. intern für die Anpassung von Referenzen
+                      im <span class="keyword">SubJob</span>.
+                    </p></td></tr></table></div></li><li><p><span class="keyword">LogicalExpression</span></p><p>
+                    Alle <span class="keyword">Jobs</span> und <span class="keyword">SubJobs</span> werden über eine
+                    <span class="keyword">LogicalExpression</span> beschrieben. Über die <span class="keyword">LogicalExpression</span>
+                    legen Sie fest, wie die Beziehungen der Knoten des <span class="keyword">Jobs</span> zueinander sind und welche
+                    Struktur der <span class="keyword">Job</span> letzten Endes auf dem Bildschirm hat.<br /></p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p><span class="keyword">LogicalExpressions</span> können auf zwei leicht unterschiedliche Arten formuliert werden,
+                      siehe folgendes Beispiel:
+                    </p><ol><li><p>
+                          &lt;LogicalExpression&gt;(Google AND Heise) AND (Local OR Local_Backup)&lt;/LogicalExpression&gt;
+                        </p></li><li><p>
+                          &lt;LogicalExpression&gt;&lt;![CDATA[(Google AND Heise) AND (Local OR Local_Backup)]]&gt;&lt;/LogicalExpression&gt;
+                        </p></li></ol><p>
+                      Die zweite Form, in der der logische Ausdruck noch zusätzlich in "&lt;![CDATA[" und "]]&gt;" eingeschlossen ist,
+                      hat den Vorteil, dass im logischen Ausdruck auch Sonderzeichen vorkommen dürfen. Das ermöglicht,
+                      <span class="keyword">Operatoren</span> in ihrer Kurzform verwenden zu können.
+                      Details dazu werden im Kapitel <a href="0e4f7c52-ffb4-4ea3-9ab6-40f24b47373d.htm">Vishnu Logik</a> erklärt.
+                    </p></td></tr></table></div></li><li><p><span class="keyword">PhysicalPath</span></p><p>
+                    Jeder <span class="keyword">Job</span> wird über seinen <span class="keyword">PhysicalPath</span> gefunden.
+                    Der <span class="keyword">PhysicalPath</span> gehört nicht zur Job-Definition selbst, sondern muss außerhalb der
+                    <span class="keyword">JobDescription.xml</span> im Moment des Ladens festgelegt sein. Dies wird bei einem Haupt-Job
+                    über den Vishnu-Parameter <span class="keyword">Job</span> gesteuert, für <span class="keyword">SubJobs</span>
+                    muss der <span class="keyword">PhysicalPath</span> in der <span class="keyword">JobDescription.xml</span> des
+                    ladenden, übergeordneten Jobs gesetzt werden.
+                  </p><p><span class="keyword">Checker</span>,<span class="keyword">Trigger</span>,<span class="keyword">Logger</span>,
+                    <span class="keyword">Worker</span> und <span class="keyword">ValueModifier</span> werden ebenfalls über
+                    den <span class="keyword">PhysicalPath</span> geladen, sofern sie nicht einen anderen Knoten oder
+                    <span class="keyword">TreeEvents</span> referenzieren (siehe hierzu
+                    auch <a href="ac884694-516c-4c98-a2af-d79cc504d0f6.htm">benannte Trigger und Logger</a> und <a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a>).
+                  </p><p>
+                    Beispiel: &lt;PhysicalPath&gt;..\SubJob&lt;/PhysicalPath&gt;
+                    <br /></p><p /></li><li><p><span class="keyword">Parameters</span></p><p>
+                    Der Abschnitt <strong>Parameters</strong> dient dazu, Übergabeparameter für Ihre eigenen
+                    <span class="keyword">Checker, Trigger, Worker oder Logger</span> in der 
+                    <span class="keyword">JobDescription.xml</span> zu hinterlegen.
+                    <strong>Vishnu</strong> reicht diese von Ihnen formulierten Parameter dann später beim Aufruf Ihrer
+                    eigenen <span class="keyword">Checker, Trigger, Worker oder Logger</span> an diese weiter.
+                  </p><p>
+                    Die Form und Syntax der übergebenen Parameter ist nicht festgelegt. Sie können hierüber völlig frei bestimmen.
+                    Entscheidend ist nur, dass Ihr eigenes Element (DLL) das Format versteht, welches Sie in der
+                    <span class="keyword">JobDescription.xml</span> hinterlegt haben.
+                  </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                      Wie auch bei <span class="keyword">LogicalExpression</span> können Parameter im erweiterten Format
+                      übergeben werden, wie zum Beispiel Folgende bei einem Worker:
+                      &lt;Parameters&gt;&lt;![CDATA[Fehler|%Timestamp%: %MachineName% MyChecker %Event% von %Source% in %Sender%]]&gt;&lt;/Parameters&gt;
+                    </p></td></tr></table></div></li><li><p><span class="keyword">Reference</span></p><p>
+                    Über <strong>Reference</strong> wird in besonderen Fällen auf andere <strong>Vishnu</strong>-Elemente
+                    verwiesen.
+                  </p><p>
+                    Der sicherlich häufigste Anwendungsfall findet sich bei <span class="keyword">ValueModifiern</span>.
+                    Hier wird mithilfe von &lt;Reference&gt;Checkername&lt;/Reference&gt; der Checker angegeben, dessen
+                    <span class="keyword">Result</span> über den <span class="keyword">ValueModifier</span>
+                    verändert werden soll. Beispiele hierzu finden Sie unter <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#ValueModifier">Vishnu Akteure</a>
+                    und <a href="b2bd8510-a131-4466-9fac-66f2033d92a0.htm">eigene ValueModifier</a>.
+                  </p><p>
+                    Eine weitere Anwendung findet sich bei <span class="keyword">Trigger-</span> und
+                    <span class="keyword">Logger-</span>Zuweisungen, welche vorher definierte Trigger und Logger
+                    referenzieren, siehe dazu auch <a href="ac884694-516c-4c98-a2af-d79cc504d0f6.htm">benannte Trigger und Logger</a>.
+                  </p><p /></li><li><p><span class="keyword">StartCollapsed</span></p><p>
+                    Alle <span class="keyword">Jobs</span> werden qua Grundeinstellung ausgeklappt dargestellt, d.h.
+                    Unterelemente wie z.B. <span class="keyword">Checker</span> oder weitere <span class="keyword">Jobs</span>
+                    sind erstmal sichtbar. Um dieses Verhalten zu ändern, können Sie <span class="keyword">StartCollapsed</span>
+                    auf <strong>true</strong> setzen.
+                  </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                      Noch weitergehende Möglichkeiten haben Sie durch das Abspeichern einer aktuellen Anordnung eines
+                      <strong>Vishnu</strong>-Trees zur Laufzeit, siehe <a href="6fe3bf85-d02b-41ff-84a7-dcc2a4819978.htm">Vishnu Steuerung</a>.
+                      Die Darstellung ist übrigens auf jedem Arbeitsplatz individuell speicherbar.
+                    </p></td></tr></table></div></li><li><p><span class="keyword">ThreadLocked</span></p><p><span class="keyword">LockName</span></p><p><strong>Vishnu</strong> arbeitet hoch parallel, d.h. dass alle Elemente wie zum Beispiel
+                    <span class="keyword">Checker</span>, <span class="keyword">Trigger</span>, etc.
+                    gleichzeitig arbeiten können. <strong>Vishnu</strong> ist dafür von vornherein ausgelegt (threadsafe).
+                    Es kann aber sein, dass ein von Ihnen erstellter <span class="keyword">Checker</span>-Typ
+                    Probleme bekommt, wenn mehrere gleichartige Checker in einem Tree konfiguriert sind und
+                    gleichzeitig laufen.
+                  </p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Achtung" />  Achtung</th></tr><tr><td><p>
+                      Die Fehler, die dann unter Umständen auftreten, können sehr unangenehm und kaum zu ermitteln
+                      sein.<br />
+                      Setzen Sie in einer solchen Situation auf <span class="keyword">Job</span>-Ebene
+                      oder auf <span class="keyword">Checker</span>-Ebene den Schalter
+                      <strong>ThreadLocked</strong> auf <strong>true</strong>. <strong>Vishnu</strong> stellt dann
+                      sicher, dass derart gekennzeichnete <span class="keyword">Checker</span> nacheinander und
+                      nicht gleichzeitig ausgeführt werden.
+                      <br />
+                      Um verschiedene <span class="keyword">Checker</span>-Typen dabei noch differenziert behandeln
+                      zu können, nutzen Sie das optionale Zusatzattribut <strong>Lockname</strong>.<br />
+                      Hier ein Beispiel: <strong>&lt;ThreadLocked LockName="ConcurrentSQL"&gt;true&lt;/ThreadLocked&gt;</strong></p></td></tr></table></div></li><li><p><span class="keyword">UserControlPath</span></p><p><span class="keyword">JobListUserControlPath</span></p><p><span class="keyword">NodeListUserControlPath</span></p><p><span class="keyword">SingleNodeUserControlPath</span></p><p><span class="keyword">ConstantNodeUserControlPath</span></p><p><span class="keyword">JobConnectorUserControlPath</span></p><p><span class="keyword">SnapshotUserControlPath</span></p><p>
+                    Die hier zusammengefassten Einstellungen dienen alle zur Festlegung alternativer Darstellungen
+                    (<span class="keyword">Views</span>) von <strong>Vishnu</strong>-Elementen.
+                    Mit ihrer Hilfe können Sie in der <span class="keyword">JobDescription.xml</span>
+                    optional relative Pfade zu eigenen <span class="keyword">Views</span> (DLLs) vorgeben.
+                  </p><p>
+                    Der Parameter <strong>UserControlPath</strong> bezieht sich dabei nur auf das Element,
+                    bei dem er in der <span class="keyword">JobDescription.xml</span> gesetzt wird.
+                    Die anderen Parameter können auf <span class="keyword">Job</span>-Ebene gesetzt werden
+                    und gelten dann für alle untergeordneten Elemente des im Namen des Parameters enthaltenen Typs
+                    (JobList, NodeList, SingleNode, ConstantNode, JobConnector, Snapshot).<br />
+                    Der Parameter <strong>SingleNodeUserControlPath</strong> bestmmt dabei auch das Aussehen
+                    von <span class="keyword">ValueModifiern</span> und <span class="keyword">NodeConnectoren</span>.
+                  </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+                      Siehe auch <a href="62ca75a8-ba50-4115-93df-b1e76bf6e5f7.htm">ein einfaches Beispiel</a> und
+                      <a href="74204d60-cbb3-4f38-8266-aa7af541143f.htm">eigene Views</a>.
+                    </p></td></tr></table></div></li></ul></td><td><p>
+                  Job<br />
+                      LogicalName<br />
+                      LogicalExpression<br />
+                      PhysicalPath<br />
+                      StartCollapsed<br />
+                      ThreadLocked<br />
+                          LockName<br />
+                      JobTrigger<br />
+                          Reference<br />
+                          PhysicalPath<br />
+                          Parameters<br />
+                      JobSnapshotTrigger<br />
+                          Parameters<br />
+                          Reference<br />
+                          PhysicalPath<br />
+                      JobLogger<br />
+                          Reference<br />
+                          PhysicalPath<br />
+                          Parameters<br />
+                      UserControlPath<br />
+                      JobListUserControlPath<br />
+                      SnapshotUserControlPath<br />
+                      NodeListUserControlPath<br />
+                      JobConnectorUserControlPath<br />
+                      SingleNodeUserControlPath<br />
+                      ConstantNodeUserControlPath<br />
+                      Checkers<br />
+                          Checker<br />
+                              LogicalName<br />
+                              PhysicalPath<br />
+                              Parameters<br />
+                              IsMirror<br />
+                              Trigger<br />
+                                  Reference<br />
+                                  PhysicalPath<br />
+                                  Parameters<br />
+                              Logger<br />
+                                  Reference<br />
+                                  PhysicalPath<br />
+                                  Parameters<br />
+                              UserControlPath<br />
+                              SingleNodeUserControlPath<br />
+                              ThreadLocked<br />
+                                  LockName<br />
+                              IsGlobal<br />
+                              CanRunDllPath<br />
+                      ValueModifiers<br />
+                          ValueModifier<br />
+                              LogicalName<br />
+                              Reference<br />
+                              PhysicalPath<br />
+                              Format<br />
+                              Type<br />
+                              IsGlobal<br />
+                              UserControlPath<br />
+                              SingleNodeUserControlPath<br />
+                      Triggers<br />
+                          Trigger<br />
+                              LogicalName<br />
+                              Reference<br />
+                              PhysicalPath<br />
+                              Parameters<br />
+                      Loggers<br />
+                          Logger<br />
+                              LogicalName<br />
+                              PhysicalPath<br />
+                              Parameters<br />
+                      Workers<br />
+                          Worker<br />
+                              LogicalExpression<br />
+                              SubWorkers    <br />
+                                  SubWorker<br />
+                                      PhysicalPath<br />
+                                      Parameters<br />
+                                      Trigger<br />
+                                          Reference<br />
+                                          PhysicalPath<br />
+                                          Parameters<br />
+                      SubJobs<br />
+                          SubJob<br />
+                              LogicalName<br />
+                              PhysicalPath<br />
+                              StartCollapsed<br />
+                              (Rekursion Job)            <br />
+                      Snapshots<br />
+                          Snapshot<br />
+                              LogicalName<br />
+                              PhysicalPath<br />
+                              StartCollapsed<br /></p></td></tr></table></div><div class="collapsibleAreaRegion" id="sieheAuch"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />siehe auch</span></div><div id="IDFABSection" class="collapsibleSection"><p /><ul><li><p><a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm">Vishnu Akteure</a></p></li><li><p><a href="c8911ff4-4ce7-406b-8467-e8ddff1ec56c.htm">Inline SubJobs</a></p></li><li><p><a href="1ccf9fe4-94f8-49ff-9234-506c5ad9daa7.htm">fortgeschrittene Themen</a></p></li><li><p><a href="R_Project_Vishnu_doc_de.htm">Vishnu - technische Dokumentation</a></p></li></ul></div></div></div><div id="PageFooter" class="pageFooter">Naturgemäß basieren viele Erkenntnisse und Entwicklungen auf im Internet frei zugänglichen Informationen. Eventuell fehlende Verweise auf ursprüngliche Autoren sind unbeabsichtigt und werden nach Meldung sofort nachgepflegt.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Senden Sie Kommentare zu diesem Feature an
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Ihre Rückmeldung wird für die Verbesserung der Dokumentation und des Produktes genutzt. Ihre Email-Adresse wird zu keinem anderen Zweck benutzt und wird nach der Behebung des gemeldeten Problems gelöscht. Während der Arbeit an dem Problem kann es sein dass Sie per Email kontaktiert werden für weitergehende Details oder Abklärung zur Rückmeldung von Ihnen. Nachdem das Problem eingegrenzt worden ist kann es sein dass Sie eine Email erhalten zur Problembehebung.");
+        </script></div></body></html>

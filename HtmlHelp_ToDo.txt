@@ -1,4 +1,37 @@
 ----------------------------------------------------------------------------------------------------------------------------
+Nach Installation von Visual Studio 2026 kann der Sandcastle Help File Builder
+nicht sofort installiert werden.
+Zuerst muss auch Visual Studio 2022 installiert sein.
+Danach kann der Sandcastle Help File Builder installiert werden
+(diese Installation betrifft dann beide Visual Studio Versionen).
+Achtung: nicht die Version SHFBInstaller_2025.9.30.0 verwenden, da ist der Installer kaputt!
+Es muss die Version SHFBInstaller_2024.2.18.0 verwendet werden!
+
+----------------------------------------------------------------------------------------------------------------------------
+Code in zwei Versionen (xml und json) in einer TabBox (CodeSnippetContainer) darstellen:
+im Ordner ...\VishnuHome\Documentation\Vishnu.doc.en\pygments-plugin-vishnu
+betreffende Code-Dateien in Python mit "json_xml_to_Vishnu_help" konvertieren
+(Ordner ...\VishnuHome\Documentation\Vishnu.doc.en\hhc_hhk_creator\).
+die *.xml und die *.json in den Ordner kopieren und die hart verdrahteten Namen
+im Script anpassen.
+Erzeugt eine Datei <Name der xml-Datei ohne Endung>.html.
+Den kompletten Dateiinhalt inklusive <markup>...</markup> in den gewünschten Absatz
+in die entsprechende *.aml in Vishnu_doc einfügen und nach dem Einfügen des html
+einmal Strg-z drücken.
+Dadurch wird die automatische Einrückung von Visual Studio rückgängig gemacht.
+Fertig.
+----------------------------------------------------------------------------------------------------------------------------
+Hilfe-Grafiken bearbeiten mit ClickCharts Flussdiagramm-Software
+...\VishnuHome\_Develop\Demo_Job_labeled.ccd
+----------------------------------------------------------------------------------------------------------------------------
+Die Vishnu-HTML-Hilfe lokal ausführen:
+! NICHT einfach die index.html ausführen (sonst geht die Suche nicht und das Menü nicht ganz) !
+sondern:
+	Das Verzeichnis mit der index.html (...VishnuHome\Documentation\Vishnu.doc\Vishnu_doc\Vishnu_doc\Help\)
+	mit vscode öffnen und dann die index.html über rechte Maustaste und "Open with Live Server" starten.
+	Dann funktioniert alles.
+	Der Live Server muss einmalig als Extension in vscode installiert werden (Live Server Ritwick Dey).
+----------------------------------------------------------------------------------------------------------------------------
 Deutsche und englische Online-Hilfe und deutsches und englisches *.chm erstellen
 (siehe auch GitHubPagesJekyllReadme.txt)
 ----------------------------------------------------------------------------------------------------------------------------
@@ -6,7 +39,10 @@ Deutsche und englische Online-Hilfe und deutsches und englisches *.chm erstellen
 ...\openVishnu8\ClubChaos\Admin\HthmHelp_ToDo.txt
 ! Bis mir was besseres einfällt, beide HthmHelp_ToDo.txt immer manuell gleich halten !
 
-------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+TODO: Prinzip: Jeder Schlüsselbegriff wird auf einer Page zur Einführung einmal fett <database>Schlüsselbegriff</database>
+angezeigt und danach leicht hervorgehoben <languageKeyword>Schlüsselbegriff</languageKeyword>.
+----------------------------------------------------------------------------------------------------------------------------
 Quellen und Projekte
 
 	------------------------------------------
@@ -497,3 +533,38 @@ help\file1.htm
 images\image1.png
 Hier wird auf Dateien im selben Verzeichnis oder in einem Unterverzeichnis relativ zur Position der .hhp-Datei verwiesen. Wenn du absolute Pfade angibst, kann es zu Fehlern beim Kompilieren der CHM-Datei kommen.
 
+----------------------------------------------------------------------------------------------------------------------------
+bearbeitete Grafiken mit Labels in Code Snippet Container einbinden:
+		<para>
+<markup>
+  <div id="IDBSection" class="collapsibleSection">
+    <div id="IDAB" class="codeSnippetContainer">
+      <div class="codeSnippetContainerTabs">
+        <div id="IDAB_tab1" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','cs','1','2');return false;">XML</a>
+        </div>
+        <div id="IDAB_tab2" class="codeSnippetContainerTab">
+          <a href="#" onclick="ChangeTab('IDAB','vb','2','2');return false;">Json</a>
+        </div>
+      </div>
+      <div class="codeSnippetContainerCodeContainer">
+        <div id="IDAB_code_Div1" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve">
+            <div class="highlight" style="background: #ffffff">
+              *** HIER XML GRAFIK ***
+            </div>
+          </pre>
+        </div>
+        <div id="IDAB_code_Div2" class="codeSnippetContainerCode" style="display: none">
+          <pre xml:space="preserve">
+            <div class="highlight" style="background: #ffffff">
+              *** HIER JSON GRAFIK ***
+            </div>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</markup>
+		</para>
+----------------------------------------------------------------------------------------------------------------------------

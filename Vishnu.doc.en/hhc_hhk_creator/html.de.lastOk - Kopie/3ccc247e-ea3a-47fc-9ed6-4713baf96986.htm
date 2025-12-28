@@ -1,0 +1,188 @@
+<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="Microsoft.Help.SelfBranded" content="true" /><meta name="Language" content="de-de" /><meta name="Microsoft.Help.Locale" content="de-de" /><meta name="Microsoft.Help.TopicLocale" content="de-de" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-de-DE.css" /><script type="text/javascript" src="../scripts/branding.js"></script><title>eigene Logger</title><meta name="Microsoft.Help.Id" content="3ccc247e-ea3a-47fc-9ed6-4713baf96986" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Microsoft.Help.Category" content="CSharp" /><meta name="Description" content="Dieses Kapitel handelt von selbst erstellten Loggern. Über eigene Logger können Sie TreeEvents im Vishnu-Tree nach Ihren Vorstellungen aufbereiten und in eine Log-Datei schreiben." /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="SetDefaultLanguage('cs');"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0"><a class="tocCollapsed" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/ad9ee8b6-c68c-47ec-9584-d85046eb3137.htm" title="Vishnu - der logische Prozess-Monitor" tocid="roottoc">Vishnu - der logische Prozess-Monitor</a></div><div class="toclevel1" data-toclevel="1" data-childrenloaded="true"><a class="tocExpanded" onclick="Toggle(this);" href="#!" /><a data-tochassubtree="true" href="../html/1ccf9fe4-94f8-49ff-9234-506c5ad9daa7.htm" title="fortgeschrittene Themen" tocid="1ccf9fe4-94f8-49ff-9234-506c5ad9daa7">fortgeschrittene Themen</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/ac884694-516c-4c98-a2af-d79cc504d0f6.htm" title="benannte Trigger und Logger" tocid="ac884694-516c-4c98-a2af-d79cc504d0f6">benannte Trigger und Logger</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/628bbc96-dcd7-4563-a515-5a2edf9ebc10.htm" title="Snapshots" tocid="628bbc96-dcd7-4563-a515-5a2edf9ebc10">Snapshots</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/0af46309-8c47-467f-a231-36615b7488d4.htm" title="Anforderungen an Anwender-Module" tocid="0af46309-8c47-467f-a231-36615b7488d4">Anforderungen an Anwender-Module</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/a3f9771a-ac24-46c0-97df-d2bde6a990e8.htm" title="eigene Checker" tocid="a3f9771a-ac24-46c0-97df-d2bde6a990e8">eigene Checker</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/74204d60-cbb3-4f38-8266-aa7af541143f.htm" title="eigene Views" tocid="74204d60-cbb3-4f38-8266-aa7af541143f">eigene Views</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/f724b721-c805-4dbe-8db4-1529c0c68f3d.htm" title="eigene Parameter-Reader" tocid="f724b721-c805-4dbe-8db4-1529c0c68f3d">eigene Parameter-Reader</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/b2bd8510-a131-4466-9fac-66f2033d92a0.htm" title="eigene ValueModifier" tocid="b2bd8510-a131-4466-9fac-66f2033d92a0">eigene ValueModifier</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/c2c472b6-b252-4bd6-bf6a-0b15bc404ea4.htm" title="eigene Trigger" tocid="c2c472b6-b252-4bd6-bf6a-0b15bc404ea4">eigene Trigger</a></div><div class="toclevel2 current" data-toclevel="2"><a data-tochassubtree="false" href="../html/3ccc247e-ea3a-47fc-9ed6-4713baf96986.htm" title="eigene Logger" tocid="3ccc247e-ea3a-47fc-9ed6-4713baf96986">eigene Logger</a></div><div class="toclevel2" data-toclevel="2"><a data-tochassubtree="false" href="../html/f14917bd-1d50-41f0-85ff-14462a770915.htm" title="Checker-Historie loggen" tocid="f14917bd-1d50-41f0-85ff-14462a770915">Checker-Historie loggen</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div id="TopicContent" class="topicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Vishnu_64.png" /></td><td class="titleColumn"><h1>eigene Logger</h1></td></tr></table><div><p>
+				Dieses Kapitel handelt von selbst erstellten <span class="keyword">Loggern</span>.
+				Über eigene <span class="keyword">Logger</span> können Sie <span class="keyword">TreeEvents</span> im
+				<strong>Vishnu</strong>-Tree nach Ihren Vorstellungen aufbereiten und in eine Log-Datei schreiben.
+			</p></div><div class="collapsibleAreaRegion" id="EigeneLogger"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDDAB')" onkeypress="SectionExpandCollapse_CheckKey('IDDAB', event)" tabindex="0"><img id="IDDABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />eigene Logger</span></div><div id="IDDABSection" class="collapsibleSection"><p>
+					Wir werden uns nachfolgend zuerst die Logging-Ausgaben des Demo-Projekts <strong>LoggerDemo</strong>
+					aus der Projektmappe <strong>...\InPlug\TextFileLogger</strong> ansehen, danach die Einbindung
+					des TextFileLoggers in das Demo-Programm und zuletzt Auszüge aus der Klasse
+					<strong>TextFileLogger.cs</strong>.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Hinweis" />  Hinweis</th></tr><tr><td><p>
+						Die Ausgabe des Demo-Programms selbst ist einfach ein Konsole-Fenster, dass Sie mit Enter
+						wieder schließen können (also hier nicht weiter interessant).
+					</p><p>
+						Allgemeine Informationen über Logger und wie diese in der <span class="keyword">JobDecription.xml</span>
+						definiert werden können Sie unter <a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Logger">Vishnu Akteure</a> nachschlagen.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TextFileLoggerDemoProjektRun"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDEAB')" onkeypress="SectionExpandCollapse_CheckKey('IDEAB', event)" tabindex="0"><img id="IDEABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Das Demo-Projekt</span></div><div id="IDEABSection" class="collapsibleSection"><p>
+					Hier zuerst die Logging-Ausgaben des Demo-Projekts:
+				</p><p>
+					Der Demo-Job erzeugt zwei Logdateien, eine auf dem <span class="keyword">Standard-LogPath</span>
+					und eine direkt in einem neuen Unterverzeichnis:
+					<strong>...\TextFileLogger\TextFileLoggerDemo\bin\Debug\sub1\TextFileLoggerDemo.log</strong></p><div id="IDCBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDCBEAB_tab1" class="codeSnippetContainerTabSingle">Ausgaben vom TextFileLogger auf dem Standard-Pfad</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDCBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDCBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDCBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-number">2021.07</span>.<span class="highlight-number">03</span> <span class="highlight-number">09</span>:<span class="highlight-number">41</span>:<span class="highlight-number">13</span>,<span class="highlight-number">961124</span> Event: Ereignis auf Standard-LogPath
+        Knoten: ein Knoten|<span class="highlight-number">0815</span>, Logical: False, Quelle: <span class="highlight-number">4711</span>
+        AnyServer, Thread: <span class="highlight-number">0001</span>/<span class="highlight-number">08292</span>, Tree: Test-Tree, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\TextFileLoggerDemo\<span class="highlight-number">1844</span></pre></div></div></div><div id="IDDBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDDBEAB_tab1" class="codeSnippetContainerTabSingle">Ausgaben vom TextFileLogger auf einem speziellen Pfad</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDDBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDDBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDDBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-number">2021.07</span>.<span class="highlight-number">03</span> <span class="highlight-number">09</span>:<span class="highlight-number">41</span>:<span class="highlight-number">14</span>,<span class="highlight-number">226374</span> Event: Ereignis auf speziellem LogPath
+        Knoten: ein Knoten|<span class="highlight-number">0815</span>, Logical: False, Quelle: <span class="highlight-number">4711</span>
+        AnyServer, Thread: <span class="highlight-number">0001</span>/<span class="highlight-number">08292</span>, Tree: Test-Tree, Status: Done
+        WorkingDirectory: C:\Users\&lt;user&gt;\AppData\Local\Temp\TextFileLoggerDemo\<span class="highlight-number">1844</span></pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Wichtig" />  Wichtig</th></tr><tr><td><p>
+						Der <span class="keyword">Standard-LogPath</span> wird über die Einbindung der
+						<span class="keyword">Vishnu.Interchange.dll</span> gesetzt und ist per Voreinstellung <br /><strong>%TempDirectory%\TextFileLoggerDemo\&lt;ProcessId&gt;\TextFileLoggerDemo.log</strong>.
+					</p><p>
+						Wenn der TextFileLogger später von <strong>Vishnu</strong> aufgerufen wird, zeigt der Standard-LogPath
+						auf die <strong>Vishnu</strong>-Logdatei.
+					</p></td></tr></table></div><p>
+					Einbindung und Aufruf der Klasse <strong>Logger.cs</strong> im Demo-Projekt,
+					siehe folgendes Code-Listing:
+				</p><div id="IDGBEAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDGBEAB_tab1" class="codeSnippetContainerTabSingle">Program.cs im Demo-Programm</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDGBEAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDGBEAB');return false;" title="Copy">Copy</a></div></div><div id="IDGBEAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">using</span> System;
+<span class="highlight-keyword">using</span> Vishnu.Interchange;
+
+<span class="highlight-keyword">namespace</span> TextFileLogger
+{
+    <span class="highlight-keyword">class</span> Program
+    {
+        <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> Main(<span class="highlight-keyword">string</span>[] args)
+        {
+            TextFileLogger myLogger = <span class="highlight-keyword">new</span> TextFileLogger();
+            myLogger.Log(<span class="highlight-keyword">null</span>, <span class="highlight-keyword">new</span> TreeParameters(<span class="highlight-literal">"Test-Tree"</span>, <span class="highlight-keyword">null</span>),
+              <span class="highlight-keyword">new</span> TreeEvent(<span class="highlight-literal">"Ereignis auf Standard-LogPath"</span>, <span class="highlight-literal">"4711"</span>, <span class="highlight-literal">"0815"</span>, <span class="highlight-literal">"ein Knoten"</span>, <span class="highlight-literal">""</span>,
+                            <span class="highlight-keyword">false</span>, NodeLogicalState.Done, <span class="highlight-keyword">null</span>, <span class="highlight-keyword">null</span>), <span class="highlight-keyword">null</span>);
+            myLogger.Log(<span class="highlight-literal">@"sub1\TextFileLoggerDemo.log"</span>, <span class="highlight-keyword">new</span> TreeParameters(<span class="highlight-literal">"Test-Tree"</span>, <span class="highlight-keyword">null</span>),
+              <span class="highlight-keyword">new</span> TreeEvent(<span class="highlight-literal">"Ereignis auf speziellem LogPath"</span>, <span class="highlight-literal">"4711"</span>, <span class="highlight-literal">"0815"</span>, <span class="highlight-literal">"ein Knoten"</span>, <span class="highlight-literal">""</span>,
+                            <span class="highlight-keyword">false</span>, NodeLogicalState.Done, <span class="highlight-keyword">null</span>, <span class="highlight-keyword">null</span>), <span class="highlight-keyword">null</span>);
+            Console.WriteLine(<span class="highlight-literal">"Ende mit Enter"</span>);
+            Console.ReadLine();
+        }
+    }
+}</pre></div></div></div><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Wichtig" />  Wichtig</th></tr><tr><td><p>
+						Der oben gezeigte Aufruf von <span class="keyword">Logger</span> im
+						Demo-Projekt dient nur zur Veranschaulichung. Sie selbst müssen den Logger nicht
+						aufrufen, sondern nur in einer <span class="keyword">JobDescription.xml</span> konfigurieren.
+						<strong>Vishnu</strong> kümmert sich dann später selbst um den Aufruf.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="TextFileLoggerSource"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDFAB')" onkeypress="SectionExpandCollapse_CheckKey('IDFAB', event)" tabindex="0"><img id="IDFABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Der TextFileLogger</span></div><div id="IDFABSection" class="collapsibleSection"><p>
+					Der eigentliche Logger ist in unserem Beispiel die Klasse <strong>TextFileLogger.cs</strong>,
+					siehe folgendes Code-Listing:
+				</p><div id="IDBBFAB" class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="IDBBFAB_tab1" class="codeSnippetContainerTabSingle">TextFileLogger.cs Auszug</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="IDBBFAB_copyCode" href="#" class="copyCodeSnippet" onclick="CopyToClipboard('IDBBFAB');return false;" title="Copy">Copy</a></div></div><div id="IDBBFAB_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve">...
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Loggt Vishnu-Ereignisse in ein Logfile.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> TextFileLogger : INodeLogger
+{
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Übernahme von diversen Logging-Informationen und Ausgabe in eine Logdatei.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="loggerParameters"&gt;Spezifische Aufrufparameter oder null.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="treeParameters"&gt;Für den gesamten Tree gültige Parameter oder null.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="treeEvent"&gt;Objekt mit Informationen über das Ereignis.&lt;/param&gt;</span>
+    <span class="highlight-comment">/// &lt;param name="additionalEventArgs"&gt;Enthält z.B. beim Event 'Exception' die zugehörige Exception.&lt;/param&gt;</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> Log(<span class="highlight-keyword">object</span> loggerParameters, TreeParameters treeParameters, TreeEvent treeEvent, <span class="highlight-keyword">object</span> additionalEventArgs)
+    {
+        <span class="highlight-comment">// Setzen des Pfades zur Logdatei</span>
+        <span class="highlight-keyword">this</span>.SetLogFilePath(loggerParameters, treeEvent);
+
+        <span class="highlight-comment">// Zusammenbauen der zu loggenden Nachricht</span>
+        <span class="highlight-keyword">string</span> bigMessage = BuildLogMessage(treeParameters, treeEvent, additionalEventArgs);
+
+        <span class="highlight-keyword">this</span>.WriteLog(bigMessage);
+    }
+
+    ...
+    <span class="highlight-comment">// Übernimmt entweder einen übergebenen, speziellen Pfad zu einer Logdatei</span>
+    <span class="highlight-comment">// oder setzt den Default Pfad. Legt ggf. das Zielverzeichnis an.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> SetLogFilePath(<span class="highlight-keyword">object</span> loggerParameters, TreeEvent treeEvent)
+    {
+        <span class="highlight-keyword">if</span> (loggerParameters != <span class="highlight-keyword">null</span>)
+        {
+            <span class="highlight-keyword">this</span>._debugFile = loggerParameters.ToString();
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">this</span>._debugFile = treeEvent.ReplaceWildcards(<span class="highlight-literal">"%DebugFile%"</span>);
+        }
+        <span class="highlight-keyword">if</span> (!Directory.Exists(Path.GetDirectoryName(<span class="highlight-keyword">this</span>._debugFile)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(<span class="highlight-keyword">this</span>._debugFile));
+        }
+    }
+
+    <span class="highlight-comment">// Baut aus den übergebenen Parametern einen einzigen formatierten string zusammen.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">string</span> BuildLogMessage(TreeParameters treeParameters, TreeEvent treeEvent, <span class="highlight-keyword">object</span> additionalEventArgs)
+    {
+        <span class="highlight-keyword">string</span> indent = <span class="highlight-literal">"        "</span>;
+        <span class="highlight-keyword">string</span> addInfos = indent;
+        <span class="highlight-keyword">if</span> (treeEvent.Name.Contains(<span class="highlight-literal">"Exception"</span>))
+        {
+            addInfos += (additionalEventArgs <span class="highlight-keyword">as</span> Exception).Message;
+        }
+        <span class="highlight-keyword">if</span> (treeEvent.Name.Contains(<span class="highlight-literal">"ProgressChanged"</span>))
+        {
+            addInfos += String.Format(<span class="highlight-literal">"Fortschritt {0:d3}%"</span>, Convert.ToInt32(additionalEventArgs));
+        }
+        <span class="highlight-keyword">string</span> timestamp = System.String.Format(System.Globalization.CultureInfo.CurrentCulture,
+            <span class="highlight-literal">"{0:yyyy.MM.dd HH:mm:ss,ffffff}"</span>, <span class="highlight-keyword">new</span> <span class="highlight-keyword">object</span>[] { treeEvent.Timestamp });
+        StringBuilder bigMessage = <span class="highlight-keyword">new</span> StringBuilder(timestamp + <span class="highlight-literal">" Event: "</span> + treeEvent.Name);
+        <span class="highlight-keyword">string</span> IdName = treeEvent.NodeName + <span class="highlight-literal">"|"</span> + treeEvent.SenderId;
+        bigMessage.Append(Environment.NewLine + indent + <span class="highlight-literal">"Knoten: "</span> + IdName);
+        bigMessage.Append(<span class="highlight-literal">", Logical: "</span> + treeEvent.Logical);
+        bigMessage.Append(<span class="highlight-literal">", Quelle: "</span> + treeEvent.SourceId);
+        bigMessage.Append(Environment.NewLine + indent + treeEvent.ReplaceWildcards(<span class="highlight-literal">"%MachineName%"</span>)
+            + <span class="highlight-literal">", Thread: "</span> + treeEvent.ThreadId.ToString());
+        bigMessage.Append(<span class="highlight-literal">", Tree: "</span> + treeParameters.ToString());
+        <span class="highlight-keyword">if</span> (addInfos.Trim() != <span class="highlight-literal">""</span>)
+        {
+            bigMessage.Append(Environment.NewLine + addInfos);
+        }
+        <span class="highlight-keyword">if</span> (!String.IsNullOrEmpty(treeEvent.NodePath))
+        {
+            bigMessage.Append(Environment.NewLine + indent + treeEvent.NodePath);
+        }
+        bigMessage.Append(<span class="highlight-literal">", Status: "</span> + treeEvent.State.ToString());
+        bigMessage.Append(Environment.NewLine + indent + <span class="highlight-literal">"WorkingDirectory: "</span>
+            + treeEvent.ReplaceWildcards(<span class="highlight-literal">"%WorkingDirectory%"</span>));
+        <span class="highlight-keyword">return</span> bigMessage.ToString();
+    }
+
+    <span class="highlight-comment">// Die Routine versucht, in eine möglicherweise von mehreren Knoten gleichzeitig</span>
+    <span class="highlight-comment">// genutzte Logdatei zu schreiben; wirft im Fehlerfall keine Exception, sondern</span>
+    <span class="highlight-comment">// versucht es wieder, bis ein Zähler abgelaufen ist.</span>
+    <span class="highlight-comment">// Im ungünstigsten Fall kann der Logging-Versuch fehlschlagen.</span>
+    <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> WriteLog(<span class="highlight-keyword">string</span> message)
+    {
+        <span class="highlight-keyword">int</span> maxTries = <span class="highlight-number">5</span>;
+        StreamWriter streamWriter;
+        <span class="highlight-keyword">int</span> i = <span class="highlight-number">0</span>;
+        <span class="highlight-keyword">do</span>
+        {
+            <span class="highlight-keyword">try</span>
+            {
+                <span class="highlight-keyword">using</span> (streamWriter = <span class="highlight-keyword">new</span> StreamWriter(<span class="highlight-keyword">new</span> FileStream(<span class="highlight-keyword">this</span>._debugFile,
+                    FileMode.Append, FileAccess.Write), Encoding.Default))
+                {
+                    streamWriter.WriteLine(message);
+                    i = maxTries; <span class="highlight-comment">// erfolgreich, Loop beenden</span>
+                }
+
+            }
+            <span class="highlight-keyword">catch</span> (SystemException)
+            {
+                Thread.Sleep(<span class="highlight-number">10</span>); <span class="highlight-comment">// 10 tausendstel Sekunden warten</span>
+            }
+        } <span class="highlight-keyword">while</span> (++i &lt; maxTries);
+    }
+...</pre></div></div></div><p>
+					Die Klasse TextFileLogger implementiert die von <strong>Vishnu</strong> bereitgestellte Schnittstelle
+					<a href="T_Vishnu_Interchange_INodeLogger.htm">Vishnu.Interchange<span id="LST11AB78F2_0" data-languageSpecificText="cs=.|vb=.|cpp=::|nu=.|fs=."></span>INodeLogger</a>.
+					Die einzige Routine <strong>Log(...)</strong> übernimmt den Pfad zur Logdatei
+					(Unterroutine SetLogFilePath), baut aus den übergebenen Parametern einen zusammenhängenden Meldungstext
+					(Unterroutine BuildLogMessage) und ruft zuletzt die interne Routine <strong>WriteLog</strong> auf,
+					in der versucht wird, die Meldung in die Logdatei zu schreiben.
+				</p><div class="alert"><table><tr><th><img src="../icons/AlertCaution.png" alt="Wichtig" />  Wichtig</th></tr><tr><td><p>
+						Da bei der späteren Verwendung in <strong>Vishnu</strong> unter Umständen mehrere <span class="keyword">Logger</span>
+						gleichzeitig versuchen, in dieselbe Logdatei zu schreiben, kann es dazu kommen, dass ein oder mehrere
+						Schreibversuche schiefgehen. Diese <span class="keyword">Logger</span>-Implementierung versucht es deshalb
+						insgesamt fünfmal, bevor (ohne weitere Fehlermeldung) aufgegeben wird.
+					</p></td></tr></table></div></div><div class="collapsibleAreaRegion" id="SieheAuch"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('IDGAB')" onkeypress="SectionExpandCollapse_CheckKey('IDGAB', event)" tabindex="0"><img id="IDGABToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Siehe auch</span></div><div id="IDGABSection" class="collapsibleSection"><p><a href="bc0ffa08-c936-4fad-8fdb-dbd2279fc360.htm#Logger">Vishnu Akteure</a></p><p><a href="0af46309-8c47-467f-a231-36615b7488d4.htm">Anforderungen an Anwender-Module</a></p><p><a href="28fdc0c4-7fdc-4d16-be94-94cee2a9ca85.htm">TreeEvents</a></p></div></div></div><div id="PageFooter" class="pageFooter">Naturgemäß basieren viele Erkenntnisse und Entwicklungen auf im Internet frei zugänglichen Informationen. Eventuell fehlende Verweise auf ursprüngliche Autoren sind unbeabsichtigt und werden nach Meldung sofort nachgepflegt.<p>Copyright © 2012-2025 Erik Nagel</p><div class="feedbackLink">Senden Sie Kommentare zu diesem Feature an
+        <a id="HT_MailLink" href="mailto:Vishnu%40reallyhuman.net?Subject=Vishnu%20-%20der%20logische%20Prozess-Monitor">Vishnu@reallyhuman.net</a></div>
+        <script type="text/javascript">
+        var HT_mailLink = document.getElementById("HT_MailLink");
+        HT_mailLink.href += ": " + document.title + "\u0026body=" + encodeURIComponent("Ihre Rückmeldung wird für die Verbesserung der Dokumentation und des Produktes genutzt. Ihre Email-Adresse wird zu keinem anderen Zweck benutzt und wird nach der Behebung des gemeldeten Problems gelöscht. Während der Arbeit an dem Problem kann es sein dass Sie per Email kontaktiert werden für weitergehende Details oder Abklärung zur Rückmeldung von Ihnen. Nachdem das Problem eingegrenzt worden ist kann es sein dass Sie eine Email erhalten zur Problembehebung.");
+        </script></div></body></html>

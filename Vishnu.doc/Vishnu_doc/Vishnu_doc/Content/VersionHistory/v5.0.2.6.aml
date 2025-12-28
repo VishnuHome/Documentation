@@ -26,7 +26,7 @@
           </listItem>
           <listItem>
             <para>
-              Bugfix und Vereinfachungen bei Konstanten mit Boolschem- oder Null-Wert
+              Bugfix und Vereinfachungen bei Konstanten mit Booleschem- oder Null-Wert
               (dabei farbigen Rand je nach logischem Wert einer Konstanten implementiert).
             </para>
           </listItem>

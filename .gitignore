@@ -9,6 +9,7 @@
 *.csproj.user
 *.userosscache
 *.sln.docstates
+*.bak
 
 _Archiv/
 _Develop/

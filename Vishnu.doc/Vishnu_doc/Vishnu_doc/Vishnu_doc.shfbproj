@@ -5,6 +5,13 @@
     <AssemblyRoot>$(VishnuRoot)/ReadyBin/Assemblies</AssemblyRoot>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
+    <WebsiteAdContent>&amp;lt%3bscript src=&amp;quot%3bhttps://code.jquery.com/jquery-3.5.1.min.js&amp;quot%3b&amp;gt%3b&amp;lt%3b/script&amp;gt%3b
+    </WebsiteAdContent>
+    <AppendMarkdownFileExtensionsToUrls>False</AppendMarkdownFileExtensionsToUrls>
   </PropertyGroup>
   <Import Project="$(ProjectDir)../../AddOn/proj/*" Condition="exists('$(ProjectDir)../../AddOn/proj')" />
   <PropertyGroup>
